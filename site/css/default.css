@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+	ul.dropdown {
+		font-weight: bold;
+		z-index: 999;
+		}
+
+	ul.dropdown li {
+	padding: 7px 8px;
+	color: #FFF;
+	text-transform:uppercase;
+	font-size: 12px;
+	font-family: Calibri;
+	font-weight: normal;
+	}
+
+	ul.dropdown li.hover,
+	ul.dropdown li:hover {
+	background-color: #f8f8f8;
+	color: #57595d;
+	font-size: 12px;
+	}
+
+	ul.dropdown a:link,
+	ul.dropdown a:visited	{ color: #FFF; text-decoration: none; font-size: 12px;  }
+	ul.dropdown li:hover a		{ color: #57595d; }
+	ul.dropdown a:active	{ color: #FFF; }
+
+
+	/* -- level mark -- */
+
+	ul.dropdown ul {
+		width: 200px;
+		background-color: #FFFFFF;
+		}
+	ul.dropdown ul li:hover {
+		background-color: #f8f8f8;
+		}
+
+	ul.dropdown ul li {
+	font-weight: normal;
+	border-bottom: 1px #dbdbdb solid;
+	}
+
+
+
+/*-------------------------------------------------/
+ * @section		Support Class `dir`
+ * @level sep	ul, .class
+ */
+
+
+ul.dropdown *.dir {
+ padding-right: 20px;
+ background-image: url(../images/header/menu_pin.png);
+ background-position: 95% 50%;
+ background-repeat: no-repeat;
+}
+
+
+/* -- Components override -- */
+
+ul.dropdown-horizontal ul *.dir {
+ padding-right: 15px;
+ background-image: url(../images/header/menu_pin_right.png);
+ background-position: 95% 50%;
+ background-repeat: no-repeat;
+}
+
+ul.dropdown-upward *.dir {
+ background-image: url(../../../../images/default/nav-arrow-top.png);
+}

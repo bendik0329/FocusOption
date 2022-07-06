@@ -1,0 +1,104 @@
+﻿<html>
+	
+<head>
+	<title>Affiliate Status</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Affiliate Buddies - User Manual.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("AffiliateStatus");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Affiliate Status</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="ManagementPermissions.html">Management &amp; Permissions</a> &rsaquo;&rsaquo; <a href="GroupManagementandaffiliatestatu.html">Group Management and affiliate status</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="GroupManagementandaffiliatestatu.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="Groups.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="Communication.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps2"><span class="rvts12">Affiliate status </span></p>
+<p class="rvps2"><span class="rvts6">Start manage your affiliate in a smart way and save time </span></p>
+<p class="rvps2"><span class="rvts6">In the next level to save time we created affiliate status for ex; in a portfolio of affiliate manager we will have affiliate that we would like to invest more time dealing with them and less time with other affiliate </span></p>
+<p class="rvps2"><span class="rvts6">Ex' for affiliate status names </span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" style="margin-left: 0px" class="rvps4"><span class="rvts13">VIP</span></li>
+<li value="2" style="margin-left: 0px" class="rvps4"><span class="rvts13">Fraud </span></li>
+<li value="3" style="margin-left: 0px" class="rvps4"><span class="rvts13">Live banners </span></li>
+<li value="4" style="margin-left: 0px" class="rvps4"><span class="rvts13">In process </span></li>
+</ol>
+<p class="rvps4"><span class="rvts13"><br/></span></p>
+<p class="rvps4"><span class="rvts13">And etc' </span></p>
+<p class="rvps4"><span class="rvts13"><br/></span></p>
+<p class="rvps4"><img width="596" height="304" alt="" style="padding : 1px;" src="lib/NewItem17.png"></p>
+<p class="rvps4"><span class="rvts13"><br/></span></p>
+<p class="rvps4"><span class="rvts13"><br/></span></p>
+<p class="rvps4"><span class="rvts13"><br/></span></p>
+<p class="rvps4"><span class="rvts13"><br/></span></p>
+<p class="rvps4"><span class="rvts13"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts12"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p></p>
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2015  by Affiliate Buddies. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

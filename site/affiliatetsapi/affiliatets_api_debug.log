@@ -1,0 +1,2000 @@
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Initial
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => c771532c-0d87-4f50-a788-5112f47f6593
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------284168773855294992118117
+    [CONTENT_LENGTH] => 987
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 15216
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591519756.267
+    [REQUEST_TIME] => 1591519756
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => bbd68e8c0f9
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => bbd68e8c0f9
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Initial
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 7f80e383-f027-4cc4-9d0d-cbb0cddefaef
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------395412106841622688668729
+    [CONTENT_LENGTH] => 987
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 15216
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591519788.879
+    [REQUEST_TIME] => 1591519788
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => bbd68e8c0f9
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => bbd68e8c0f9
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 69892078-deb3-4fd8-b64d-f47e4ecbc1f8
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------442224196612725227370099
+    [CONTENT_LENGTH] => 989
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 15328
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591520052.489
+    [REQUEST_TIME] => 1591520052
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => dac885e8-51c9-4bc1-9269-cf1c67c29244
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------235084583765392288176150
+    [CONTENT_LENGTH] => 989
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 32665
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591520777.905
+    [REQUEST_TIME] => 1591520777
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 3001f1ca-46d3-42ce-b68d-73ed6a6e0db0
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------851037555240547997277203
+    [CONTENT_LENGTH] => 989
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 32665
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591520822.968
+    [REQUEST_TIME] => 1591520822
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 69aa4a36-da44-4fb0-894e-927658157d74
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------947423134798570637276331
+    [CONTENT_LENGTH] => 989
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591521960.204
+    [REQUEST_TIME] => 1591521960
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => f5c08a54-c3a3-4f01-b0e5-5d0efd611028
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------804779911361138770660293
+    [CONTENT_LENGTH] => 988
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591521973.862
+    [REQUEST_TIME] => 1591521973
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 4
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 4
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => b677f1fc-01bf-4b68-abdc-a58cf99c423d
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------835806310728447901368381
+    [CONTENT_LENGTH] => 988
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522003.303
+    [REQUEST_TIME] => 1591522003
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 4
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 4
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 61dc1705-6609-4ad0-afdb-172e48229559
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------694888955989664004534689
+    [CONTENT_LENGTH] => 989
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522017.416
+    [REQUEST_TIME] => 1591522017
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 3
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 9e50ef63-c73c-4ec8-b57e-91282ec21157
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------502871486014200648269402
+    [CONTENT_LENGTH] => 990
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522078.319
+    [REQUEST_TIME] => 1591522078
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 51614e75-0cd1-45bc-8af8-1f9dbe99d899
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------736141477228033421316520
+    [CONTENT_LENGTH] => 989
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522086.056
+    [REQUEST_TIME] => 1591522086
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 11
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 11
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => d41439cc-03ce-46a2-a9ce-83727bd5ef4b
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------465014799029066587641016
+    [CONTENT_LENGTH] => 990
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522104.571
+    [REQUEST_TIME] => 1591522104
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => cleck
+    [event_quantity] => 32
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => cleck
+    [event_quantity] => 32
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 092fbd30-ec70-4a56-a3f1-8a3161c256a7
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------966029144363472031451992
+    [CONTENT_LENGTH] => 990
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522119.683
+    [REQUEST_TIME] => 1591522119
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => c5c57679-5537-4cb1-a840-3f1f316ebb34
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------430688411457000769321818
+    [CONTENT_LENGTH] => 990
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522203.136
+    [REQUEST_TIME] => 1591522203
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => b6c650df-d967-4281-856e-c8ddfd6a4f6e
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------919938582794499185517735
+    [CONTENT_LENGTH] => 990
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522220.528
+    [REQUEST_TIME] => 1591522220
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 19acefbf-9e92-42a6-b733-d427bb6a525e
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------460553813319777322553569
+    [CONTENT_LENGTH] => 990
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522252.017
+    [REQUEST_TIME] => 1591522252
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 32
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 78eb956f-9ae8-43ac-861d-cb7bc7349249
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------398110000277996982320974
+    [CONTENT_LENGTH] => 989
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 33038
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591522261.296
+    [REQUEST_TIME] => 1591522261
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 11
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-05-27 15:16:22
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 11
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => 972b2613-710f-4707-8d36-07bf509b6749
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------271483298367148302647446
+    [CONTENT_LENGTH] => 981
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 1468
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591526286.036
+    [REQUEST_TIME] => 1591526286
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-06-07
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 128
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-06-07
+    [type] => update_events_counts
+    [event] => view
+    [event_quantity] => 128
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => e537094b-b74f-4b65-b7ab-6b2f4ba489d4
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------632224049171317359340196
+    [CONTENT_LENGTH] => 982
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 1468
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591526296.656
+    [REQUEST_TIME] => 1591526296
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-06-07
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 256
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-06-07
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 256
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+
+Array
+(
+    [HTTPS] => on
+    [SSL_TLS_SNI] => affiliatets.api
+    [SSL_SERVER_S_DN_CN] => localhost
+    [SSL_SERVER_I_DN_CN] => ospanel
+    [SSL_VERSION_INTERFACE] => mod_ssl/2.4.38
+    [SSL_VERSION_LIBRARY] => OpenSSL/1.0.2q
+    [SSL_PROTOCOL] => TLSv1.2
+    [SSL_SECURE_RENEG] => true
+    [SSL_COMPRESS_METHOD] => NULL
+    [SSL_CIPHER] => ECDHE-RSA-AES128-GCM-SHA256
+    [SSL_CIPHER_EXPORT] => false
+    [SSL_CIPHER_USEKEYSIZE] => 128
+    [SSL_CIPHER_ALGKEYSIZE] => 128
+    [SSL_CLIENT_VERIFY] => NONE
+    [SSL_SERVER_M_VERSION] => 1
+    [SSL_SERVER_M_SERIAL] => AF90673611D8DD9B
+    [SSL_SERVER_V_START] => Dec 23 10:54:34 2016 GMT
+    [SSL_SERVER_V_END] => Dec 20 10:54:34 2031 GMT
+    [SSL_SERVER_S_DN] => CN=localhost
+    [SSL_SERVER_I_DN] => CN=ospanel
+    [SSL_SERVER_A_KEY] => rsaEncryption
+    [SSL_SERVER_A_SIG] => sha256WithRSAEncryption
+    [SSL_SESSION_ID] => 380b997255455ff920d488cd1cf67d46c816e14b99bab1c9014c7bd568cd9cbc
+    [SSL_SESSION_RESUMED] => Resumed
+    [HTTP_USER_AGENT] => PostmanRuntime/7.25.0
+    [HTTP_ACCEPT] => */*
+    [HTTP_CACHE_CONTROL] => no-cache
+    [HTTP_POSTMAN_TOKEN] => f21936a6-defb-43dd-8fdb-a09c7a8ab27f
+    [HTTP_HOST] => affiliatets.api
+    [HTTP_ACCEPT_ENCODING] => gzip, deflate, br
+    [HTTP_CONNECTION] => keep-alive
+    [CONTENT_TYPE] => multipart/form-data; boundary=--------------------------981457754810461804349431
+    [CONTENT_LENGTH] => 982
+    [PATH] => d:\openserver\modules\php\PHP_5.6\ext;d:\openserver\modules\php\PHP_5.6\pear;d:\openserver\modules\php\PHP_5.6\pear\bin;d:\openserver\modules\php\PHP_5.6;d:\openserver\modules\imagemagick;d:\openserver\modules\wget\bin;d:\openserver\modules\database\MariaDB-10.3\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6\bin;d:\openserver\modules\http\Apache_2.4-PHP_5.5-5.6;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\WINDOWS\SysWOW64
+    [SystemRoot] => C:\WINDOWS
+    [COMSPEC] => C:\WINDOWS\system32\cmd.exe
+    [PATHEXT] => .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+    [WINDIR] => C:\WINDOWS
+    [SERVER_SIGNATURE] => 
+    [SERVER_SOFTWARE] => Apache
+    [SERVER_NAME] => affiliatets.api
+    [SERVER_ADDR] => 127.0.0.1
+    [SERVER_PORT] => 443
+    [REMOTE_ADDR] => 127.0.0.1
+    [DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [REQUEST_SCHEME] => https
+    [CONTEXT_PREFIX] => 
+    [CONTEXT_DOCUMENT_ROOT] => D:/Work/affiliatets/svn/ProductionSites/general
+    [SERVER_ADMIN] => [no address given]
+    [SCRIPT_FILENAME] => D:/Work/affiliatets/svn/ProductionSites/general/affiliatetsapi/index.php
+    [REMOTE_PORT] => 1468
+    [GATEWAY_INTERFACE] => CGI/1.1
+    [SERVER_PROTOCOL] => HTTP/1.1
+    [REQUEST_METHOD] => POST
+    [QUERY_STRING] => 
+    [REQUEST_URI] => /affiliatetsapi/
+    [SCRIPT_NAME] => /affiliatetsapi/index.php
+    [PHP_SELF] => /affiliatetsapi/index.php
+    [REQUEST_TIME_FLOAT] => 1591526322.829
+    [REQUEST_TIME] => 1591526322
+    [argv] => Array
+        (
+        )
+
+    [argc] => 0
+)
+
+ REQUEST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-06-07
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 256
+)
+
+ POST: Array
+(
+    [action] => add_event_count
+    [apiToken] => Vrgdjkyrisxn,
+    [merchant_id] => 1
+    [affiliate_id] => 501
+    [date] => 2020-06-07
+    [type] => update_events_counts
+    [event] => click
+    [event_quantity] => 256
+)
+
+ GET: Array
+(
+)
+
+
+-----------------
+

@@ -1,0 +1,424 @@
+<?php
+
+/* Affiliate Software [ Encode in UTF-8 Without BOM ] [ ☺ ] */
+chdir('../');
+require_once('common/global.php');
+
+switch ($act) {
+	case "login":
+		$errors='';
+		if (!$username) $errors['err'] = 1;
+		if (!$password) $errors['errPass'] = 1;
+		if (empty($errors)) {
+			$resulta=mysql_query("SELECT id,username,chk_ip,password FROM admins WHERE lower(username)='".strtolower($username)."' AND password='".($admin ? $password : md5($password))."' AND valid='1' AND level='manager'");
+			$chk=mysql_fetch_assoc($resulta);
+			if ($chk['id'])  {
+				if ($chk['chk_ip'] AND $chk['chk_ip'] != $_SERVER['REMOTE_ADDR'] AND !$admin) {
+					mail($set->webMail,$chk['username'].' trying to login into '.$set->webTitle.' From: '.$_SERVER['REMOTE_ADDR'].'!',print_r($_SERVER,1));
+					die('<div align="center" style="padding-top: 3%; font-size: 16px; font-family: Tahoma;"><span style="color: red; font-weight: bold;">ACCESS DENIED!</span><hr />IP Reported: <b>'.$_SERVER['REMOTE_ADDR'].'</b> to Administrators.</div>');
+					}
+				updateUnit('admins',"lang='".($lang ? $lang : 'ENG')."',ip='".$set->userIP."',logged='1',lastactive='".dbDate()."'","id='".$chk['id']."'");
+				setcookie('setLang',$lang,time()+(24*60*60*30));
+				$_SESSION['session_id'] = $chk['id'];
+				$_SESSION['session_serial'] = md5($chk['username'].$chk['password'].$chk['id']);
+				_goto($set->basepage.'?act=main');
+				} else {
+				$errors['errPass'] = 1;
+				}
+			}
+
+	default:
+		if (isManager()) _goto('?act=main');
+		$set->pageTitle = lang('Account Manager Login');
+		
+		$set->content = '
+			<style type="text/css">
+				html,body {
+					background: #f5f5f5 !important;
+					}
+			</style>
+			<div style="padding: 40px 0 40px 0; margin-top: -10px; border-top: 1px #FFFFFF solid;">
+				<div align="center" style="width: 989px; height: 220px;">
+					<div style="text-align: left; width: 400px; background: #FFFFFF; border: 1px #dddddd solid; font-family: Arial; padding: 20px;">
+						Welcome back account manager, please log in:<br /><br />
+						<form method="post">
+						<input type="hidden" name="act" value="login" />
+							<table width="400">
+								<tr><td style="font-size: 14px; font-family: Arial; font-weight: normal; '.($errors['err'] ? 'color: red;' : '').'">'.lang('Username').':</td><td align="right"><input type="text" name="username" value="'.$username.'" style="width: 250px;" /></td></tr>
+								<tr><td style="font-size: 14px; font-family: Arial; font-weight: normal; '.($errors['errPass'] ? 'color: red;' : '').'">'.lang('Password').':</td><td align="right"><input type="password" name="password" style="width: 250px;" /></td></tr>
+								<tr><td style="font-size: 14px; font-family: Arial; font-weight: normal;">'.lang('Language').':</td><td align="right"><select name="lang" style="width: 262px;">'.listMulti().'</select></td></tr>
+								<tr><td></td><td align="right"><input type="submit" value="'.lang('Login').'" /></td></tr>
+							</table>
+						</form>
+					</div>
+				</div>
+			
+			<div style="border-top: 1px #dddddd solid; padding: 25px 0 25px 0; background: #FFFFFF; margin-top: 40px;">
+				<table width="989" border="0" cellpadding="0" cellspacing="0"><tr>
+					<td align="left" style="font-size: 11px; color: #746d6d; font-family: Arial; text-align: justify;">
+						<b>'.$set->webTitle.'</b> - The official '.$set->webTitle.' Affiliation - place you in the perfect position to claim your share of one of the most lucrative industries online. Over 3 trillion dollars is traded every day in the financial markets and '.$set->webTitle.' offers you the most respected and rewarding brands to help you convert your web traffic into an unlimited source of revenue.
+					</td>
+					<td width="300" align="right"><a href="http://www.affiliatebuddies.com/" target="_blank"><img border="0" src="images/main/powered.png" alt="" /></a></td>
+				</tr></table>
+			</div>
+			</div>';
+			
+		theme();
+		break;
+	
+	case "main":
+		if (!isManager()) _goto('/manager/');
+
+		$set->noFilter = 1;
+		
+		$set->pageTitle = lang('Home Screen - Dashboard');
+		$from = strTodate($from);
+		$to = strTodate($to);
+		
+		// List Merchants
+		$viewsSum=0;
+		$clicksSum=0;
+		$totalLeads=0;
+		$totalDemo=0;
+		$totalReal=0;
+		$newFTD=0;
+		$ftdAmount=0;
+		$totalBonus=0;
+		$totalWithdrawal=0;
+		$mType=0;
+		$merchantqq=mysql_query("SELECT * FROM merchants WHERE valid='1' ORDER BY type, pos");
+		while ($merchantww=mysql_fetch_assoc($merchantqq)) {
+			if ($merchantww['type'] != $currentType) {
+				$mType++;
+				$currentType = $merchantww['type'];
+				if ($mType > 1) {
+					
+					$listMerchants .= '</tbody>
+					<tfoot>
+							<tr>
+								<th><b>Total:</b></th>
+								<th align="center"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.$mviewsSum.'</a></th>
+								<th align="center"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.$mclicksSum.'</a></th>
+								<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=lead">'.number_format($mtotalLeads,0).'</a></th>
+								<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=demo">'.number_format($mtotalDemo,0).'</a></th>
+								<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=real">'.number_format($mtotalReal,0).'</a></th>
+								<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=ftd">'.$mnewFTD.'</a></th>
+								<th align="center">'.price($mftdAmount).'</th>
+								<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=deposit">'.$mtotal_deposits.'</a></th>
+								<th align="center">'.price($mtotal_depositsAmount).'</th>
+								<th align="center">'.price(@round($mtotal_depositsAmount/$mnewFTD,2)).'</th>
+								<th align="center">'.price($mtotalBonus).'</th>
+								<th align="center">'.price($mtotalWithdrawal).'</th>
+							</tr>
+						</tfoot>
+						</table>'.getPager();
+					
+					$mviewsSum=0;
+					$mclicksSum=0;
+					$mtotalLeads=0;
+					$mtotalDemo=0;
+					$mtotalReal=0;
+					$mnewFTD=0;
+					$mtotal_deposits=0;
+					$mtotal_depositsAmount=0;
+					$mftdAmount=0;
+					$mtotalBonus=0;
+					$mtotalWithdrawal=0;
+					}
+				
+				$listMerchants .= '<div class="space">&nbsp;</div><div class="specialTableTitle">'.typeName($merchantww['type']).' Brokers</div>';
+				$listMerchants .= '<table class="tablesorter" width="100%" border="0" cellpadding="4" cellspacing="0">
+						<thead>
+							<tr>
+								<th width="8%">'.lang('Merchant').'</th>
+								<th align="center">'.lang('Impression').'</th>
+								<th align="center">'.lang('Clicks').'</th>
+								<th align="center">'.lang('Leads').'</th>
+								<th align="center">'.lang('Demo').'</th>
+								<th align="center">'.lang('Accounts').'</th>
+								<th align="center">'.lang('FTD').'</th>
+								<th align="center">'.lang('FTD Amount').'</th>
+								<th align="center">'.lang('Deposits').'</th>
+								<th align="center">'.lang('Deposits Amount').'</th>
+								<th align="center">'.lang('Player Value').'</th>
+								<th align="center">'.lang('Bonus').'</th>
+								<th align="center">'.lang('Withdrawal').'</th>
+								<th align="center">'.lang('ChargeBack').'</th>
+								<th align="center">'.lang('Commission').'</th>
+							</tr>
+						</thead>
+						<tbody>';
+				
+				}
+			$l++;
+			$ftd_amount['amount']=0;
+			$mftd_amount['amount']=0;
+			$new_ftd=0;
+			$depositsAmount=0;
+			$totalDeposits=0;
+			$total_leads=0;
+			$total_demo=0;
+			$total_real=0;
+			$bonus=0;
+			$withdrawal=0;
+			$chargeback=0;
+			$netRevenue=0;
+			$totalCom=0;
+			$total=mysql_fetch_assoc(mysql_query("SELECT SUM(views) AS viewsSum,SUM(clicks) AS clicksSum FROM stats_banners WHERE merchant_id='".$merchantww['id']."' AND group_id='".$set->userInfo['group_id']."' AND rdate BETWEEN '".$from."' AND '".$to."'"));
+			$regqq=mysql_query("SELECT type FROM data_reg_".strtolower($merchantww['name'])." WHERE rdate BETWEEN '".$from."' AND '".$to."' AND group_id='".$set->userInfo['group_id']."'");
+			while ($regww=mysql_fetch_assoc($regqq)) {
+				if ($regww['type'] == "lead") $total_leads++;
+				if ($regww['type'] == "demo") $total_demo++;
+				if ($regww['type'] == "real") $total_real++;
+				}
+			$salesqq=mysql_query("SELECT type,amount FROM data_sales_".strtolower($merchantww['name'])." WHERE rdate BETWEEN '".$from."' AND '".$to."' AND group_id='".$set->userInfo['group_id']."'");
+			while ($salesww=mysql_fetch_assoc($salesqq)) {
+				if ($salesww['type'] == "bonus") $bonus += $salesww['amount'];
+				if ($salesww['type'] == "withdrawal") $withdrawal += $salesww['amount'];
+				if ($salesww['type'] == "chargeback") $chargeback += $salesww['amount'];
+				}
+			
+			$depositsqq=mysql_query("
+			SELECT id,amount,affiliate_id,trader_id
+			FROM data_sales_".strtolower($merchantww['name'])." 
+			WHERE rdate BETWEEN '".$from."' AND '".$to."' AND type='deposit' AND group_id='".$set->userInfo['group_id']."'");
+			while ($depositww=mysql_fetch_assoc($depositsqq)) {
+				$depositsAmount += $depositww['amount'];
+				$totalDeposits++;
+				$totalCom += getCom($depositww['affiliate_id'],$merchantww['id'],$depositww['trader_id'],$from,$to,'deal');
+				}
+
+			$ftd_amountqq=mysql_query("
+			SELECT amount, tb1.rdate,affiliate_id,trader_id
+			FROM data_sales_".strtolower($merchantww['name'])." AS tb1
+			WHERE rdate BETWEEN '".$from."' AND '".$to."' AND market_id='0' AND type='deposit' AND group_id='".$set->userInfo['group_id']."' AND trader_id NOT IN 
+				(SELECT trader_id FROM data_sales_".strtolower($merchantww['name'])." WHERE rdate < tb1.rdate AND type='deposit' GROUP BY trader_id) 
+			GROUP BY trader_id");
+			
+			while ($totalftd=mysql_fetch_assoc($ftd_amountqq)) {
+				$new_ftd++;
+				$ftd_amount['amount'] += $totalftd['amount'];
+				$totalCom += getCom($totalftd['affiliate_id'],$merchantww['id'],$totalftd['trader_id'],$from,$to,'deal');
+				}
+			
+			$listMerchants .= '<tr>
+								<td style="color: #646464;"><b>'.$merchantww['name'].'</b></td>
+								<td align="center"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&merchant_id='.$merchantww['id'].'">'.($total['viewsSum'] ? $total['viewsSum'] : '0').'</a></td>
+								<td align="center"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&merchant_id='.$merchantww['id'].'">'.($total['clicksSum'] ? $total['clicksSum'] : '0').'</a></td>
+								<td align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&merchant_id='.$merchantww['id'].'&type=lead">'.number_format($total_leads,0).'</a></td>
+								<td align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&merchant_id='.$merchantww['id'].'&type=demo">'.number_format($total_demo,0).'</a></td>
+								<td align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&merchant_id='.$merchantww['id'].'&type=real">'.number_format($total_real,0).'</a></td>
+								<td align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&merchant_id='.$merchantww['id'].'&type=ftd">'.$new_ftd.'</a></td>
+								<td align="center">'.price($ftd_amount['amount']).'</td>
+								<td align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&merchant_id='.$merchantww['id'].'&type=deposit">'.$totalDeposits.'</a></td>
+								<td align="center">'.price($depositsAmount).'</td>
+								<td align="center">'.price(@round($depositsAmount/$new_ftd,2)).'</td>
+								<td align="center">'.price($bonus).'</td>
+								<td align="center">'.price($withdrawal).'</td>
+								<td align="center">'.price($chargeback).'</td>
+								<td align="center">'.price($totalCom).'</td>
+							</tr>';
+			
+			$viewsSum+=$total['viewsSum'];
+			$clicksSum+=$total['clicksSum'];
+			$totalLeads+=$total_leads;
+			$totalDemo+=$total_demo;
+			$totalReal+=$total_real;
+			$newFTD+=$new_ftd;
+			$total_deposits+=$totalDeposits;
+			$total_depositsAmount+=$depositsAmount;
+			$ftdAmount+=$ftd_amount['amount'];
+			$totalBonus+=$bonus;
+			$totalWithdrawal+=$withdrawal;
+			$totalChargeBack+=$chargeback;
+			$totalComs+=$totalCom;
+			
+			}
+		// List Merchants
+		
+		$set->rightBar = '<form action="'.$set->basepage.'" method="get">
+						<input type="hidden" name="act" value="main" />
+						<table><tr>
+							<td>'.timeFrame($from,$to).'</td>
+							<td><input type="submit" value="'.lang('View').'" /></td>
+						</tr></table>
+						</form>';
+		
+		
+
+		$set->content .= chart('0','manager',$set->userInfo['group_id']).'
+			<div class="dashStat">
+			<table width="100%" border="0" cellpadding="4" cellspacing="5"><tr>
+				<td class="dashStat">
+					'.lang('Impressions').'<br />
+					<span style="font-size: 18px; font-weight: bold;"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.($viewsSum ? number_format($viewsSum) : '0').'</a></span>
+				</td>
+				<td class="dashStat">
+					'.lang('Clicks').'<br />
+					<span style="font-size: 18px; font-weight: bold;"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.($clicksSum ? number_format($clicksSum) : '0').'</a></span>
+				</td>
+				<td class="dashStat">
+					'.lang('Leads').'<br />
+					<a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=lead" style="font-size: 18px; font-weight: bold;">'.number_format($totalLeads+$marketTotal_leads).'</a>
+				</td>
+				<td class="dashStat">
+					'.lang('Demo').'<br />
+					<a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=demo" style="font-size: 18px; font-weight: bold;">'.number_format($totalDemo+$marketTotal_demo).'</a>
+				</td>
+				<td class="dashStat">
+					'.lang('Real Account').'<br />
+					<a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=real" style="font-size: 18px; font-weight: bold;">'.number_format($totalReal+$marketTotal_real).'</a>
+				</td>
+				<td class="dashStat">
+					'.lang('FTD').'<br />
+					<a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=ftd" style="font-size: 18px; font-weight: bold;">'.number_format($newFTD+$marketTotal_FTDs,0).'</a>
+				</td>
+				<td class="dashStat">
+					'.lang('FTD Amount').'<br />
+					<span style="font-size: 18px; font-weight: bold;">'.price($ftdAmount+$marketTotal_FTDAmount,2).'</span>
+				</td>
+				<td class="dashStat">
+					'.lang('Deposits').'<br />
+					<a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=deposit" style="font-size: 18px; font-weight: bold;">'.number_format($total_deposits,0).'</a>
+				</td>
+				<td class="dashStat">
+					'.lang('Deposits Amount').'<br />
+					<span style="font-size: 18px; font-weight: bold;">'.price($total_depositsAmount+$marketTotal_depositAmount,2).'</span>
+				</td>
+				<td class="dashStat">
+					'.lang('Bonus').'<br />
+					<span style="font-size: 18px; font-weight: bold;">'.price($totalBonus+$marketTotal_Bonus,2).'</span>
+				</td>
+				<td class="dashStat">
+					'.lang('Withdrawal').'<br />
+					<span style="font-size: 18px; font-weight: bold;">'.price($totalWithdrawal+$marketTotal_withdrawal,2).'</span>
+				</td>
+				<td class="dashStat">
+					'.lang('ChargeBack').'<br />
+					<span style="font-size: 18px; font-weight: bold;">'.price($totalChargeback,2).'</span>
+				</td>
+				<td class="dashStat">
+					'.lang('Commission').'<br />
+					<span style="font-size: 18px; font-weight: bold;">'.price($totalComs,2).'</span>
+				</td>
+			</tr></table>
+			</div>';
+		
+		$set->sortTable = 1;
+		$set->noFilter = 1;
+		if ($l > 0) $set->sortTableScript = 1;
+		if (mysql_num_rows($merchantqq) > 1) {
+			$set->content .= $listMerchants.'</tbody><tfoot>
+								<tr>
+									<th><b>'.lang('Total').':</b></th>
+									<th align="center"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.$viewsSum.'</a></th>
+									<th align="center"><a href="/manager/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.$clicksSum.'</a></th>
+									<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=lead">'.number_format($totalLeads,0).'</a></th>
+									<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=demo">'.number_format($totalDemo,0).'</a></th>
+									<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=real">'.number_format($totalReal,0).'</a></th>
+									<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=ftd">'.$newFTD.'</a></th>
+									<th align="center">'.price($ftdAmount).'</th>
+									<th align="center"><a href="/manager/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=deposit">'.$total_deposits.'</a></th>
+									<th align="center">'.price($total_depositsAmount).'</th>
+									<th align="center">'.price(@round($total_depositsAmount/$newFTD,2)).'</th>
+									<th align="center">'.price($totalBonus).'</th>
+									<th align="center">'.price($totalWithdrawal).'</th>
+									<th align="center">'.price($totalChargeback).'</th>
+									<th align="center">'.price($totalComs).'</th>
+								</tr>
+							</tfoot></table>';
+			
+			}
+		$set->content .= '<div class="space">&nbsp;</div>';
+		
+		$sql = "SELECT * FROM affiliates WHERE valid='1' AND group_id='".$set->userInfo['group_id']."' AND logged='1' ORDER BY id DESC LIMIT 10";
+		$qq=mysql_query($sql); //  LIMIT $pgg,$getPos
+		while ($ww=mysql_fetch_assoc($qq)) {
+			$l++;
+			$affList .= '<tr '.($l % 2 ? 'class="trLine"' : '').'>
+					<td align="center">'.$ww['id'].'</td>
+					<td align="center"><a href="/manager/affiliates.php?act=new&id='.$ww['id'].'">'.lang('Edit').'</a> | <a href="/?act=login&username='.$ww['username'].'&password='.$ww['password'].'&admin='.$set->userInfo['id'].'" target="_blank">'.lang('Login').'</a></td>
+					<td align="left">'.$ww['username'].'</td>
+					<td align="left">'.$ww['first_name'].'</td>
+					<td align="left">'.$ww['last_name'].'</td>
+					<td align="center">'.getCountry($ww['country'],1).'</td>
+					<td align="center">'.dbDate($ww['lastvisit']).'</td>
+					<td align="center"><img border="0" src="/manager/images/logged_'.$ww['logged'].'.png" alt="'.dbDate($ww['lastactive']).'" title="'.dbDate($ww['lastactive']).'" /></td>
+				</tr>';
+			}
+		
+		$set->content .= '<div class="normalTableTitle">'.lang('My Online Affiliates').'</div>
+			<table class="normal" width="100%" border="0" cellpadding="0" cellspacing="0">
+				<thead>
+				<tr>
+					<th align="center">'.lang('Affiliate ID').'</th>
+					<th align="center">'.lang('Actions').'</th>
+					<th align="left">'.lang('Username').'</th>
+					<th align="left">'.lang('First Name').'</th>
+					<th align="left">'.lang('Last Name').'</th>
+					<th align="center">'.lang('Country').'</th>
+					<th align="center">'.lang('Last Visit').'</th>
+					<th align="center">'.lang('Logged').'</th>
+				</tr></thead><tfoot></tfoot>
+				<tbody>
+				'.$affList.'
+			</table>
+			
+			';
+		$qq=mysql_query("SELECT * FROM affiliates_notes WHERE group_id='".$set->userInfo['group_id']."' AND status != 'closed' ORDER BY issue_date DESC LIMIT 10");
+		while ($ww=mysql_fetch_assoc($qq)) {
+			unset($bgColor);
+			$adminInfo = dbGet($ww['admin_id'],"admins");
+			$affiliateInfo = dbGet($ww['affiliate_id'],"affiliates");
+			$groupInfo = dbGet($affiliateInfo['group_id'],"groups");
+			if ($ww['status'] == "inprocess") $bgColor = 'style="background: #d4deff;"';
+				else if ($ww['status'] == "closed") $bgColor = 'style="background: #d4ffdd;"';
+			if ($ww['issue_date'] < dbDate() AND $ww['status'] != "closed") $bgColor = 'style="background: #ffd4d4;"';
+			$noteList .= '<tr '.($l % 2 ? 'class="trLine"' : '').' '.$bgColor.'>
+						<td>'.$ww['id'].'</td>
+						<td><a href="/manager/affiliates.php?act=new&id='.$ww['affiliate_id'].'&note_id='.$ww['id'].'#notesPlace" target="_blank">'.lang('Edit').'</a></td>
+						<td>'.dbDate($ww['rdate']).'</td>
+						<td align="center"><a href="/manager/admins.php?act=new&id='.$adminInfo['id'].'" target="_blank">'.$adminInfo['first_name'].' '.$adminInfo['last_name'].'</a></td>
+						<td>'.dbDate($ww['issue_date']).'</td>
+						<td align="center"><a href="/manager/affiliates.php?act=new&id='.$ww['affiliate_id'].'" target="_blank">'.$ww['affiliate_id'].'</a></td>
+						<td align="center"><a href="/manager/affiliates.php?act=new&id='.$ww['affiliate_id'].'" target="_blank">'.$affiliateInfo['username'].'</a></td>
+						<td align="center">'.($groupInfo['id'] ? $groupInfo['title'] : lang('General')).'</td>
+						<td align="center">'.round(floor((strtotime($ww['closed_date'] == "0000-00-00 00:00:00" ? dbDate() : $ww['closed_date'])-strtotime($ww['rdate']))/(60*60*24))+1).' '.lang('Day(s)').'</td>
+						<td align="left">'.$ww['notes'].'</td>
+						<td align="center"><b>'.lang(strtoupper($ww['status'])).'</b></td>
+					</tr>';
+			$l++;
+			}
+	$set->content .= '<br /><div class="specialTableTitle">'.lang('Manager Notes').' '.lang('CRM').'</div>
+			<table class="normal" width="100%" border="0" cellpadding="2" cellspacing="0">
+				<thead>
+				<tr>
+					<td>#</td>
+					<td align="center">'.lang('Actions').'</td>
+					<td align="center">'.lang('Created Date').'</td>
+					<td align="center">'.lang('Added By').'</td>
+					<td align="center">'.lang('Issue Date').'</td>
+					<td align="center">'.lang('Affiliate ID').'</td>
+					<td align="center">'.lang('Affiliate Username').'</td>
+					<td align="center">'.lang('Affiliate Group').'</td>
+					<td align="center">'.lang('Processing Time').'</td>
+					<td style="text-align: left;">'.lang('Notes').'</td>
+					<td align="center">'.lang('Status').'</td>
+				</tr></thead><tfoot>'.$noteList.'</tfoot>
+			</table>
+			
+			<br />
+			<div align="left" style="border: 1px #DDDDDD solid; padding: 10px; font-family: Arial;"><b>'.lang('Desk Affiliate Sign Up Link').':</b> <a href="'.$set->webAddress.'?act=new_account&group_id='.$set->userInfo['group_id'].'" target="_blank">'.$set->webAddress.'?act=new_account&group_id='.$set->userInfo['group_id'].'</a><br /><span style="font-size: 11px;">Use this link to associate your affiliates directly under your desk.</span></div>';
+		
+		theme();
+		break;
+	
+	case "logout":
+		unset($_SESSION['session_id']);
+		unset($_SESSION['session_serial']);
+		_goto('/manager/');
+		break;
+	
+	}
+
+?>

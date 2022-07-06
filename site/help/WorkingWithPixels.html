@@ -1,0 +1,118 @@
+﻿<html>
+	
+<head>
+	<title>Working With Pixels</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Affiliate Buddies - User Manual.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("WorkingWithPixels");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+	
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Working With Pixels</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="AffiliateManagement.html">Affiliate Management</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="AffiliateManagement.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="AddingNewAffiliate.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="AddingMarketingTools.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps2"><span class="rvts6">Working With Pixels:</span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6">Affiliate Buddies has a special feature to notify affiliates about each new account or FTD made by their referral.</span></p>
+<p class="rvps2"><span class="rvts6">In order to use that feature correctly just follow those instructions: </span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="1" class="rvps8"><span class="rvts13">Goto creative materials click edit near the relevant banner and get to get tracking code page</span></li>
+<li value="2" class="rvps8"><span class="rvts13">Put 123456 on the dynamic parameter field and then “get code”</span></li>
+<li value="3" class="rvps8"><span class="rvts13">Save the generated direct link you’ve got on the side.</span></li>
+<li value="4" class="rvps8"><span class="rvts13">Goto top menu: &nbsp;“Affiliation Management” -&gt; “affiliate list” </span></li>
+<li value="5" class="rvps8"><span class="rvts13">Search for the affiliate you want to see that pixel</span></li>
+<li value="6" class="rvps8"><span class="rvts13">Click edit on the left</span></li>
+<li value="7" class="rvps8"><span class="rvts13">Scroll down till you see “Pixel monitor” tab, if it collapsed then click on that and you’ll get the menu visible.</span></li>
+<li value="8" class="rvps8"><span class="rvts13">Put the server to server pixel in the pixel code field.</span></li>
+</ol>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="9" class="rvps8"><span class="rvts13">If you want to shave some information with the affiliate then use the variables below, for example if the affiliate want to know the trader id then this is how url should look like:</span><br/><span class="rvts13">http://www.abc.com?trader_id={trader_id}</span><br/><span class="rvts13">if the affiliate wants to get the exact parameter coming from his end then it should look like:</span></li>
+</ol>
+<p class="rvps8"><span class="rvts13">http://www.abc.com?param={dynamic_parameter}</span></p>
+<ol style="text-indent: 0px; margin-left: 48px; list-style-position: outside; list-style-type: decimal;">
+<li value="10" class="rvps8"><span class="rvts13">Choose the fire trigger method (account / sale ..) and save.</span></li>
+<li value="11" class="rvps8"><span class="rvts13">Now the testing, take the affiliated url (aka #3), tell the affiliate to replace 123456 with his parameter on any referral made by him.</span></li>
+<li value="12" class="rvps8"><span class="rvts13">Once affiliate made a test using affiliated link, then open an account, our system will collect the data using the API integration and trader/player report of the affiliate program will show the value of the dynamic parameter under the title “param” on the same row of this registration.</span></li>
+</ol>
+<p class="rvps8"><span class="rvts13"><br/></span></p>
+<p class="rvps8"><span class="rvts13"><br/></span></p>
+<ul style="text-indent: 0px; margin-left: 72px; list-style-position: outside; list-style-type: disc;">
+<li style="margin-left: 0px" class="rvps6"><span class="rvts13">If you can’t see any value in the param field on the trader/player report then no pixel will fire in case it needs a dynamic parameter.</span></li>
+<li style="margin-left: 0px" class="rvps6"><span class="rvts13">Make sure the dynamic parameter coming is not having spaces or dashes (-) in it.</span></li>
+<li style="margin-left: 0px" class="rvps6"><span class="rvts13">Pixels are getting fire once XX minutes according to the settings made by the affiliate manager on the integration, so affiliates can’t expect to get the pixel fire a second right after registration or the deposit.</span></li>
+</ul>
+<p class="rvps6"><span class="rvts13"><br/></span></p>
+<p class="rvps6"><span class="rvts13"><br/></span></p>
+<p class="rvps6"><span class="rvts13"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p></p>
+
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2015  by Affiliate Buddies. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

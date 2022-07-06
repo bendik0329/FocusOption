@@ -1,0 +1,225 @@
+﻿<html>
+	
+<head>
+	<title>Adding Marketing Tools</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    	<meta name="keywords" content="">
+	
+	<link type="text/css" rel="stylesheet" media="all" href="css/reset.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/base.css" />
+	<link type="text/css" rel="stylesheet" media="all" href="css/hnd.css" />
+	<!--[if lte IE 8]>
+		<link type="text/css" rel="stylesheet" media="all" href="css/ielte8.css" />
+	<![endif]-->
+	<style type="text/css">
+		#topic_header
+		{
+			background-color: #EFEFEF;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript" src="js/hnd.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function()
+		{
+			if (top.frames.length == 0)
+			{
+				var sTopicUrl = top.location.href.substring(top.location.href.lastIndexOf("/") + 1, top.location.href.length);
+				top.location.href = "Affiliate Buddies - User Manual.html?" + sTopicUrl;
+			}
+			else
+			{
+				var bTocSelected = false;
+				(function waitForTOC()
+				{
+					if (top && top.FrameTOC && top.FrameTOC.SelectTocItem)
+					{
+						top.FrameTOC.SelectTocItem("AddingMarketingTools1");
+						bTocSelected = true;
+					}
+					if (!bTocSelected) setTimeout(function() { waitForTOC(); }, 300);
+				})();
+			}
+		});
+	</script>
+
+<link href="http://vjs.zencdn.net/4.0/video-js.css" rel="stylesheet">
+ <script src="http://vjs.zencdn.net/4.0/video.js"></script>
+ 
+ 
+ 
+ <style>
+div#video_player_box{ width:600px; background:#000; margin:0px auto;}
+div#video_controls_bar{ background: #333; padding:10px; color:#CCC;}
+input#seekslider{ width:180px; }
+input#volumeslider{ width: 80px;}
+</style>
+<script>
+var vid, playbtn, seekslider, curtimetext, durtimetext, mutebtn, volumeslider, fullscreenbtn;
+function intializePlayer(){
+	// Set object references
+	vid = document.getElementById("my_video");
+	playbtn = document.getElementById("playpausebtn");
+	seekslider = document.getElementById("seekslider");
+	curtimetext = document.getElementById("curtimetext");
+	durtimetext = document.getElementById("durtimetext");
+	mutebtn = document.getElementById("mutebtn");
+	volumeslider = document.getElementById("volumeslider");
+	fullscreenbtn = document.getElementById("fullscreenbtn");
+	// Add event listeners
+	playbtn.addEventListener("click",playPause,false);
+	seekslider.addEventListener("change",vidSeek,false);
+	vid.addEventListener("timeupdate",seektimeupdate,false);
+	mutebtn.addEventListener("click",vidmute,false);
+	volumeslider.addEventListener("change",setvolume,false);
+	fullscreenbtn.addEventListener("click",toggleFullScreen,false);
+}
+window.onload = intializePlayer;
+function playPause(){
+	if(vid.paused){
+		vid.play();
+		playbtn.innerHTML = "Pause";
+	} else {
+		vid.pause();
+		playbtn.innerHTML = "Play";
+	}
+}
+function vidSeek(){
+	var seekto = vid.duration * (seekslider.value / 100);
+	vid.currentTime = seekto;
+}
+function seektimeupdate(){
+	var nt = vid.currentTime * (100 / vid.duration);
+	seekslider.value = nt;
+	var curmins = Math.floor(vid.currentTime / 60);
+	var cursecs = Math.floor(vid.currentTime - curmins * 60);
+	var durmins = Math.floor(vid.duration / 60);
+	var dursecs = Math.floor(vid.duration - durmins * 60);
+	if(cursecs < 10){ cursecs = "0"+cursecs; }
+	if(dursecs < 10){ dursecs = "0"+dursecs; }
+	if(curmins < 10){ curmins = "0"+curmins; }
+	if(durmins < 10){ durmins = "0"+durmins; }
+	curtimetext.innerHTML = curmins+":"+cursecs;
+	durtimetext.innerHTML = durmins+":"+dursecs;
+}
+function vidmute(){
+	if(vid.muted){
+		vid.muted = false;
+		mutebtn.innerHTML = "Mute";
+	} else {
+		vid.muted = true;
+		mutebtn.innerHTML = "Unmute";
+	}
+}
+function setvolume(){
+	vid.volume = volumeslider.value / 100;
+}
+function toggleFullScreen(){
+	if(vid.requestFullScreen){
+		vid.requestFullScreen();
+	} else if(vid.webkitRequestFullScreen){
+		vid.webkitRequestFullScreen();
+	} else if(vid.mozRequestFullScreen){
+		vid.mozRequestFullScreen();
+	}
+}
+</script>
+
+
+
+	</head>
+
+<body>
+
+<div id="topic_header">
+			<div id="topic_header_content">
+				<h1 id="topic_header_text">Adding Marketing Tools</h1>
+				
+				<div id="topic_breadcrumb">
+					<a href="AddingMarketingTools.html">Adding Marketing Tools</a> &rsaquo;&rsaquo; </div>
+				</div>
+			<div id="topic_header_nav">
+				<a href="AddingMarketingTools.html"><img src="img/arrow_up.png" alt="Parent"/></a>
+				
+				<a href="AddingMarketingTools.html"><img src="img/arrow_left.png" alt="Previous"/></a>
+				
+				<a href="Sendmarketingtoolstoaffiliate.html"><img src="img/arrow_right.png" alt="Next"/></a>
+				
+				</div>
+			<div class="clear"></div>
+		</div>
+	<div id="topic_content">
+		
+<p></p>
+<p class="rvps2"><span class="rvts6"></span><br/><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts14">Adding marketing Tools</span></p>
+<p class="rvps2"><span class="rvts6">Click On "Marketing tools -&gt; Add New </span></p>
+<p class="rvps2"><span class="rvts6">Once you did that please choose LANGUAGE -&gt; Insert your refer page -&gt; Choose promotion ( Not must ) -&gt; insert creative name -&gt; and alt name ( Good for SEO ) &nbsp;</span></p>
+<p class="rvps2"><span class="rvts6">Now you are ready to upload your creative all you need to do is to click on file and to import your creative with one click and to save </span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p class="rvps2"><span class="rvts12">3.2 How to create new promotion</span></p>
+<p class="rvps2"><span class="rvts17">Go to marketing tools click on add promotion </span></p>
+<ul style="text-indent: 0px; margin-left: 72px; list-style-position: outside; list-style-type: disc;">
+<li style="margin-left: 0px" class="rvps6"><span class="rvts18">Choose your new Promotion name </span></li>
+<li style="margin-left: 0px" class="rvps6"><span class="rvts18">Go to promotion list and activate your new Promotion </span></li>
+<li style="margin-left: 0px" class="rvps6"><span class="rvts18">how to create a special promotion for specific affiliate ( just add the number of the affiliate ID ) </span></li>
+</ul>
+<p class="rvps2"><span class="rvts17"><br/></span></p>
+<p class="rvps2"><span class="rvts17"><br/></span></p>
+<p class="rvps6"><span class="rvts18"><br/></span></p>
+<p class="rvps6"><span class="rvts18"><br/></span></p>
+<p class="rvps6"><span class="rvts18">See Image </span></p>
+<p class="rvps6"><img width="594" height="186" alt="" style="padding : 1px;" src="lib/NewItem.png"></p>
+ 
+
+
+
+
+<div id="video_player_box">
+  <video id="my_video" width="600" height="340" autoplay>
+    <source src="https://www.affiliatebuddies.com/help/videos/Affiliate_Buddies-Add_New_Promotion.mp4">
+  </video>
+  <div id="video_controls_bar">
+    <button id="playpausebtn">Pause</button>
+    <input id="seekslider" type="range" min="0" max="100" value="0" step="1">
+    <span id="curtimetext">00:00</span> / <span id="durtimetext">00:00</span>
+    <button id="mutebtn">Mute</button>
+    <input id="volumeslider" type="range" min="0" max="100" value="100" step="1">
+    <button id="fullscreenbtn">Full Screen</button>
+  </div>
+</div>
+
+
+
+
+
+<!--video controls="controls" poster="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" width="640" height="360">
+	<source src="http://www.affiliatebuddies.com/help/videos/Promotion.mp4" type="video/mp4" />
+	
+	<object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="640" height="360">
+		<param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+		<param name="allowFullScreen" value="true" />
+		<param name="wmode" value="transparent" />
+		<param name="flashVars" value="config={'playlist':['http%3A%2F%2Fsandbox.thewikies.com%2Fvfe-generator%2Fimages%2Fbig-buck-bunny_poster.jpg',{'url':'http://www.affiliatebuddies.com/help/videos/Promotion.mp4','autoPlay':false}]}" />
+		<img alt="Big Buck Bunny" src="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" width="640" height="360" title="No video playback capabilities, please download the video below" />
+	</object>
+</video-->
+
+
+ 
+ 
+<p class="rvps2"><span class="rvts19"><br/></span></p>
+<p class="rvps2"><span class="rvts6"><br/></span></p>
+<p></p>
+
+</div>
+	
+	<div id="topic_footer">
+
+			<div id="topic_footer_content">
+				Copyright &copy; 2015  by Affiliate Buddies. All Rights Reserved.</div>
+		</div>
+	</body>
+	
+</html>
+

@@ -1,0 +1,392 @@
+	.tooltip {
+	position: relative;
+	display: inline-block;
+	padding-left:0px !important;
+	}
+
+	.tooltip .tooltiptext {
+	visibility: hidden;
+	width: 180px;
+	bottom: 100%;
+	left: 50%; 
+	margin-left: -100px;
+	background-color: black;
+	color: #fff;
+	text-align: center;
+	padding: 5px 0;
+	border-radius: 6px;
+	position: absolute;
+	z-index: 1;
+	opacity:0.8;
+	}
+
+	.tooltip:hover .tooltiptext {
+	visibility: visible;
+	width:200px;
+	}
+	
+	  /* The switch - the box around the slider */
+			.switch {
+			  position: relative;
+			  display: inline-block;
+			  width: 60px;
+			  height: 34px;
+			}
+
+			/* Hide default HTML checkbox */
+			.switch input {display:none;}
+
+			/* The slider */
+			.slider {
+			  position: absolute;
+			  cursor: pointer;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  bottom: 0;
+			  background-color: #ccc;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			  height: 25px;
+			 width: 50px;
+			}
+
+			.slider:before {
+			  position: absolute;
+			  content: "";
+			  height: 16px;
+			  width: 16px;
+			  left: 4px;
+			  bottom: 4px;
+			  background-color: white;
+			  -webkit-transition: .4s;
+			  transition: .4s;
+			}
+
+			input:checked + .slider {
+			  background-color: #2196F3;
+			}
+
+			input:focus + .slider {
+			  box-shadow: 0 0 1px #2196F3;
+			}
+
+			input:checked + .slider:before {
+			  -webkit-transform: translateX(26px);
+			  -ms-transform: translateX(26px);
+			  transform: translateX(26px);
+			}
+
+			/* Rounded sliders */
+			.slider.round {
+			  border-radius: 34px;
+			}
+
+			.slider.round:before {
+			  border-radius: 50%;
+			}
+	
+	
+	/*************************
+	Side menu***/
+	
+	aside {
+					width: 20%;
+					background-color: #f1f1f1;
+					position:fixed;
+					height:100vh;
+			
+			}
+		
+			ul.vertical {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			width: 20%;
+			background-color: #f1f1f1;
+			position:fixed;
+			min-height:53vh;
+			height:53vh;
+			overflow:auto;
+			min-width:80px;
+			display:block;
+		}
+
+		ul.vertical li a {
+			display: block;
+			color: #000;
+			padding: 8px 0 8px 16px;
+			text-decoration: none;
+		}
+
+		ul.vertical li a:hover:not(.active) {
+			background-color: #555;
+			color:white;
+		}
+
+		ul.vertical a.active {
+			background-color: #555;
+			color:white;
+		}	
+		
+		td.heading_active {
+			padding-top:10px !important;
+			padding-left:5px;
+			text-decoration: none;
+			/* background-color: #1087bf !important; */
+			
+			color:white;
+			height: 25px;
+			font-size:14px;
+		}
+		
+		ul.vertical li.heading_active {
+			padding: 8px 0 8px 5px;
+			text-decoration: none;
+			/* background-color: #1087bf; */
+			color:white;
+			height: 32px;
+		}
+		ul.vertical  li input#config_filter
+		{
+			    width: 115px;
+				/*margin-right: 5px;
+				margin-left: 5px;
+				margin-top: 10px;
+				margin-bottom: 10px;*/
+		}
+		ul.vertical  li input#btnFilter
+		{
+			padding-left:0px !Important;
+			padding-right:0px !important;
+			width:100px !important;
+		}
+		.main {
+			margin-left:20%;
+			padding:1px 16px;
+			height:100%;
+		}
+		.filter{
+			padding-top:10px;
+			padding-right:2px;
+		}
+		.button{
+			color: white;
+			padding: 5px 5px !important;
+			text-align: center;
+			text-decoration: none;
+			display: inline-block;
+			font-size: 14px !important;
+			text-transform: capitalize !important;
+		}
+		
+		@media screen and (max-width: 290px) {
+			.main{
+			   margin-left:35%;
+			}
+		}
+	
+	
+	/*************** Preview Images on Get Tracking code Aspect ration ****************/
+	
+	.outerBox_preview {
+	  width: 95%; /* just set a width you like*/
+	}
+	/* make the ratio 4*3 (by 100% of width /75% of width). use any ratio you'd like to */
+	.wrapper_preview { 
+	  width: 100%;/* % of width */
+	  padding-top: 75%; /* the % of padding will calculate by width */
+	  position:relative; /* as it childern's(img here) position's anchor */ 
+	}
+	.wrapper_preview img {
+	  /* make the image inside the padding space */
+	  position:absolute;
+	  top:0;
+	  bottom:0; 
+	  left:0; 
+	  right:0;
+	  /* make sure the image will not over the division */
+	  max-height:100%;
+	  max-width:100%;
+	  /* center the image */
+	  display:block; 
+	  margin: auto;
+	  height:auto !important;
+	}
+	
+	
+/*************ACCORDIAN on affiliats products page*****************/
+
+ol.sortable, ol.sortable ol{
+	list-style-type:none;
+}
+
+
+.transition, .accordian p, ul.accordian li i:before, ul.accordian li i:after {
+  transition: all 0.25s ease-in-out;
+}
+
+ul.accordian .flipIn, ul.accordian h1, ul.accordian li {
+  animation: flipdown 0.5s ease both;
+}
+
+.no-select, h2 {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.accordian h1, .accordian.h2 {
+  /* color: #ff6873; */
+  color: white;
+}
+
+.accordian h1 {
+  text-transform: uppercase;
+  font-size: 36px;
+  line-height: 42px;
+  letter-spacing: 3px;
+  font-weight: 100;
+}
+
+.accordian h2 {
+    font-size: 16px;
+    line-height: 34px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    display: block;
+     background-color: #0d599a; 
+	/* background-color:rgba(255, 255, 0, 0.44); */
+    margin: 0;
+    cursor: pointer;
+    color: white;
+    /* color: black;  */
+    padding: 2px 5px;
+}
+
+.accordian p {
+  color: rgba(48, 69, 92, 0.8);
+    font-size: 14px;
+    line-height: 26px;
+    letter-spacing: 1px;
+    position: relative;
+    overflow: hidden;
+    max-height: 800px;
+    opacity: 1;
+    transform: translate(0, 0);
+    margin: 5px 0;
+    z-index: 2;
+}
+
+ul.accordian {
+  list-style: none;
+  perspective: 900;
+  padding: 5px 10px;
+  margin: 0;
+}
+ul.accordian li {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  padding-bottom: 4px;
+  padding-top: 0px;
+  border-top: 1px dotted #dce7eb;
+}
+/* ul.accordian li:nth-of-type(1) {
+  animation-delay: 0.5s;
+}
+ul.accordian li:nth-of-type(2) {
+  animation-delay: 0.75s;
+}
+ul.accordian li:nth-of-type(3) {
+  animation-delay: 1s;
+} */
+ul.accordian li:last-of-type {
+  padding-bottom: 0;
+}
+ul.accordian li i {
+  position: absolute;
+  transform: translate(-6px, 0);
+  margin-top: 16px;
+  right: 10px;
+}
+ul.accordian li i:before, ul li i:after {
+  content: "";
+  position: absolute;
+  /* background-color: #ff6873; */
+  background-color: white;
+  width: 3px;
+  height: 9px;
+}
+ul.accordian li i:before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+ul.accordian li i:after {
+  transform: translate(2px, 0) rotate(-45deg);
+}
+ul.accordian li input[type=checkbox] {
+  position: absolute;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+}
+ul.accordian li input[type=checkbox]:checked ~ p {
+  margin-top: 0;
+  max-height: 0;
+  opacity: 0;
+  transform: translate(0, 50%);
+}
+ul.accordian li input[type=checkbox]:checked ~ i:before {
+  transform: translate(2px, 0) rotate(45deg);
+}
+ul.accordian li input[type=checkbox]:checked ~ i:after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+
+
+@keyframes flipdown {
+  0% {
+    opacity: 0;
+    transform-origin: top center;
+    transform: rotateX(-90deg);
+  }
+  5% {
+    opacity: 1;
+  }
+  80% {
+    transform: rotateX(8deg);
+  }
+  83% {
+    transform: rotateX(6deg);
+  }
+  92% {
+    transform: rotateX(-3deg);
+  }
+  100% {
+    transform-origin: top center;
+    transform: rotateX(0deg);
+  }
+}
+
+/***************** Reports TABLE  ********************/
+.table{
+	width:100%;
+	display:table;
+}
+.table-row {
+   display: table-row;
+}
+ 
+.table-cell {
+   display: table-cell;
+   white-space:nowrap;
+   padding:0 5px;
+   padding-left: 5px!important;
+   padding-right: 15px !important;
+}

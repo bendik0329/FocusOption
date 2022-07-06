@@ -1,0 +1,425 @@
+@font-face{
+	font-family: "os";
+	src: url(/css/fonts/OpenSans.ttf);
+	}
+
+@font-face{
+	font-family: "osBold";
+	src: url(/css/fonts/OpenSansBold.ttf);
+	}
+
+html,body {
+	padding: 0px;
+	margin: 0px;
+	color: #484B50;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	background: #FFFFFF;
+	}
+form {
+	padding: 0px;
+	margin: 0px;
+	}
+	
+table,tr,td {
+	color: #484B50;
+	font-size: 12px;
+	font-family: Arial, Helvetica, sans-serif;
+	}
+	
+table thead {
+	background: #EFEFEF;
+	font-weight: bold;
+	}
+	
+input[type=submit] {
+	background:  #2FB956;
+	/* #126bad;*/
+	border: 1px #094d7f solid;
+	border: 0;
+	font-size: 14px;
+	text-transform:uppercase;
+	padding: 5px 30px 5px 30px;
+	color: #FFF;
+	cursor: pointer;
+	}
+	
+input[type=text],input[type=password] {
+	padding-right: 5px;
+	padding-left: 5px;
+	height: 25px;
+	line-height: 25px;
+	font-size: 12px;
+	color: #6E6E6E;
+	border: 1px #CECECE solid;
+	background: #FFF;
+	}
+select {
+	height: 29px;
+	border: 1px #CECECE solid;
+	padding: 4px;
+	}
+textarea {
+	padding: 5px;
+	padding: 5px;
+	font-size: 12px;
+	color: #6E6E6E;
+	border: 1px #CECECE solid;
+	background: #FFF;
+	}
+div.dashStat {
+	font-family: os;
+	background: #f8f8f8;
+	padding: 5px;
+	border-top: 1px #dbdbdb solid;
+	border-bottom: 1px #dbdbdb solid;
+	box-shadow: 0 3px 2px #efefef;
+	}
+td.dashStat {
+	text-align: left;
+	background: #FFF;
+	border: 1px #dbdbdb solid;
+	font-family: os;
+	color: #000;
+	font-size: 14px;
+	}
+td.dashStat .span,td.dashStat a {
+	font-family: osBold;
+	font-size: 20px;
+	color: #57595d;
+	}
+	
+a {
+	text-decoration: none;
+	color: #234B7F;
+	}
+
+a:hover {
+	text-decoration: none;
+	color: #183863;
+	}
+
+/* --------------------------------------------------- [ Index Page ] --------------------------------------------------- */
+
+.login .loginField {
+	color: #484B50;
+	font-weight: bold;
+	font-size: 16px;
+	}
+	
+.login .loginTitle {
+	color: #6D7179;
+	font-size: 20px;
+	font-weight: bold;
+	font-family: arial;
+	}
+
+.required {
+	color: red;
+	font-size: 12px;
+	font-family: Arial;
+	font-weight: bold;
+	}
+/* --------------------------------------------------- [ Global ] --------------------------------------------------- */
+
+#bottom_table {
+	width: 98.4%;
+	padding: 10px;
+	/*
+	background-color: #1f82b2;
+	
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #454545 0%,#000000 100%);
+*/
+background: #320C22;
+/* #320C22; */
+
+	text-align: left;
+	}
+#bottom_table tr td, #bottom_table tr td a {
+	color: #FFFFFF;
+	}
+	
+.content {
+	/* padding: 15px; */
+	text-align: left;
+	padding-bottom: 50px;
+	}
+
+.adminMenu {
+	background: #320C22;
+	/* #439bcd; */
+	text-align: left;
+	}
+
+.headerLogo {
+height:70px;
+
+}
+
+.headerSite {
+
+/* background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#000000)); */
+background: #FFFFFF;
+/*	
+	background: #1F82B2; 
+*/
+	
+	width: 100%;
+	box-shadow: 0 3px 10px #efefef;
+	}
+
+.login {
+/*	background: #1F82B2; 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #454545 0%,#000000 100%);
+*/
+background: #FFFFFF;
+
+	padding-top: 5px;
+	font-size: 11px;
+	padding-right: 10px;
+	}
+
+.login .welcome {
+	color: black;
+	font-family: Arial;
+	font-size: 13px;
+	}
+	
+.login .welcome a {
+	color: navy;
+	}
+.login span.lastLogin {
+	color: black;
+	}
+.login .logged {
+	color: black;
+	}
+
+.space {
+	height: 20px;
+	line-height: 20px;
+	}
+
+/* --------------------------------------------------- [ Tables ] --------------------------------------------------- */
+
+.performance thead tr td {
+	background: #F2F6FF;
+	border-bottom: 1px #B7C0C7 dotted;
+	height: 21px;
+	line-height: 21px;
+	font-family: Arial;
+	}
+
+.performance tfoot tr td {
+	height: 21px;
+	line-height: 21px;
+	color: #515151;
+	font-family: Arial;
+	}
+	
+.specialTableTitle {
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	padding-left: 5px;
+	text-align: left;
+	font-size: 16px;
+	color: #FFFFFF;
+	font-weight: bold;
+	/* background: #1f82b2; 
+background: #FFFFFF;
+	
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #454545 0%,#000000 100%);
+*/
+background: #320C22;
+	}
+
+.trLine {
+	background: #EFEFEF;
+	}
+
+	.normalTableTitle {
+	height: 30px;
+	line-height: 30px;
+	vertical-align: middle;
+	padding-left: 5px;
+	text-align: left;
+	font-size: 16px;
+	color: #FFFFFF;
+	font-weight: bold;
+		/* background: #1f82b2; 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #454545 0%,#000000 100%);
+*/
+background: #320C22;
+	}
+	
+.normal thead tr {
+	background: #F2F6FF;
+	height: 21px;
+	line-height: 21px;
+	font-family: Arial;
+	}
+.normal thead tr td {
+	text-align: center;
+	border-bottom: 1px #B7C0C7 dotted;
+	font-weight: bold;
+	font-size: 12px;
+	font-family: Arial;
+	}
+	
+.normal tfoot {
+	text-align: center;
+	}
+.normal tfoot tr td {
+	color: #515151;
+	font-weight: normal;
+	font-size: 12px;
+	height: 25px;
+	font-family: Arial;
+	}
+	
+div.pageTitle div.title {
+	float: left;
+	font-size: 24px;
+	color: #57595D;
+	font-family: Arial;
+	font-weight: bold;
+	text-align: left;
+	}
+div.pageTitle div.engine {
+	float: right;
+	text-align: right;
+	padding-right: 32px;
+	margin-top: -3px;
+	}
+div.pageTitle div.engine input[type=text], input[type=text].hasDatepicker {
+	width: 90px;
+	border: 1px #bbbbbb solid;
+	text-align: center;
+	height: 20px;
+	line-height: 20px;
+	}
+div.pageTitle {
+	width: 100%;
+	background: url('/images/title_bg.jpg') repeat-x bottom;
+	height: 63px;
+	line-height: 52px;
+	padding-left: 32px;
+	overflow: hidden;
+	}
+	
+div.tab_over {
+	width: 283px;
+	height: 70px;
+	background: url(../images/login/tab_over.jpg);
+	color: #205894;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 70px;
+	padding-left: 30px;
+	font-family: Arial;
+	position: relative;
+	cursor: pointer;
+	}
+
+div.tab_pin {
+	background: url(../images/login/tab_pin.jpg);
+	width: 10px;
+	height: 10px;
+	position: absolute;
+	left: 0;
+	bottom: -10px;
+	}
+	
+div.tab_out {
+	width: 283px;
+	height: 70px;
+	background: url(../images/login/tab_out.jpg);
+	color: #797979;
+	font-size: 16px;
+	font-weight: bold;
+	line-height: 70px;
+	padding-left: 30px;
+	font-family: Arial;
+	cursor: pointer;
+	}
+
+div.logos {
+	width: 468px;
+	height: 43px;
+	position: relative;
+	padding-top: 13px;
+	float: left;
+	}
+div.clear {
+	clear: both;
+	font-size: 0;
+	}
+div.termsLinks {
+	height: 43px;
+	line-height: 43px;
+	float: right;
+	text-align: right;
+	}
+div.logos div.top_bg {
+	position: absolute;
+	z-index: 33;
+	top: 0;
+	left: 0;
+	width: 468px;
+	height: 53px;
+	font-size: 0;
+	background: url(../images/login/logos_bg.png);
+	}
+	
+/* Tabs */
+div.tabs {
+	width: 100%;
+	clear: both;
+	}
+div.tab {
+	float: left;
+	text-align: left;
+	margin-right: 5px;
+	background: #10597d;
+	color: #FFF;
+	font-size: 16px;
+	padding: 5px 30px 5px 30px;
+	cursor: pointer;
+		/* background: #1f82b2; 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #454545 0%,#000000 100%);
+*/
+background: #320C22;
+	}
+div.tab.selected {
+	background: #10597d;
+	}
+div.tab_open {
+	clear: both;
+	border: 1px #DDD solid;
+	display: none;
+	background: #F9F9F9;
+	}
+div.tab_open div.comment {
+	padding: 10px;
+	font-size: 14px;
+	}
+div.exportCSV {
+		/* background: #1f82b2; 
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#454545), color-stop(100%,#000000));
+background: -webkit-linear-gradient(top, #454545 0%,#000000 100%);
+*/
+background: #320C22;
+	width: 110px;
+	padding: 5px;
+	border-radius: 5px;
+	margin-left: 10px;
+	}
+div.exportCSV a {
+	color: #FFF;
+	}

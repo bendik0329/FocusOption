@@ -1,0 +1,206 @@
+/*.showLeft{
+	 background-color: transparent !important;
+	 text-shadow: none !important;
+	color:#000 !important;
+	padding:10px;
+}
+
+.dropbtn:hover li{
+	background:none repeat scroll 0 0 black;
+}
+
+.icons li {
+	background: none repeat scroll 0 0 lightgray;
+	height: 7px;
+	width: 7px;
+	line-height: 0;
+	list-style: none outside none;
+	margin-right: 15px;
+	margin-top: 3px;
+	vertical-align: top;
+	border-radius:50%;
+	pointer-events: none;
+}
+
+.btn-left {
+	left: 0.4em;
+}
+
+.btn-right {
+	right: 0.4em;
+}
+
+.btn-left, .btn-right {
+	position: relative;
+
+}
+
+.dropbtn {
+	color: black;
+	font-size: 16px;
+	border: none;
+	cursor: pointer;
+	
+	position: relative;
+	display: inline-block;
+   vertical-align: middle;
+	
+}
+
+.dropbtn:hover, .dropbtn:focus {
+	background-color: #3e8e41;
+}
+
+.dropdown1 {
+	
+	position:relative;
+}
+
+ .dropdown-content {
+    position: absolute; 
+	margin-top: -10px;
+
+
+   z-index: 1000;
+    min-width: 115px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 12px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid #ccc;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0,0,0,.175);
+    box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.testmenu div{
+	
+	display: block;
+	 
+}
+.dropdown-content a {
+	color: black;
+	padding: 7px 14px;
+	text-decoration: none;
+	display: block;
+	text-align:left;
+}
+
+.dropdown1 a:hover {background-color: #f1f1f1}
+
+.show {display:block;}
+
+*/
+/******* DOTS*******************/
+a.dropdown-dots{
+	padding: 2px 20px;
+}
+
+span.horizontalDots {
+    position: relative;
+    background-color: black;
+    border-radius: 5px;
+    font-size: 0;
+    padding: 3px;
+	width:30px;
+}
+
+span.horizontalDots:before {
+    position: absolute;
+    left: 8px;
+    top:0px;
+    content: '';
+    background-color: black;
+    border-radius: 5px;
+    font-size: 0;  
+    padding: 3px;
+}
+
+span.horizontalDots:after {
+    position: absolute;
+    left: 16px;
+    top: 0;
+    content: '';
+    background-color: black;
+    border-radius: 5px;
+    font-size: 0;  
+    padding: 3px;
+}
+
+/*******************MODAL*******************/
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 99999; /* Sit on top */
+    
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    /* width: 80%; */
+	width:48%
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: animatetop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: animatetop;
+    animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+    from {top:-300px; opacity:0} 
+    to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+    from {top:-300px; opacity:0}
+    to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal-header {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+
+.modal-footer {
+    padding: 2px 16px;
+    background-color: #5cb85c;
+    color: white;
+}

@@ -1,0 +1,127 @@
+.header-navbar ul.accordian li i:before, ul li i:after {
+    background-color: transparent !important; 
+}
+
+.headerLogo {
+
+}
+
+img.headerLogo {
+    max-width: 200px !important;
+    height: auto;
+    margin: 0 0 0 0 !important;
+}
+
+.breadcrumb{ 
+list-style: initial; 
+overflow: auto; 
+font: initial;
+padding-left: auto;
+}
+.breadcrumb li{ 
+float: none; 
+}
+.breadcrumb li a{
+color: initial;
+text-decoration: none; 
+padding: initial;
+background: initial;
+background: initial; 
+position: initial; 
+display: initial;
+float: none;
+}
+.breadcrumb li a:after{ 
+content: initial; 
+display: initial; 
+width: auto; 
+height: auto;
+border-top: initial;
+border-bottom: initial;
+border-left: initial;
+position: initial;
+top: initial;
+margin-top: auto; 
+left: initial;
+z-index: 2; 
+}	
+.breadcrumb li a:before{ 
+content: initial; 
+display: initial; 
+width: auto; 
+height: auto;
+border-top: initial;
+border-bottom: initial;
+border-left: initial;
+position: initial;
+top: initial;
+margin-top: auto; 
+margin-left: фгещ;
+left: initial;
+z-index: 1; 
+}	
+.breadcrumb li:first-child a{
+padding-left: 10px;
+}
+.breadcrumb li:nth-child(2) a{background: initial;}
+.breadcrumb li:nth-child(2) a:after{border-left-color:initial;}
+.breadcrumb li:nth-child(3) a{background:initial;}
+.breadcrumb li:nth-child(3) a:after{border-left-color:initial;}
+.breadcrumb li:nth-child(4) a{background:initial;}
+.breadcrumb li:nth-child(4) a:after{border-left-color:initial;}
+.breadcrumb li:nth-child(5) a{background:initial;}
+.breadcrumb li:nth-child(5) a:after{border-left-color:initial;}
+.breadcrumb li a:hover{background:initial;}
+.breadcrumb li a:hover:after{border-left-color: initial;}
+
+.breadcrumb li + .breadcrumb-item {
+    padding-left: .5rem;
+}
+.breadcrumb li + li::before {
+    content: '-';
+}
+
+.breadcrumb li:last-of-type::before {
+    content: '';
+}
+
+
+body.vertical-layout.vertical-menu.menu-expanded .footer{
+    margin-left: 0px !important;
+}
+
+/* BTN */
+
+.exportCSV:not(:disabled):not(.disabled) {
+    cursor: pointer !important;;
+}
+
+.exportCSV:focus, 
+.exportCSV:active
+{
+    outline: none !important;;
+    box-shadow: none !important;
+    text-decoration: none;
+    color: #fff !important;
+    border-color: #1d7a9c !important;
+    background-color: #228eb6 !important;
+}
+
+.exportCSV {
+    font-size: 1rem !important;;
+    font-weight: 400 !important;;
+    line-height: 1.25 !important;;
+    display: inline-block !important;;
+    padding: .75rem 1rem !important;;
+    user-select: none !important;;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out !important;;
+    text-align: center !important;;
+    vertical-align: middle !important;;
+    white-space: nowrap !important;;
+    border: 1px solid transparent !important;;
+    border-radius: .21rem !important;;
+    color: #fff !important;;
+    border-color: #3bafda !important;
+    background-color: #3bafda !important;
+    width: auto !important;
+}

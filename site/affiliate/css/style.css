@@ -1,0 +1,305 @@
+* {
+    font-family: 'Lato';
+}
+.header-navbar ul.accordian li i:before, ul li i:after {
+    background-color: transparent !important;
+}
+
+.headerLogo {}
+
+img.headerLogo {
+    max-width: 200px !important;
+    height: auto;
+    margin: 0 0 0 0 !important;
+}
+
+.breadcrumb {
+    list-style: initial;
+    overflow: auto;
+    font: initial;
+    padding-left: auto;
+}
+
+.breadcrumb li {
+    float: none;
+}
+
+.breadcrumb li a {
+    color: initial;
+    text-decoration: none;
+    padding: initial;
+    background: initial;
+    background: initial;
+    position: initial;
+    display: initial;
+    float: none;
+}
+
+.breadcrumb li a:after {
+    content: initial;
+    display: initial;
+    width: auto;
+    height: auto;
+    border-top: initial;
+    border-bottom: initial;
+    border-left: initial;
+    position: initial;
+    top: initial;
+    margin-top: auto;
+    left: initial;
+    z-index: 2;
+}
+
+.normalTableTitle + div {
+    overflow: auto !important;
+}
+
+.breadcrumb li a:before {
+    content: initial;
+    display: initial;
+    width: auto;
+    height: auto;
+    border-top: initial;
+    border-bottom: initial;
+    border-left: initial;
+    position: initial;
+    top: initial;
+    margin-top: auto;
+    margin-left: фгещ;
+    left: initial;
+    z-index: 1;
+}
+
+.breadcrumb li:first-child a {
+    padding-left: 10px;
+}
+
+.breadcrumb li:nth-child(2) a {
+    background: initial;
+}
+
+.breadcrumb li:nth-child(2) a:after {
+    border-left-color: initial;
+}
+
+.breadcrumb li:nth-child(3) a {
+    background: initial;
+}
+
+.breadcrumb li:nth-child(3) a:after {
+    border-left-color: initial;
+}
+
+.breadcrumb li:nth-child(4) a {
+    background: initial;
+}
+
+.breadcrumb li:nth-child(4) a:after {
+    border-left-color: initial;
+}
+
+.breadcrumb li:nth-child(5) a {
+    background: initial;
+}
+
+.breadcrumb li:nth-child(5) a:after {
+    border-left-color: initial;
+}
+
+.breadcrumb li a:hover {
+    background: initial;
+}
+
+.breadcrumb li a:hover:after {
+    border-left-color: initial;
+}
+
+.breadcrumb li+.breadcrumb-item {
+    padding-left: .5rem;
+}
+
+.breadcrumb li+li::before {
+    content: '-';
+}
+
+.breadcrumb li:last-of-type::before {
+    content: '';
+}
+
+body.vertical-layout.vertical-menu.menu-expanded .footer {
+    margin-left: 0px !important;
+}
+
+/* BTN */
+
+.exportCSV:not(:disabled):not(.disabled) {
+    cursor: pointer !important;
+    ;
+}
+
+.exportCSV:focus, .exportCSV:active {
+    outline: none !important;
+    ;
+    box-shadow: none !important;
+    text-decoration: none;
+    color: #fff !important;
+    border-color: #1d7a9c !important;
+    background-color: #228eb6 !important;
+}
+
+.exportCSV {
+    font-size: 1rem !important;
+    ;
+    font-weight: 400 !important;
+    ;
+    line-height: 1.25 !important;
+    ;
+    display: inline-block !important;
+    ;
+    padding: .75rem 1rem !important;
+    ;
+    user-select: none !important;
+    ;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out, -webkit-box-shadow .15s ease-in-out !important;
+    ;
+    text-align: center !important;
+    ;
+    vertical-align: middle !important;
+    ;
+    white-space: nowrap !important;
+    ;
+    border: 1px solid transparent !important;
+    ;
+    border-radius: 6px !important;
+    ;
+    color: #fff !important;
+    ;
+    border-color: #F37A20 !important;
+    background-color: #F37A20 !important;
+    width: auto !important;
+}
+
+/* New Design */
+
+tr td select, tr td input {
+    border-radius: 6px;
+    height: 33px !important;
+}
+
+input[type=submit], input[type=button] {
+    background-color: #282560;
+    color: #fff;
+}
+
+.breadcrumb li:nth-child(2) a {
+    color: #282560;
+    font-weight: 600;
+}
+
+/* 
+thead tr:first-child td {
+    padding: 0px 23px;
+    background-color: #F1F1F1;
+} */
+
+thead tr:first-child th {
+    padding: 10px 23px !important;
+    background-color: #F1F1F1 !important;
+}
+
+table.tablesorter tbody tr.odd td {
+    background: #fff !important;
+}
+
+/* 
+table.tablesorter tbody td {
+    background: #fff;
+} */
+
+table.tablesorter tbody tr td {
+    padding: 10px 23px !important;
+}
+
+table.tablesorter tbody tr:hover {
+    background: #DCDCDC !important;
+}
+
+.trLine {
+    background: #fff;
+}
+
+.normal {
+    border-collapse: collapse;
+    border-style: hidden;
+}
+
+.normal td {
+    border: 1px solid #DCDCDC;
+    padding: 0px 23px;
+}
+
+.table {
+    border-collapse: collapse !important;
+    border-style: hidden !important;
+}
+
+.table th {
+    border: 1px solid #DCDCDC !important;
+    padding: 10px 23px !important;
+}
+
+.normalTableTitle {
+    background: transparent;
+    color: #282560;
+    margin: 10px 0;
+    font-weight: 400;
+}
+
+.specialTableTitle {
+    background: transparent;
+    color: #282560;
+    margin: 10px 0;
+    font-weight: 600;
+}
+
+.normalTableTitle+div {
+    background: transparent !important;
+}
+
+.navigation-main i {
+    color: #8F8F8F !important;
+}
+
+.normal thead tr td {
+    font-size: 13px;
+}
+.normal tfoot tr td {
+    font-size: 13px;
+}
+.table, tr, td {
+    font-size: 14px;
+}
+
+/* Menu opened */
+
+.main-menu.menu-dark .navigation > li.open > a
+{
+    color: black !important;
+    background: #eee !important;
+}
+
+/* Account manager */
+
+.accountManagerOrBroker
+{
+    border: 1px solid gray;
+    padding: 0 10px 10px 10px;
+}
+
+/* PixelMonitor jqMenu */
+
+.jq-dropdown-custom-fix
+{
+    left: auto !important;
+    right: 0;
+}

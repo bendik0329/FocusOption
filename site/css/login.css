@@ -1,0 +1,602 @@
+@font-face {
+    font-family: "osBold";
+    src: url(/css/fonts/OpenSansBold.ttf);
+}
+@font-face {
+    font-family: "os";
+    src: url(/css/fonts/OpenSans.ttf);
+}
+html,
+body {
+    padding: 0px;
+    margin: 0px;
+    color: #484B50;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+	direction:rtl;
+	text-align: right;
+}
+form {
+    padding: 0px;
+    margin: 0px;
+}
+table,
+tr,
+td {
+    color: #484B50;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+table thead {
+    background: #2468AF;
+    font-weight: bold;
+}
+input[type=submit],
+input[type=button] {
+    color: #FFF;
+    background-color: #ff931e;
+    border: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 5px 30px 5px 30px;
+    cursor: pointer;
+}
+input[type=text],
+input[type=password] {
+    padding-right: 5px;
+    padding-left: 5px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    color: #6E6E6E;
+    border: 1px #CECECE solid;
+    background: #FFF;
+}
+select {
+    height: 29px;
+    border: 1px #CECECE solid;
+    padding: 4px;
+}
+textarea {
+    padding: 5px;
+    font-size: 12px;
+    color: #6E6E6E;
+    border: 1px #CECECE solid;
+    background: #FFF;
+}
+div.dashStat {
+    font-family: os;
+    background: #f8f8f8;
+    padding: 5px;
+    border-top: 1px #dbdbdb solid;
+    border-bottom: 1px #dbdbdb solid;
+    box-shadow: 0 3px 2px #efefef;
+}
+td.dashStat {
+    text-align: left;
+    background: #FFF;
+    border: 1px #dbdbdb solid;
+    font-family: os;
+    color: #000;
+    font-size: 14px;
+}
+td.dashStat .span,
+td.dashStat a {
+    font-family: osBold;
+    font-size: 20px;
+    color: #57595d;
+}
+a {
+    text-decoration: none;
+    color: #234B7F;
+}
+a:hover {
+    text-decoration: none;
+    color: #183863;
+}
+.login .loginField {
+    color: #484B50;
+    font-weight: bold;
+    font-size: 16px;
+}
+.login .loginTitle {
+    color: #6D7179;
+    font-size: 20px;
+    font-weight: bold;
+    font-family: arial;
+}
+.required {
+    color: red;
+    font-size: 12px;
+    font-family: Arial;
+    font-weight: bold;
+}
+#bottom_table {
+    width: 100%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background: black;
+    text-align: left;
+    position: fixed;
+    bottom: 0px;
+}
+#bottom_table tr td,
+#bottom_table tr td a {
+    color: #FFFFFF;
+}
+.content {
+    text-align: left;
+    padding-bottom: 50px;
+}
+.adminMenu {
+    background: #ff931e;
+    text-align: left;
+}
+.headerLogo {
+    height: 84px;
+}
+.headerSite {
+    width: 100%;
+    box-shadow: 0 3px 10px #efefef;
+}
+.login {
+    background: -webkit-linear-gradient(top, #454545 0%, #000000 100%);
+    padding-top: 5px;
+    font-size: 11px;
+    padding-right: 10px;
+}
+.login .welcome {
+    color: white;
+    font-family: Arial;
+    font-size: 13px;
+}
+.login .welcome a {
+    color: white;
+}
+.login span.lastLogin {
+    color: white;
+}
+.login .logged {
+    color: gray;
+}
+.space {
+    height: 20px;
+    line-height: 20px;
+}
+.performance thead tr td {
+    background: #F2F6FF;
+    border-bottom: 1px #B7C0C7 dotted;
+    height: 21px;
+    line-height: 21px;
+    font-family: Arial;
+}
+.performance tfoot tr td {
+    height: 21px;
+    line-height: 21px;
+    color: #515151;
+    font-family: Arial;
+}
+.specialTableTitle {
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding-left: 5px;
+    text-align: left;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background: #ff931e;
+}
+.trLine {
+    background: #EFEFEF;
+}
+.normalTableTitle {
+    height: 30px;
+    line-height: 30px;
+    vertical-align: middle;
+    padding-left: 5px;
+    text-align: left;
+    font-size: 16px;
+    color: #FFFFFF;
+    font-weight: bold;
+    background: #ff931e;
+}
+.normal thead tr {
+    background: #F2F6FF;
+    height: 21px;
+    line-height: 21px;
+    font-family: Arial;
+}
+.normal thead tr td {
+    text-align: center;
+    border-bottom: 1px #B7C0C7 dotted;
+    font-weight: bold;
+    font-size: 12px;
+    font-family: Arial;
+}
+.normal tfoot {
+    text-align: center;
+}
+.normal tfoot tr td {
+    color: #515151;
+    font-weight: normal;
+    font-size: 12px;
+    height: 25px;
+    font-family: Arial;
+}
+div.pageTitle div.title {
+    float: right;
+    font-size: 24px;
+    color: #57595D;
+    font-family: Arial;
+    font-weight: bold;
+    text-align: left;
+}
+div.pageTitle div.engine {
+    float: left;
+    text-align: right;
+    padding-right: 32px;
+    margin-top: -3px;
+}
+div.pageTitle div.engine input[type=text],
+input[type=text].hasDatepicker {
+    border: 1px #bbbbbb solid;
+    text-align: center;
+    height: 20px;
+    line-height: 20px;
+}
+div.pageTitle {
+    width: 100%;
+    background: url(/images/title_bg.jpg) repeat-x bottom;
+    height: 63px;
+    line-height: 52px;
+    padding-left: 32px;
+    overflow: hidden;
+}
+div.tab_over {
+    width: 283px;
+    height: 70px;
+    background: url(../images/login/tab_over.jpg);
+    color: #205894;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 70px;
+    padding-left: 30px;
+    font-family: Arial;
+    position: relative;
+    cursor: pointer;
+}
+div.tab_pin {
+    background: url(../images/login/tab_pin.jpg);
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 0;
+    bottom: -10px;
+}
+div.tab_out {
+    width: 283px;
+    height: 70px;
+    background: url(../images/login/tab_out.jpg);
+    color: #797979;
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 70px;
+    padding-left: 30px;
+    font-family: Arial;
+    cursor: pointer;
+}
+div.logos {
+    width: 468px;
+    height: 43px;
+    position: relative;
+    padding-top: 13px;
+    float: left;
+}
+div.clear {
+    clear: both;
+    font-size: 0;
+}
+div.termsLinks {
+    height: 43px;
+    line-height: 43px;
+    float: right;
+    text-align: right;
+}
+div.logos div.top_bg {
+    position: absolute;
+    z-index: 33;
+    top: 0;
+    left: 0;
+    width: 468px;
+    height: 53px;
+    font-size: 0;
+    background: url(../images/login/logos_bg.png);
+}
+div.tabs {
+    width: 100%;
+    clear: both;
+}
+div.tab {
+    float: left;
+    text-align: left;
+    margin-right: 5px;
+    background: linear-gradient(to bottom, #0c3d82 0%, #0d4e9e 100%);
+    color: #FFF;
+    font-size: 16px;
+    padding: 5px 30px 5px 30px;
+    cursor: pointer;
+}
+.affiliate_image {
+    height: 685px;
+    overflow: hidden;
+    padding-bottom: 101px;
+    padding: 40px 0 40px 0;
+    margin-top: -10px;
+    border-top: 1px #FFFFFF solid;
+}
+div.tab.selected {
+    background: white;
+    color: white!important;
+    background-color: rgb(68, 132, 17)!important;
+    box-shadow: -1px -1px 0px 0px #55B144, 1px 1px 1px 0px #48C734 inset, -1px -1px 1px 0px rgba;
+}
+div.tab_open {
+    clear: both;
+    border: 1px #DDD solid;
+    display: none;
+    background: #F9F9F9;
+}
+div.tab_open div.comment {
+    padding: 10px;
+    font-size: 14px;
+}
+div.exportCSV {
+    background: black;
+    width: 110px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-left: 10px;
+}
+div.exportCSV a {
+    color: #FFF;
+}
+.logo-td {
+    padding-left: 0px;
+    background: -webkit-linear-gradient(top, #454545 0%, #000000 100%);
+}
+.loginPageFooter {
+    border-top: 1px #dddddd solid;
+    padding: 25px 0 25px 0;
+    position: fixed;
+    bottom: 34px;
+    width: 100%;
+    background: black;
+}
+.resetb {
+    display: inline-block;
+    padding: 6px 30px 5px 14px;
+    font-size: 16px;
+    line-height: 29px;
+    vertical-align: middle;
+    box-shadow: -1px -1px 0px 0px #FF8000, 1px 1px 1px 0px #FF8000 inset, -1px -1px 1px 0px rgba;
+    border: 0px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 11px;
+    background-image: url(../images/buttons/btn.png);
+    width: 194px;
+    height: 47px;
+}
+.registerbtn {
+    border-radius: 11px;
+    background-image: url(../images/buttons/btn.png);
+    width: 194px;
+    height: 47px;
+    border: 0px;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+body.affiliateLoginFrame {
+    opacity: 0.96;
+    background-color: white;
+    padding-left: 70px;
+    padding-bottom: 50px;
+    border-radius: 10px;
+    border: gray 5px solid;
+}
+.affiliateLoginFrame td:first-child {
+    border-left: 1px solid darkgrey!important;
+	border-right:none !important;
+	padding-left : 70px;
+}
+.affiliateLoginFrame form div:first-child,
+.affiliateLoginFrame td div:first-chi {
+    text-transform: uppercase;
+}
+.affiliateLoginFrame div {
+    color: black;
+}
+body.affiliateLoginBody {
+    background-color: black!important;
+}
+body.affiliateLoginBody input[type=submit] {
+    color: #FFF;
+    font-size: 16px;
+    text-transform: uppercase;
+    padding: 3px 30px 5px 30px;
+    cursor: pointer;
+    background: url(../images/buttons/btn.png) no-repeat;
+    width: 198px;
+    height: 51px;
+    margin-left: 90px;
+    text-shadow: 0 1px 1px #000;
+    border: 0;
+}
+body.affiliateLoginBody input:hover[type=submit] {
+    background: url(../images/buttons/btn_hover.png) no-repeat;
+    color: black;
+    text-shadow: 0 1px 1px #fff;
+}
+html.affiliateLoginHtml {
+    background-color: white;
+}
+.register_now_btn {
+    position: absolute;
+    margin-top: -20px;
+    border-radius: 11px;
+    width: 194px;
+    height: 47px;
+}
+.coverImageBlock {
+    padding: 40px 0 40px 0;
+    margin-top: -10px;
+    border-top: 1px #FFFFFF solid;
+    height: 730px!important;
+}
+.coverImageBlock table {
+    height: 350px;
+}
+div#loginPageFooter_forgot {
+    bottom: 35px!important;
+}
+.pager {
+    position: inherit!important;
+}
+div.mainMsg div {
+    background-color: white;
+}
+body.affiliateLoginBody div.pageTitle {
+    padding-left: 15%;
+}
+.feature-tooltip {
+    display: inline;
+    position: relative;
+    color: lightgray!important;
+}
+.feature-tooltip:hover:after {
+    background: rgba(0, 0, 0, .8);
+    border-radius: 5px;
+    bottom: -5px;
+    color: #fff;
+    content: attr(title);
+    left: 160%;
+    padding: 5px 15px;
+    position: absolute;
+    z-index: 98;
+    width: 220px;
+}
+.regform {
+    height: 653px;
+}
+li.ui-menu-item {
+    margin-left: -18px;
+}
+ul.vertical li.heading_active {
+    background-color: #4CAF50;
+}
+input[type=button] {
+    color: #FFF;
+    background-color: #ff931e;
+    border: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+    padding: 5px 30px 5px 30px;
+    cursor: pointer;
+}
+.breadcrumb {
+    list-style: none;
+    overflow: hidden;
+    font: 14px Helvetica, Arial, Sans-Serif;
+    padding-left: 0px;
+}
+.breadcrumb li {
+    float: left;
+}
+.breadcrumb li a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 0 10px 55px;
+    background: #A5630D;
+    position: relative;
+    display: block;
+    float: left;
+}
+.breadcrumb li a:after {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid #A5630D;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    left: 100%;
+    z-index: 2;
+}
+.breadcrumb li a:before {
+    content: " ";
+    display: block;
+    width: 0;
+    height: 0;
+    border-top: 50px solid transparent;
+    border-bottom: 50px solid transparent;
+    border-left: 30px solid white;
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: 1px;
+    left: 100%;
+    z-index: 1;
+}
+.breadcrumb li:first-child a {
+    padding-left: 10px;
+}
+.breadcrumb li:nth-child(2) a {
+    background: #D48011;
+}
+.breadcrumb li:nth-child(2) a:after {
+    border-left-color: #D48011;
+}
+.breadcrumb li:nth-child(3) a {
+    background: #EE992B;
+}
+.breadcrumb li:nth-child(3) a:after {
+    border-left-color: #EE992B;
+}
+.breadcrumb li:nth-child(4) a {
+    background: #F2B05A;
+}
+.breadcrumb li:nth-child(4) a:after {
+    border-left-color: #F2B05A;
+}
+.breadcrumb li:nth-child(5) a {
+    background: #F5C689;
+}
+.breadcrumb li:nth-child(5) a:after {
+    border-left-color: #F5C689;
+}
+.breadcrumb li a:hover {
+    background: #76470A;
+}
+.breadcrumb li a:hover:after {
+    border-left-color: #76470A !important;
+}
+.popupTrackingWindowImg {
+    element.style {
+        height: 700px;
+        width: auto;
+        max-height: 450px;
+        max-width: 400px;
+    }
+    .forgotDiv {
+        background-color: white;
+        margin-top: 6%;
+        opacity: 0.999;
+        padding: 30px 7px 12px 7px;
+        border-radius: 8px;
+    }

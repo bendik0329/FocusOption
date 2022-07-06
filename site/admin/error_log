@@ -1,0 +1,22 @@
+[17-May-2017 10:55:47 UTC] PHP Warning:  Unterminated comment starting line 338 in /home/devsaffiliatebud/public_html/admin/promotion.php on line 338
+[17-May-2017 10:55:47 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/devsaffiliatebud/public_html/admin/promotion.php on line 343
+[30-May-2017 10:43:27 UTC] PHP Parse error:  syntax error, unexpected ''<' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 1337
+[30-May-2017 10:43:39 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/devsaffiliatebud/public_html/admin/sub.php on line 1127
+[30-May-2017 10:44:56 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/devsaffiliatebud/public_html/admin/sub.php on line 1128
+[30-May-2017 10:45:03 UTC] PHP Parse error:  syntax error, unexpected ''" />' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 1039
+[30-May-2017 10:45:16 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/devsaffiliatebud/public_html/admin/sub.php on line 1128
+[30-May-2017 10:45:32 UTC] PHP Parse error:  syntax error, unexpected ''</a></b></td>' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 364
+[30-May-2017 10:47:20 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/devsaffiliatebud/public_html/admin/sub.php on line 1090
+[30-May-2017 10:47:31 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting '(' in /home/devsaffiliatebud/public_html/admin/sub.php on line 1286
+[30-May-2017 10:56:30 UTC] PHP Parse error:  syntax error, unexpected ''</td>' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 1419
+[30-May-2017 11:01:31 UTC] PHP Parse error:  syntax error, unexpected ''</td></tr>' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 1224
+[30-May-2017 11:41:20 UTC] PHP Parse error:  syntax error, unexpected ''<' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 373
+[30-May-2017 11:44:17 UTC] PHP Parse error:  syntax error, unexpected ''</td>' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 390
+[30-May-2017 12:03:14 UTC] PHP Parse error:  syntax error, unexpected ''id' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/devsaffiliatebud/public_html/admin/sub.php on line 1134
+[30-May-2017 12:04:16 UTC] PHP Parse error:  syntax error, unexpected ''Changes s' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/sub.php on line 837
+[30-May-2017 12:06:31 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/devsaffiliatebud/public_html/admin/sub.php on line 1231
+[30-May-2017 12:23:49 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/devsaffiliatebud/public_html/admin/sub.php on line 219
+[30-May-2017 12:23:50 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/devsaffiliatebud/public_html/admin/sub.php on line 219
+[31-May-2017 19:34:09 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/devsaffiliatebud/public_html/admin/sub.php on line 1182
+[19-Jun-2017 13:21:50 UTC] PHP Parse error:  syntax error, unexpected ''js/easytabs/jquery.easytabs.m' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/config.php on line 654
+[19-Jun-2017 13:21:51 UTC] PHP Parse error:  syntax error, unexpected '':</td>' (T_ENCAPSED_AND_WHITESPACE) in /home/devsaffiliatebud/public_html/admin/config.php on line 1229

@@ -1,0 +1,52 @@
+/*================================================================================
+	Item Name: Robust - Responsive Admin Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+​
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+body { font-family: 'Roboto', sans-serif; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {  font-family: 'Roboto', sans-serif; font-weight: 400; line-height: 1.2; margin-bottom: .5rem;  color: #373a3c; }
+form label {  color: #868b8e; }
+.form-control-sm {font-size: 1.2rem; }
+.form-group input::placeholder {color:#999999; font-size: 16px; font-weight:300}
+.icheckbox_square-red { float: left; margin: 0 10px 10px 0; }
+.b-control {  padding: 0 94px; }
+.b-control .skin  {      padding-bottom: 10px !important; }
+.b-control .skin .form-group  {  margin-bottom: 0;     font-size: 13px; }
+img.headerLogo {max-width: 380px;margin: 50px 0 0 0;}
+.btn-outline-dark:hover {  color: #fff; border-color: #f1792f; background-color: #f1792f; }
+#SignInFormAdmin,
+#SignInFormManager,
+#ForgotForm,
+#SignInForm {     width: 353px; }
+​
+#RegisterForm {width: 550px;}
+.card.border-grey.border-lighten-3 {  background: #f7f7f8; }
+​
+.header-sing { color: #252062; }
+.header-sing h1 {color: #000;font-weight: 300;font-size: 2.2rem;text-transform: capitalize;}
+.b-not-account {font-weight: 600;color: #292560;font-size: 16px;}
+.b-not-account .btn {font-weight: 600;  padding: .6rem 1rem;margin-bottom: .2rem !important;font-size: 1rem;}
+​
+.form-control {  border-radius: .4rem; }
+#SignInBtn + p { color: #000;  padding-bottom: 0px;  margin-bottom: 0px; }
+​
+form .form-control {color: #262626;border: 1px solid #999999;}
+​
+.line-on-side span {  padding: 0 10px;  background: #fff; }
+fieldset + h6.line-on-side {padding: 0 0 0 0;margin: -12px 20px 20px 20px;border-bottom: 1px solid #bfc1c3;}
+fieldset + h6.line-on-side span { padding: 0 30px; background: #f7f7f8; font-size: 24px; font-weight: 600; color: #656387; }
+div.line-on-side {padding: 0 0 0 0;margin: 25px 0 20px 0;border-bottom: 1px solid #bfc1c3;}
+​
+@media (max-width: 560px) {
+#SignInFormAdmin,
+#SignInFormManager,
+#ForgotForm,
+#SignInForm {     width: 280px; }
+#RegisterForm {width: 280px;}
+}
