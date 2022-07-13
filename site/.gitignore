@@ -1,0 +1,10 @@
+# Editoors.
+/.idea/
+
+# composer and npm
+/node_modules
+
+# Logs and system files.
+.phpunit.result.cache
+npm-debug.log
+yarn-error.log

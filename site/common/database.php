@@ -6,10 +6,10 @@
 */
 
 $ss = new StdClass();
-$ss->db_hostname 	= 	"";
-$ss->db_username	= 	"";
-$ss->db_password 	= 	"";
-$ss->db_name 		= 	"";
+$ss->db_hostname 	= 	"affiliatetsdb";
+$ss->db_username	= 	"root";
+$ss->db_password 	= 	"root";
+$ss->db_name 		= 	"affiliatets";
 
 
 $con=@mysql_connect($ss->db_hostname, $ss->db_username, $ss->db_password);

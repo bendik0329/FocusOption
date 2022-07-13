@@ -1,0 +1,31 @@
+version: '3.7'
+
+services:
+
+  mysqlaffiliatets:
+    build:
+      context: ./mysql
+      args:
+        - MYSQL_VERSION=${MYSQL_VERSION}
+    environment:
+      - MYSQL_DATABASE=
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - TZ=${WORKSPACE_TIMEZONE}
+    container_name: affiliatetsdb
+    volumes:
+      - ${DATA_PATH_HOST}/mysqlaffiliatets:/var/lib/mysql
+      - ${MYSQL_ENTRYPOINT_INITDB}:/docker-entrypoint-initdb.d
+    ports:
+      - "${MYSQL_PORT}:3306"
+
+  affiliatets:
+    image: affiliatets
+    container_name: affiliatets
+    volumes:
+      - ./site:/app/
+    ports:
+      - "80:80"
+      - "443:443"
+
