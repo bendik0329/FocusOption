@@ -93,7 +93,7 @@ switch ($act) {
 		
 		$pageTitle = lang('Home Screen - Dashboard');
 		$set->pageTitle = $pageTitle;
-
+		
 		if(!$from)	$from = date("d/m/Y 00:00:00");
 		if(!$to)	$to = date("d/m/Y 23:59:59");
 		
@@ -503,9 +503,9 @@ $(document).ready(function(){
 if ($noMerchants ==0){
 $set->content .=
 '
-<div class="normalTableTitle" >'.lang('Merchants Performance').'<span class="imgGear" style="float:right;"><img class="imgReportFieldsSettings_dashstat" style="padding-top:6px;width:55%;cursor:pointer;" src="'.$set->SSLprefix.'images/settings.png"/></span></div>
+<!-- <div class="normalTableTitle" >'.lang('Merchants Performance').'<span class="imgGear" style="float:right;"><img class="imgReportFieldsSettings_dashstat" style="padding-top:6px;width:55%;cursor:pointer;" src="'.$set->SSLprefix.'images/settings.png"/></span></div> -->
 		
-			<div class="dashStat mainDashStat">
+			<!-- <div class="dashStat mainDashStat">
 			<table width="100%" border="0" cellpadding="4" cellspacing="5" class="dashStatFields"><tr>
 				'. (allowView('af-impr',$deal,'fields') ? '			
 				<td class="dashStat '.lang('Impressions').'">
@@ -642,7 +642,7 @@ $set->content .=
 				</td>' ;
 			
 			$set->content .='</tr></table>
-			</div>
+			</div> -->
 			<div class="space">&nbsp;</div>';
 }
 
@@ -1427,195 +1427,205 @@ $set->content .=
 	// var_dump($pic);
 	// die();
 	// $pic = substr($adminInfo['bigPic'],3);
-	
 
-		$set->content .= '<table width="100%" border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td width="49%" align="center" valign="top">
-							    <div class="accountManagerOrBroker">
-    								<div class="specialTableTitle">'.($set->introducingBrokerInterface ? lang('Your Introducing Broker') :  lang('Your Account Manager') ).'</div>
-    								<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    									<tr>
-    										<td colspan="2" height="10"></td>
-    									</tr><tr>
-    										'.(file_exists($pic) ? '<td width="120" align="left" valign="top"><img width="150px" height="150px" border="0" src="'.$pic.'" alt="" style="border: 5px #DDDDDD solid;margin:10px; border-radius: 100%;" /></td>' : '<td width="120" align="left" valign="top"><img src="/images/profile_img.png" class="mainProfilePic" width="150px" height="150px" style="border: 5px #DDDDDD solid;margin:10px; border-radius: 100%;"></td>').'
-    										<td align="left" valign="top" style="font-family: Arial; line-height: 22px;">
-    											<b>'.lang('Name').':</b> '.$adminInfo['first_name'].' '.$adminInfo['last_name'].'<br />
-    											<b>'.lang('E-Mail').':</b> <a href="mailto:'.$adminInfo['email'].'" style="color: #000000">'.$adminInfo['email'].'</a><br />
-    											<b>'.lang('Skype').':</b> <a href="skype:'.$adminInfo['IMUser'].'?call" style="color: #000000">'.$adminInfo['IMUser'].'</a><br />
-    											'.(!isset($set->showDeskNameOnAffiliateDashboard) || $set->showDeskNameOnAffiliateDashboard==0 ? '' : '<b>'.lang('Desk').':</b> '.($groupInfo['title'] ? $groupInfo['title'] : lang('General')).'<br />').'
-    											<a href="'.$set->SSLprefix.'affiliate/tickets.php?act=new" style="color: #000000" class="btn btn-warning">'.lang('You have a question? Click Here').'</a><br />
-    											'.($adminInfo['showAdditionalLink']==1 ? ' <b>'.$adminInfo['additionalLinkText'].':</b> <a target="_blank" href="'. $adminInfo['additionalLinkUrl'] . '" style="color: #000000">'.$adminInfo['additionalLinkUrl'].'</a><br />' : '' ).'
-    										</td>
-    									</tr>
-    								</table>
+
+	$set->content .= '<div class="cart-report-wrp">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="device-report h-full">
+						<h2 class="specialTableTitle">Device Report</h2>
+						<div class="cart-report-box">
+							<div class="session-bar">
+								<p>Session by Device</p>
+								<select>
+									<option>Last 90 Days</option>
+									<option>Last 30 Days</option>
+									<option>Last 1 Days</option>
+								</select>
+							</div>
+							<div class="session-device-chart">
+								<img src="../assets/images/img-new/session-device.png" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="country-report h-full">
+						<h2 class="specialTableTitle">Country Reports</h2>
+						<div class="cart-report-box">
+							<div class="session-bar">
+								<p>Session by Reports</p>
+								<select>
+									<option>Last 90 Days</option>
+									<option>Last 30 Days</option>
+									<option>Last 1 Days</option>
+								</select>
+							</div>
+							<div class="session-device-chart">
+								<img src="../assets/images/img-new/session-resport.png" class="img-fluid">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-4">
+					<div class="your-account-manager h-full">
+						<h2 class="specialTableTitle">'.($set->introducingBrokerInterface ? lang('Your Introducing Broker') :  lang('Your Account Manager') ).'</h2>
+						<div class="cart-report-box">
+							<div class="account-manager-top">
+								<div class="account-manager-list">
+									<span>'.lang('Name').':</span>
+									<p>'.$adminInfo['first_name'].' '.$adminInfo['last_name'].'</p>
 								</div>
-								<br />
-								<table style="width:100%">
-								<tr>
-								
-								
-								<td>
-									<div class="specialTableTitle">'.lang('Your Commission').'</div>
-								<table width="100%" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td colspan="2" height="10"></td>
-									</tr><tr>
-										<td align="left" valign="top" style="font-family: Arial; line-height: 22px;">
-											<a href="'.$set->SSLprefix.'affiliate/account.php?act=commission" target="_blank">'.(lang('Click here to review your commission structure')).'</a><br />
-										</td>
-									</tr>
-								</table>
-							</td>
-								' . (!$set->hideSubAffiliation?(strpos(' '.$set->menuToHide,'subaffiliates')<1 ? '
-								<td>
-								<div class="specialTableTitle">'.lang('Your Affiliate Link').'  ('.lang('Sub Affiliates').')</div>
-								<table width="100%" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td colspan="2" height="10"></td>
-									</tr><tr>
-										<td align="left" valign="top" style="font-family: Arial; line-height: 22px;">
-											<b>'.lang('URL').':</b> <a href="'.$set->webAddress.'?ctag=a'.$set->userInfo['id'].'-b0-p" target="_blank">'.$set->webAddress.'?ctag=a'.$set->userInfo['id'].'-b0-p</a><br />
-										</td>
-									</tr>
-								</table>
-								</td>
-								
-								' : '' ):'') . '
-							</tr>
-							</table>
-								<br />
-								
-								
-								<div class="specialTableTitle">'.lang('Alerts & Announcements').'</div>
-								<table class="normal" width="100%" border="0" cellpadding="2" cellspacing="0">
-									<thead>
-									<tr>
-										<td width="120">'.lang('Date').'</td>
-										<td style="text-align: left;">'.lang('Message').'</td>
-									</tr>
-									</thead>
-									<tfoot>
-									'.$listMessages.'
-									</tfoot>
-								</table>
-							</td>
-							<td width="2%"></td>
-							<td width="49%" align="center" class="accountManagerOrBroker" valign="top">
-								'.($noMerchants!=1 ? '
-								<div class="specialTableTitle">'.lang('Top').' <span class="topCreativesCount"></span> ' . lang('Merchant\'s Creatives').'</div>
-								<table class="normal" width="100%" border="0" cellpadding="2" cellspacing="0">
-									<thead>
-									<tr>
-										<td>'.lang('Type').'</td>
-										<td>'.lang('Preview').'</td>
-										<td>'.lang('Merchant').'</td>
-										<td>'.lang('Language').'</td>
-										<td>'.lang('Size').'</td>
-										<td>'.lang('Get Code').'</td>
-									</tr>
-									</thead>
-									<tfoot class="topCreativesCls">
-									
-									</tfoot>
-								</table>' : '' ).'
-								'.(!empty($products_list) ? '
-								<div class="specialTableTitle">'.lang('Top').' <span class="topPCreativesCount">5</span> ' . lang('Products').'</div>
-								<table class="normal" width="100%" border="0" cellpadding="2" cellspacing="0">
-									<thead>
-									<tr>
-										<td>'.lang('Preview').'</td>
-										<td>'.lang('Product Name').'</td>
-										<td>'.lang('Language').'</td>
-										<!--td>'.lang('Size').'</td-->
-										<td>'.lang('Type').'</td>
-										<td>'.lang('Get Code').'</td>
-									</tr>
-									</thead>
-									<tfoot class="topPCreativesCls">
-									
-									</tfoot>
-								</table>
-								' : '' ).'
-							</td>
-						</tr>
-					</table>
-					<script class="text/javascript">
-					$(document).ready(function(){
-						$("tfoot.topCreativesCls").html("<tr><td colspan=10 align=\'center\'><img src=\''.$set->SSLprefix.'images/ajax-loader.gif\'>  <span style=\'position:relative;bottom:3px;left:10px;\'>'. lang('Loading Creatives. Please wait.') .'</span></td></tr>");
-						$("tfoot.topPCreativesCls").html("<tr><td colspan=10 align=\'center\'><img src=\''.$set->SSLprefix.'images/ajax-loader.gif\'>  <span style=\'position:relative;bottom:3px;left:10px;\'>'. lang('Loading Creatives. Please wait.') .'</span></td></tr>");
-					 	$.post("'.$set->SSLprefix.'ajax/LoadAffiliateTopCreatives.php",{affwhere:"'. $affwhere .'",affiliate_id:'. $set->userInfo['id'] .',affiliate_merchants:"'. $set->userInfo['merchants'] .'",active_products:"'. $set->userInfo['products'] .'"},function(res){
-							if(res != ""){
-								res = JSON.parse(res);
-								//console.log(res);
-								
-								if(res["creatives"]!= undefined){
-									$("tfoot.topCreativesCls").html(res["creatives"]);
-									$("span.topCreativesCount").html($("tfoot.topCreativesCls tr").length);
-								}
-								else{
-									$("tfoot.topCreativesCls").html("<tr><td colspan=10 align=\'center\'>'. lang('No Creatives') .'</td></tr>");
-									$("span.topCreativesCount").html("");
-								}
-								
-								if(res["products"]!= undefined){
-									$("tfoot.topPCreativesCls").html(res["products"]);
-									$(".topProductsTable").show();
-									$("span.topPCreativesCount").html($("tfoot.topPCreativesCls tr").length);
-								}
-								else{
-									$(".topProductsTable").hide();
-									$("tfoot.topPCreativesCls").html("");
-									$("span.topPCreativesCount").html("");
-								}
-								
-								$(".inline").colorbox({iframe:true,border: "1px black solid" ,height: "95%", width:"95%",fixed:true});
-								$( ".img-wrap img" ).each(function( index ) {
-									//console.log($(this).attr("src"));
-									var dymantionsStr = $(this).closest("tr").find(".dimantion-wrap").text();
-									//console.log(dymantionsStr);
-									var dymantionsArray = dymantionsStr.split("x");
-									//console.log(dymantionsArray);
-									var dymantionsRate = parseInt(dymantionsArray[0])/parseInt(dymantionsArray[1]);
-									if(dymantionsRate < 0.7)
-									{
-										$(this).addClass("small-scale");
-									}
-									else if(dymantionsRate > 10) 
-									{
-										$(this).addClass("horizontal-scale");
-									}
-									else // if(dymantionsRate > 0.7 && dymantionsRate < 2) 
-									{
-										$(this).css("transition","scale(12)");
-									}
-									//console.log(dymantionsRate);
-								});
-								$( ".img-wrap img" ).hover(
-									function() {
-										var currentImage = $( this );
-										currentImage.addClass("animate");
-										setTimeout(function(){ 
-											currentImage.removeClass("animate");
-											//console.log("innn");
-										}, 2000);
-									}, function() {
-										$( this ).removeClass("animate");
-									}
-								);
+								<div class="account-manager-list">
+									<span>'.lang('E-Mail').'</span>
+									<p><a href="mailto:'.$adminInfo['email'].'" style="color: #000000">'.$adminInfo['email'].'</a></p>
+								</div>
+								<div class="account-manager-list">
+									<span>'.lang('Skype').':</span>
+									<p><a href="skype:'.$adminInfo['IMUser'].'?call" style="color: #000000">'.$adminInfo['IMUser'].'</a></p>
+								</div>
+								<div class="account-manager-list">
+									<span>'.lang('Desk').':</span>
+									<p>'.($groupInfo['title'] ? $groupInfo['title'] : lang('General')).'</p>
+								</div>
+								<div class="account-manager-list">
+									<span>'.lang('Sub Affiliates Link').':</span>
+									<p class="orange-color"><a href="'.$set->webAddress.'?ctag=a'.$set->userInfo['id'].'-b0-p" target="_blank">'.$set->webAddress.'?ctag=a'.$set->userInfo['id'].'-b0-p</a></p>
+								</div>
+								<div class="account-manager-list">
+									<span>'.lang('Commission').':</span>
+									<p class="green-color"><a href="'.$set->SSLprefix.'affiliate/account.php?act=commission" target="_blank">'.(lang('Click here to review your commission structure')).'</a></p>
+								</div>
+							</div>
+							<div class="account-manager-bottom">
+								<p class="orange-color">Need some help? <a href="'.$set->SSLprefix.'affiliate/tickets.php?act=new">'.lang('Click Here').'</a></p>
+							</div>
+						</div>
+					</div>
+				</div>'.
+				($noMerchants!=1 ? '
+				<div class="col-md-8">
+					<div class="top-performing-creative h-full">
+						<h2 class="specialTableTitle">'.lang('Top Performing Creative').'</h2>
+							<div class="performing-creative-table">
+								<div class="table-responsive">
+									<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+										<thead>
+											<tr>
+											<th scope="col">'.lang('Merchant').'</th>
+											<th scope="col">'.lang('Language').'</th>
+											<th scope="col">'.lang('Creative Name').'</th>
+											<th scope="col">'.lang('Preview').'</th>
+											<th scope="col">'.lang('LP Preview').'</th>
+											<th scope="col">'.lang('Tracking Code').'</th>
+											</tr>
+										</thead>
+										<tfoot class="topCreativesCls">
+										</tfoot>
+									</table>
+								</div>
+							</div>
+					</div>
+				</div>' : '').
+				(!empty($products_list) ? '
+				<div class="col-md-4">
+					<div class="alerts-announcements h-full">
+						<h2 class="specialTableTitle">'.lang('Alerts & Announcements').'</h2>
+						<div class="performing-creative-table">
+								<div class="table-responsive">
+									<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+										<thead>
+											<tr>
+												<th scope="col">'.lang('Date').'</th>
+												<th scope="col">'.lang('Message').'</th>
+											</tr>
+										</thead>
+										<tfoot class="topPCreativesCls">
+										</tfoot>
+									</table>
+								</div>
+						</div>
+					</div>
+				</div>
+				': '' ).'
+			</div>
+		</div>
+		<script class="text/javascript">
+			$(document).ready(function(){
+				$("tfoot.topCreativesCls").html("<tr><td colspan=10 align=\'center\'><img src=\''.$set->SSLprefix.'images/ajax-loader.gif\'>  <span style=\'position:relative;bottom:3px;left:10px;\'>'. lang('Loading Creatives. Please wait.') .'</span></td></tr>");
+				$("tfoot.topPCreativesCls").html("<tr><td colspan=10 align=\'center\'><img src=\''.$set->SSLprefix.'images/ajax-loader.gif\'>  <span style=\'position:relative;bottom:3px;left:10px;\'>'. lang('Loading Creatives. Please wait.') .'</span></td></tr>");
+				$.post("'.$set->SSLprefix.'ajax/LoadAffiliateTopCreatives.php",{affwhere:"'. $affwhere .'",affiliate_id:'. $set->userInfo['id'] .',affiliate_merchants:"'. $set->userInfo['merchants'] .'",active_products:"'. $set->userInfo['products'] .'"},function(res){
+					if(res != ""){
+						res = JSON.parse(res);
+						console.log(res);
+						
+						if(res["creatives"]!= undefined){
+							$("tfoot.topCreativesCls").html(res["creatives"]);
+							$("span.topCreativesCount").html($("tfoot.topCreativesCls tr").length);
+						}
+						else{
+							$("tfoot.topCreativesCls").html("<tr><td colspan=10 align=\'center\'>'. lang('No Creatives') .'</td></tr>");
+							$("span.topCreativesCount").html("");
+						}
+						
+						if(res["products"]!= undefined){
+							$("tfoot.topPCreativesCls").html(res["products"]);
+							$(".topProductsTable").show();
+							$("span.topPCreativesCount").html($("tfoot.topPCreativesCls tr").length);
+						}
+						else{
+							$(".topProductsTable").hide();
+							$("tfoot.topPCreativesCls").html("");
+							$("span.topPCreativesCount").html("");
+						}
+						
+						$(".inline").colorbox({iframe:true,border: "1px black solid" ,height: "95%", width:"95%",fixed:true});
+						$( ".img-wrap img" ).each(function( index ) {
+							//console.log($(this).attr("src"));
+							var dymantionsStr = $(this).closest("tr").find(".dimantion-wrap").text();
+							//console.log(dymantionsStr);
+							var dymantionsArray = dymantionsStr.split("x");
+							//console.log(dymantionsArray);
+							var dymantionsRate = parseInt(dymantionsArray[0])/parseInt(dymantionsArray[1]);
+							if(dymantionsRate < 0.7)
+							{
+								$(this).addClass("small-scale");
 							}
-							else{
-								$("span.topCreativesCount").html("");
-								$("span.topPCreativesCount").html("");
-								$(".topProductsTable").hide();
-								$("tfoot.topCreativesCls").html("<tr><td colspan=10 align=\'center\'>'. lang('No Creatives') .'</td></tr>");
-								$("tfoot.topPCreativesCls").html("<tr><td colspan=10 align=\'center\'>'. lang('No Creatives') .'</td></tr>");
+							else if(dymantionsRate > 10) 
+							{
+								$(this).addClass("horizontal-scale");
 							}
-						}); 
-					});
-					</script>
-					';
-
+							else // if(dymantionsRate > 0.7 && dymantionsRate < 2) 
+							{
+								$(this).css("transition","scale(12)");
+							}
+							//console.log(dymantionsRate);
+						});
+						$( ".img-wrap img" ).hover(
+							function() {
+								var currentImage = $( this );
+								currentImage.addClass("animate");
+								setTimeout(function(){ 
+									currentImage.removeClass("animate");
+									//console.log("innn");
+								}, 2000);
+							}, function() {
+								$( this ).removeClass("animate");
+							}
+						);
+					}
+					else{
+						$("span.topCreativesCount").html("");
+						$("span.topPCreativesCount").html("");
+						$(".topProductsTable").hide();
+						$("tfoot.topCreativesCls").html("<tr><td colspan=10 align=\'center\'>'. lang('No Creatives') .'</td></tr>");
+						$("tfoot.topPCreativesCls").html("<tr><td colspan=10 align=\'center\'>'. lang('No Creatives') .'</td></tr>");
+					}
+				}); 
+			});
+		</script>
+			';
+		
 			if ($set->showDocumentsModule==1) {
 			if ($set->showRequierdDocsOnAffiliateDash==1)					
 				

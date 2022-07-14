@@ -123,33 +123,33 @@ function adminMenu($onlyArray = false) {
 		if (allowView('af-quick',$deal,'reports'))
 		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php"').'>'.lang('Quick Summary Report').'</a>';
 			
-			if (allowView('af-comm',$deal,'reports'))
-		$linkName[$counter][] = '<a '.($set->isBasicVer ==1  && false ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=commission"').'>'.lang('Commission Report').'</a>';
+	// 		if (allowView('af-comm',$deal,'reports'))
+	// 	$linkName[$counter][] = '<a '.($set->isBasicVer ==1  && false ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=commission"').'>'.lang('Commission Report').'</a>';
 	
-		if (allowView('af-clicks',$deal,'reports'))
-		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=clicks"').'>'.lang('Clicks Report').'</a>';
-		if (allowView('af-creative',$deal,'reports'))
-		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=banner"').'>'.lang('Creative Report').'</a>';
-	if (allowView('af-landing',$deal,'reports'))
-		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=landingPage"').'>'.lang('Landing Page Report').'</a>';
-		if (allowView('af-trader',$deal,'reports'))
-		$linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader">'.lang(ptitle('Trader Report')).'</a>';
+	// 	if (allowView('af-clicks',$deal,'reports'))
+	// 	$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=clicks"').'>'.lang('Clicks Report').'</a>';
+	// 	if (allowView('af-creative',$deal,'reports'))
+	// 	$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=banner"').'>'.lang('Creative Report').'</a>';
+	// if (allowView('af-landing',$deal,'reports'))
+	// 	$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=landingPage"').'>'.lang('Landing Page Report').'</a>';
+	// 	if (allowView('af-trader',$deal,'reports'))
+	// 	$linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader">'.lang(ptitle('Trader Report')).'</a>';
 	
-	if (allowView('af-trnsct',$deal,'reports')){
-	    if($set->userInfo['id'] == 1302){
-		    $linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=transactions"').'>'.lang(ptitle('Transactions Report')).'</a>';
-	    }		
-	}
-		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=pixelsLogs"').'>'.lang(ptitle('pixels Logs Report')).'</a>';
+	// if (allowView('af-trnsct',$deal,'reports')){
+	//     if($set->userInfo['id'] == 1302){
+	// 	    $linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=transactions"').'>'.lang(ptitle('Transactions Report')).'</a>';
+	//     }		
+	// }
+	// 	$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=pixelsLogs"').'>'.lang(ptitle('pixels Logs Report')).'</a>';
 		
 	
 	
-	if (allowView('|af-install',$deal,'reports'))
-		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=install"').'>'.lang(ptitle('Install Report')).'</a>';
+	// if (allowView('|af-install',$deal,'reports'))
+	// 	$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=install"').'>'.lang(ptitle('Install Report')).'</a>';
 	
 	
-		if (allowView('af-profile',$deal,'reports'))
-		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=profile"').'>'.lang('Profile Report').'</a>';
+	// 	if (allowView('af-profile',$deal,'reports'))
+	// 	$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/reports.php?act=profile"').'>'.lang('Profile Report').'</a>';
 	
 	
 		if(!$set->hideSubAffiliation){
@@ -202,13 +202,12 @@ function adminMenu($onlyArray = false) {
 		$linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="/affiliate/sub.php?act=creative"').'>'.lang('Creative Materials').'</a>';
 	} */
 	
-	$counter++;
-	$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/messages.php">'.lang('Messages').'</a>';
 	
-	
+
 	$counter++;
 	$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/account.php">'.lang('My Account').'</a>';
         $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/account.php">'.lang('Account Details').'</a>';
+		$linkName[$counter][] = '<a href="#">'.lang('Document').'</a>';
         
         if (!empty($set->showDocumentsModule)) {
             $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/documents.php">'.lang('Documents').'</a>';
@@ -216,28 +215,46 @@ function adminMenu($onlyArray = false) {
         
         $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/account.php?act=payment&id='.$set->userInfo['id'].'">'.lang('Payment Method Details').'</a>';
         $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/account.php?act=commission">'.lang('Commission Structure').'</a>';
-        $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/billing.php">'.lang('Billing').'</a>';
-        $linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/PixelMonitor.php?act=new"').'>'.lang('Pixel Monitor').'</a>';
-		$linkName[$counter][] = '<a href="'.$set->terms_link.'" target="_blank">'.lang('Terms and Conditions').'</a>';
+        // $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/billing.php">'.lang('Billing').'</a>';
+        // $linkName[$counter][] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/PixelMonitor.php?act=new"').'>'.lang('Pixel Monitor').'</a>';
+		// $linkName[$counter][] = '<a href="'.$set->terms_link.'" target="_blank">'.lang('Terms and Conditions').'</a>';
+		
+		// $counter++;
+		// $groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/messages.php">'.lang('Messages').'</a>';
+		
+		$counter++;
+		$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/billing.php">'.lang('Billing').'</a>';
+
+		$counter++;
+		$groupName[$counter] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/PixelMonitor.php?act=new"').'>'.lang('Pixel Monitor').'</a>';
+
+		$counter++;
+		$groupName[$counter] = '<a href="'.$set->terms_link.'" target="_blank">'.lang('Terms and Conditions').'</a>';
 	
-	// if($set->isNetwork){
+		// if($set->isNetwork){
 		$openTickets = mysql_result(function_mysql_query("SELECT COUNT(id) FROM affiliates_tickets WHERE status='open' AND ticket_id='0' AND affiliate_id='".$set->userInfo['id']."'",__FILE__,__FUNCTION__),0);
 		$counter++;
-		$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/tickets.php">'.lang('Support').' ('.$openTickets.')</a>';
+		// $groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/tickets.php">'.lang('Support').' ('.$openTickets.')</a>';
+		$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/tickets.php">'.lang('Support').'</a>';
 	// }else{
 		// $groupName[] = '<a href="/affiliate/tickets.php">'.lang('Support').'</a>';
 	// }
-		$linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/tickets.php?act=new">'.lang('New Ticket').'</a>';
-		$linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/tickets.php">'.lang('Search Ticket').'</a>';
-		$linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/faq.php">'.lang('FAQ').'</a>';
+		// $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/tickets.php?act=new">'.lang('New Ticket').'</a>';
+		// $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/tickets.php">'.lang('Search Ticket').'</a>';
+		// $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/faq.php">'.lang('FAQ').'</a>';
 	
+		$counter++;
+		$groupName[$counter] = '<a href="'.$set->terms_link.'" target="_blank">'.lang('Logout').'</a>';
+
         if($onlyArray){
             return [
                 'group' => $groupName,
                 'list' => $linkName
             ];
         }
-		
+	
+	
+	
 	for ($i=0; $i<=count($groupName)-1; $i++) {
 		unset($secLevelMenu);
 		if (count($linkName[$i]) > 0) {
