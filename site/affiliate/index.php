@@ -93,7 +93,7 @@ switch ($act) {
 		
 		$pageTitle = lang('Home Screen - Dashboard');
 		$set->pageTitle = $pageTitle;
-
+		
 		if(!$from)	$from = date("d/m/Y 00:00:00");
 		if(!$to)	$to = date("d/m/Y 23:59:59");
 		
