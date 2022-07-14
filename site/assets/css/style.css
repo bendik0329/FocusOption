@@ -329,7 +329,7 @@ body.vertical-layout.vertical-menu.menu-collapsed  .main-menu .navigation > li >
     line-height: 26px;
     margin: 0;
     font-weight: bold;
-}
+} 
 .dashboard-aff-box .dashboard-aff-box-item:hover {
     border-color: #069731;
 }
@@ -411,10 +411,10 @@ text.highcharts-title {
     height: auto !important;
     margin-left: 12px;
 }
-.engine tr td select:focus-visible {
+select:focus-visible {
     outline: none;
 }
-.engine tr td input:focus-visible{
+input:focus-visible{
     outline: none;
 }
 
@@ -458,4 +458,237 @@ text.highcharts-title {
     color: #F37A20 !important;
     fill: #F37A20 !important;
 }
+
+.cart-report-wrp{position: relative;}
+.cart-report-wrp h2.title{
+	text-align: left;
+	letter-spacing: 0px;
+	color: #282560;
+	font-size: 14px;
+	line-height: 19px;
+	font-weight: 400;
+}
+.cart-report-wrp .cart-report-box {
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #F1F1F1;
+    border-radius: 5px;
+    padding: 20px;
+    height: 100%;
+    margin-bottom: 25px;
+}
+.cart-report-wrp .h-full{height: 100%;}
+.cart-report-wrp .cart-report-wrp{margin-bottom: 25px;}
+.cart-report-wrp  [class*="col-"]{
+    margin-bottom: 60px;
+}
+.your-account-manager .cart-report-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.your-account-manager .account-manager-list {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.your-account-manager .account-manager-list span {
+    width: 100px;
+    flex: 0 0 120px;
+    text-align: left;
+    font: normal normal normal 14px/19px Roboto;
+    letter-spacing: 0px;
+    color: #8F8F8F;
+}
+.your-account-manager .account-manager-list p {
+    margin: 0;
+    text-align: left;
+    font: normal normal normal 14px/19px Roboto;
+    letter-spacing: 0px;
+    color: #0E132B;
+    word-break: break-word;
+}
+.green-color {
+    color: #069731 !important;
+}
+.orange-color {
+    color: #F37A20 !important;
+}
+.account-manager-bottom p {
+    margin: 0;
+    text-align: left;
+    font: normal normal normal 12px/18px Roboto;
+    letter-spacing: 0px;
+}
+.performing-creative-table td span{width: 21px;height: 21px;display: block;margin: 0 auto;}
+.performing-creative-table td span img{width: 100%;height: 100%;object-fit: cover;}
+
+
+.performing-creative-table tr th {
+    background: #282560 !important;
+    border: 0 !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    font-weight: 400;
+    color: #fff;
+    padding: 7px 16px !important;
+}
+.performing-creative-table tr td {
+    border: 0 !important;
+    text-align: left;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    font-weight: 400;
+    letter-spacing: 0px;
+    color: #0E132B;
+    padding: 15px 16px;
+}
+.performing-creative-table tr:first-child th:first-child {
+    border-top-left-radius: 5px;
+}
+.performing-creative-table tr:first-child th:last-child {
+    border-top-right-radius: 5px;
+}
+.performing-creative-table tr:last-child th:first-child {
+    border-bottom-left-radius: 5px;
+}
+.performing-creative-table tr:last-child th:last-child {
+    border-bottom-right-radius: 5px;
+}
+.performing-creative-table tr:nth-child(even) td{
+	background: #FCFCFC;
+}
+.performing-creative-table .table th, 
+.performing-creative-table .table td {vertical-align: middle;
+}
+.cart-report-wrp .session-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	margin-bottom: 25px;
+}
+
+.cart-report-wrp .session-bar p {
+    margin: 0;
+    color: #0E132B;
+    font-size: 14px;
+    line-height: 19px;
+}
+.cart-report-wrp select {
+    text-align: left;
+    letter-spacing: 0px;
+    color: #282560;
+    font-size: 12px;
+    line-height: 16px;
+    border: 0;
+    font-weight: 400;
+}
+.cart-report-wrp select:focus-visible {
+    outline: none;
+}
+.breadcrumb li a {font-size: 16px;line-height: 21px;}
+.breadcrumb li:first-child a {
+    color: #8F8F8F;
+}
+.breadcrumb li+li::before {
+    content: '>>';
+}
 /*Dashboard Page End*/
+/* Creative Page Start */
+.creative-page-filter{
+	position: relative;
+	margin-bottom: 40px;
+}
+.creative-page-filter .filter-name h3{
+color: #0E132B;
+font-size: 12px;
+line-height: 16px;
+margin: 0;
+text-align: left;
+}
+.creative-page-filter .filter-name select{
+	border-radius: 5px;
+    height: auto;
+    border: 1px solid #F1F1F1;
+    padding: 9px 16px;
+	font-size: 12px;
+	line-height: 16px;
+	font-weight: normal;
+    letter-spacing: 0px;
+    color: #282560;
+	width: 100%;
+}
+.creative-page-filter .search-wrp {
+    display: flex;
+    align-items: center;
+	justify-content: flex-end;
+    margin-top: 16px;
+}
+.creative-page-filter .search-wrp p {
+    color: #0E132B;
+    font-size: 14px;
+    line-height: 19px;
+    margin: 0;
+    text-align: left;
+    padding-right: 19px;
+}
+
+.creative-page-filter .search-wrp .search-box input {
+    border-radius: 5px;
+    height: auto;
+    border: 1px solid #F1F1F1;
+    padding: 9px 16px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    color: #282560;
+    width: 100%;
+}
+
+.creative-page-filter .search-wrp .search-box {
+    position: relative;
+}
+
+.creative-page-filter .search-wrp .search-box button {
+    border: 0;
+    background: #fff;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+.creatives-list-filter{margin-bottom: 25px;}
+.creatives-list-filter .creatives-list-filter-btn a {
+    border: 1px solid #282560;
+    border-radius: 5px;
+    font: normal normal normal 14px/19px Roboto;
+    letter-spacing: 0px;
+    color: #282560;
+    padding: 10px 27px;
+	margin-right: 12px;
+	display: inline-block;
+}
+.creatives-list-filter .creatives-list-filter-btn a:hover{
+	background: #282560;
+	color: #fff;
+}
+.creatives-list-filter .creatives-list-filter-opt{
+	text-align: right;
+}
+.creatives-list-filter .creatives-list-filter-opt select {
+    border-radius: 5px;
+    height: auto;
+    border: 1px solid #F1F1F1;
+    padding: 9px 16px;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    color: #282560;
+	margin-left: 12px;
+    width: auto;
+}
+/* Creative Page End */
+

@@ -1,5 +1,7 @@
 * {
-    font-family: 'Lato';
+    
+    font-family: 'Roboto', sans-serif;
+    
 }
 .header-navbar ul.accordian li i:before, ul li i:after {
     background-color: transparent !important;
@@ -202,10 +204,10 @@ thead tr:first-child td {
     background-color: #F1F1F1;
 } */
 
-thead tr:first-child th {
+/* thead tr:first-child th {
     padding: 10px 23px !important;
     background-color: #F1F1F1 !important;
-}
+} */
 
 table.tablesorter tbody tr.odd td {
     background: #fff !important;

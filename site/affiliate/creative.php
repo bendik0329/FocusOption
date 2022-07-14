@@ -204,6 +204,96 @@ $typesArray = array();
 
 
 $set->content .= getImageGrowerScript();
+
+$set->content .= '<div class="creative-page-filter">
+					<div class="row align-items-center">
+						<div class="col-lg-8">
+							<div class="row">
+								<div class="col-lg-3">
+									<div class="filter-name">
+										<h3>Creative type:</h3>
+										<select>
+											<option>All</option>
+											<option>Image</option>
+											<option>Text Link</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-3">
+									<div class="filter-name">
+										<h3>Category:</h3>
+										<select>
+											<option>All</option>
+											<option>Free spins</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="filter-name">
+										<h3>Language:</h3>
+										<select>
+											<option>All</option>
+											<option>Arabic</option>
+											<option>Chinese</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="filter-name">
+										<h3>Size:</h3>
+										<select>
+											<option>All</option>
+											<option>728 X 90  (4)</option>
+										</select>
+									</div>
+								</div>
+								<div class="col-lg-2">
+									<div class="filter-name">
+										<h3>Promotion:</h3>
+										<select>
+											<option>All</option>
+											<option>General</option>
+										</select>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-lg-4">
+							<div class="search-wrp">
+								<p>Search creative</p>
+								<div class="search-box">
+									<input type="text" placeholder="">
+									<button><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="creatives-list-filter">
+					<div class="row">
+						<div class="col-md-6">
+							<div class="creatives-list-filter-btn">
+								<a href="#">Show Creative</a>
+								<a href="#">Reset Search</a>
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="creatives-list-filter-opt">
+								<select>
+									<option>Latest</option>
+									<option>All</option>
+								</select>
+								<select>
+									<option>100 Entries</option>
+									<option>All</option>
+								</select>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				';
+			
 		
 		
 		$set->content .= '<form method="get">
@@ -215,7 +305,7 @@ $set->content .= getImageGrowerScript();
 			$set->content .= '<td  class="blueText" style="padding-bottom: 10px;">' . lang('Switch Merchant') . ':</td>';
 						}
 						
-			$set->content .= '<td align="left" class="blueText">'.lang('Creative Type').':</td>
+			$set->content .= '<td align="left" class="blueText ssss">'.lang('Creative Type').':</td>
 								<td align="left" class="blueText">'.lang('Category').':</td>
 								<td align="left" class="blueText">'.lang('Language').':</td>
 									<td style="width:20px";></td>
@@ -284,6 +374,11 @@ $set->content .= getImageGrowerScript();
 							
 							</form>
 						<hr />
+
+
+						
+
+
 						<div class="normalTableTitle">'.lang('Creatives List').'</div>
 						<table class="normal" width="100%" border="0" cellpadding="2" cellspacing="0">
 							<thead>

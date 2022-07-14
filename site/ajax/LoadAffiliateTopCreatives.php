@@ -223,10 +223,10 @@ select mc.id as banner_id, mc.merchant_id  from merchants_creative mc where 1=1 
 			// $getBanner = dbGet($bnrww['banner_id'],"merchants_creative");
 			$merchantInfo = dbGet($bnrww['merchant_id'],"merchants");
 			$listBanners .= '<tr '.($l % 2 ? 'class="trLine"' : '').'>
-							<td>'.lang(ucwords($bnrww['type'])).'</td>
-							<td align="center" class="img-wrap">'.($bnrww['type']=='link' ? $bnrww['title'] :  getFixedSizeBanner($bnrww['file'],50,50)).'</td>
 							<td><a href="/affiliate/creative.php?merchant='.$merchantInfo['id'].'">'.$merchantInfo['name'].'</a></td>
 							<td>'.lang(listLangs($bnrww['language_id'],1)).'</td>
+							<td>'.lang(ucwords($bnrww['type'])).'</td>
+							<td align="center" class="img-wrap">'.($bnrww['type']=='link' ? $bnrww['title'] :  getFixedSizeBanner($bnrww['file'],50,50)).'</td>
 							<td>'.(($bnrww['width']>0 && $bnrww['height']>0) ? $bnrww['width'].'x'.$bnrww['height'] : '').'</td>
 							<!--td><a href="javascript:void(0);" onclick="NewWin(\'/affiliate/creative.php?act=get_code&id='.$bnrww['id'].'\',\'getCode\',\'900\',\'500\',\'1\');">'.lang('Get Tracking Code').'</a></td-->
 							<td><a href="'.$set->webAddress. 'affiliate/creative.php?act=get_code&id='.$bnrww['id'].'" class="inline cboxElement">'.lang('Get Tracking Code').'</a></td>
