@@ -145,7 +145,10 @@ switch ($act) {
 							<td align="left" valign="top">'.$adminInfo['first_name'].' '.$adminInfo['last_name'].'</td>
 							<td align="left" valign="top" width="6%">'. ($adminInfo['level']==""?'Affiliate':ucwords($adminInfo['level'])) .'</td>
 							<td width="70%" align="left" valign="top">'.nl2br($ticketww['text']).'</td>
-						</tr>';
+						</tr>
+						
+						
+						';
 			$i++;
 			}
 		
@@ -222,24 +225,46 @@ switch ($act) {
 				table,tr,td,div.ticket {
 					font-family: arial;
 					}
-			</style>';
+			</style>
+			
+			
+			
+			';
 		theme();
 		break;
 	
 	default:
 		
-		$set->pageTitle = lang('My Tickets');
+		$set->pageTitle = lang('Support');
 		
+		$pageTitle = lang('Support');
+		$set->breadcrumb_title =  lang($pageTitle);
+			$set->pageTitle = '
+			<style>
+			.pageTitle{
+				padding-left:0px !important;
+			}
+			</style>
+			<ul class="breadcrumb">
+				<li><a href="'.$set->SSLprefix.'affiliate/">'.lang('Dashboard').'</a></li>
+				<li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
+				<li><a style="background:none !Important;"></a></li>
+			</ul>';
 		$set->content .= '<div class="btn"><a href="affiliate/tickets.php?act=new">'.lang('Add New').'</a></div>';
 		$i=0;
 		if ($status) {
 			$where = " AND at.status='".$status."'";
-			$set->pageTitle .= ' ('.strtoupper($status).')';
+			$set->pageTitle .= ' ('.strtoupper($status).')
+			
+			
+
+			';
 			}
 			
 		$q = "SELECT at.*, merchants.name AS merchantName FROM ".$appTable." at LEFT JOIN merchants ON at.merchantID=merchants.id WHERE at.ticket_id='0' AND at.affiliate_id='".$set->userInfo['id']."' ".$where." ORDER BY at.id DESC";
 		$ticketqq=function_mysql_query($q,__FILE__);
 //		die ($q);
+
 		while ($ticketww=mysql_fetch_assoc($ticketqq)) {
 			if ($ticketww['admin_id']) $adminInfo = dbGet($ticketww['admin_id'],"admins");
 				else $adminInfo = dbGet($ticketww['affiliate_id'],"affiliates");
@@ -249,77 +274,124 @@ switch ($act) {
 				else $bg = 'FFFFFF';
 			if ($readed > 0) $bg = 'EDFFF5';
 			$allTickets .= '<tr style="background: #'.$bg.';">
-							<td align="center">'.strtoupper($ticketww['status']).'</td>
 							<td align="center">'.$ticketww['id'].'</td>
 							<td align="center">'.date("d/m/Y",strtotime($ticketww['rdate'])).'</td>
 							<td align="center">'.date("H:i:s",strtotime($ticketww['rdate'])).'</td>
 							<td>'.$ticketww['subject'].'</td>
 							'.($set->isNetwork ? '<td>'.$ticketww['merchantName'].'</td>' : '').'
 							<td align="center">'.($last_update['last_update'] != "" ? date("d/m/Y H:i:s",strtotime($last_update['last_update'])) : '-').'</td>
+							<td align="center">'.strtoupper($ticketww['status']).'</td>
 							<td align="center"><a href="'.$set->SSLprefix.$set->basepage.'?act=view&id='.$ticketww['id'].'">'.lang('View / Update').'</a></td>
-						</tr>';
+						</tr> 
+						
+						
+						
+						
+						';
 			$i++;
 			}
-		$set->content .= '
-			<div align="right" style="margin-bottom: 10px;"><b>'.lang('Status').':</b>
-				<select name="status" onchange="location.href=\''.$set->SSLprefix.$set->basepage.'?status=\'+this.value;">
-					<option value="" '.(!$status ? 'selected="selected"' : '').'>'.lang('All').'</option>
-					<option value="open" '.($status == "open" ? 'selected="selected"' : '').'>'.lang('Open').'</option>
-					<option value="proccess" '.($status == "proccess" ? 'selected="selected"' : '').'>'.lang('In Process').'</option>
-					<option value="waiting" '.($status == "waiting" ? 'selected="selected"' : '').'>'.lang('Waiting for Affiliate Response').'</option>
-					<option value="close" '.($status == "close" ? 'selected="selected"' : '').'>'.lang('Closed').'</option>
-				</select>
+			$set->content .= '
+			<div class="Suport-page">
+				<div class="suportpage-top">
+					<div class="suport-search">
+						<div class="billing-page-id pb-0">
+							<div class="search-payment">
+								<label>Search Payment ID<label>
+							</div>
+							<div class="SearchPayment-input">
+								<input type="text">
+								<p><i class="fa fa-search"></i></p>
+							</div>
+						</div>
+					</div>
+					<div class="faq-section">
+						<div class="faq-page">
+							<div class="faq-link">
+								<a href="'.$set->SSLprefix.'affiliate/faq.php"> F A Q </a>
+							</div>
+							<div class="add-new-ticket">
+								<button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+								Add new ticket
+							</button>
+							
+						  <!-- Modal -->
+						  <div class="modal fade HtmlCode-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+						  <div class="modal-dialog modal-dialog-centered" role="document">
+							<div class="modal-content html-modal-content">
+							  <div class="modal-header html-model-header">
+								<h5 class="modal-title" id="exampleModalLongTitle">Open New Ticket</h5>
+								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								  <span aria-hidden="true">&times;</span>
+								</button>
+							  </div>
+							  <div class="modal-body html-model-body">
+								<div class="html-code-body">
+								  <div class="ticket-modal">
+									 <div class="TicketSubject">
+										<label>Ticket Subject</label>
+										<input type="text"></input>
+									</div> 
+									<div class="Youremail">
+										<label>Your email</label>
+										<input type="text"></input>
+									</div> 
+								  </div>
+								  <div class="text-area-div">
+									  <label>Ticket Subject</label>
+									  <textarea></textarea>
+								  </div>
+								</div>
+							  </div>
+							  <div class="modal-footer html-model-footer">
+								<div class="html-code-footer-button support-modal-button">
+								  
+								  <button>Send Ticket</button>
+								  
+								</div>
+							  </div>
+							</div>
+						  </div>
+						</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="support-table">
+				<div class="row">
+				<div class="col-md-12">
+					<div class="top-performing-creative h-full">
+						<h2 class="specialTableTitle"></h2>
+							<div class="performing-creative-table">
+								<div class="table-responsive">
+									<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+										<thead>
+											<tr>
+											<th scope="col">#</th>
+											<th scope="col">Ticket ID</th>
+											<th scope="col">Date</th>
+											<th scope="col">Time</th>
+											<th scope="col">Ticket Subject</th>
+											'.($set->isNetwork ? '<th style="text-align:">'.lang('Merchant').'</th>' : '').'
+											<th scope="col">Last Response</th>
+											<th scope="col">Current status</th>
+											<th scope="col">Action</th>
+											<th scope="col"></th>
+											</tr>
+										</thead>
+										<tbody>
+										'.($allTickets ? $allTickets : '<tr><td align="center" colspan="7"><b>'.lang('No Tickets').'</b></td></tr>').'
+											
+									
+										</tbody>
+									</table>
+								</div>
+							</div>
+					</div>
+				</div>
 			</div>
-			<div class="normalTableTitle" style="width: 100%;">'.lang('My Tickets').'</div>
-			<div style="background: #F8F8F8; padding: 10px;">
-				<table width="100%" class="normal" border="0" cellpadding="6" cellspacing="1" style="background: #DDDDDD;">
-					<thead><tr>
-						<th>'.lang('Current Status').'</th>
-						<th>'.lang('Ticket ID').'</th>
-						<th>'.lang('Date').'</th>
-						<th>'.lang('Time').'</th>
-						<th style="text-align: left;">'.lang('Ticket Subject').'</th>
-						'.($set->isNetwork ? '<th style="text-align:">'.lang('Merchant').'</th>' : '').'
-						<th>'.lang('Last Response').'</th>
-						<th>'.lang('Actions').'</th>
-					</tr></thead><tbody>
-						'.($allTickets ? $allTickets : '<tr><td align="center" colspan="7"><b>'.lang('No Tickets').'</b></td></tr>').'
-					</tbody>
-				</table>
+				</div>
 			</div>
-			<style type="text/css">
-				table,tr,td,div.ticket {
-					font-family: arial;
-					}
-					div.btn{
-	background: url("'.$set->SSLprefix.'images/btn.jpg");
-	color: #2A79CB;
-	padding-left: 30px;
-	font-size: 12px;
-	font-family: Arial;
-	font-weight: bold;
-	width: 150px;
-	height: 28px;
-	line-height: 28px;
-	text-align: left;
-	cursor: pointer;
-	margin-bottom: 5px;
-	}
-div.btn:hover {
-	background: url("'.$set->SSLprefix.'images/btn.jpg");
-	color: #1C5794;
-	padding-left: 30px;
-	font-size: 12px;
-	font-family: Arial;
-	font-weight: bold;
-	width: 150px;
-	height: 28px;
-	line-height: 28px;
-	text-align: left;
-	cursor: pointer;
-	margin-bottom: 5px;
-	}
-			</style>';
+';
 		theme();
 		break;
 	}

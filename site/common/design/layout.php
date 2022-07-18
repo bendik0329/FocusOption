@@ -553,9 +553,9 @@ if (!defined('SITE_INCLUDE_START')) {
             ?>
                 <div class="content-header row">
                     
-                    <div class="content-header-left col-6 mb-2 breadcrumb-new">
+                    <div class="content-header-left col-12 mb-2 breadcrumb-new">
                         <!-- <h3 class="content-header-title mb-0 d-inline-block"><?=$pageTitle?></h3> -->
-                        <div class="row breadcrumbs-top d-inline-block">
+                        <div class="row breadcrumbs-top ">
                             <div class="breadcrumb-wrapper col-12">
                               <?=$set->pageTitle?>
                             </div>

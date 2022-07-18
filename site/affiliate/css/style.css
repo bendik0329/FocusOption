@@ -193,7 +193,7 @@ input[type=submit], input[type=button] {
     color: #fff;
 }
 
-.breadcrumb li:nth-child(2) a {
+.breadcrumb :nth-last-child(2) a {
     color: #282560;
     font-weight: 600;
 }

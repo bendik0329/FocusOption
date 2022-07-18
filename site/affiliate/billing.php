@@ -23,8 +23,87 @@ switch ($act) {
 				<li><a href="'.$set->SSLprefix.'affiliate/">'.lang('Dashboard').'</a></li>
 				<li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
 				<li><a style="background:none !Important;"></a></li>
-			</ul>';
+			</ul>
 			
+			
+
+			<div class="billing-page">
+				<div class="billing-page-id">
+					<div class="search-payment">
+						<label>Search Payment ID<label>
+					</div>
+					<div class="SearchPayment-input">
+						<input type="text">
+						<p><i class="fa fa-search"></i></p>
+					</div>
+				</div>
+
+				<div class="billing-page-table">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="top-performing-creative h-full">
+								<h2 class="specialTableTitle"></h2>
+									<div class="performing-creative-table">
+										<div class="table-responsive">
+											<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+												<thead>
+													<tr>
+													<th scope="col">#</th>
+													<th scope="col">Payment ID</th>
+													<th scope="col">Month</th>
+													<th scope="col">Total FTD</th>
+													<th scope="col">Amount</th>
+													<th scope="col">Status</th>
+													<th scope="col">Action</th>
+													</tr>
+												</thead>
+												<tfoot class="topCreativesCls">
+													<tr>
+														<td scope="col">1</td>
+														<td scope="col">222222222</td>
+														<td scope="col">January 2021</td>
+														<td scope="col">$300.00</td>
+														<td scope="col">$300.00</td>
+														<td scope="col">------</td>
+														<td scope="col">------</td>
+													</tr>
+													<tr>
+														<td scope="col">1</td>
+														<td scope="col">222222222</td>
+														<td scope="col">January 2021</td>
+														<td scope="col">$300.00</td>
+														<td scope="col">$300.00</td>
+														<td scope="col">------</td>
+														<td scope="col">------</td>
+													</tr>
+													<tr>
+														<td scope="col">1</td>
+														<td scope="col">222222222</td>
+														<td scope="col">January 2021</td>
+														<td scope="col">$300.00</td>
+														<td scope="col">$300.00</td>
+														<td scope="col">------</td>
+														<td scope="col">------</td>
+													</tr>
+												</tfoot>
+											</table>
+										</div>
+									</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</div>
+
+			';
+			
+			
+
+
+
+
 		$qq=function_mysql_query("SELECT * FROM ".$appTable." WHERE affiliate_id='".$set->userInfo['id']."' ORDER BY id DESC",__FILE__);
 		while ($ww=mysql_fetch_assoc($qq)) {
 			$l++;
