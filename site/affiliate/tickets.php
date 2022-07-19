@@ -250,7 +250,7 @@ switch ($act) {
 				<li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
-		$set->content .= '<div class="btn"><a href="affiliate/tickets.php?act=new">'.lang('Add New').'</a></div>';
+		// $set->content .= '<div class="btn"><a href="affiliate/tickets.php?act=new">'.lang('Add New').'</a></div>';
 		$i=0;
 		if ($status) {
 			$where = " AND at.status='".$status."'";
@@ -290,6 +290,19 @@ switch ($act) {
 						';
 			$i++;
 			}
+
+			$userMercants = $set->userInfo['merchants'];
+			
+			$userMercants = str_replace("|",",",$userMercants);		
+
+			$sql = 'SELECT id,name FROM merchants WHERE id in ('. $userMercants .') and valid=1';
+
+			$merchants = function_mysql_query($sql,__FILE__);
+			$merchantOptions = '<option value=-1>Select Merchant</option>';
+			while($row = mysql_fetch_assoc($merchants)){
+				$merchantOptions.='<option value="'.$row['id'].'">'.$row['name'].'</option>';
+			}
+
 			$set->content .= '
 			<div class="Suport-page">
 				<div class="suportpage-top">
@@ -316,46 +329,56 @@ switch ($act) {
 							
 						  <!-- Modal -->
 						  <div class="modal fade HtmlCode-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-						  <div class="modal-dialog modal-dialog-centered" role="document">
-							<div class="modal-content html-modal-content">
-							  <div class="modal-header html-model-header">
-								<h5 class="modal-title" id="exampleModalLongTitle">Open New Ticket</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								  <span aria-hidden="true">&times;</span>
-								</button>
-							  </div>
-							  <div class="modal-body html-model-body">
-								<div class="html-code-body">
-								  <div class="ticket-modal">
-									 <div class="TicketSubject">
-										<label>Ticket Subject</label>
-										<input type="text"></input>
-									</div> 
-									<div class="Youremail">
-										<label>Your email</label>
-										<input type="text"></input>
-									</div> 
-								  </div>
-								  <div class="text-area-div">
-									  <label>Ticket Subject</label>
-									  <textarea></textarea>
-								  </div>
-								</div>
-							  </div>
-							  <div class="modal-footer html-model-footer">
-								<div class="html-code-footer-button support-modal-button">
-								  
-								  <button>Send Ticket</button>
-								  
-								</div>
-							  </div>
-							</div>
-						  </div>
-						</div>
+						  	<div class="modal-dialog modal-dialog-centered" role="document">
+								<div class="modal-content html-modal-content">
+							  		<div class="modal-header html-model-header">
+										<h5 class="modal-title" id="exampleModalLongTitle">Open New Ticket</h5>
+										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								  			<span aria-hidden="true">&times;</span>
+										</button>
+							  		</div>
+								  	<div class="modal-body html-model-body">
+								  	<form action="'.$set->SSLprefix.$set->basepage.'" method="post" '.($set->isNetwork ? 'onSubmit="if($(\'#merchantIDSB\').val()==-1){ alert(\'Please select a merchant\'); return false; } return true;"' : '').'>
+
+										<div class="html-code-body">
+										'.($set->isNetwork ? '
+											<div>
+												<label '.err('subject').'>'.lang('Merchant:').':</label>
+												<select id="merchantIDSB" name="db[merchantID]" style="width: 610px;" >'.$merchantOptions.'</select>
+											</div>' : '').'
+										  	<div class="ticket-modal">
+												<div class="TicketSubject">
+													<label '.err('subject').'>Ticket Subject</label>
+													<input type="text"></input>
+												</div> ';
+												if ($_SESSION['isam']==0) {
+														$set->content .= '
+														<div class="Youremail">
+															<label class="label-email">Your email</label>
+															<input type="text" name="db[reply_email]" value="'.$set->userInfo['mail'].'" /> <span class="modal-span">'.lang('Please verify your current e-mail address in order to get notifications').'</span>'.
+														'</div>'
+														; 
+												}
+											$set->content .= '
+										  	</div>
+										  	<div class="text-area-div">
+												<label '.err('text').'>Ticket Subject</label>
+											  	<textarea></textarea>
+										  	</div>
+										</div>
+							  		</div>
+							  	<div class="modal-footer html-model-footer">
+									<div class="html-code-footer-button support-modal-button">
+								  		<button type="submit" name="new_ticket" class="new_ticket">Send Ticket</button>
+									</div>
+							  	</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
 				<div class="support-table">
 				<div class="row">
 				<div class="col-md-12">
@@ -379,7 +402,7 @@ switch ($act) {
 											</tr>
 										</thead>
 										<tbody>
-										'.($allTickets ? $allTickets : '<tr><td align="center" colspan="7"><b>'.lang('No Tickets').'</b></td></tr>').'
+										'.($allTickets ? $allTickets : '<tr><td colspan="7" style="text-align: center;"><b>'.lang('No Tickets').'</b></td></tr>').'
 											
 									
 										</tbody>

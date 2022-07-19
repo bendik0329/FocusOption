@@ -1243,6 +1243,7 @@ border-radius: 10px !important;
     color: #0E132B;
 }
 
+
 /* Sub Affiliation Creative Materials */
 
 .sub-search-section .search-wrp{
@@ -1295,4 +1296,10 @@ border-radius: 10px !important;
     .sub-creative-img .form-group{
         margin-top: 10px;
     }
+}
+.modal-span{
+    font-size: 10px;
+}
+.label-email{
+    padding-top: 11px;
 }
