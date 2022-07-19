@@ -740,7 +740,7 @@ text-align: left;
     margin-bottom: 13px;
 }
 .creative-copy-link, .creative-details, .creative-img{
-    vertical-align:baseline;
+    vertical-align:inherit !important;
 }
 .copy-link-input p {
     font-size: 12px;
@@ -1157,11 +1157,17 @@ margin-bottom: 12px;
 /* .TicketSubject{
     display: grid;
     width: 100%;
+}*/
+.TicketSubject{
+    max-width: 320px;
+    width: 100%;
 }
 .Youremail{
     display: grid;
+    max-width: 320px;
     width: 100%;
-} */
+   
+} 
 .text-area-div label{
     font-size: 12px;
     font-weight: normal;
@@ -1169,7 +1175,10 @@ margin-bottom: 12px;
     color:#0E132B;
     margin-bottom: 12px;
 }
-
+.question span.plus {
+    width: 12px;
+    text-align: center;
+}
 @media (max-width:767px) {
     .ticket-modal{
         display: block;
@@ -1303,3 +1312,279 @@ border-radius: 10px !important;
 .label-email{
     padding-top: 11px;
 }
+
+/* Account-Details */
+
+.ac-details .nav-link{
+    color: #8F8F8F;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight: 500;
+    border: none;
+    padding: 0 !important;
+    padding-bottom: 10px !important;
+}
+.ac-details .nav-tabs{
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #DCDCDC;
+}
+.ac-details .nav-item{
+    margin: 0 39px 0 0;
+}
+.ac-details .nav-link.active{
+    color: #0E132B;
+    border-bottom: 4px solid #F37A20;
+    box-shadow: 0px 3px 3px -2px #f37a207a;
+}
+.ac-details-tab {
+    background: #FCFCFC;
+    border-radius: 5px;
+    padding: 20px;
+    margin-top: 20px;
+}
+.ac-details-tab .tab-input-acc label{
+    font-size: 12px;
+    line-height:16px;
+    color: #0E132B;
+    margin-bottom: 12px;
+}
+.ac-details-tab .tab-input-acc input{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+}
+.tab-input-acc{
+    margin-bottom: 20px;
+}
+.save-button button{
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #fff;
+    padding:9px 55px;
+    background: #282560;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+.tac-check-acc{
+    margin-top: 30px;
+}
+.tab-acc-check-box label{
+    font-size: 12px;
+    line-height: 16px;
+    color: #0E132B;
+    margin-bottom: 0;
+    margin-left: 40px;
+}
+.tab-acc-check-box{
+    margin-left: 18px;
+}
+.custom-control-label::before, 
+.custom-control-label::after {
+    top: .8rem;
+    width: 1.25rem;
+    height: 1.25rem;
+}
+.tab-acc-check-box input{
+    width: 30px;
+    height: 30px;
+}
+.form-check-input {
+    position: absolute;
+    margin-top: -0.7rem;
+    margin-left: -0.25rem;
+}
+button:focus{
+    outline: none;
+}
+
+
+
+.salutation-check-box input[type="radio"] {
+    appearance: none;
+    display: none;
+}
+
+.salutation-check-box label {
+    /* font-family: "Open Sans", sans-serif;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: inherit;
+    width: 80px;
+    height: 40px;
+    text-align: center;
+    border-radius: 9999px;
+    overflow: hidden;
+    transition: linear 0.3s;
+    color: #6e6e6edd; */
+
+    font-size: 14px;
+    line-height: 19px;
+    color: #0E132B;
+    padding: 9px 35px;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    margin-right: 12px;
+    margin-bottom: 20px;
+}
+
+.salutation-check-box input[type="radio"]:checked + label {
+    color: #fff;
+    transition: 0.3s;
+    background: #282560;
+    border-radius: 5px;
+}
+ 
+.salutation{
+    display: flex;
+    align-items: center;
+}
+
+
+.select-ul ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    flex-wrap: wrap;
+    max-width: 210px;
+    height: 314px;
+    background: #fff;
+    border: 1px solid #DCDCDC;
+border-radius: 5px;
+padding: 12px;
+overflow: scroll;
+overflow-x: hidden;
+}
+.select-ul ul li{
+    height:fit-content;
+    word-break: break-all;
+}
+.market-select{
+    display: flex;
+    align-items: center;
+}
+.a-button button{
+    background: #282560 0% 0% no-repeat padding-box;
+border-radius: 5px;
+color: #fff;
+font-size: 36px;
+border: none;
+margin: 6px;
+padding: 0 20px;
+}
+.select-ul{
+    max-width: 230px;
+    width: 100%;
+}
+
+
+
+
+/* width */
+.select-ul ul::-webkit-scrollbar {
+    width: 10px;
+    margin: 10px;
+    border-radius:10px;
+  }
+  
+  /* Track */
+  .select-ul ul::-webkit-scrollbar-track {
+    background: #f1f1f1 !important; 
+    margin: 10px;
+    border-radius:10px;
+  }
+   
+  /* Handle */
+  .select-ul ul::-webkit-scrollbar-thumb {
+    background: #282560 !important; 
+    border-radius:10px;
+  }
+  
+  /* Handle on hover */
+  .select-ul ul::-webkit-scrollbar-thumb:hover {
+    background: #282560 !important; 
+    border-radius: 10px;
+  }
+
+
+  /* PixelMonitor */
+
+  .pixelmonitor-div{
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+  }
+  .pixelmonitor-div .search-wrp p{
+    color: #282560;
+  }
+  .new-pixel-moniter button{
+    padding:9px 23px;
+    font-size: 14px;
+    line-height: 19px;
+    color:#fff;
+    background: #282560;
+border-radius: 5px;
+  }
+  .pixelmonitor-div{
+    margin-top: 0 !important;
+    margin-bottom: 16px;
+  }
+  .span-green span{
+    width: 20px !important;
+    height: 20px !important;
+    background-color:#14DF6C;
+    border-radius: 100px;
+  }
+  .text-align-center{
+    text-align: center !important;
+  }
+  .table-input{
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+padding:3px;
+  }
+
+  .pixel-table table td select{
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+padding:11px 12px;
+font-size: 12px;
+line-height: 16px;
+color: #282560;
+  }
+  .pixel-table table td .form-group{
+    margin: 0 !important;
+  }
+  .pixel-table table td{
+    padding: 15px 10px !important;
+  }
+  .pixel-table table th{
+    padding: 15px 10px !important;
+  }
+  .pixel-table table td .dropdown button::after{
+    display: none;
+  }
+  .pixel-table table td .dropdown button{
+    background-color: transparent;
+    border: none;
+  }
+  .pixel-table table td .dropdown button i{
+    font-size: 20px;
+    margin: 0;
+    color: #282560;
+  }
+  /* .pixel-table table td .dropdown-menu{
+    transform: translate3d(-101px, 44px, 0px) !important;
+  }
+  .pixel-table table td .dropdown{
+    z-index: 999999;
+    display: block;
+    position: absolute;
+  } */
