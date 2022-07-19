@@ -1305,18 +1305,134 @@ $codelink = '<br />
 		while ($ww=mysql_fetch_assoc($qq)) {
 			$l++;
 			$totalTraffic = mysql_fetch_assoc(function_mysql_query("SELECT SUM(views) AS totalViews, SUM(clicks) AS totalClicks FROM sub_stats WHERE affiliate_id='".$set->userInfo['id']."' AND banner_id='".$ww['id']."'",__FILE__));
-			$allCreative .= '<tr '.($l % 2 ? 'class="trLine"' : '').'>
-							<td>'.$ww['id'].'</td>
-							<!--td><a href="javascript:void(0);" onclick="NewWin(\''.$set->SSLprefix.$set->basepage.'?act=get_code&id='.$ww['id'].'\',\'editbanner\',\'1000\',\'800\',\'1\');">Get Tracking Code</a></td-->
-							<td><a href="'.$set->SSLprefix.$set->basepage.'?act=get_code&id='.$ww['id'].'" class="inline">'.lang('Get Tracking Code').'</a></td>
-							<td>'.$ww['title'].'</td>
-							<td align="center" class="img-wrap">'.($ww['type'] == "image" || $ww['type'] == "flash" ? getFixedSizeBanner($ww['file'],50,50) : '<a href="javascript:void(0);">'.$ww['title'].'</a>').'</td>
-							<td align="center">'.$ww['type'].'</td>
-							<td align="center" class="dimantion-wrap">'.($ww['type'] == "link" ? '' : $ww['width'].'x'.$ww['height']).'</td>
-							<td align="center">'.$ww['url'].'</td>
-							<td align="center">'.number_format($totalTraffic['totalViews'],0).'</td>
-							<td align="center">'.number_format($totalTraffic['totalClicks'],0).'</td>
-						</tr>';
+			$tag='a'.$set->userInfo['id'].'-b'.$ww['id'].'-p'.$setProfile; // Creat CTag
+					
+			if ($ww['type'] == "link") {
+				$srcFile = $ww['title'];
+				$link = $set->webAddress.'click_sub.php?ctag='.$tag;
+				$code = '<!-- '.$set->webTitle.' Affiliate Code -->
+				<a href="'.$link.'" target="_blank">'.$ww['title'].'</a>
+				<!-- // '.$set->webTitle.' Affiliate Code -->';
+				$preview = '<a href="'.$link.'" target="_blank">'.$ww['title'].'</a>';
+			}
+			else if ($ww['type'] == "script") {
+				$srcFile = 'Click Here';
+				$link = $set->webAddress.'sub.g?ctag='.$tag;
+				$code = '<!-- '.$set->webTitle.' Affiliate Code -->
+				<iframe src="'.$link.'" width="'.$ww['width'].'" height="'.$ww['height'].'" frameborder="0" scrolling="no"></iframe>
+				<!-- // '.$set->webTitle.' Affiliate Code -->';
+				$preview = $ww['scriptCode'];
+			} 
+			else {
+				$link = $set->webAddress.'sub.g?ctag='.$tag;
+				$code = '<!-- '.$set->webTitle.' Affiliate Code -->
+				<script type= "text/javascript" language="javascript" src="'.$link.'"></script>
+				<!-- // '.$set->webTitle.' Affiliate Code -->';
+				$preview = getBanner($ww['file'],80);
+			}
+			if ($ww['type'] == "image") $srcFile = '<img src="'.$set->webAddress.$ww['file'].'" width="173" height="173" alt="" />';
+			$codelink = '<br />';
+			$allCreative .= '<div class="show-creative-table">
+										<div class="table-responsive"><table class="creative-table">
+										<tfoot>
+										<tr>
+										<td class="creative-img">
+										'.$srcFile.'
+										</td>
+										<td class="creative-details">
+											<div class="creative-details-table">
+												<div class="creative-details-list">
+													<strong>Creative Name</strong>
+													<p>'.$ww['title'].'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Format</strong>
+													<p>'.($ww['type'] == "image" || $ww['type'] == "flash" ? getFixedSizeBanner($ww['file'],50,50) : '<a href="javascript:void(0);">'.$ww['title'].'</a>').'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Landing URL</strong>
+													<p>'.$ww['url'].'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Size (WxH)</strong>
+													<p>'.($ww['type'] == "link" ? '' : $ww['width'].'x'.$ww['height']).'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Impressions</strong>
+													<p>'.number_format($totalTraffic['totalViews'],0).'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Clicks</strong>
+													<p>'.number_format($totalTraffic['totalClicks'],0).'</p>
+												</div>
+											</div>
+										</td>
+										<td class="creative-copy-link">
+									<div class="copy-link">
+										<div class="copy-link-heading">
+											<h4>Click URL</h4>
+										</div>
+										<div class="copy-link-input">
+											<input type="text" name="" value="'.str_replace("sub.g","click_sub.php",$link).'" onclick="this.focus(); this.select();" />
+										</div>
+										<div class="copy-buttons">
+											<button type="button" class="ClickURL" onclick="return copy_url()">Copy Click URL <img src="../assets/images/img-new/copy.svg"></button>
+											<!-- <span class="custom-tooltip" id="custom-tooltip" style="display:none;">Copied!</span> -->
+											<button type="button" class="btn GetHTML" data-toggle="modal" data-target="#exampleModalCenter">
+												Get HTML code <span>&#60;/&#62;</span> 
+											  </button>
+											  
+											  <!-- Modal -->
+											  <div class="modal fade HtmlCode-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+												<div class="modal-dialog modal-dialog-centered" role="document">
+												  <div class="modal-content html-modal-content">
+													<div class="modal-header html-model-header">
+													  <h5 class="modal-title" id="exampleModalLongTitle">HTML code</h5>
+													  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													  </button>
+													</div>
+													<div class="modal-body html-model-body">
+													  <div class="html-code-body">
+													  <form method="get">
+														<div class="profile-div">
+															<div class="profile-section">
+																<div class="profile-lable">
+																	<input type="hidden" name="act" value="get_code" />
+																	<input type="hidden" name="id" value="'.$id.'" />
+																	<b>'.lang('Choose Profile').':</b> <br />
+																	<div class="profile-lable-input">
+																		<div class="form-group">
+																			<select class="form-control" id="exampleFormControlSelect1" name="profile_id" onchange="form.submit();"><option value="">'.lang('General').'</option>'.$listProfiles.'</select>
+																		</div>
+																	</div>
+																</div>
+															</div>
+														</div>
+														<div class="text-area-div">
+															<textarea onclick="this.focus(); this.select();">'.$code.'</textarea>'.$codelink.'	
+														</div>
+													</form>
+												</div>
+											</div>
+													<div class="modal-footer html-model-footer">
+													  <div class="html-code-footer-button">
+														<button>Copy code <img src="../assets/images/img-new/copyWhite.svg"></button>
+														<button>Download code<img src="../assets/images/img-new/coding.svg"></button>
+														<button>Download image<img src="../assets/images/img-new/image.svg"></button>
+													  </div>
+													</div>
+												  </div>
+												</div>
+											  </div>
+
+										</div>
+									</div>
+								</td>
+									</tr></tfoot>
+									</table></div></div>';
+
+			
 			}
 		
                         
@@ -1339,125 +1455,23 @@ $codelink = '<br />
 			<div class="sub-creative-img">
 				<div class="form-group">
 					<label for="exampleFormControlSelect1">Creative type:</label>
-					<select class="form-control img-select" id="exampleFormControlSelect1">
-					<option>Image</option>
-					<option>Flash</option>
-					<option>Text Link</option>
-					<option>4</option>
-					<option>5</option>
+					<select class="form-control img-select" id="content_type" name="type">
+						<option value="">'.lang('All').'</option>
+						<option value="image" '.($type == "image" ? 'selected' : '').'>'.lang('Image').'</option>
+						<option value="flash" '.($type == "flash" ? 'selected' : '').'>'.lang('Flash').'</option>
+						<option value="link" '.($type == "link" ? 'selected' : '').'>'.lang('Text Link').'</option>
 					</select>
 				</div>
 			</div>
 		</div>
-	</div>
+	</div>';
+	if($allCreative!=''){
+			$set->content .=  '<div class="creatives-data-wrp">'
+								.$allCreative.'
+							</div>';
+		}
 
-	<div class="show-creative-table">
-	<div class="table-responsive">
-										<table class="creative-table">
-										<tfoot>
-										<tr>
-										<td class="creative-img">
-											<img src='.$ww['file'].' width="173" height="173">
-										</td>
-										<td class="creative-details">
-											<div class="creative-details-table">
-												<div class="creative-details-list">
-													<strong>Creative Name</strong>
-													<p>Logo</p>
-												</div>
-												<div class="creative-details-list">
-													<strong>Format</strong>
-													<p>Image</p>
-												</div>
-												<div class="creative-details-list">
-													<strong>Landing URL</strong>
-													<p>http://www.gamingaffiliates.co</p>
-												</div>
-												<div class="creative-details-list">
-													<strong>Size (WxH)</strong>
-													<p>160x600</p>
-												</div>
-												<div class="creative-details-list">
-													<strong>Impressions</strong>
-													<p>1354</p>
-												</div>
-												<div class="creative-details-list">
-													<strong>Clicks</strong>
-													<p>213</p>
-												</div>
-											</div>
-										</td>
-										<td class="creative-copy-link">
-									<div class="copy-link">
-										<div class="copy-link-heading">
-											<h4>Click URL</h4>
-										</div>
-										<div class="copy-link-input">
-											<p id="copy_text_">https://go.gamingaffiliates.co/click_sub.php?ctag=a500-b2-p</p>
-										</div>
-										<div class="copy-buttons">
-											<button type="button" class="ClickURL" onclick="return copy_url()">Copy Click URL <img src="../assets/images/img-new/copy.svg"></button>
-											<!-- <span class="custom-tooltip" id="custom-tooltip" style="display:none;">Copied!</span> -->
-											<button type="button" class="btn GetHTML" data-toggle="modal" data-target="#exampleModalCenter">
-												Get HTML code <span>&#60;/&#62;</span> 
-											  </button>
-											  
-											  <!-- Modal -->
-											  <div class="modal fade HtmlCode-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-												<div class="modal-dialog modal-dialog-centered" role="document">
-												  <div class="modal-content html-modal-content">
-													<div class="modal-header html-model-header">
-													  <h5 class="modal-title" id="exampleModalLongTitle">HTML code</h5>
-													  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-														<span aria-hidden="true">&times;</span>
-													  </button>
-													</div>
-													<div class="modal-body html-model-body">
-													  <div class="html-code-body">
-														<div class="profile-div">
-															<div class="profile-section">
-																<div class="profile-lable">
-																	<label>General</label>
-																	<div class="profile-lable-input">
-																		<div class="form-group">
-																			<select class="form-control" id="exampleFormControlSelect1">
-																			  <option>General1</option>
-																			  <option>General2</option>
-																			  <option>General3</option>
-																			  <option>General4</option>
-																			  <option>General5</option>
-																			</select>
-																		  </div>
-																		
-																	</div>
-																</div>
-																</div>
-																</div>
-																
-														<div class="text-area-div">
-															<textarea></textarea>
-														</div>
-													  </div>
-													</div>
-													<div class="modal-footer html-model-footer">
-													  <div class="html-code-footer-button">
-														<button>Copy code <img src="../assets/images/img-new/copyWhite.svg"></button>
-														<button>Download code<img src="../assets/images/img-new/coding.svg"></button>
-														<button>Download image<img src="../assets/images/img-new/image.svg"></button>
-													  </div>
-													</div>
-												  </div>
-												</div>
-											  </div>
-
-										</div>
-									</div>
-								</td>
-									</tr></tfoot>
-									</table>
-									</div>
-									</div>
-</div>';	
+		$set->content .= '</div>';	
 						
                 $set->content .= '<form method="get" action="'.$set->SSLprefix.$set->basepage.'?act=creative">  
 						<div align="left" style="padding-top: 10px; padding-bottom: 10px;">
