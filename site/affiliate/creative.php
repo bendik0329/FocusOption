@@ -183,6 +183,7 @@ $typesArray = array();
 					
 					$text = 'copy_text_'.$ww['id'];
 					$allCreative .= '<div class="show-creative-table">
+						<div class="table-responsive">
 										<table class="creative-table">
 										<tfoot>
 										<tr>
@@ -296,6 +297,7 @@ $typesArray = array();
 								</td>
 									</tr></tfoot>
 									</table>
+									</div>
 									</div>
 									<script>
 										function copy_url(id) {

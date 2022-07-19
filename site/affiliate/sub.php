@@ -1324,7 +1324,140 @@ $codelink = '<br />
 					
 	$set->content .= getImageGrowerScript();
 					
-						
+	$set->content .= '	<div class="sub-affiliation-page">
+	<div class="sub-search-section creative-page-filter">
+		<div class="search-section">
+			<div class="search-wrp">
+				<p>Search creative</p>
+				<div class="search-box">
+					<input type="text" name="q" value="'.$q.'" />
+					<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+				</div>
+			</div>
+		</div>
+		<div class="sub-img-section">
+			<div class="sub-creative-img">
+				<div class="form-group">
+					<label for="exampleFormControlSelect1">Creative type:</label>
+					<select class="form-control img-select" id="exampleFormControlSelect1">
+					<option>Image</option>
+					<option>Flash</option>
+					<option>Text Link</option>
+					<option>4</option>
+					<option>5</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="show-creative-table">
+	<div class="table-responsive">
+										<table class="creative-table">
+										<tfoot>
+										<tr>
+										<td class="creative-img">
+											<img src='.$ww['file'].' width="173" height="173">
+										</td>
+										<td class="creative-details">
+											<div class="creative-details-table">
+												<div class="creative-details-list">
+													<strong>Creative Name</strong>
+													<p>Logo</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Format</strong>
+													<p>Image</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Landing URL</strong>
+													<p>http://www.gamingaffiliates.co</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Size (WxH)</strong>
+													<p>160x600</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Impressions</strong>
+													<p>1354</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Clicks</strong>
+													<p>213</p>
+												</div>
+											</div>
+										</td>
+										<td class="creative-copy-link">
+									<div class="copy-link">
+										<div class="copy-link-heading">
+											<h4>Click URL</h4>
+										</div>
+										<div class="copy-link-input">
+											<p id="copy_text_">https://go.gamingaffiliates.co/click_sub.php?ctag=a500-b2-p</p>
+										</div>
+										<div class="copy-buttons">
+											<button type="button" class="ClickURL" onclick="return copy_url()">Copy Click URL <img src="../assets/images/img-new/copy.svg"></button>
+											<!-- <span class="custom-tooltip" id="custom-tooltip" style="display:none;">Copied!</span> -->
+											<button type="button" class="btn GetHTML" data-toggle="modal" data-target="#exampleModalCenter">
+												Get HTML code <span>&#60;/&#62;</span> 
+											  </button>
+											  
+											  <!-- Modal -->
+											  <div class="modal fade HtmlCode-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+												<div class="modal-dialog modal-dialog-centered" role="document">
+												  <div class="modal-content html-modal-content">
+													<div class="modal-header html-model-header">
+													  <h5 class="modal-title" id="exampleModalLongTitle">HTML code</h5>
+													  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													  </button>
+													</div>
+													<div class="modal-body html-model-body">
+													  <div class="html-code-body">
+														<div class="profile-div">
+															<div class="profile-section">
+																<div class="profile-lable">
+																	<label>General</label>
+																	<div class="profile-lable-input">
+																		<div class="form-group">
+																			<select class="form-control" id="exampleFormControlSelect1">
+																			  <option>General1</option>
+																			  <option>General2</option>
+																			  <option>General3</option>
+																			  <option>General4</option>
+																			  <option>General5</option>
+																			</select>
+																		  </div>
+																		
+																	</div>
+																</div>
+																</div>
+																</div>
+																
+														<div class="text-area-div">
+															<textarea></textarea>
+														</div>
+													  </div>
+													</div>
+													<div class="modal-footer html-model-footer">
+													  <div class="html-code-footer-button">
+														<button>Copy code <img src="../assets/images/img-new/copyWhite.svg"></button>
+														<button>Download code<img src="../assets/images/img-new/coding.svg"></button>
+														<button>Download image<img src="../assets/images/img-new/image.svg"></button>
+													  </div>
+													</div>
+												  </div>
+												</div>
+											  </div>
+
+										</div>
+									</div>
+								</td>
+									</tr></tfoot>
+									</table>
+									</div>
+									</div>
+</div>';	
 						
                 $set->content .= '<form method="get" action="'.$set->SSLprefix.$set->basepage.'?act=creative">  
 						<div align="left" style="padding-top: 10px; padding-bottom: 10px;">

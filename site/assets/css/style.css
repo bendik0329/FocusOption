@@ -1154,14 +1154,14 @@ margin-bottom: 12px;
 .support-modal-button button{
     justify-content: center;
 }
-.TicketSubject{
+/* .TicketSubject{
     display: grid;
     width: 100%;
 }
 .Youremail{
     display: grid;
     width: 100%;
-}
+} */
 .text-area-div label{
     font-size: 12px;
     font-weight: normal;
@@ -1241,4 +1241,58 @@ border-radius: 10px !important;
     font-size: 12px !important;
     line-height: 18px;
     color: #0E132B;
+}
+
+/* Sub Affiliation Creative Materials */
+
+.sub-search-section .search-wrp{
+    justify-content: start;
+}
+.sub-creative-img label{
+    font-size: 14px;
+    line-height: 19px;
+    color: #282560;
+    margin: 0;
+    margin-right: 12px;
+}
+.sub-search-section .search-wrp p{
+    color: #282560;
+}
+.sub-creative-img .form-group{
+    display: flex;
+    align-items: center;
+    justify-content:end;
+    margin: 0;
+}
+.img-select{
+    height: 36px;
+    max-width: 240px;
+    width: 100%;
+    background: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    padding: 9px 12px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #282560;
+}
+.sub-search-section{
+    display: flex;
+    align-items: end;
+    margin-bottom: 20px;
+}
+.sub-search-section .search-section{
+    width: 100%;
+}
+.sub-img-section{
+    width: 100%;
+    margin: 0 auto;
+}
+@media (max-width: 767px) {
+    .sub-search-section{
+        display:block;
+    }
+    .sub-creative-img .form-group{
+        margin-top: 10px;
+    }
 }
