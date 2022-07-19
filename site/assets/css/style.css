@@ -1242,3 +1242,9 @@ border-radius: 10px !important;
     line-height: 18px;
     color: #0E132B;
 }
+.modal-span{
+    font-size: 10px;
+}
+.label-email{
+    padding-top: 11px;
+}

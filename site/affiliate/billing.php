@@ -13,7 +13,7 @@ switch ($act) {
 	default:
 		$pageTitle = lang('Billing');
 		$set->breadcrumb_title =  lang($pageTitle);
-			$set->pageTitle = '
+		$set->pageTitle = '
 			<style>
 			.pageTitle{
 				padding-left:0px !important;
@@ -23,11 +23,29 @@ switch ($act) {
 				<li><a href="'.$set->SSLprefix.'affiliate/">'.lang('Dashboard').'</a></li>
 				<li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
 				<li><a style="background:none !Important;"></a></li>
-			</ul>
-			
-			
-
-			<div class="billing-page">
+			</ul>';
+		$qq=function_mysql_query("SELECT * FROM ".$appTable." WHERE affiliate_id='".$set->userInfo['id']."' ORDER BY id DESC",__FILE__);
+		$listPayments = '';
+		while ($ww=mysql_fetch_assoc($qq)) {
+			$l++;
+			$affiliateInfo=dbGet($ww['affiliate_id'],"affiliates");
+			$amount=mysql_fetch_assoc(function_mysql_query("SELECT COUNT(id) AS totalFTD, SUM(amount) AS amount FROM payments_details WHERE paymentID='".$ww['paymentID']."'",__FILE__));
+			$paid=mysql_fetch_assoc(function_mysql_query("SELECT id,total,paid FROM payments_paid WHERE paymentID='".$ww['paymentID']."'",__FILE__));
+			if (!$paid['paid']) continue;
+			$listPayments .= '<tr '.($l % 2 ? 'class="trLine"' : '').'>
+					<td>'.$l.'</td>
+					<td>'.$ww['paymentID'].'</td>
+					<td>'.$ww['month'].'/'.$ww['year'].'</td>
+					<td>'.$amount['totalFTD'].'</td>
+					<td>'.price($paid['total']).'</td>
+					<td>'.($paid['paid'] ? lang('Paid') : lang('Pending...')).'</td>
+					<td><a href="'.$set->SSLprefix.$set->basepage.'?act=view&paymentID='.$ww['paymentID'].'" target="_blank">'.lang('View').'</a></td>
+				</tr>';
+			}
+			if($listPayments==''){
+				$listPayments = '<tr><td colspan="7"><h6 style="text-align:center">No data found.</h6> </td></tr>';	
+			}
+			$set->content .= '<div class="billing-page">
 				<div class="billing-page-id">
 					<div class="search-payment">
 						<label>Search Payment ID<label>
@@ -57,35 +75,9 @@ switch ($act) {
 													<th scope="col">Action</th>
 													</tr>
 												</thead>
-												<tfoot class="topCreativesCls">
-													<tr>
-														<td scope="col">1</td>
-														<td scope="col">222222222</td>
-														<td scope="col">January 2021</td>
-														<td scope="col">$300.00</td>
-														<td scope="col">$300.00</td>
-														<td scope="col">------</td>
-														<td scope="col">------</td>
-													</tr>
-													<tr>
-														<td scope="col">1</td>
-														<td scope="col">222222222</td>
-														<td scope="col">January 2021</td>
-														<td scope="col">$300.00</td>
-														<td scope="col">$300.00</td>
-														<td scope="col">------</td>
-														<td scope="col">------</td>
-													</tr>
-													<tr>
-														<td scope="col">1</td>
-														<td scope="col">222222222</td>
-														<td scope="col">January 2021</td>
-														<td scope="col">$300.00</td>
-														<td scope="col">$300.00</td>
-														<td scope="col">------</td>
-														<td scope="col">------</td>
-													</tr>
-												</tfoot>
+												<tbody>
+													'.$listPayments .'
+												</tbody>
 											</table>
 										</div>
 									</div>
@@ -98,42 +90,6 @@ switch ($act) {
 			</div>
 
 			';
-			
-			
-
-
-
-
-		$qq=function_mysql_query("SELECT * FROM ".$appTable." WHERE affiliate_id='".$set->userInfo['id']."' ORDER BY id DESC",__FILE__);
-		while ($ww=mysql_fetch_assoc($qq)) {
-			$l++;
-			$affiliateInfo=dbGet($ww['affiliate_id'],"affiliates");
-			$amount=mysql_fetch_assoc(function_mysql_query("SELECT COUNT(id) AS totalFTD, SUM(amount) AS amount FROM payments_details WHERE paymentID='".$ww['paymentID']."'",__FILE__));
-			$paid=mysql_fetch_assoc(function_mysql_query("SELECT id,total,paid FROM payments_paid WHERE paymentID='".$ww['paymentID']."'",__FILE__));
-			if (!$paid['paid']) continue;
-			$listPayments .= '<tr '.($l % 2 ? 'class="trLine"' : '').'>
-					<td><a href="'.$set->SSLprefix.$set->basepage.'?act=view&paymentID='.$ww['paymentID'].'" target="_blank">'.lang('View').'</a></td>
-					<td>'.$ww['paymentID'].'</td>
-					<td>'.$ww['month'].'/'.$ww['year'].'</td>
-					<td>'.$amount['totalFTD'].'</td>
-					<td>'.price($paid['total']).'</td>
-					<td>'.($paid['paid'] ? lang('Paid') : lang('Pending...')).'</td>
-				</tr>';
-			}
-		$set->content .= '<div class="normalTableTitle">'.lang('Payments List').'</div>
-						<div align="center" style="background: #EFEFEF; padding: 5px;">
-							<table class="normal" width="100%" border="0" cellpadding="3" cellspacing="0">
-								<thead><tr>
-									<td>'.lang('Actions').'</td>
-									<td>'.lang('Payment ID').'</td>
-									<td>'.lang('Month').'</td>
-									<td>'.lang('Total FTD').'</td>
-									<td>'.lang('Amount').'</td>
-									<td>'.lang('Status').'</td>
-									</tr></thead><tfoot>'.$listPayments.'</tfoot>
-							</table>
-						</div>
-					';
 		theme();
 		break;
 	
