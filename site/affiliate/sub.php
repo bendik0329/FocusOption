@@ -1291,7 +1291,8 @@ $codelink = '<br />
 			</style>
 			<ul class="breadcrumb">
 				<li><a href="'.$set->SSLprefix.'affiliate/">'.lang('Dashboard').'</a></li>
-				<li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
+				<li><a href="'. $set->uri .'">Marketing Tools</a></li>
+				<li><a href="'. $set->SSLprefix.$set->uri .'">Sub Affiliation Creative Materials</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
 		

@@ -11,7 +11,7 @@ $appTable = 'payments_paid';
 
 switch ($act) {
 	default:
-		$pageTitle = lang('Billing');
+		$pageTitle = lang('Billing (Payment List)');
 		$set->breadcrumb_title =  lang($pageTitle);
 		$set->pageTitle = '
 			<style>

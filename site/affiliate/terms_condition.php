@@ -29,7 +29,7 @@ switch ($act) {
                             <h2>
                                 TERMS AND CONDITIONS
                             </h2>
-                            <p class=""> 
+                            <p class="mb-0"> 
                             Before you can proceed with registration, please accept the terms and conditions below.</p>
                             <p>Please Read and Print for Future Reference</p>
                             <p>If you wish to participate in our Affiliate program, indicate your agreement to do so by clicking the â€œI Agreeâ€ button below. Additionally, by accessing and utilizing any of Gaming affiliates Marketing Tools or accepting of any reward, bonus or commission whether contained in this agreement or elsewhere on our website, you are deemed to have agreed to be bound by all the terms and conditions set out in this agreement. For purposes of clarity, the terms â€œweâ€ and â€œusâ€ refer to Gaming affiliates and â€œyouâ€ and â€œMemberâ€ refers to the other party to the contract formed by the acceptance of these Terms and Conditions. The term â€œMerchantâ€ is defined as any company that has contracted Gaming affiliates to promote their Site(s) and/or products. The contract provides you with the non-exclusive right to direct users (â€œVisitorsâ€) from your site or sites to the Merchantâ€™s websites, in return for the payment of commissions and referral bonuses as specified below.

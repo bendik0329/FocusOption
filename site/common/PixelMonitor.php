@@ -515,25 +515,259 @@ $set->content .= '
 				</button>
 		  
 		  <!-- Modal -->
-				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-					<div class="modal-dialog modal-dialog-centered" role="document">
-					<div class="modal-content">
-						<div class="modal-header">
-						<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-							<span aria-hidden="true">&times;</span>
-						</button>
-						</div>
-						<div class="modal-body">
-						...
-						</div>
-						<div class="modal-footer">
-						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-						<button type="button" class="btn btn-primary">Save changes</button>
-						</div>
-					</div>
-					</div>
+		  <div class="modal fade HtmlCode-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		  <div class="modal-dialog modal-dialog-centered" role="document">
+			<div class="modal-content html-modal-content">
+			  <div class="modal-header html-model-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">New Pixel Monitor</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				  <span aria-hidden="true">&times;</span>
+				</button>
+			  </div>
+			  <div class="modal-body html-model-body">
+				<div class="html-code-body">
+				<div id="tabs1-wizard">
+				<form id="frmWizard"  method="POST">
+				<input type="hidden" name="act" value="save_wizard_pixel" />
+				<input type="hidden" name="pixel_id" value="'. (isset ($pixel_id)?$pixel_id:0).'">
+				<input type="hidden" name="affiliate_id" value="'.$id.'" />
+				<!-- Tabs -->
+						<div id="wizard" class="swMain">
+				  <ul>
+					  <li><a href="#step-1">
+					<label class="stepNumber">1</label>
+					<span class="stepDesc">
+					   '. lang('Pixel Type') .'
+					</span>
+				</a></li>
+					  <li><a href="#step-2">
+					<label class="stepNumber">2</label>
+					<span class="stepDesc">
+					   '. lang("Trigger") .'
+					   
+					</span>
+				</a></li>
+					  <li><a href="#step-3">
+					<label class="stepNumber">3</label>
+					<span class="stepDesc">
+					   '. lang('Pixel Code') .'
+					   
+					</span>
+				 </a></li>
+					  <li><a href="#step-4">
+					<label class="stepNumber">4</label>
+					<span class="stepDesc">
+					   '. lang("Method") .'
+					   
+					</span>
+				</a></li>
+				<li><a href="#step-5">
+					<label class="stepNumber">5</label>
+					<span class="stepDesc">
+					   '. ($userLevel == "affiliate"? lang("Finish") .'<br />
+					   <small>'. lang('') .'</small>':lang("Activate") .'<br />
+					   <small>'. lang('Activate Pixel') .'</small>').'
+					</span>
+				</a></li>
+				  </ul>
+				  <div id="step-1" class="step-1-modal">	
+				<h2 class="StepTitle">'. lang("Step 1 : Select Pixel Type") .'</h2>
+				<table cellspacing="3" cellpadding="3" align="center">
+						  <tr>
+							<td align="center" colspan="3">&nbsp;</td>
+						  </tr>
+						'.($set->showProductsPlace==1?'
+						  <tr>
+							<td class="pixeltypesradios" align="left" colspan=2>
+							'.(isset($pixel_id)&&!empty($pixel_id)?'
+							  <label><input type="radio"  name="wizard_pixelType" value="products" '. (!empty($pixel_data['product_id'])?'checked':'') .'>'. lang('Products') .'</label>
+							  <label><input type="radio"  name="wizard_pixelType" value="merchants" '. (!empty($pixel_data['merchant_id'])?'checked':'') .'> '. lang('Merchants') .'</label>'
+							  : 
+							  '<label><input type="radio"  name="wizard_pixelType" value="products"> '. lang('Products') .'</label>
+							  <label><input type="radio"  name="wizard_pixelType" value="merchants"> '. lang('Merchants') .'</label>').'
+						  </td>
+							<td align="left"><span id="msg_pixelType" style="color:red"></span>&nbsp;</td>
+						  </tr>
+						<tr class="wizard_productRow" '.(isset($pixel_id)?(!empty($pixel_data['product_id'])?'style="display:block"':'style="display:none"'):'style="display:none"') .'>
+							<td align="left">'. lang('Select Product') .' :</td>
+							<td align="left">
+							 <select name="wizard_productId" style="width:140px" >'.listProducts(isset($pixel_id) && !empty($pixel_data['product_id'])?$pixel_data['product_id']:0).'</select>
+						  </td>
+							<td align="left"><span id="msg_product" style="color:red"></span>&nbsp;</td>
+						  </tr>':'<input type="hidden"  name="wizard_pixelType" value="merchants" '. (!empty($pixel_data['merchant_id'])?'checked':'') .'>'). 
+						($set->showProductsPlace==1 && !isset($pixel_id)?'<tr class="wizard_merchantRow" style="display:none">':(isset($pixel_id)?(!empty($pixel_data['merchant_id'])?'
+						<tr class="wizard_merchantRow">':'
+						<tr class="wizard_merchantRow" style="display:none">'):'
+						<tr class="wizard_merchantRow select-new-pixel" >')) .'<td align="left" class="pix-modal-details pb-0">'. lang('Select Merchants') .' :</td>
+							<td align="left">
+							 <select class="select-mer" name="wizard_merchantId" style="width:140px">'.listMerchants( isset($pixel_id) && !empty($pixel_data['merchant_id'])?$pixel_data['merchant_id']:0 ).'</select>
+						  </td>
+							<td align="left"><span id="msg_merchant" style="color:red"></span>&nbsp;</td>
+						  </tr> 
+						<tr  class="wizard_creatives" '.(isset($pixel_id)?'':'style="display:none"').'>
+						<td colspan=2 style="text-align:left" class="pix-modal-details">'. lang("What creative you would like to relate this pixel to") .': </td>
+						</tr>
+						<tr  class="wizard_creatives" '.(isset($pixel_id)?'':'style="display:none"').'>
+						<td colspan=2 style="text-align:left" class="o-step-label">
+						  <label><input type="radio"  name="wizard_banners" value="all_banners" '. ($pixel_data['banner_id']==0?'checked':'') .'>'. lang('All Creatives') .'</label>
+						  <label><input type="radio"  name="wizard_banners" value="select_banner" '. (!empty($pixel_data['banner_id'])?'checked':'') .'> 
+						  <select name="wizard_selectBanner" style="width:140px;">
+						  '.(isset($pixel_id)?
+						  $listCreatives_wizard:'')
+						  .'
+						  </select></label>
+						</td>
+						</tr>
+					 </table>          			
+			</div>
+				  <div id="step-2">
+				<h2 class="StepTitle">'. lang("Step 2 : Trigger") .'</h2>	
+				<table cellspacing="3" cellpadding="3" align="center">
+						  <tr>
+							<td align="center" colspan="3">&nbsp;</td>
+						  </tr>        
+						  <tr class="select-trigger-tr">
+							<td align="left" class="SelectTrigger">'. lang('Select Trigger') .'</td>
+							<td align="left">
+							  <select name="wizard_trigger" class="select-mer">
+										' . $trigerOptions . '
+								</select>
+						  </td>
+							<td align="left"><span id="msg_trigger" style="color:red"></span>&nbsp;</td>
+						  </tr>
+					 </table>        
+			</div>                      
+				  <div id="step-3" style="min-height:300px;height:auto"> 
+				<h2 class="StepTitle">'. lang('Step 3 : Create Pixel Code') .'</h2>	
+					<table cellspacing="3" cellpadding="3" align="center">
+						  <tr>
+							<td align="center" colspan="3">&nbsp;</td>
+						  </tr>        
+						  <tr class="select-trigger-tr">
+							<td align="left" valign="top" class="pix-modal-details pb-0">'. lang('Pixel Code') .'</td>
+							<td align="left">
+							  <textarea class="pixel-code-textarea" id="wizard_pixelCode" name="wizard_pixelCode" rows=5 class="txtBox">'. (isset($pixel_id) && !empty($pixel_data['pixelCode'])?$pixel_data['pixelCode']:'') .'</textarea>
+						  </td>
+							<td align="left"><span id="msg_pixelCode" style="color:red"></span>&nbsp;</td>
+						  </tr>
+					  </table>              
+			</div>
+				  <div id="step-4">
+				<h2 class="StepTitle">'. lang(' Step 4 : Select Method') .'</h2>	
+				<table cellspacing="3" cellpadding="3" align="center">
+						  <tr>
+							<td align="center" colspan="3">&nbsp;</td>
+						  </tr>
+						 '.(isset($pixel_id)?($pixel_data['method']!="client"?'
+							<tr class="pixelMethodType">
+							<td align="center" colspan=2 class="step-4-method">
+							  <input type="radio"  name="wizard_pixelMethodType" value="automatic" '.(!isset($pixel_id)?'checked':'').'> '. lang('Automatic') .'
+							  <input type="radio"  name="wizard_pixelMethodType" value="manual" '.(isset($pixel_id)?'checked':'').'> '. lang('Manual') .'
+							</td>
+						  </tr>
+						<tr>
+							<td align="center" colspan="3">&nbsp;</td>
+						  </tr>
+						<tr class="pixelMethod_automatic" '.(isset($pixel_id)?'style="display:none"':'').'>
+							<td align="left" colspan=2 class="otherPixelMethodLine" style="display:none">
+							<p>'. lang('Please click') . ' <a href="#" class="buttonNextNew">' . lang('Next') .'</a> ' .  lang('if pixel has fired.') .'<p><br/>
+							<p>' . lang('If not, Please click the button below to try another way of firing the pixel.') .'</p>
+							</td>
+						</tr>
+						  <tr class="pixelMethod_automatic" '.(isset($pixel_id)?'style="display:none"':'').'>
+							<td align="center" colspan=3 >
+							  <input type="button" name="pixelCode_test" value="'. lang('Test Now') .'">
+						  </td>
+							<td align="left"><span id="msg_method"></span>&nbsp;</td>
+						  </tr>':''):'
+						<tr class="pixelMethodType">
+							<td align="left" colspan=2>
+							<div class="step-4-label">
+							  <input type="radio"  name="wizard_pixelMethodType" value="automatic" checked> '. lang('Automatic') .'
+							  </div>
+							  <div class="step-4-label">							  
+							  <input type="radio"  name="wizard_pixelMethodType" value="manual"> '. lang('Manual') .'
+							  </div>
+							  </td>
+						  </tr>
+						<tr>
+							<td align="center" colspan="3">&nbsp;</td>
+						  </tr>
+						<tr class="pixelMethod_automatic">
+							<td align="left" colspan=2 class="otherPixelMethodLine" style="display:none">
+							<p>'. lang('Please click') . ' <a href="#" class="buttonNextNew">' . lang('Next') .'</a> ' .  lang('if pixel has fired.') .'<p><br/>
+							<p>' . lang('If not, Please click the button below to try another way of firing the pixel.') .'</p>
+							</td>
+						</tr>
+						  <tr class="pixelMethod_automatic">
+							<td align="left" colspan=3 class="test-now-button">
+							  <input type="button" name="pixelCode_test" value="'. lang('Test Now') .'">
+						  </td>
+							<td align="left"><span id="msg_method"></span>&nbsp;</td>
+						  </tr>
+						').'
+						<tr class="pixelMethod_manual" '.(isset($pixel_id)?'':'style="display:none"').'>
+							<td align="left" colspan=2 >
+							  <select name="wizard_pixelmethod" id="pixelmethod">
+							  '.(isset($pixel_id)?($pixel_data['method']=="client"?'
+							  <option value="client" selected>'.lang('Client Side').'</option>
+							  ':'
+								<option value="post" '. ($pixel_data['method']=='post'?'selected':'') .'>'.('Server To Server').' - POST</option>
+								<option value="get" '. ($pixel_data['method']=='get'?'selected':'') .'>'.('Server To Server').' - GET</option>
+							  '):'').'
+							  </select>
+						  </td>
+							<td align="left"><span id="msg_method" style="color:red"></span>&nbsp;</td>
+						  </tr>          			
+					 </table>                 	
+				<table cellspacing="3" cellpadding="3" align="center" class="wizard_clientSide"  '.(isset($pixel_id)&&$pixel_data['method']=="client"?'style="display:block"':'style="display:none"').'>
+				<tr>
+				<td>
+					*  '.lang('Client Side pixels works with Accounts and Leads types'). '<br/>
+				</td>
+				</tr>
+				<tr>
+				<td>
+				*  ' . lang('In order to use Client Side pixels you need to fire the result you get from the following url').': <u>' . $set->webAddress . 'pixel.php?act={ account  /  lead }&clientMode=1&ctag={ FROM THE TRACKING LINK } </u>
+				</td>
+				</tr>
+				</table>			   
+			</div>
+			<div id="step-5">
+				<h2 class="StepTitle">'. ($userLevel =="affiliate" ? lang('') : lang('Step 5 : Activate Pixel')) .'</h2>	
+				<table cellspacing="3" cellpadding="3" align="center" class="step-5-finish">
+						  <tr>
+							<td align="center" colspan="3">&nbsp;</td>
+						  </tr>        
+						'.($userLevel =="affiliate"?'
+						<tr>
+							<td><h3 class="finish-step">'. lang("The pixel will be idle until the Affiliate Manager will approve it.") .'</h3></td>
+						  </tr>          			
+						<tr>
+						
+						':'
+						  <tr>
+							<td><h3>'. lang("Would you like to activate the pixel?") .'</h3></td>
+							<td align="left" colspan=2>
+							<input type="hidden" name="wizard_pixelValid" value='. (isset($pixel_id)?$pixel_data['valid']:0) .'>
+						  </td>
+						  </tr>          			
+						<tr>
+						<td colspan=3>
+						<input type="button" name="wizard-activatePixel" value="'.lang('Activate') . '" style="font-size:28px;margin:0 auto;display:table-cell">
+						</td>
+						</tr>').'
+					 </table>                 			
+			</div>
+			  </div>
+				<!-- End SmartWizard Content -->  		
+				</form> 
+		</div>
 				</div>
+			  </div>
+			</div>
+		  </div>
+		</div>
 			</div>
 		</div>
 		<div class="pixel-table">
@@ -556,73 +790,34 @@ $set->content .= '
 											<th scope="col">'.lang('Action').'</th>
 											</tr>
 										</thead>
-										<tfoot class="topCreativesCls">
+										<tfoot>
 											<tr>
-												<td >Merchant</td>
-												<td>
-															<div class="form-group">
-																
-																<select class="form-control" id="exampleFormControlSelect1">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
-																<option>4</option>
-																<option>5</option>
-																</select>
+													<td align="center"> <select name="pixelType" id="pixelType"><option value="merchants" selected>'.lang('Merchants').'</option>'.($set->showProductsPlace==1 ? '<option value="products">'.lang('Products').'</option>':'').'</select></td>
+						                            <td align="left" style="display:none;" class="pixelProducts"><select name="db[product_id]" style="width:140px">'.listProducts().'</select></td>
+													<td align="left" class="pixelMerchants"><select name="db[merchant_id]" style="width:140px">'.listMerchants().'</select></td>
+													<td align="left"><select name="db[banner_id]" class="form-control">'.$listCreatives.'</select></td>
+						                            <td align="center"><input type="text" name="db[pixelCode]" onblur="checkHtml(this,0)" class="table-input"></input></td>
+						                            <td align="center"><select name="db[type]" class="form-control">
+															<!--option value="lead">'.lang('Lead').'</option><option value="account">'.lang('Account').'</option><option value="sale">'.lang('FTD').'</option-->
+															' . $trigerOptions . '
+														</select></td>
+						                            <td align="center">'.$set->totalFired.'</td>
+						                            <td align="center"><select class="form-control" name="db[method]" id="dbmethod0">
+															<option value="post">'.('Server To Server').' - POST</option>
+															<option value="get">'.('Server To Server').' - GET</option>
+															<option value="client">'.('Client Side').'</option></select></td>
+						                            <td class="span-green"><span></span></td>
+						                            <td align="center">
+						                            	<div class="dropdown">
+															<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															<i class="fa fa-ellipsis-v"></i>
+															</button>
+															<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+																<input type="submit"  class="dropdown-item" value="'.lang('Add New').'" />
 															</div>
-												</td>
-												<td >
-														  <div class="form-group">
-															
-															<select class="form-control" id="exampleFormControlSelect1">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															</select>
 														</div>
-												</td>
-												<td> <input type="text" class="table-input"></input> </td>
-												<td >
-														  <div class="form-group">
-															
-															<select class="form-control" id="exampleFormControlSelect1">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															</select>
-														</div>
-												</td>
-												<td class="text-align-center">241</td>
-												<td >
-														  <div class="form-group">
-																
-																<select class="form-control" id="exampleFormControlSelect1">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
-																<option>4</option>
-																<option>5</option>
-																</select>
-															</div>
-												</td>
-												<td class="span-green"><span></span></td>
-												<td >
-													<div class="dropdown">
-														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														<i class="fa fa-ellipsis-v"></i>
-														</button>
-														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-															<a class="dropdown-item" href="#">Action</a>
-															<a class="dropdown-item" href="#">Another action</a>
-															<a class="dropdown-item" href="#">Something else here</a>
-														</div>
-													</div>
-												</td>
-											</tr>
+													</td>
+						                    </tr>
 										</tfoot>
 									</table>
 								</div>
@@ -679,7 +874,7 @@ $set->content .= '
                    <small>'. lang('Select Method') .'</small>
                 </span>
             </a></li>
-			<li><a href="#step-5">
+			<li><a href="#step-5" id="active-step-5">
                 <label class="stepNumber">5</label>
                 <span class="stepDesc">
                    '. ($userLevel == "affiliate"? lang("Finish") .'<br />
@@ -716,12 +911,14 @@ $set->content .= '
 					($set->showProductsPlace==1 && !isset($pixel_id)?'<tr class="wizard_merchantRow" style="display:none">':(isset($pixel_id)?(!empty($pixel_data['merchant_id'])?'
 					<tr class="wizard_merchantRow">':'
 					<tr class="wizard_merchantRow" style="display:none">'):'
-					<tr class="wizard_merchantRow" >')) .'<td align="right">'. lang('Select Merchants') .' :</td>
+					<tr class="wizard_merchantRow" >')) .
+					'<td align="right">'. lang('Select Merchants') .' :</td>
                     	<td align="left">
                     	 <select name="wizard_merchantId" style="width:140px">'.listMerchants( isset($pixel_id) && !empty($pixel_data['merchant_id'])?$pixel_data['merchant_id']:0 ).'</select>
                       </td>
                     	<td align="left"><span id="msg_merchant" style="color:red"></span>&nbsp;</td>
           			</tr> 
+					
 					<tr>
 					<td colspan=2 style="height:20px"></td>
 					</tr>
@@ -900,7 +1097,7 @@ $set->content .= '
                             <td width="40px" align="center">' . lang('Status') . '</td>
                             <td align="center">'.lang('Actions').'</td>
                     </tr></thead><tfoot><tr>
-							<td align="center"><select name="pixelType" id="pixelType"><option value="merchants" selected>'.lang('Merchants').'</option>'.($set->showProductsPlace==1 ? '<option value="products">'.lang('Products').'</option>':'').'</select></td>
+							<td align="center"> <select name="pixelType" id="pixelType"><option value="merchants" selected>'.lang('Merchants').'</option>'.($set->showProductsPlace==1 ? '<option value="products">'.lang('Products').'</option>':'').'</select></td>
                             <td align="left" style="display:none;" class="pixelProducts"><select name="db[product_id]" style="width:140px">'.listProducts().'</select></td>
 							<td align="left" class="pixelMerchants"><select name="db[merchant_id]" style="width:140px">'.listMerchants().'</select></td>
 							<td align="left"><select name="db[banner_id]" style="width:140px">'.$listCreatives.'</select></td>

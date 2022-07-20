@@ -39,6 +39,7 @@ switch ($act) {
 			<ul class="breadcrumb">
 				<li><a href="affiliate/">'.lang('Dashboard').'</a></li>
 				<li><a href="'. $set->uri .'">'.lang($pageTitle).'</a></li>
+				<li><a href="'. $set->uri .'">Creative materials</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
 		$numqq=function_mysql_query("SELECT id FROM merchants WHERE valid='1'",__FILE__);
@@ -248,7 +249,7 @@ $typesArray = array();
 														<div class="profile-div">
 															<div class="profile-section">
 																<div class="profile-lable">
-																	<label>General</label>
+																	<label>Profile</label>
 																	<div class="profile-lable-input">
 																		<div class="form-group">
 																			<select class="form-control" id="exampleFormControlSelect1">

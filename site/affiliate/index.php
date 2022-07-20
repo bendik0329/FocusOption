@@ -8,6 +8,25 @@ chdir('../');
 require_once('common/global.php');
 require_once('common/subAffiliateData.php');
 
+$dataPoints = array( 
+	array("label"=>"Oxygen", "symbol" => "O","y"=>46.6),
+	array("label"=>"Silicon", "symbol" => "Si","y"=>27.7),
+	array("label"=>"Aluminium", "symbol" => "Al","y"=>13.9),
+	array("label"=>"Iron", "symbol" => "Fe","y"=>5),
+	array("label"=>"Calcium", "symbol" => "Ca","y"=>3.6),
+	array("label"=>"Sodium", "symbol" => "Na","y"=>2.6),
+	array("label"=>"Magnesium", "symbol" => "Mg","y"=>2.1),
+	array("label"=>"Others", "symbol" => "Others","y"=>1.5),
+ 
+);
+$dataPointsCountry = array( 
+	array("y" => 7,"label" => "March" ),
+	array("y" => 12,"label" => "April" ),
+	array("y" => 28,"label" => "May" ),
+	array("y" => 18,"label" => "June" ),
+	array("y" => 41,"label" => "July" )
+);
+
 	$ip = getClientIp();
 
 	if(checkUserFirewallIP($ip)){
@@ -107,7 +126,7 @@ switch ($act) {
 						<input type="hidden" name="act" value="main" />
 						<table><tr>
 							<td>'.timeFrame($from,$to).'</td>
-							<td><input type="submit" value="'.lang('View').'" /></td>
+							<td><input type="submit" value="'.lang('Update').'" /></td>
 						</tr></table>
 						</form>';
 		
@@ -429,12 +448,8 @@ switch ($act) {
 		}
 		// List Merchants ends here.
 		
-					
-					
-					
-                
 		
-		
+		// $set->content .= '<script src="'.$set->SSLprefix.'js/unslider/dist/js/chart.js"></script>';
 		
 		
 		$set->content .='  <link rel="stylesheet" href="'.$set->SSLprefix.'js/unslider/dist/css/unslider.css">
@@ -510,20 +525,20 @@ $set->content .=
 				'. (allowView('af-impr',$deal,'fields') ? '			
 				<td class="dashStat '.lang('Impressions').'">
 					'.lang('Impressions').'<br />
-					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.($viewsSum ? number_format($viewsSum) : '0').'</a></span>
+					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'">'.($viewsSum ? number_format($viewsSum) : '0').'</a></span>
 				</td> 
 				' : '' ).'
 				
 				'. (allowView('af-clck',$deal,'fields') ? '			
 				<td class="dashStat '.lang('Clicks').'">
 					'.lang('Clicks').'<br />
-					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.($clicksSum ? number_format($clicksSum) : '0').'</a></span>
+					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'">'.($clicksSum ? number_format($clicksSum) : '0').'</a></span>
 				</td>': '');
 		
 				if(allowView('af-instl',$deal,'fields') && $set->deal_cpi){			
 				  $set->content .='<td class="dashStat '.lang('Install').'">
 					'.lang('Install').'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=install&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=install" style="font-size: 18px; font-weight: bold;">'.number_format($mInstallSum).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=install&from='.date("d/m/Y", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=install" style="font-size: 18px; font-weight: bold;">'.number_format($mInstallSum).'</a>
 					
 				</td>';
 				}
@@ -534,12 +549,12 @@ $set->content .=
 					'. (allowView('af-lead',$deal,'fields') ? '			
                         <td class="dashStat  '.lang('Leads').'">
                                 '.lang('Leads').'<br />
-                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=lead" style="font-size: 18px; font-weight: bold;">'.number_format($totalLeads+$marketTotal_leads).'</a>
+                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=lead" style="font-size: 18px; font-weight: bold;">'.number_format($totalLeads+$marketTotal_leads).'</a>
                         </td> ' : '' ).'
 						'. (allowView('af-demo',$deal,'fields') ? '			
                         <td class="dashStat '.lang(ptitle('Demo')).'">
                                 '.lang(ptitle('Demo')).'<br />
-                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=demo" style="font-size: 18px; font-weight: bold;">'.number_format($totalDemo+$marketTotal_demo).'</a>
+                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=demo" style="font-size: 18px; font-weight: bold;">'.number_format($totalDemo+$marketTotal_demo).'</a>
                         </td>' : '' );
                 }
                 
@@ -547,17 +562,17 @@ $set->content .=
 				'. (allowView('af-real',$deal,'fields') ? '			
 				<td class="dashStat '.lang(ptitle('Real Account')).'">
 					'.lang(ptitle('Real Account')).'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=real" style="font-size: 18px; font-weight: bold;">'.number_format($totalReal+$marketTotal_real).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=real" style="font-size: 18px; font-weight: bold;">'.number_format($totalReal+$marketTotal_real).'</a>
 				</td> ' : '' ).'
 				'.($showCasinoFields  && allowView('af-frzn',$deal,'fields') ? '			
 				<td class="dashStat '.lang(ptitle('Frozens')).'">
 					'.lang(ptitle('Frozens')).'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=frozen" style="font-size: 18px; font-weight: bold;">'.number_format($totalFrozens).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=frozen" style="font-size: 18px; font-weight: bold;">'.number_format($totalFrozens).'</a>
 				</td>':'') .'
 				'. (allowView('af-ftd',$deal,'fields') ? '			
 				<td class="dashStat '.lang('FTD').'">
 					'.lang('FTD').'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=ftd" style="font-size: 18px; font-weight: bold;">'.number_format($newFTD+$marketTotal_FTDs,0).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=ftd" style="font-size: 18px; font-weight: bold;">'.number_format($newFTD+$marketTotal_FTDs,0).'</a>
 				</td>' : '' );
 				
 		
@@ -584,7 +599,7 @@ $set->content .=
 				
 				
                                   '' : '<td class="dashStat '.lang('Deposits').'">'.lang('Deposits').'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to))
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/", strtotime($from)).'&to='.date("d/m/Y", strtotime($to))
                                         .'&type=deposit" style="font-size: 18px; font-weight: bold;">'.number_format($total_deposits,0).'</a></td>' 
                                     )
 				
@@ -1444,7 +1459,30 @@ $set->content .=
 								</select>
 							</div>
 							<div class="session-device-chart">
-								<img src="../assets/images/img-new/session-device.png" class="img-fluid">
+								<script>
+						        	window.onload = function() {
+										var chart = new CanvasJS.Chart("chartContainer", {
+											theme: "light2",
+											animationEnabled: true,
+											title: {
+												text: ""
+											},
+											data: [{
+												type: "doughnut",
+												indexLabel: "{symbol} - {y}",
+												yValueFormatString: "#,##0.0\"%\"",
+												showInLegend: true,
+												legendText: "{label} : {y}",
+												dataPoints: '. json_encode($dataPoints, JSON_NUMERIC_CHECK) .'
+											}]
+										});
+										chart.render();
+										 
+										}
+						        </script>
+								<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+								<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 							</div>
 						</div>
 					</div>
@@ -1462,7 +1500,59 @@ $set->content .=
 								</select>
 							</div>
 							<div class="session-device-chart">
-								<img src="../assets/images/img-new/session-resport.png" class="img-fluid">
+								<script>
+									// Initialize and add the map
+									function initMap() {
+									  // The location of Uluru
+									  const uluru = { lat: -25.344, lng: 131.031 };
+									  // The map, centered at Uluru
+									  const map = new google.maps.Map(document.getElementById("map"), {
+									    zoom: 4,
+									    center: uluru,
+									  });
+									  // The marker, positioned at Uluru
+									  const marker = new google.maps.Marker({
+									    position: uluru,
+									    map: map,
+									  });
+									}
+
+									window.initMap = initMap;
+								</script>
+								<div id="map"></div>
+								<script
+							      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZPpPBmjMZhbL8Slc6d0uLD28_THgQJDg&callback=initMap&v=weekly"
+							    ></script>
+								<script>
+									window.onload = function() {
+									 
+									var chart = new CanvasJS.Chart("chartContainerCounty", {
+										animationEnabled: true,
+										title:{
+											text: ""
+										},
+										axisY: {
+											title: "Revenue (in USD)",
+											includeZero: true,
+											prefix: "$",
+											suffix:  "k"
+										},
+										data: [{
+											type: "bar",
+											yValueFormatString: "$#,##0K",
+											indexLabel: "{y}",
+											indexLabelPlacement: "inside",
+											indexLabelFontWeight: "bolder",
+											indexLabelFontColor: "white",
+											dataPoints: '. json_encode($dataPointsCountry, JSON_NUMERIC_CHECK) .'
+										}]
+									});
+									chart.render();
+									 
+									}
+								</script>
+								<div id="chartContainerCounty" style="height: 370px; width: 100%;"></div>
+								<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 							</div>
 						</div>
 					</div>
@@ -1477,7 +1567,7 @@ $set->content .=
 									<p>'.$adminInfo['first_name'].' '.$adminInfo['last_name'].'</p>
 								</div>
 								<div class="account-manager-list">
-									<span>'.lang('E-Mail').'</span>
+									<span>'.lang('E-mail:').'</span>
 									<p><a href="mailto:'.$adminInfo['email'].'" style="color: #000000">'.$adminInfo['email'].'</a></p>
 								</div>
 								<div class="account-manager-list">
@@ -1494,7 +1584,7 @@ $set->content .=
 								</div>
 								<div class="account-manager-list">
 									<span>'.lang('Commission').':</span>
-									<p class="green-color"><a href="'.$set->SSLprefix.'affiliate/account.php?act=commission" target="_blank">'.(lang('Click here to review your commission structure')).'</a></p>
+									<p class="green-color"><a href="'.$set->SSLprefix.'affiliate/account.php?act=commission" target="_blank">'.(lang('$ 13,857.00')).'</a></p>
 								</div>
 							</div>
 							<div class="account-manager-bottom">
@@ -1624,6 +1714,7 @@ $set->content .=
 				}); 
 			});
 		</script>
+		
 			';
 		
 			if ($set->showDocumentsModule==1) {

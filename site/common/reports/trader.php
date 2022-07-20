@@ -676,12 +676,12 @@ $tableStr .= '<script>
 					
 					$("input[name=trader_id]").on("keyup",function(){
 						if($(this).val()!=""){
-							$("#date_from").val("' . date("d/m/Y", strtotime('-100 year')) . '");
-							$("#date_to").val("' . date("d/m/Y", strtotime('+100 year')) . '");
+							$("#date_from").val("' . date("y/m/d", strtotime('-100 year')) . '");
+							$("#date_to").val("' . date("y/m/d", strtotime('+100 year')) . '");
 						}
 						else{
-							$("#date_from").val("' . date("d/m/Y") . '");
-							$("#date_to").val("' . date("d/m/Y") . '");
+							$("#date_from").val("' . date("y/m/d") . '");
+							$("#date_to").val("' . date("y/m/d") . '");
 						}
 					});
 					
