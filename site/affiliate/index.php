@@ -126,7 +126,7 @@ switch ($act) {
 						<input type="hidden" name="act" value="main" />
 						<table><tr>
 							<td>'.timeFrame($from,$to).'</td>
-							<td><input type="submit" value="'.lang('View').'" /></td>
+							<td><input type="submit" value="'.lang('Update').'" /></td>
 						</tr></table>
 						</form>';
 		
@@ -525,20 +525,20 @@ $set->content .=
 				'. (allowView('af-impr',$deal,'fields') ? '			
 				<td class="dashStat '.lang('Impressions').'">
 					'.lang('Impressions').'<br />
-					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.($viewsSum ? number_format($viewsSum) : '0').'</a></span>
+					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'">'.($viewsSum ? number_format($viewsSum) : '0').'</a></span>
 				</td> 
 				' : '' ).'
 				
 				'. (allowView('af-clck',$deal,'fields') ? '			
 				<td class="dashStat '.lang('Clicks').'">
 					'.lang('Clicks').'<br />
-					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'">'.($clicksSum ? number_format($clicksSum) : '0').'</a></span>
+					<span style="font-size: 18px; font-weight: bold;"><a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'">'.($clicksSum ? number_format($clicksSum) : '0').'</a></span>
 				</td>': '');
 		
 				if(allowView('af-instl',$deal,'fields') && $set->deal_cpi){			
 				  $set->content .='<td class="dashStat '.lang('Install').'">
 					'.lang('Install').'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=install&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=install" style="font-size: 18px; font-weight: bold;">'.number_format($mInstallSum).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=install&from='.date("d/m/Y", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=install" style="font-size: 18px; font-weight: bold;">'.number_format($mInstallSum).'</a>
 					
 				</td>';
 				}
@@ -549,12 +549,12 @@ $set->content .=
 					'. (allowView('af-lead',$deal,'fields') ? '			
                         <td class="dashStat  '.lang('Leads').'">
                                 '.lang('Leads').'<br />
-                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=lead" style="font-size: 18px; font-weight: bold;">'.number_format($totalLeads+$marketTotal_leads).'</a>
+                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=lead" style="font-size: 18px; font-weight: bold;">'.number_format($totalLeads+$marketTotal_leads).'</a>
                         </td> ' : '' ).'
 						'. (allowView('af-demo',$deal,'fields') ? '			
                         <td class="dashStat '.lang(ptitle('Demo')).'">
                                 '.lang(ptitle('Demo')).'<br />
-                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=demo" style="font-size: 18px; font-weight: bold;">'.number_format($totalDemo+$marketTotal_demo).'</a>
+                                <a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=demo" style="font-size: 18px; font-weight: bold;">'.number_format($totalDemo+$marketTotal_demo).'</a>
                         </td>' : '' );
                 }
                 
@@ -562,17 +562,17 @@ $set->content .=
 				'. (allowView('af-real',$deal,'fields') ? '			
 				<td class="dashStat '.lang(ptitle('Real Account')).'">
 					'.lang(ptitle('Real Account')).'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=real" style="font-size: 18px; font-weight: bold;">'.number_format($totalReal+$marketTotal_real).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=real" style="font-size: 18px; font-weight: bold;">'.number_format($totalReal+$marketTotal_real).'</a>
 				</td> ' : '' ).'
 				'.($showCasinoFields  && allowView('af-frzn',$deal,'fields') ? '			
 				<td class="dashStat '.lang(ptitle('Frozens')).'">
 					'.lang(ptitle('Frozens')).'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=frozen" style="font-size: 18px; font-weight: bold;">'.number_format($totalFrozens).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=frozen" style="font-size: 18px; font-weight: bold;">'.number_format($totalFrozens).'</a>
 				</td>':'') .'
 				'. (allowView('af-ftd',$deal,'fields') ? '			
 				<td class="dashStat '.lang('FTD').'">
 					'.lang('FTD').'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to)).'&type=ftd" style="font-size: 18px; font-weight: bold;">'.number_format($newFTD+$marketTotal_FTDs,0).'</a>
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/d", strtotime($from)).'&to='.date("Y/m/d", strtotime($to)).'&type=ftd" style="font-size: 18px; font-weight: bold;">'.number_format($newFTD+$marketTotal_FTDs,0).'</a>
 				</td>' : '' );
 				
 		
@@ -599,7 +599,7 @@ $set->content .=
 				
 				
                                   '' : '<td class="dashStat '.lang('Deposits').'">'.lang('Deposits').'<br />
-					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("d/m/Y", strtotime($from)).'&to='.date("d/m/Y", strtotime($to))
+					<a href="'.$set->SSLprefix.'affiliate/reports.php?act=trader&from='.date("Y/m/", strtotime($from)).'&to='.date("d/m/Y", strtotime($to))
                                         .'&type=deposit" style="font-size: 18px; font-weight: bold;">'.number_format($total_deposits,0).'</a></td>' 
                                     )
 				
@@ -1567,7 +1567,7 @@ $set->content .=
 									<p>'.$adminInfo['first_name'].' '.$adminInfo['last_name'].'</p>
 								</div>
 								<div class="account-manager-list">
-									<span>'.lang('E-Mail').'</span>
+									<span>'.lang('E-mail:').'</span>
 									<p><a href="mailto:'.$adminInfo['email'].'" style="color: #000000">'.$adminInfo['email'].'</a></p>
 								</div>
 								<div class="account-manager-list">
@@ -1584,7 +1584,7 @@ $set->content .=
 								</div>
 								<div class="account-manager-list">
 									<span>'.lang('Commission').':</span>
-									<p class="green-color"><a href="'.$set->SSLprefix.'affiliate/account.php?act=commission" target="_blank">'.(lang('Click here to review your commission structure')).'</a></p>
+									<p class="green-color"><a href="'.$set->SSLprefix.'affiliate/account.php?act=commission" target="_blank">'.(lang('$ 13,857.00')).'</a></p>
 								</div>
 							</div>
 							<div class="account-manager-bottom">

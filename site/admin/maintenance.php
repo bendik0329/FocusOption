@@ -982,14 +982,14 @@ if (!adminPermissionCheck('maintenance')) _goto($lout);
 						});
 					
 					$("#date_from").datepicker({
-						dateFormat: \'dd/mm/yy\',
+						dateFormat: \'yy/mm/dd\',
 						onSelect: function() {
 							$("#dateSelect").val(8);
 						}
 					});
 					
 					$("#date_to").datepicker({
-						dateFormat: \'dd/mm/yy\',
+						dateFormat: \'yy/mm/dd\',
 						onSelect: function() {
 							$("#dateSelect").val(8);
 						}

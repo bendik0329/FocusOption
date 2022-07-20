@@ -7,7 +7,7 @@ $lout = !empty($set->SSLprefix) ? $set->SSLprefix:"/affiliate/";
 if (!isLogin()) _goto( $lout);
 
 
-$pageTitle = lang("FAQ's");
+$pageTitle = lang("FAQ");
 $set->breadcrumb_title =  lang($pageTitle);
 			$set->pageTitle = '
 			<style>
@@ -33,7 +33,7 @@ $set->content = '
 		<img border="0" src="'.$set->SSLprefix.'affiliate/images/faq/broker_active.jpg" alt="" />
 	</div>
 </div>
-<br />
+
 <div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>What\'s the difference between FTD and Deposits?</p>').'
@@ -43,7 +43,7 @@ $set->content = '
 		<img border="0" src="'.$set->SSLprefix.'affiliate/images/faq/dif_ftd.jpg" alt="" />
 	</div>
 </div>
-<br />
+
 <div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>What are the "Top 5 Banners" at the bottom right?</p>').'
@@ -53,7 +53,7 @@ $set->content = '
 		<img border="0" src="'.$set->SSLprefix.'affiliate/images/faq/top_5.jpg" alt="" />
 	</div>
 </div>
-<br />
+
 <div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>How do I place banners and links on my website?</p>').'
@@ -63,7 +63,7 @@ $set->content = '
 		<img border="0" src="'.$set->SSLprefix.'affiliate/images/faq/banner_code.jpg" alt="" />
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>What are Widgets and how do they work?</p>').'
@@ -72,7 +72,7 @@ $set->content = '
 		'.lang('Dynamic banners providing live feeds to market stats and other financial information about the market, Most of the time the feeds working according the GMT').'
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>How do I see which banners perform best for me?</p>').'
@@ -81,7 +81,7 @@ $set->content = '
 		'.lang('Reports').' > <a href="'.$set->SSLprefix.'affiliate/reports.php?act=banner">'.lang('Banner Reports').'</a>
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>How do I know which Brokers are converting the best?</p>').'
@@ -90,7 +90,7 @@ $set->content = '
 		'.lang('Reports').' > <a href="'.$set->SSLprefix.'affiliate/reports.php?act=traffic">'.lang('Traffic Report').'</a> '.lang('and compare CTR\'s (Click-Through Ratio)').'
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>How do I add additional websites to my account?</p>').'
@@ -99,7 +99,7 @@ $set->content = '
 		<a href="'.$set->SSLprefix.'affiliate/profiles.php">'.lang('Profiles').'</a> > '.lang('Enter your new website\'s details and Save').'
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>How do I Edit my Website Profiles and status?</p>').'
@@ -108,7 +108,7 @@ $set->content = '
 		<a href="'.$set->SSLprefix.'affiliate/tickets.php?act=new">'.lang('Contact').'</a> '.lang('your Account Manager').'
 	</div>
 </div>
-<br />
+
 <div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>What is the Sub-Affiliate Link in my account?</p>').'
@@ -118,7 +118,7 @@ $set->content = '
 		'.lang('They will be allocated under your account and you will earn a percentage of their commission').'
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>When do I get paid?</p>').'
@@ -127,7 +127,7 @@ $set->content = '
 		'.lang('Until the').' '.$set->dateOfMonthlyPayment.' '.lang('of the month - for earnings from the previous month').'
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>Where can I see how much I will be paid?</p>').'
@@ -136,7 +136,7 @@ $set->content = '
 		'.lang('On your').' <a href="'.$set->SSLprefix.'affiliate/">'.lang('Homescreen / Dashboard').'</a> - '.lang('Select \'This Month\' for the Time Frame').'
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>How do I choose or edit my Payment Method(s)?</p>').'
@@ -145,7 +145,7 @@ $set->content = '
 		'.lang('Login and go to').': '.lang('My Account').' > <a href="'.$set->SSLprefix.'affiliate/account.php?act=payment">'.lang('Payment Details').'</a> - '.lang('Select your \'Primary Payment Method\' and click Save Details').'
 	</div>
 </div>
-<br />
+
 	<div class="faq-question">
 	<div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 		<span class="plus">+</span> '.lang('<p>How do I know how much commission each Broker is paying me?<p>').'
@@ -154,7 +154,7 @@ $set->content = '
 		'.lang('Login and go to').': '.lang('My Account').' > <a href="'.$set->SSLprefix.'affiliate/account.php?act=commission">'.lang('Commission Structure').'</a>
 	</div>
 </div>
-<br />
+
 <div class="faq-question">
 <div class="question" style="border-radius: 5px; border: 1px #2c7cd0 solid; background: #f8f8f8; color: #1d1d1d; padding: 3px; font-size: 16px; font-family: Calibri; cursor: pointer;">
 	<span class="plus">+</span> '.lang('<p>How do I contact my Account Manager?</p>').'

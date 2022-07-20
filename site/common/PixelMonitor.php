@@ -874,7 +874,7 @@ $set->content .= '
                    <small>'. lang('Select Method') .'</small>
                 </span>
             </a></li>
-			<li><a href="#step-5">
+			<li><a href="#step-5" id="active-step-5">
                 <label class="stepNumber">5</label>
                 <span class="stepDesc">
                    '. ($userLevel == "affiliate"? lang("Finish") .'<br />
