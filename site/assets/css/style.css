@@ -539,7 +539,7 @@ input:focus-visible{
     line-height: 16px !important;
     font-weight: 400;
     letter-spacing: 0px;
-    color: #0E132B;
+    color: #282560 !important;
     padding: 15px 16px;
 }
 .performing-creative-table tr:first-child th:first-child {
@@ -1560,6 +1560,7 @@ border-radius: 5px;
 border: 1px solid #DCDCDC;
 border-radius: 5px;
 padding:3px;
+width: 100%;
   }
 
   .pixel-table table td select{
@@ -1592,6 +1593,15 @@ color: #282560;
     margin: 0;
     color: #282560;
   }
+  .pixel-moniter-modal-button{
+    justify-content: end;
+  }
+  .pixel-moniter-modal-button button{
+    justify-content:center;
+  }
+  .step-1-modal{
+    margin-left: 0 !important;
+  }
   /* .pixel-table table td .dropdown-menu{
     transform: translate3d(-101px, 44px, 0px) !important;
   }
@@ -1600,3 +1610,266 @@ color: #282560;
     display: block;
     position: absolute;
   } */
+
+  .swMain ul.anchor li a.disabled{
+    background-color: transparent !important;
+  }
+
+
+  .swMain ul.anchor li a.disabled {
+    background: transparent !important;
+    color: #8F8F8F !important;
+    font-size: 12px !important;
+    line-height: 16px !important;
+    width: 100% !important;
+    height: auto !important;
+    border: none !important;
+    border-bottom: 8px solid gray !important;
+    border-radius: 0 !important;
+    padding-bottom: 12px !important;
+    font-weight: 400 !important;
+}
+
+.swMain ul.anchor li a .stepNumber {
+    font-size: 12px !important;
+    line-height: 16px !important;
+    padding: 0 !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+    width: auto !important;
+    font-weight: 400 !important;
+}
+
+.swMain ul.anchor li a .stepDesc {
+    font-size: 12px !important;
+    line-height: 16px !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-weight: 400 !important;
+}
+
+.swMain ul.anchor li {
+    padding: 0 4px !important;
+}
+
+.swMain ul.anchor li a.selected {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #0E132B !important;
+    border-bottom: 8px solid gray !important;
+    border-radius: 0 !important;
+    padding-bottom: 12px !important;
+    border-color: #282560 !important;
+    font-weight: 400 !important;
+    width: auto !important;
+    height: auto !important;
+}
+.swMain ul.anchor li a.done{
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: #0E132B !important;
+    border-bottom: 8px solid gray !important;
+    border-radius: 0 !important;
+    padding-bottom: 12px !important;
+    border-color: #282560 !important;
+    font-weight: 400 !important;
+    width: auto !important;
+    height: auto !important;
+}
+.swMain ul.anchor li a.error{
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: red !important;
+    border-bottom: 8px solid gray !important;
+    border-radius: 0 !important;
+    padding-bottom: 12px !important;
+    border-color: red!important;
+    font-weight: 400 !important;
+    width: auto !important;
+    height: auto !important;
+}
+
+label.stepNumber {}
+
+.swMain ul.anchor li a.selected .stepNumber {
+    color: #0E132B !important;
+    font-weight: 400 !important;
+}
+.swMain ul.anchor li a.done .stepNumber {
+    color: #0E132B !important;
+    font-weight: 400 !important;
+}
+.buttonFinish{
+    display: none !important;
+}
+.buttonPrevious{
+    border: none !important;
+    max-width: 200px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 9px 23px !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #fff !important;
+    background: #282560 !important;
+    border-radius: 5px !important;
+    justify-content: center !important;
+    order: 2 !important;
+    width: 200px !important;
+    height: 48px !important;
+    font-weight: 400 !important;
+} 
+ .buttonNext{
+    border: none !important;
+    max-width: 200px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 9px 23px !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #fff !important;
+    background: #282560 !important;
+    border-radius: 5px !important;
+    justify-content: center !important;
+    order: 3 !important;
+    width: 200px !important;
+    height: 48px !important;
+    font-weight: 400 !important;
+}
+.swMain div.actionBar {
+    position: inherit !important;
+    background: transparent !important;
+    width: 100% !important;
+    overflow: hidden !important;
+    border: none !important;
+    height: auto !important;
+} 
+
+/* .step-1-modal {
+    width: 100% !important;
+    max-width: 100% !important;
+    position: inherit !important;
+    background: transparent !important;
+    border: none !important;
+    overflow: hidden !important;
+    height: auto !important;
+}  */
+
+.swMain ul.anchor li .step-3-red.error{
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    color: red !important;
+    border-bottom: 8px solid gray !important;
+    border-radius: 0 !important;
+    padding-bottom: 12px !important;
+    border-color: red!important;
+    font-weight: 400 !important;
+    width: auto !important;
+    height: auto !important;
+}
+.swMain ul.anchor li a.selected.error .stepNumber {
+    color: red !important;
+    font-weight: 400 !important;
+}
+.pix-modal-details{
+    font-size: 12px;
+    line-height: 16px;
+    color: #0E132B;
+    margin-bottom: 12px;
+}
+.o-step-label label{
+    display: flex !important;
+    margin: 10px 0 !important;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #0E132B;
+    align-items: center;
+}
+.o-step-label label input{
+    width: 18px;
+    height: 18px !important;
+    accent-color: #282560;
+    margin-right: 12px !important;
+}
+.o-step-label label select, .select-mer{
+    width: 178px !important;
+    height: 37px !important;
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+padding: 0 12px;
+font-size: 12px;
+line-height: 16px;
+color: #282560;
+}
+.select-new-pixel{
+    display: grid;
+}
+.SelectTrigger{
+    font-size: 12px;
+    line-height: 16px;
+    color: #0E132B;
+}
+.select-trigger-tr{
+    display: grid !important;
+}
+.actionBar{
+    display: flex !important;
+    justify-content: space-between !important;
+}
+.pixel-code-textarea{
+    width: 100%;
+    height: 202px;
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+padding: 12px;
+resize: inherit;
+}
+.step-4-label{
+    display: flex;
+    align-items: center;
+    font-size: 12px;
+    line-height: 16px;
+    font-weight: 400;
+    color: #0E132B;
+    margin-bottom: 12px !important;
+}
+.step-4-label input{
+    width: 18px;
+    height: 18px !important;
+    accent-color: #282560;
+    margin-right: 12px !important;
+    
+}
+.test-now-button input{
+    font-size: 12px;
+    line-height: 16px;
+    color: #fff;
+    background: #282560;
+    border-radius: 5px;
+    border:none;
+    width: 100px;
+    height: 28px;
+}
+.finish-step{
+    font-size: 12px;
+    line-height: 16px;
+    color: #0E132B;
+    margin:0;
+    padding: 0;
+    text-align: center;
+}
+.step-5-finish{
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 100% !important;
+}
