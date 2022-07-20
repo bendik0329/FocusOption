@@ -181,6 +181,245 @@ switch ($act) {
                 $unselectedItems .= '<option value="' . $i . '">' . $arr[$i] . '</option>';
 			}
 		$set->content .= '
+
+			<div class="account-details">
+				<div class="ac-details">
+					<ul class="nav nav-tabs" id="myTab" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="Account-tab" data-toggle="tab" href="#Account" role="tab" aria-controls="Account" aria-selected="true">Account</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="Contact-tab" data-toggle="tab" href="#Contact" role="tab" aria-controls="Contact" aria-selected="false">Contact</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="Invoice-tab" data-toggle="tab" href="#Invoice" role="tab" aria-controls="Invoice" aria-selected="false">Invoice</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="Website-tab" data-toggle="tab" href="#Website" role="tab" aria-controls="Website" aria-selected="false">Website</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" id="Market-tab" data-toggle="tab" href="#Market" role="tab" aria-controls="Market" aria-selected="false">Market</a>
+						</li>
+					</ul>
+					
+					<div class="tab-content" id="myTabContent">
+						<div class="tab-pane fade show active" id="Account" role="tabpanel" aria-labelledby="Account-tab">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="ac-details-tab">
+										<form>
+											<div class="tab-input-acc">
+												<label for="exampleInputname">Username</label>
+												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Password</label>
+												<input type="password" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Repeat password</label>
+												<input type="password" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											
+										</form>
+									</div>
+									<div class="tac-check-acc">
+											<div class="tab-acc-check-box">
+												<input type="checkbox" class="form-check-input" id="exampleCheck1">
+												<label class="form-check-label" for="exampleCheck1">Yes, I would like to receive the Affiliate newsletter</label>
+											</div>
+											<div class="save-button">
+												<button>Save</button>
+											</div>
+											</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="Contact" role="tabpanel" aria-labelledby="Contact-tab">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="ac-details-tab">
+										<form>
+											<div class="tab-input-acc">
+												<label for="exampleInputname">Company Name:</label>
+												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc mb-0">
+												<label for="exampleInputname">salutation:</label>
+												</div>
+											<div class="salutation">
+												<div class="salutation-check-box">
+													<input type="radio" name="radio" id="one" checked>
+													<label for="one">Mr. </label>
+												</div>
+												<div class="salutation-check-box">
+													<input type="radio" name="radio" id="two" checked>
+													<label for="two">Ms. </label>
+												</div>
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">First Name:</label>
+												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Last Name:</label>
+												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">E-mail:</label>
+												<input type="Email" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Phone Number:</label>
+												<input type="number" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<div class="form-group">
+													<label for="exampleFormControlSelect1">Instant Messaging Type:</label>
+													<select class="form-control" id="exampleFormControlSelect1">
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+													</select>
+												</div>
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Instant Messaging Account</label>
+												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											
+										</form>
+									</div>
+									<div class="tac-check-acc">
+											<div class="save-button">
+												<button class="mt-0">Save</button>
+											</div>
+											</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="Invoice" role="tabpanel" aria-labelledby="Invoice-tab">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="ac-details-tab">
+										<form>
+											<div class="tab-input-acc">
+												<label for="exampleInputname">Street:</label>
+												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Postal / Zip Code:</label>
+												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">City:</label>
+												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<div class="form-group">
+													<label for="exampleFormControlSelect1">Country</label>
+													<select class="form-control" id="exampleFormControlSelect1">
+														<option>1</option>
+														<option>2</option>
+														<option>3</option>
+														<option>4</option>
+														<option>5</option>
+													</select>
+												</div>
+											</div>
+											
+										</form>
+									</div>
+									<div class="tac-check-acc">
+										<div class="save-button">
+											<button class="mt-0">Save</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="Website" role="tabpanel" aria-labelledby="Website-tab">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="ac-details-tab">
+										<form>
+											<div class="tab-input-acc">
+												<label for="exampleInputname">Website 1:</label>
+												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Website 2:</label>
+												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>
+											<div class="tab-input-acc">
+												<label for="exampleInputpassword">Website 3:</label>
+												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											</div>		
+										</form>
+									</div>
+									<div class="tac-check-acc">
+										<div class="save-button">
+											<button class="mt-0">Save</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="Market" role="tabpanel" aria-labelledby="Market-tab">
+							<div class="row">
+								<div class="col-lg-6">
+									<div class="ac-details-tab">
+										<div class="market-select">
+											<div class="select-ul">
+												<ul>
+													<li>123</li>
+													<li>1234</li>
+													<li>12345</li>
+													<li>123456</li>
+													<li>1234567</li>
+													<li>12345678</li>
+												</ul>
+											</div>
+											<div class="arrow-button">
+												<div class="a-button" id="right-button">
+													<button> <i class="fa fa-angle-right"></i> </button>
+												</div>
+												<div class="a-button" id="left-button">
+													<button> <i class="fa fa-angle-left"></i> </button>
+												</div>
+											</div>
+											<div class="select-ul">
+												<ul>
+													<li></li>
+													<li></li>
+													<li></li>
+													<li></li>
+													<li></li>
+													<li></li>
+													<li></li>
+													<li></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+									<div class="tac-check-acc">
+										<div class="save-button">
+											<button class="mt-0">Save</button>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						
+					</div>
+				</div>
+			</div>
+
+
+
+
 		<div align="center">
 		<form action="'.$set->SSLprefix.$set->basepage.'?act=save" method="post" onsubmit="return checkUpdate();" autocomplete="off">
 		<table width="975" border="0" cellpadding="0" cellspacing="0">

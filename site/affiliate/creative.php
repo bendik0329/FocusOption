@@ -97,7 +97,7 @@ $typesArray = array();
 			$comboq = "SELECT count(CONCAT(width, 'x', height)) as count, CONCAT(width, ' X ', height) as dim,`merchants_creative`.height ,`merchants_creative`.width FROM `merchants_creative` WHERE product_id = 0 and merchant_id in ( ".$merchantid.") and  `merchants_creative`.height>0 and `merchants_creative`.width>0 and `merchants_creative`.valid =1
 			group by CONCAT(width, ' X ', height) order by height, width";
 	// die ($comboq);
-			$combolist = '<select name="creativedimenstion" style="width: 130px;"><option value="">'.lang('Show All').'</option>';
+			$combolist = '<select name="creativedimenstion"><option value="">'.lang('Show All').'</option>';
 			$qqcombo=function_mysql_query($comboq,__FILE__);
 				while ($wwcombo=mysql_fetch_assoc($qqcombo)) {
 				$combolist.= '<option value="'.str_replace(' ','',$wwcombo['dim']) .'">'. $wwcombo['dim'] . '  (' . $wwcombo['count']. ')'.'</option>';
@@ -139,7 +139,7 @@ $typesArray = array();
 			$getPos = 50;
 			$pgg=$_GET['pg'] * $getPos;
 			
-			$selectFields = "mc.id, mc.promotion_id, mc.type,mc.file,mc.title, mc.category_id, mc.language_id, mc.rdate, mc.last_update,mc.merchant_id,mc.product_id,mc.valid,mc.width,mc.height";
+			$selectFields = "mc.id, mc.promotion_id, mc.type,mc.file,mc.title,mc.url, mc.category_id, mc.language_id, mc.rdate, mc.last_update,mc.merchant_id,mc.product_id,mc.valid,mc.width,mc.height";
 			$sql = "select * from (SELECT 1 as prior, ". $selectFields ." FROM merchants_creative mc inner join merchants on mc.merchant_id = merchants.id and merchants.valid=1 WHERE mc.product_id=0 and mc.valid='1' and mc.promotion_id in (".$affiliatesPromotion.")
 						union all
 						select 0 as prior, ". $selectFields  ." from merchants_creative mc  inner join merchants on mc.merchant_id = merchants.id and merchants.valid=1 where mc.product_id=0 and mc.valid = '1' and mc.promotion_id not in (".$affiliatesPromotion.") and mc.promotion_id = 0 and mc.file NOT LIKE '%tmp%' and mc.affiliateReady = 1) as a 
@@ -172,33 +172,152 @@ $typesArray = array();
 				
 				$promInfo = getPromotion($ww['promotion_id']);
 				if (
-                                        ($promInfo['affiliate_id'] != $set->userInfo['id'] AND $promInfo['affiliate_id'] != '0' AND $promInfo['affiliate_id'] > 0 && !in_array($set->userInfo['id'], explode('|',$promInfo['additional_affiliates']))) 
-                                        ||
-                                        $promInfo['valid']==-1
-                                ){ 
-                                    continue;
-                                }
+					($promInfo['affiliate_id'] != $set->userInfo['id'] AND $promInfo['affiliate_id'] != '0' AND $promInfo['affiliate_id'] > 0 && !in_array($set->userInfo['id'], explode('|',$promInfo['additional_affiliates']))) 
+					||
+					$promInfo['valid']==-1){  continue; }
 				
 		
-/* 								<td align="center">'.($ww['type'] == "image" || $ww['type'] == "flash" || $ww['type'] == "mobileleader" || $ww['type'] == "mobilesplash" ? getFixedSizeBanner($ww['file'],80,80) : '<a href="javascript:void(0);">'.$ww['title'].'</a>').'</td>
-/								//  <td align="center">'.listPromotions($ww['promotion_id'],'',1,$set->userInfo['id'],1,1,1).($promInfo['affiliate_id'] == $set->userInfo['id'] ? ' (Special)' : '').'</td>
- */ 				
-				$allCreative .= '<tr '.($l % 2 ? 'class="trLine"' : '').'>
-								<td>'.$ww['id'].'</td>
-								<!--td><a href="javascript:void(0);" onclick="NewWin(\''.$set->SSLprefix.$set->basepage.'?act=get_code&id='.$ww['id'].'\',\'getCode\',\'900\',\'500\',\'1\');">'.lang('Get Tracking Code').'</a></td-->
-								<td><a href="'.$set->webAddress. ltrim($set->basepage, '/').'?act=get_code&id='.$ww['id'].'" class="inline">'.lang('Get Tracking Code').'</a></td>
-								<td align="left" class="creative-name">'.$ww['title'].'</td>
-								'.(strpos($ww['file'],'/tmp')?'<td align="center" class="img-wrap">'.($ww['type'] == "image" || $ww['type'] == "flash" || $ww['type'] == "mobileleader" || $ww['type'] == "mobilesplash" ? "<img src='".$set->SSLprefix."images/wheel.gif' width=32 height=32>" : '<a href="javascript:void(0);">'.$ww['title'].'</a>').'</td>':
-									'<td align="center" class="img-wrap">'.($ww['type'] == "image" || $ww['type'] == "flash" || $ww['type'] == "mobileleader" || $ww['type'] == "mobilesplash" ? getFixedSizeBanner($ww['file'],50,50) : '<a href="javascript:void(0);">'.$ww['title'].'</a>').'</td>').'
-								<td align="center">'.lang(ucwords($ww['type'])).'</td>
-								<td align="center">'.$promInfo['title'] .($promInfo['affiliate_id'] == $set->userInfo['id'] ? ' ('.lang('Special').')' : '').'</td>
-								<td align="center">'.(listCategory($ww['category_id'],$category_id,1,1)).'</td>
-								<td align="center" class="dimantion-wrap">'.(($ww['type'] == "link" || strtolower($ww['type']) == "mail" || strtolower($ww['type']) == "content" ) ? '' : $ww['width'].'x'.$ww['height']).'</td>
-								<td align="center">'.lang(listLangs($ww['language_id'],1)).'</td>
-								<td align="center">'.date("d/m/Y", strtotime($ww['rdate'])).'</td>
-								<td align="center">'.date("d/m/Y", strtotime($ww['last_update'])).'</td>
-							</tr>';
+							/* 								<td align="center">'.($ww['type'] == "image" || $ww['type'] == "flash" || $ww['type'] == "mobileleader" || $ww['type'] == "mobilesplash" ? getFixedSizeBanner($ww['file'],80,80) : '<a href="javascript:void(0);">'.$ww['title'].'</a>').'</td>
+							/								//  <td align="center">'.listPromotions($ww['promotion_id'],'',1,$set->userInfo['id'],1,1,1).($promInfo['affiliate_id'] == $set->userInfo['id'] ? ' (Special)' : '').'</td>
+							*/ 				
+					
+					$text = 'copy_text_'.$ww['id'];
+					$allCreative .= '<div class="show-creative-table">
+						<div class="table-responsive">
+										<table class="creative-table">
+										<tfoot>
+										<tr>
+										<td class="creative-img">
+											<img src='.$ww['file'].' width="173" height="173">
+										</td>
+										<td class="creative-details">
+											<div class="creative-details-table">
+												<div class="creative-details-list">
+													<strong>Creative Name</strong>
+													<p>'.$ww['title'].'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>'.lang(ucwords($ww['type'])).'</strong>
+													<p>Image</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Promotion</strong>
+													<p>'.$promInfo['title'] .($promInfo['affiliate_id'] == $set->userInfo['id'] ? ' ('.lang('Special').')' : '').'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Category</strong>
+													<p>'.(listCategory($ww['category_id'],$category_id,1,1)).'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Size (WxH)</strong>
+													<p>'.(($ww['type'] == "link" || strtolower($ww['type']) == "mail" || strtolower($ww['type']) == "content" ) ? '' : $ww['width'].'x'.$ww['height']).'</p>
+												</div>
+												<div class="creative-details-list">
+													<strong>Language</strong>
+													<p>'.lang(listLangs($ww['language_id'],1)).'</p>
+												</div>
+											</div>
+										</td>
+										<td class="creative-copy-link">
+									<div class="copy-link">
+										<div class="copy-link-heading">
+											<h4>Click URL</h4>
+										</div>
+										<div class="copy-link-input">
+											<p id="copy_text_'.$ww['id'].'">'.$ww['url'].'</p>
+										</div>
+										<div class="copy-buttons">
+											<button type="button" class="ClickURL" onclick="return copy_url('.$ww['id'].')">Copy Click URL <img src="../assets/images/img-new/copy.svg"></button>
+											<!-- <span class="custom-tooltip" id="custom-tooltip'.$ww['id'].'" style="display:none;">Copied!</span> -->
+											<button type="button" class="btn GetHTML" data-toggle="modal" data-target="#exampleModalCenter">
+												Get HTML code <span>&#60;/&#62;</span> 
+											  </button>
+											  
+											  <!-- Modal -->
+											  <div class="modal fade HtmlCode-modal" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+												<div class="modal-dialog modal-dialog-centered" role="document">
+												  <div class="modal-content html-modal-content">
+													<div class="modal-header html-model-header">
+													  <h5 class="modal-title" id="exampleModalLongTitle">HTML code</h5>
+													  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+														<span aria-hidden="true">&times;</span>
+													  </button>
+													</div>
+													<div class="modal-body html-model-body">
+													  <div class="html-code-body">
+														<div class="profile-div">
+															<div class="profile-section">
+																<div class="profile-lable">
+																	<label>General</label>
+																	<div class="profile-lable-input">
+																		<div class="form-group">
+																			<select class="form-control" id="exampleFormControlSelect1">
+																			  <option>General1</option>
+																			  <option>General2</option>
+																			  <option>General3</option>
+																			  <option>General4</option>
+																			  <option>General5</option>
+																			</select>
+																		  </div>
+																		<button class="plush">+</button>
+																	</div>
+																</div>
+																<div class="DynamicParameter">
+																	<label>Dynamic Parameter</label>
+																	<div class="profile-lable-input">
+																		<div class="form-group">
+																			<input type="text"></input>
+																		</div>
+																		<button class="plush">+</button>
+																	</div>
+																</div>
+															</div>
+															<div class="get-code-button">
+																<button>Get code</button>
+															</div>
+														</div>
+														<div class="text-area-div">
+															<textarea></textarea>
+														</div>
+													  </div>
+													</div>
+													<div class="modal-footer html-model-footer">
+													  <div class="html-code-footer-button">
+														<button>Copy code <img src="../assets/images/img-new/copyWhite.svg"></button>
+														<button>Download code<img src="../assets/images/img-new/coding.svg"></button>
+														<button>Download image<img src="../assets/images/img-new/image.svg"></button>
+													  </div>
+													</div>
+												  </div>
+												</div>
+											  </div>
+
+										</div>
+									</div>
+								</td>
+									</tr></tfoot>
+									</table>
+									</div>
+									</div>
+									<script>
+										function copy_url(id) {
+											var r = document.createRange();
+											var text = "copy_text_"+id;
+											r.selectNode(document.getElementById(text));
+											window.getSelection().removeAllRanges();
+											window.getSelection().addRange(r);
+											document.execCommand("copy");
+											window.getSelection().removeAllRanges();
+											document.getElementById("custom-tooltip"+id).style.display = "inline";
+											setTimeout( function() {
+												document.getElementById("custom-tooltip"+id).style.display = "none";
+											}, 1000);
+										}
+									</script>
+							';					
+							
 				}
+				
 			}
 			
 
@@ -212,47 +331,46 @@ $set->content .= '<div class="creative-page-filter">
 								<div class="col-lg-3">
 									<div class="filter-name">
 										<h3>Creative type:</h3>
-										<select>
-											<option>All</option>
-											<option>Image</option>
-											<option>Text Link</option>
+										<select name="type">
+										<option value="">'.lang('All').'</option>
+										' . (in_array("image",$typesArray) ? '<option value="image" '.($type == "image" ? 'selected' : '').'>'.lang('Image').'</option>' : "") . '
+										' . (in_array("mobileleader",$typesArray) ? '<option value="mobileleader" '.($type == "mobileleader" ? 'selected' : '').'>'.lang('Mobile Leader').'</option>' : "") . '
+										' . (in_array("mobilesplash",$typesArray) ? '<option value="mobilesplash" '.($type == "mobilesplash" ? 'selected' : '').'>'.lang('Mobile Splash').'</option>' : "") . '
+										' . (in_array("flash",$typesArray) ? '<option value="flash" '.($type == "flash" ? 'selected' : '').'>'.lang('Flash').'</option>' : "") . '
+										' . (in_array("widget",$typesArray) ? '<option value="widget" '.($type == "widget" ? 'selected' : '').'>'.lang('Widget').'</option>' : "") . '
+										' . (in_array("link",$typesArray) ? '<option value="link" '.($type == "link" ? 'selected' : '').'>'.lang('Text Link').'</option>' : "") . '
+										' . (in_array("mail",$typesArray) ? '<option value="mail" '.($type == "mail" ? 'selected' : '').'>'.lang('E-Mail').'</option>' : "") . '
+										' . (in_array("content",$typesArray) ? '<option value="content" '.($type == "content" ? 'selected' : '').'>'.lang('Content').'</option>' : "") . '
 										</select>
 									</div>
 								</div>
 								<div class="col-lg-3">
 									<div class="filter-name">
 										<h3>Category:</h3>
-										<select>
-											<option>All</option>
-											<option>Free spins</option>
+										<select name="category_id">
+										<option value="">'.lang('All').'</option>'.(listCategory($category_id,$merchant_id)).'
 										</select>
 									</div>
 								</div>
 								<div class="col-lg-2">
 									<div class="filter-name">
 										<h3>Language:</h3>
-										<select>
-											<option>All</option>
-											<option>Arabic</option>
-											<option>Chinese</option>
+										<select name="lang">
+										<option value="">'.lang('All').'</option>'.(listLangs($lang,0,$langsArray)).'
 										</select>
 									</div>
 								</div>
 								<div class="col-lg-2">
 									<div class="filter-name">
 										<h3>Size:</h3>
-										<select>
-											<option>All</option>
-											<option>728 X 90  (4)</option>
-										</select>
+											'.$combolist.'
 									</div>
 								</div>
 								<div class="col-lg-2">
 									<div class="filter-name">
 										<h3>Promotion:</h3>
-										<select>
-											<option>All</option>
-											<option>General</option>
+										<select name="promotion">
+										<option value="">'.lang('General').'</option>'.listPromotions($promotion,0,0,$set->userInfo['id'],0,1).'
 										</select>
 									</div>
 								</div>
@@ -262,8 +380,8 @@ $set->content .= '<div class="creative-page-filter">
 							<div class="search-wrp">
 								<p>Search creative</p>
 								<div class="search-box">
-									<input type="text" placeholder="">
-									<button><i class="fa fa-search" aria-hidden="true"></i></button>
+									<input type="text" name="q" value="'.$q.'" />
+									<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
 								</div>
 							</div>
 						</div>
@@ -290,9 +408,15 @@ $set->content .= '<div class="creative-page-filter">
 							</div>
 						</div>
 					</div>
-				</div>
-				
-				';
+				</div>';
+
+		if($allCreative!=''){
+			$set->content .=  '<div class="creatives-data-wrp">
+								
+										'.$allCreative.'
+									
+						</div>';
+		}
 			
 		
 		
@@ -305,22 +429,7 @@ $set->content .= '<div class="creative-page-filter">
 			$set->content .= '<td  class="blueText" style="padding-bottom: 10px;">' . lang('Switch Merchant') . ':</td>';
 						}
 						
-			$set->content .= '<td align="left" class="blueText ssss">'.lang('Creative Type').':</td>
-								<td align="left" class="blueText">'.lang('Category').':</td>
-								<td align="left" class="blueText">'.lang('Language').':</td>
-									<td style="width:20px";></td>
-										<td align="left" class="blueText">'.lang('Width').':</td>
-								<td align="left" class="blueText">'.lang('Height').':</td>
-								<td align="left" width="110px" ><span class="blueText">'.lang('Choose Size').':</span><br><span style="font-size:10px">'.lang('Width'). ' X ' . lang('Height') . ' ( '.lang('Count').' )</span></td>
-								<td style="width:20px";></td>
-								<td align="left" class="blueText">'.lang('Promotion').':</td>
-								
-								<td align="left" class="blueText">'.lang('Creative Name / ID').':</td>
-										
-						
-						</tr>
-						<tr>
-						';
+			
 			
 			
 						$merchantsToDisplay = listMerchants($merchant);
@@ -337,65 +446,8 @@ $set->content .= '<div class="creative-page-filter">
 								//$set->content .= '<td align="left"  style="padding-bottom: 2px;">'.lang('Merchant').':&nbsp;&nbsp;&nbsp;<select name=[merchant__id] width="150px;">'.lang('Merchant').':</option>'.listMerchants($listmerch).'</select></td>';
 								$set->content .= '
 								<td align="left"><select name="merchant" style="width: 130px;">
-								<option value="">'.lang('All').'</option>'.$merchantsToDisplay.'</select></td>';
-								
-										
-		$set->content .= '
-								<td align="left">
-									<select name="type" style="width: 100px;">
-										<option value="">'.lang('All').'</option>
-										' . (in_array("image",$typesArray) ? '<option value="image" '.($type == "image" ? 'selected' : '').'>'.lang('Image').'</option>' : "") . '
-										' . (in_array("mobileleader",$typesArray) ? '<option value="mobileleader" '.($type == "mobileleader" ? 'selected' : '').'>'.lang('Mobile Leader').'</option>' : "") . '
-										' . (in_array("mobilesplash",$typesArray) ? '<option value="mobilesplash" '.($type == "mobilesplash" ? 'selected' : '').'>'.lang('Mobile Splash').'</option>' : "") . '
-										' . (in_array("flash",$typesArray) ? '<option value="flash" '.($type == "flash" ? 'selected' : '').'>'.lang('Flash').'</option>' : "") . '
-										' . (in_array("widget",$typesArray) ? '<option value="widget" '.($type == "widget" ? 'selected' : '').'>'.lang('Widget').'</option>' : "") . '
-										' . (in_array("link",$typesArray) ? '<option value="link" '.($type == "link" ? 'selected' : '').'>'.lang('Text Link').'</option>' : "") . '
-										' . (in_array("mail",$typesArray) ? '<option value="mail" '.($type == "mail" ? 'selected' : '').'>'.lang('E-Mail').'</option>' : "") . '
-										' . (in_array("content",$typesArray) ? '<option value="content" '.($type == "content" ? 'selected' : '').'>'.lang('Content').'</option>' : "") . '
-									</select>
-									</td>
-								<td align="left"><select name="category_id" style="width: 100px;"><option value="">'.lang('All').'</option>'.(listCategory($category_id,$merchant_id)).'</select></td>
-								<td align="left"><select name="lang" style="width: 100px;"><option value="">'.lang('All').'</option>'.(listLangs($lang,0,$langsArray)).'</select></td>
-								<td style="width:20px";></td>
-								<td align="left"><input type="text" name="width" value="'.$width.'" style="width: 40px; text-align: center;" /></td>
-								<td align="left"><input type="text" name="height" value="'.$height.'" style="width: 40px; text-align: center;" /></td>
-								<td align="left" width="130">'.$combolist.'</td>
-								<td style="width:20px";></td>
-								<td align="left"><select name="promotion" style="width: 140px;"><option value="">'.lang('General').'</option>'.listPromotions($promotion,0,0,$set->userInfo['id'],0,1).'</select></td>
-								
-								<td align="left"><input type="text" name="q" value="'.$q.'" style="width: 120px;" /></td>
-								<td style="width:20px";></td>
-								<td><input type="submit" value="'.lang('Search').'" /></td>
-								
-								
-								
-							</tr></table>
-							
-							
-							</form>
-						<hr />
-
-
-						
-
-
-						<div class="normalTableTitle">'.lang('Creatives List').'</div>
-						<table class="normal" width="100%" border="0" cellpadding="2" cellspacing="0">
-							<thead>
-							<tr>
-								<td>#</td>
-								<td>'.lang('Actions').'</td>
-								<td>'.lang('Creative Name').'</td>
-								<td>'.lang('Preview').'</td>
-								<td>'.lang('Type').'</td>
-								<td>'.lang('Promotion').'</td>
-								<td>'.lang('Category').'</td>
-								<td>'.lang('Size').' ('.lang('Width').' x '.lang('Height').')</td>
-								<td>'.lang('Language').'</td>
-								<td>'.lang('Added Date').'</td>
-								<td>'.lang('Updated Date').'</td>
-							</tr></thead><tfoot>'.$allCreative.'</tfoot>
-						</table>';
+								<option value="">'.lang('All').'</option>'.$merchantsToDisplay.'</select></td></tr></table></form>
+						<hr />';
 						
 						$set->content .= '<div align="left" style="padding: 5px;">'.$bottomNav.'</div>';
 		theme();

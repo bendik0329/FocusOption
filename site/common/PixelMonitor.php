@@ -499,7 +499,142 @@ a.btnTotalFired:hover{
 }
 </style>
 ';
-$set->content .= '<div data-tab="api_access"  style="padding-top:20px;">
+$set->content .= '
+	<div class="pixelmonitor">
+		<div class="pixelmonitor-div creative-page-filter">
+			<div class="search-wrp">
+				<p>Search creative</p>
+				<div class="search-box">
+					<input type="text" name="q" value="'.$q.'" />
+					<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+				</div>
+			</div>
+			<div class="new-pixel-moniter">
+				<button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter">
+					New Pixel Monitor
+				</button>
+		  
+		  <!-- Modal -->
+				<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						</div>
+						<div class="modal-body">
+						...
+						</div>
+						<div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Save changes</button>
+						</div>
+					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="pixel-table">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="top-performing-creative h-full">
+							<div class="performing-creative-table">
+								<div class="table-responsive">
+									<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+										<thead>
+											<tr>
+											<th scope="col">'.lang('Pixel Type').'</th>
+											<th scope="col">'.lang('Merchant').'</th>
+											<th scope="col">'.lang('Creative').'</th>
+											<th scope="col">'.lang('Pixel Code').'</th>
+											<th scope="col">'.lang('Type').'</th>
+											<th scope="col" class="text-align-center">'.lang('Total Fired').'</th>
+											<th scope="col">'.lang('Method').'</th>
+											<th scope="col" class="text-align-center">'.lang('Status').'</th>
+											<th scope="col">'.lang('Action').'</th>
+											</tr>
+										</thead>
+										<tfoot class="topCreativesCls">
+											<tr>
+												<td >Merchant</td>
+												<td>
+															<div class="form-group">
+																
+																<select class="form-control" id="exampleFormControlSelect1">
+																<option>1</option>
+																<option>2</option>
+																<option>3</option>
+																<option>4</option>
+																<option>5</option>
+																</select>
+															</div>
+												</td>
+												<td >
+														  <div class="form-group">
+															
+															<select class="form-control" id="exampleFormControlSelect1">
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+															<option>5</option>
+															</select>
+														</div>
+												</td>
+												<td> <input type="text" class="table-input"></input> </td>
+												<td >
+														  <div class="form-group">
+															
+															<select class="form-control" id="exampleFormControlSelect1">
+															<option>1</option>
+															<option>2</option>
+															<option>3</option>
+															<option>4</option>
+															<option>5</option>
+															</select>
+														</div>
+												</td>
+												<td class="text-align-center">241</td>
+												<td >
+														  <div class="form-group">
+																
+																<select class="form-control" id="exampleFormControlSelect1">
+																<option>1</option>
+																<option>2</option>
+																<option>3</option>
+																<option>4</option>
+																<option>5</option>
+																</select>
+															</div>
+												</td>
+												<td class="span-green"><span></span></td>
+												<td >
+													<div class="dropdown">
+														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+														<i class="fa fa-ellipsis-v"></i>
+														</button>
+														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+															<a class="dropdown-item" href="#">Action</a>
+															<a class="dropdown-item" href="#">Another action</a>
+															<a class="dropdown-item" href="#">Something else here</a>
+														</div>
+													</div>
+												</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+<div data-tab="api_access"  style="padding-top:20px;">
 <div class="normalTableTitle" style="cursor: pointer;">'.(isset($pixel_id) && !empty($pixel_id)?lang('Edit Pixel'):lang('New')).'</div>
     <div id="tab_10" style="width: 100%; background: #F8F8F8;">
 	<div id="tab-container3" class="tab-container">
