@@ -556,73 +556,34 @@ $set->content .= '
 											<th scope="col">'.lang('Action').'</th>
 											</tr>
 										</thead>
-										<tfoot class="topCreativesCls">
+										<tfoot>
 											<tr>
-												<td >Merchant</td>
-												<td>
-															<div class="form-group">
-																
-																<select class="form-control" id="exampleFormControlSelect1">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
-																<option>4</option>
-																<option>5</option>
-																</select>
+													<td align="center"> <select name="pixelType" id="pixelType"><option value="merchants" selected>'.lang('Merchants').'</option>'.($set->showProductsPlace==1 ? '<option value="products">'.lang('Products').'</option>':'').'</select></td>
+						                            <td align="left" style="display:none;" class="pixelProducts"><select name="db[product_id]" style="width:140px">'.listProducts().'</select></td>
+													<td align="left" class="pixelMerchants"><select name="db[merchant_id]" style="width:140px">'.listMerchants().'</select></td>
+													<td align="left"><select name="db[banner_id]" class="form-control">'.$listCreatives.'</select></td>
+						                            <td align="center"><input type="text" name="db[pixelCode]" onblur="checkHtml(this,0)" class="table-input"></input></td>
+						                            <td align="center"><select name="db[type]" class="form-control">
+															<!--option value="lead">'.lang('Lead').'</option><option value="account">'.lang('Account').'</option><option value="sale">'.lang('FTD').'</option-->
+															' . $trigerOptions . '
+														</select></td>
+						                            <td align="center">'.$set->totalFired.'</td>
+						                            <td align="center"><select class="form-control" name="db[method]" id="dbmethod0">
+															<option value="post">'.('Server To Server').' - POST</option>
+															<option value="get">'.('Server To Server').' - GET</option>
+															<option value="client">'.('Client Side').'</option></select></td>
+						                            <td class="span-green"><span></span></td>
+						                            <td align="center">
+						                            	<div class="dropdown">
+															<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+															<i class="fa fa-ellipsis-v"></i>
+															</button>
+															<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+																<input type="submit"  class="dropdown-item" value="'.lang('Add New').'" />
 															</div>
-												</td>
-												<td >
-														  <div class="form-group">
-															
-															<select class="form-control" id="exampleFormControlSelect1">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															</select>
 														</div>
-												</td>
-												<td> <input type="text" class="table-input"></input> </td>
-												<td >
-														  <div class="form-group">
-															
-															<select class="form-control" id="exampleFormControlSelect1">
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-															</select>
-														</div>
-												</td>
-												<td class="text-align-center">241</td>
-												<td >
-														  <div class="form-group">
-																
-																<select class="form-control" id="exampleFormControlSelect1">
-																<option>1</option>
-																<option>2</option>
-																<option>3</option>
-																<option>4</option>
-																<option>5</option>
-																</select>
-															</div>
-												</td>
-												<td class="span-green"><span></span></td>
-												<td >
-													<div class="dropdown">
-														<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-														<i class="fa fa-ellipsis-v"></i>
-														</button>
-														<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-															<a class="dropdown-item" href="#">Action</a>
-															<a class="dropdown-item" href="#">Another action</a>
-															<a class="dropdown-item" href="#">Something else here</a>
-														</div>
-													</div>
-												</td>
-											</tr>
+													</td>
+						                    </tr>
 										</tfoot>
 									</table>
 								</div>
@@ -900,7 +861,7 @@ $set->content .= '
                             <td width="40px" align="center">' . lang('Status') . '</td>
                             <td align="center">'.lang('Actions').'</td>
                     </tr></thead><tfoot><tr>
-							<td align="center"><select name="pixelType" id="pixelType"><option value="merchants" selected>'.lang('Merchants').'</option>'.($set->showProductsPlace==1 ? '<option value="products">'.lang('Products').'</option>':'').'</select></td>
+							<td align="center"> <select name="pixelType" id="pixelType"><option value="merchants" selected>'.lang('Merchants').'</option>'.($set->showProductsPlace==1 ? '<option value="products">'.lang('Products').'</option>':'').'</select></td>
                             <td align="left" style="display:none;" class="pixelProducts"><select name="db[product_id]" style="width:140px">'.listProducts().'</select></td>
 							<td align="left" class="pixelMerchants"><select name="db[merchant_id]" style="width:140px">'.listMerchants().'</select></td>
 							<td align="left"><select name="db[banner_id]" style="width:140px">'.$listCreatives.'</select></td>

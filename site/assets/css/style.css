@@ -1380,6 +1380,17 @@ border-radius: 10px !important;
     border: none;
     cursor: pointer;
 }
+.save-button input{
+    margin-top: 30px;
+    font-size: 14px;
+    line-height: 19px;
+    color: #fff;
+    padding:9px 55px;
+    background: #282560;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
 .tac-check-acc{
     margin-top: 30px;
 }
@@ -1457,6 +1468,21 @@ button:focus{
 }
 
 
+.select-ul select{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    width: 100%;
+    flex-wrap: wrap;
+    max-width: 210px;
+    height: 314px;
+    background: #fff;
+    border: 1px solid #DCDCDC;
+border-radius: 5px;
+padding: 12px;
+overflow: scroll;
+overflow-x: hidden;
+}
 .select-ul ul{
     margin: 0;
     padding: 0;
@@ -1564,12 +1590,12 @@ padding:3px;
 
   .pixel-table table td select{
     background: #FFFFFF 0% 0% no-repeat padding-box;
-border: 1px solid #DCDCDC;
-border-radius: 5px;
-padding:11px 12px;
-font-size: 12px;
-line-height: 16px;
-color: #282560;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    padding:0px 12px;
+    font-size: 12px;
+    line-height: 16px;
+    color: #282560;
   }
   .pixel-table table td .form-group{
     margin: 0 !important;
