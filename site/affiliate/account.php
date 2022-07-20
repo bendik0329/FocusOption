@@ -181,7 +181,7 @@ switch ($act) {
                 $unselectedItems .= '<option value="' . $i . '">' . $arr[$i] . '</option>';
 			}
 		$set->content .= '
-
+		<form action="'.$set->SSLprefix.$set->basepage.'?act=save" method="post" onsubmit="return checkUpdate();" autocomplete="off">
 			<div class="account-details">
 				<div class="ac-details">
 					<ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -207,31 +207,26 @@ switch ($act) {
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="ac-details-tab">
-										<form>
-											<div class="tab-input-acc">
-												<label for="exampleInputname">Username</label>
-												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Password</label>
-												<input type="password" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Repeat password</label>
-												<input type="password" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											
-										</form>
+										<div class="tab-input-acc">
+											<label for="exampleInputname">Username</label>
+											<input type="name" class="form-control required" id="exampleInputname" value="'.$db['username'].'" aria-describedby="emailHelp" disabled="disabled" placeholder="">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Password</label>
+											<input type="password" class="form-control" name="password" id="password" value="" aria-describedby="emailHelp" placeholder="">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Repeat password</label>
+											<input type="password" class="form-control" name="repassword" id="repassword" value="" aria-describedby="emailHelp" placeholder="">
+										</div>
 									</div>
 									<div class="tac-check-acc">
-											<div class="tab-acc-check-box">
-												<input type="checkbox" class="form-check-input" id="exampleCheck1">
-												<label class="form-check-label" for="exampleCheck1">Yes, I would like to receive the Affiliate newsletter</label>
-											</div>
-											<div class="save-button">
-												<button>Save</button>
-											</div>
-											</div>
+										<div class="tab-acc-check-box">
+											<input type="checkbox" class="form-check-input" id="exampleCheck1" name="newsletter" '.($db['newsletter'] ? 'checked="checked"' : '').'>
+											<label class="form-check-label" for="exampleCheck1">'.lang('Yes, I would like to receive the Affiliate newsletter').'</label>
+										</div>
+										
+									</div>
 								</div>
 							</div>
 						</div>
@@ -239,64 +234,60 @@ switch ($act) {
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="ac-details-tab">
-										<form>
-											<div class="tab-input-acc">
-												<label for="exampleInputname">Company Name:</label>
-												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
+										<div class="tab-input-acc">
+											<label for="exampleInputname">Company Name:</label>
+											<input type="name" class="form-control" id="exampleInputname"  name="db[company]" value="'.$db['company'].'" aria-describedby="emailHelp" placeholder="">
+										</div>
+										<div class="tab-input-acc mb-0">
+											<label for="exampleInputname">salutation:</label>
 											</div>
-											<div class="tab-input-acc mb-0">
-												<label for="exampleInputname">salutation:</label>
-												</div>
-											<div class="salutation">
-												<div class="salutation-check-box">
-													<input type="radio" name="radio" id="one" checked>
-													<label for="one">Mr. </label>
-												</div>
-												<div class="salutation-check-box">
-													<input type="radio" name="radio" id="two" checked>
-													<label for="two">Ms. </label>
-												</div>
+										<div class="salutation">
+											<div class="salutation-check-box">
+												<input type="radio" name="db[gender]" id="one" value="male" '.($db['gender'] == "male" || !$db['gender'] ? 'checked="checked"' : '').'>
+												<label for="one">Mr. </label>
 											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">First Name:</label>
-												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+											<div class="salutation-check-box">
+												<input type="radio" name="db[gender]" id="two" value="female" '.($db['gender'] == "female" ? 'checked="checked"' : '').'>
+												<label for="two">Ms. </label>
 											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Last Name:</label>
-												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">First Name:</label>
+											<input type="text" class="form-control" id="exampleInputpassword" name="db[first_name]" value="'.$db['first_name'].'" aria-describedby="emailHelp" placeholder="">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Last Name:</label>
+											<input type="text" class="form-control" id="exampleInputpassword" name="db[last_name]" value="'.$db['last_name'].'" aria-describedby="emailHelp" placeholder="">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">E-mail:</label>
+											<input type="Email" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="" name="db[mail]" value="'.$db['mail'].'">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Phone Number:</label>
+											<input type="number" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="" name="db[phone]" value="'.$db['phone'].'" >
+										</div>
+										<div class="tab-input-acc">
+											<div class="form-group">
+												<label for="exampleFormControlSelect1">Instant Messaging Type:</label>
+												<select name="db[IMUserType]" class="form-control" id="exampleFormControlSelect1">
+													<option value="">'.lang('Choose I.M. Type').'</option>
+													<option value="Skype" '.($db['IMUserType'] == "Skype" ? 'selected="selected"' : '').'>'.lang('Skype').'</option>
+													<option value="MSN" '.($db['IMUserType'] == "MSN" ? 'selected="selected"' : '').'>'.lang('MSN').'</option>
+													<option value="Google Talk" '.($db['IMUserType'] == "Google Talk" ? 'selected="selected"' : '').'>'.lang('Google Talk').'</option>
+													<option value="QQ" '.($db['IMUserType'] == "QQ" ? 'selected="selected"' : '').'>'.lang('QQ').'</option>
+													<option value="ICQ" '.($db['IMUserType'] == "ICQ" ? 'selected="selected"' : '').'>'.lang('ICQ').'</option>
+													<option value="Yahoo" '.($db['IMUserType'] == "Yahoo" ? 'selected="selected"' : '').'>'.lang('Yahoo').'</option>
+													<option value="AIM" '.($db['IMUserType'] == "AIM" ? 'selected="selected"' : '').'>'.lang('AIM').'</option>
+												</select>
 											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">E-mail:</label>
-												<input type="Email" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Phone Number:</label>
-												<input type="number" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<div class="form-group">
-													<label for="exampleFormControlSelect1">Instant Messaging Type:</label>
-													<select class="form-control" id="exampleFormControlSelect1">
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-													</select>
-												</div>
-											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Instant Messaging Account</label>
-												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											
-										</form>
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Instant Messaging Account</label>
+											<input type="text" class="form-control" id="exampleInputpassword" name="db[IMUser]" value="'.$db['IMUser'].'" aria-describedby="emailHelp" placeholder="">
+										</div>
 									</div>
-									<div class="tac-check-acc">
-											<div class="save-button">
-												<button class="mt-0">Save</button>
-											</div>
-											</div>
+									
 								</div>
 							</div>
 						</div>
@@ -304,39 +295,28 @@ switch ($act) {
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="ac-details-tab">
-										<form>
-											<div class="tab-input-acc">
-												<label for="exampleInputname">Street:</label>
-												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
+										<div class="tab-input-acc">
+											<label for="exampleInputname">Street:</label>
+											<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="" name="db[street]" value="'.$db['street'].'">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Postal / Zip Code:</label>
+											<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="" name="db[postalCode]" value="'.$db['postalCode'].'">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">City:</label>
+											<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="" name="db[city]" value="'.$db['city'].'">
+										</div>
+										<div class="tab-input-acc">
+											<div class="form-group">
+												<label for="exampleFormControlSelect1">Country</label>
+												<select class="form-control" id="exampleFormControlSelect1" name="db[country]">
+													<option value="">'.lang('Choose Your Country...').'</option>'.getCountry($db['country']).'
+												</select>
 											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Postal / Zip Code:</label>
-												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">City:</label>
-												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<div class="form-group">
-													<label for="exampleFormControlSelect1">Country</label>
-													<select class="form-control" id="exampleFormControlSelect1">
-														<option>1</option>
-														<option>2</option>
-														<option>3</option>
-														<option>4</option>
-														<option>5</option>
-													</select>
-												</div>
-											</div>
-											
-										</form>
-									</div>
-									<div class="tac-check-acc">
-										<div class="save-button">
-											<button class="mt-0">Save</button>
 										</div>
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -344,26 +324,20 @@ switch ($act) {
 							<div class="row">
 								<div class="col-lg-6">
 									<div class="ac-details-tab">
-										<form>
-											<div class="tab-input-acc">
-												<label for="exampleInputname">Website 1:</label>
-												<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Website 2:</label>
-												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>
-											<div class="tab-input-acc">
-												<label for="exampleInputpassword">Website 3:</label>
-												<input type="text" class="form-control" id="exampleInputpassword" aria-describedby="emailHelp" placeholder="">
-											</div>		
-										</form>
-									</div>
-									<div class="tac-check-acc">
-										<div class="save-button">
-											<button class="mt-0">Save</button>
+										<div class="tab-input-acc">
+											<label for="exampleInputname">Website 1:</label>
+											<input type="name" class="form-control" id="exampleInputname" aria-describedby="emailHelp" placeholder="" name="db[website]" value="'.($db['website'] ? $db['website'] : 'http://').'">
 										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Website 2:</label>
+											<input type="text" class="form-control" id="exampleInputpassword" name="db[website2]" value="'.($db['website2'] ? $db['website2'] : 'http://').'" aria-describedby="emailHelp" placeholder="">
+										</div>
+										<div class="tab-input-acc">
+											<label for="exampleInputpassword">Website 3:</label>
+											<input type="text" class="form-control" id="exampleInputpassword" name="db[website3]" value="'.($db['website3'] ? $db['website3'] : 'http://').'" aria-describedby="emailHelp" placeholder="">
+										</div>		
 									</div>
+									
 								</div>
 							</div>
 						</div>
@@ -373,239 +347,59 @@ switch ($act) {
 									<div class="ac-details-tab">
 										<div class="market-select">
 											<div class="select-ul">
-												<ul>
-													<li>123</li>
-													<li>1234</li>
-													<li>12345</li>
-													<li>123456</li>
-													<li>1234567</li>
-													<li>12345678</li>
-												</ul>
+											<select id="q1" size="10" multiple="true">'.$unselectedItems.'</select>
 											</div>
 											<div class="arrow-button">
 												<div class="a-button" id="right-button">
-													<button> <i class="fa fa-angle-right"></i> </button>
+													<button id="btnRight"> <i class="fa fa-angle-right"></i> </button>
 												</div>
 												<div class="a-button" id="left-button">
-													<button> <i class="fa fa-angle-left"></i> </button>
+													<button id="btnLeft"> <i class="fa fa-angle-left"></i> </button>
 												</div>
 											</div>
 											<div class="select-ul">
-												<ul>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-													<li></li>
-												</ul>
+												<select id="q2" name="db[q2]" multiple="true">'.$selectedItems.'</select>
 											</div>
 										</div>
 									</div>
-									<div class="tac-check-acc">
-										<div class="save-button">
-											<button class="mt-0">Save</button>
-										</div>
-									</div>
+									
 								</div>
 							</div>
 						</div>
-						
+						<div class="tac-check-acc">
+							<div class="save-button">
+								<input type="submit" class="mt-0" value="'.lang('Save').'" />
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
-
-
-
-
-		<div align="center">
-		<form action="'.$set->SSLprefix.$set->basepage.'?act=save" method="post" onsubmit="return checkUpdate();" autocomplete="off">
-		<table width="975" border="0" cellpadding="0" cellspacing="0">
-			<tr>
-				<td colspan="3" height="10"></td>
-			</tr><tr>
-				<td width="325" valign="top">
-					<table width="325" border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td align="left" height="38" style="background: url('.$set->SSLprefix.'images/reg/reg_box_top.jpg); padding-left: 10px; color: #FFFFFF; font-family: Calibri; font-size: 14px;">'.lang('ACCOUNT INFORMATION').'</td>
-						</tr><tr>
-							<td height="225" valign="top" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bg.jpg);">
-								<table width="325" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('Username').':</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="text" value="'.$db['username'].'" disabled="disabled" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('Password').':</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="password" name="password" id="password" value="" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('Repeat Password').':</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="password" name="repassword" id="repassword" value="" style="width: 283px;" /></td>
-									</tr>
-								</table>
-							</td>
-						</tr><tr>
-							<td height="12" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bottom.jpg);"></td>
-						</tr><tr>
-							<td height="10"></td>
-						</tr><tr>
-							<td align="left" height="38" style="background: url('.$set->SSLprefix.'images/reg/reg_box_top.jpg); padding-left: 10px; color: #FFFFFF; font-family: Calibri; font-size: 14px;">'.lang('WEBSITE INFORMATION').'</td>
-						</tr><tr>
-							<td height="195" valign="top" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bg.jpg);">
-								<table width="325" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('Website').' 1:</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="text" name="db[website]" id="website" value="'.($db['website'] ? $db['website'] : 'http://').'" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('Website').' 2:</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="text" name="db[website2]" value="'.($db['website2'] ? $db['website2'] : 'http://').'" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('Website').' 3:</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="text" name="db[website3]" value="'.($db['website3'] ? $db['website3'] : 'http://').'" style="width: 283px;" /></td>
-									</tr>
-								</table>
-							</td>
-						</tr><tr>
-							<td height="12" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bottom.jpg);"></td>
-						</tr>
-					</table>
-				</td>
-				<td width="325" valign="top">
-					<table width="325" border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td align="left" height="38" style="background: url('.$set->SSLprefix.'images/reg/reg_box_top.jpg); padding-left: 10px; color: #FFFFFF; font-family: Calibri; font-size: 14px;">'.lang('INVOICE INFORMATION').'</td>
-						</tr><tr>
-							<td height="226" valign="top" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bg.jpg);">
-								<table width="325" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('Street').':</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="text" name="db[street]" value="'.$db['street'].'" id="street" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('Postal / Zip Code').':</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="text" name="db[postalCode]" value="'.$db['postalCode'].'" id="postalCode" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('City').':</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><input type="text" name="db[city]" value="'.$db['city'].'" id="city" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('Country').':</td>
-									</tr><tr>
-										<td align="left" style="padding-left: 10px;"><select name="db[country]" style="width: 295px;" id="country"><option value="">'.lang('Choose Your Country...').'</option>'.getCountry($db['country']).'</select></td>
-									</tr>
-								</table>
-							</td>
-						</tr><tr>
-							<td height="12" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bottom.jpg);"></td>
-						</tr><tr>
-							<td height="10"></td>
-						</tr><tr>
-							<td align="left" height="38" style="background: url('.$set->SSLprefix.'images/reg/reg_box_top.jpg); padding-left: 10px; color: #FFFFFF; font-family: Calibri; font-size: 14px;">'.lang('MARKET INFORMATION').'</td>
-						</tr><tr>
-							<td height="184" valign="top" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bg.jpg); padding-left: 10px; padding-top: 10px;">
-								<table><tr>
-									<td>
-										<select id="q1" size="10" multiple="true" style="width: 130px; height: 150px; overflow: auto; border: 1px #CECECE solid;">'.$unselectedItems.'</select>
-									</td>
-									<td>
-										<table border="0" cellpadding="0" cellspacing="0">
-										<tr><td><img border="0" src="'.$set->SSLprefix.'images/reg/right.jpg" alt="" onclick="moveMultiple(\'q1\',\'q2\',\'q2\',\'update\'); return false;" style="cursor: pointer;" /></td></tr>
-										<tr><td height="3"></td></tr>
-										<tr><td><img border="0" src="'.$set->SSLprefix.'images/reg/left.jpg" alt="" onclick="moveMultiple(\'q2\',\'q1\',\'q2\',\'update\'); return false;" style="cursor: pointer;" /></td></tr>
-										</table>
-									</td>
-									<td><select id="q2" multiple="true" style="width: 130px; height: 150px; overflow: auto; border: 1px #CECECE solid;">'.$selectedItems.'</select></td>
-								</tr></table>
-								<input type="hidden" name="db[marketInfo]" id="update" value="'.$db['marketInfo'].'" />
-							</td>
-						</tr><tr>
-							<td height="12" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bottom.jpg);"></td>
-						</tr>
-					</table>
-				</td>
-				<td width="325" rowspan="1" valign="top">
-					<table width="325" border="0" cellpadding="0" cellspacing="0">
-						<tr>
-							<td align="left" height="38" style="background: url('.$set->SSLprefix.'images/reg/reg_box_top.jpg); padding-left: 10px; color: #FFFFFF; font-family: Calibri; font-size: 14px;">'.lang('CONTACT INFORMATION').'</td>
-						</tr><tr>
-							<td height="480" valign="top" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bg.jpg);">
-								<table width="325" border="0" cellpadding="0" cellspacing="0">
-									<tr>
-										<td colspan="2" align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('Company Name').':</td>
-									</tr><tr>
-										<td colspan="2" align="left" style="padding-left: 10px;"><input type="text" name="db[company]" value="'.$db['company'].'" style="width: 283px;" /></td>
-									</tr><tr>
-										<td align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('Salutation').':</td>
-										<td align="right" style="padding-right: 20px;"><input type="radio" name="db[gender]" value="male" '.($db['gender'] == "male" || !$db['gender'] ? 'checked="checked"' : '').' /> '.lang('Mr').'. <input type="radio" name="db[gender]" value="female" '.($db['gender'] == "female" ? 'checked="checked"' : '').' /> '.lang('Ms').'.</td>
-									</tr><tr>
-										<td colspan="2" align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('First Name').':</td>
-									</tr><tr>
-										<td colspan="2" align="left" style="padding-left: 10px;"><input type="text" name="db[first_name]" id="first_name" value="'.$db['first_name'].'" style="width: 283px;" /></td>
-									</tr><tr>
-										<td colspan="2" align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('Last name').':</td>
-									</tr><tr>
-										<td colspan="2" align="left" style="padding-left: 10px;"><input type="text" name="db[last_name]" id="last_name" value="'.$db['last_name'].'" style="width: 283px;" /></td>
-									</tr><tr>';
-										if ($_SESSION['isam']==0) {
-										$set->content .= '
-										<td colspan="2" align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('E-mail').':</td>
-									</tr><tr>
-										<td colspan="2" align="left" style="padding-left: 10px;"><input type="text" name="db[mail]" value="'.$db['mail'].'" id="mail" style="width: 283px;" /></td>
-									</tr><tr>
-										<td colspan="2" align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;"><span class="required">*</span> '.lang('Phone number').':</td>
-									</tr><tr>
-										<td colspan="2" align="left" style="padding-left: 10px;"><input type="text" name="db[phone]" value="'.$db['phone'].'" id="phone" style="width: 283px;" /></td>
-									</tr><tr>
-									
-										<td colspan="2" align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('I.M. type').':</td>
-									</tr><tr>
-										<td colspan="2" align="left" style="padding-left: 10px;">
-											<select name="db[IMUserType]" style="width: 295px;">
-												<option value="">'.lang('Choose I.M. Type').'</option>
-												<option value="Skype" '.($db['IMUserType'] == "Skype" ? 'selected="selected"' : '').'>'.lang('Skype').'</option>
-												<option value="MSN" '.($db['IMUserType'] == "MSN" ? 'selected="selected"' : '').'>'.lang('MSN').'</option>
-												<option value="Google Talk" '.($db['IMUserType'] == "Google Talk" ? 'selected="selected"' : '').'>'.lang('Google Talk').'</option>
-												<option value="QQ" '.($db['IMUserType'] == "QQ" ? 'selected="selected"' : '').'>'.lang('QQ').'</option>
-												<option value="ICQ" '.($db['IMUserType'] == "ICQ" ? 'selected="selected"' : '').'>'.lang('ICQ').'</option>
-												<option value="Yahoo" '.($db['IMUserType'] == "Yahoo" ? 'selected="selected"' : '').'>'.lang('Yahoo').'</option>
-												<option value="AIM" '.($db['IMUserType'] == "AIM" ? 'selected="selected"' : '').'>'.lang('AIM').'</option>
-											</select>
-										</td>
-									</tr><tr>
-										<td colspan="2" align="left" height="24" style="padding-left: 10px; color: #515151; font-family: Arial; font-size: 14px;">'.lang('I.M. account').':</td>
-									</tr><tr>
-										<td colspan="2" align="left" style="padding-left: 10px;"><input type="text" name="db[IMUser]" value="'.$db['IMUser'].'" style="width: 283px;" /></td>
-									</tr>';
-									}
-									$set->content .= '
-								</table>
-							</td>
-						</tr><tr>
-							<td height="12" style="background: url('.$set->SSLprefix.'images/reg/reg_box_bottom.jpg);"></td>
-						</tr>
-					</table>
-				</td>
-			</tr><tr>
-				<td colspan="3" height="10"></td>
-			</tr><tr>
-				<td colspan="2" align="left">
-					<input type="checkbox" name="newsletter" '.($db['newsletter'] ? 'checked="checked"' : '').' /> '.lang('Yes, I would like to receive the Affiliate newsletter').'
-				</td>
-				<td align="right" style="padding-right: 10px;">
-					<input type="submit" value="'.lang('Save').'" />
-				</td>
-			</tr>
-		</table>
 		</form>
-		</div>';
+		<script>
+			$("#btnRight").click(function (e) {
+			    var selectedOpts = $("#q1 option:selected");
+			    if (selectedOpts.length == 0) {
+			      alert("Nothing to move.");
+			      e.preventDefault();
+			    }
+			    $("#q2").append($(selectedOpts).clone());
+			    $(selectedOpts).remove();
+			    e.preventDefault();
+			  });
+
+			  $("#btnLeft").click(function (e) {
+			    var selectedOpts = $("#q2 option:selected");
+			    if (selectedOpts.length == 0) {
+			      alert("Nothing to move.");
+			      e.preventDefault();
+			    }
+			    $("#q1").append($(selectedOpts).clone());
+			    $(selectedOpts).remove();
+			    e.preventDefault();
+			  });
+
+		</script>
+		';
 		
 		theme();
 		break;

@@ -8,6 +8,25 @@ chdir('../');
 require_once('common/global.php');
 require_once('common/subAffiliateData.php');
 
+$dataPoints = array( 
+	array("label"=>"Oxygen", "symbol" => "O","y"=>46.6),
+	array("label"=>"Silicon", "symbol" => "Si","y"=>27.7),
+	array("label"=>"Aluminium", "symbol" => "Al","y"=>13.9),
+	array("label"=>"Iron", "symbol" => "Fe","y"=>5),
+	array("label"=>"Calcium", "symbol" => "Ca","y"=>3.6),
+	array("label"=>"Sodium", "symbol" => "Na","y"=>2.6),
+	array("label"=>"Magnesium", "symbol" => "Mg","y"=>2.1),
+	array("label"=>"Others", "symbol" => "Others","y"=>1.5),
+ 
+);
+$dataPointsCountry = array( 
+	array("y" => 7,"label" => "March" ),
+	array("y" => 12,"label" => "April" ),
+	array("y" => 28,"label" => "May" ),
+	array("y" => 18,"label" => "June" ),
+	array("y" => 41,"label" => "July" )
+);
+
 	$ip = getClientIp();
 
 	if(checkUserFirewallIP($ip)){
@@ -429,12 +448,8 @@ switch ($act) {
 		}
 		// List Merchants ends here.
 		
-					
-					
-					
-                
 		
-		
+		// $set->content .= '<script src="'.$set->SSLprefix.'js/unslider/dist/js/chart.js"></script>';
 		
 		
 		$set->content .='  <link rel="stylesheet" href="'.$set->SSLprefix.'js/unslider/dist/css/unslider.css">
@@ -1444,7 +1459,30 @@ $set->content .=
 								</select>
 							</div>
 							<div class="session-device-chart">
-								<img src="../assets/images/img-new/session-device.png" class="img-fluid">
+								<script>
+						        	window.onload = function() {
+										var chart = new CanvasJS.Chart("chartContainer", {
+											theme: "light2",
+											animationEnabled: true,
+											title: {
+												text: ""
+											},
+											data: [{
+												type: "doughnut",
+												indexLabel: "{symbol} - {y}",
+												yValueFormatString: "#,##0.0\"%\"",
+												showInLegend: true,
+												legendText: "{label} : {y}",
+												dataPoints: '. json_encode($dataPoints, JSON_NUMERIC_CHECK) .'
+											}]
+										});
+										chart.render();
+										 
+										}
+						        </script>
+								<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+								<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 							</div>
 						</div>
 					</div>
@@ -1462,7 +1500,59 @@ $set->content .=
 								</select>
 							</div>
 							<div class="session-device-chart">
-								<img src="../assets/images/img-new/session-resport.png" class="img-fluid">
+								<script>
+									// Initialize and add the map
+									function initMap() {
+									  // The location of Uluru
+									  const uluru = { lat: -25.344, lng: 131.031 };
+									  // The map, centered at Uluru
+									  const map = new google.maps.Map(document.getElementById("map"), {
+									    zoom: 4,
+									    center: uluru,
+									  });
+									  // The marker, positioned at Uluru
+									  const marker = new google.maps.Marker({
+									    position: uluru,
+									    map: map,
+									  });
+									}
+
+									window.initMap = initMap;
+								</script>
+								<div id="map"></div>
+								<script
+							      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZPpPBmjMZhbL8Slc6d0uLD28_THgQJDg&callback=initMap&v=weekly"
+							    ></script>
+								<script>
+									window.onload = function() {
+									 
+									var chart = new CanvasJS.Chart("chartContainerCounty", {
+										animationEnabled: true,
+										title:{
+											text: ""
+										},
+										axisY: {
+											title: "Revenue (in USD)",
+											includeZero: true,
+											prefix: "$",
+											suffix:  "k"
+										},
+										data: [{
+											type: "bar",
+											yValueFormatString: "$#,##0K",
+											indexLabel: "{y}",
+											indexLabelPlacement: "inside",
+											indexLabelFontWeight: "bolder",
+											indexLabelFontColor: "white",
+											dataPoints: '. json_encode($dataPointsCountry, JSON_NUMERIC_CHECK) .'
+										}]
+									});
+									chart.render();
+									 
+									}
+								</script>
+								<div id="chartContainerCounty" style="height: 370px; width: 100%;"></div>
+								<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 							</div>
 						</div>
 					</div>
@@ -1624,6 +1714,7 @@ $set->content .=
 				}); 
 			});
 		</script>
+		
 			';
 		
 			if ($set->showDocumentsModule==1) {
