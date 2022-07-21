@@ -22,9 +22,9 @@ function SmartWizard(target, options) {
     this.loader = $('<div>Loading</div>').addClass("loader");
     
     this.buttons = {
-        next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext"),
-        previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious"),
-        finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish")
+        next : $('<a>'+options.labelNext+'</a>').attr("href","#").addClass("buttonNext").attr('id', 'btnNext'),
+        previous : $('<a>'+options.labelPrevious+'</a>').attr("href","#").addClass("buttonPrevious").attr('id', 'btnPrevious'),
+        finish  : $('<a>'+options.labelFinish+'</a>').attr("href","#").addClass("buttonFinish").attr('id', 'btnFinish')
     };
 
     /*
@@ -301,16 +301,29 @@ function SmartWizard(target, options) {
                     $($this.buttons.previous).hide();
                 }
             }else{
+                $("#btnNext").attr('style', 'display: block !important;')
+                $("#btnFinish").attr('style', 'display: none !important;')
                 $($this.buttons.previous).removeClass("buttonDisabled");
+                $($this.buttons.previous).addClass("buttongary");
+                
+
                 if ($this.options.hideButtonsOnDisabled) {
                     $($this.buttons.previous).show();
                 }
             }
             if (($this.steps.length-1) <= $this.curStepIdx){
-                $($this.buttons.next).addClass("buttonDisabled");
+                $("#btnNext").attr('style', 'display: none !important;')
+                $("#btnPrevious").attr('style', 'order:0 !important;');
+                $('#btnFinish').show();
+                $("#btnFinish").removeAttr("style");
+                $("#btnFinish").attr('style', 'display: block !important;order:2 !important;');
+                
+
+                
                 if ($this.options.hideButtonsOnDisabled) {
                     $($this.buttons.next).hide();
                 }
+                $($this.buttons.finish).show();
             }else{
                 $($this.buttons.next).removeClass("buttonDisabled");
                 if ($this.options.hideButtonsOnDisabled) {

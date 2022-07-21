@@ -32,7 +32,7 @@ $altTextLogo = '<div class="knockout" style=" background: url(\'/images/coma_mis
 ">'.$set->dashBoardMainTitle.'</div>';
 
 
-$theLogoText = (!empty($set->logoPath123) && strpos($set->logoPath123,"/tmp")===false?'<img class="headerLogo" height="84px" border="0" src="'.$logoPath.'" alt="" />':$altTextLogo);
+$theLogoText = (!empty($set->logoPath) && strpos($set->logoPath,"/tmp")===false?'<img class="headerLogo" height="84px" border="0" src="'.$logoPath.'" alt="" />':$altTextLogo);
 
 
 
