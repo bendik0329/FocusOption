@@ -301,7 +301,7 @@ function SmartWizard(target, options) {
                     $($this.buttons.previous).hide();
                 }
             }else{
-                $("#btnNext").attr('style', 'display: block !important;')
+                $("#btnNext").attr('style', '')
                 $("#btnFinish").attr('style', 'display: none !important;')
                 $($this.buttons.previous).removeClass("buttonDisabled");
                 $($this.buttons.previous).addClass("buttongary");

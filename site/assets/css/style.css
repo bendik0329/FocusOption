@@ -252,6 +252,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation > li > a
 .main-menu.menu-dark .navigation > li:hover > a span, 
 .main-menu.menu-dark .navigation > li.active > a span {
     font-weight: bold;
+    color: #282560;
 }
 body.vertical-layout.vertical-menu.menu-collapsed .main-menu .logout-wrp {
     padding: 17px 17px;
@@ -1769,6 +1770,24 @@ label.stepNumber {}
     height: 48px !important;
     font-weight: 400 !important;
 }
+
+.buttonFinish{
+    border: none !important;
+    max-width: 200px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 9px 23px !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #fff !important;
+    background: #282560 !important;
+    border-radius: 5px !important;
+    justify-content: center !important;
+    width: 200px !important;
+    height: 48px !important;
+    font-weight: 400 !important;
+}
 .swMain div.actionBar {
     position: inherit !important;
     background: transparent !important;
@@ -1886,6 +1905,7 @@ resize: inherit;
     border:none;
     width: 100px;
     height: 28px;
+    padding: 0;
 }
 .finish-step{
     font-size: 12px;
@@ -1981,4 +2001,7 @@ cursor: pointer;
 }
 .profile-t table td{
     color: #0E132B !important;
+}
+.msgBox .content{
+    margin-left: 0 !important;
 }
