@@ -327,3 +327,8 @@
   color: #0E132B;
   margin-bottom: 12px;
 }
+
+/* AP */
+.buttonFinish{
+  display: none !important;
+}

@@ -103,7 +103,7 @@ function adminMenu($onlyArray = false) {
 	$linkName = Array();
 	
 	$counter=0;
-	$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/" style="color: #000000;">'.lang('DashBoard').'</a>';
+	$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/">'.lang('DashBoard').'</a>';
 	
 	
 	if ($noMerchants==0){
