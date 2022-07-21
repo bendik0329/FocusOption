@@ -146,7 +146,7 @@ switch ($act) {
 			}
 	
 	default:
-		$pageTitle = lang('Account Details');
+		$pageTitle = lang('My Account - Account Details');
 		$set->breadcrumb_title =  lang($pageTitle);
 			$set->pageTitle = '
 			<style>

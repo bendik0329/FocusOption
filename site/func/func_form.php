@@ -120,19 +120,19 @@ function timeFrame($from = '', $to = '')
 	//$to   = date("d-m-Y", strtotime(createValidDate($to)));
 	//die($from . '   ' . $to);//////////////////////////////////////////////   31-12-1969 31-12-1969
 	
-	$fromDate = date("d/m/Y");
-	$toDate = date("d/m/Y");
+	$fromDate = date("Y/m/d");
+	$toDate = date("Y/m/d");
 	$oType1 = '$(\'#date_from\').val(\''.$fromDate.'\');
 			$(\'#date_to\').val(\''.$toDate.'\');';
 	
-	$fromDate = date("d/m/Y", strtotime("-1 Day"));
-	$toDate = date("d/m/Y", strtotime("-1 Day"));
+	$fromDate = date("Y/m/d", strtotime("-1 Day"));
+	$toDate = date("Y/m/d", strtotime("-1 Day"));
 	$oType2 = '$(\'#date_from\').val(\''.$fromDate.'\');
 			$(\'#date_to\').val(\''.$toDate.'\');';
 
 	$fromDate = date("Y-m-01");
-	$toDate = date("d/m/Y",strtotime("-1 Day", strtotime("+1 Month",strtotime($fromDate))));
-	$oType3 = '$(\'#date_from\').val(\''.date("d/m/Y",strtotime($fromDate)).'\');
+	$toDate = date("Y/m/d",strtotime("-1 Day", strtotime("+1 Month",strtotime($fromDate))));
+	$oType3 = '$(\'#date_from\').val(\''.date("Y/m/d",strtotime($fromDate)).'\');
 			$(\'#date_to\').val(\''.$toDate.'\');';
 
 	if (date("Y-m-01")==$fromDate  && date("m"==3) ) {
@@ -143,17 +143,17 @@ function timeFrame($from = '', $to = '')
 	}
 	
 	
-	$toDate = date("d/m/Y", strtotime("-1 Day",strtotime("+1 Month",strtotime($fromDate))));
-	$oType4 = '$(\'#date_from\').val(\''.date("d/m/Y",strtotime($fromDate)).'\');
+	$toDate = date("Y/m/d", strtotime("-1 Day",strtotime("+1 Month",strtotime($fromDate))));
+	$oType4 = '$(\'#date_from\').val(\''.date("Y/m/d",strtotime($fromDate)).'\');
 			$(\'#date_to\').val(\''.$toDate.'\');';
 
 	$fromDate = date("Y-01-01", strtotime("-1 Day"));
-	$toDate = date("d/m/Y", strtotime("+1 Year", strtotime("-1 Day",strtotime($fromDate))));
-	$oType5 = '$(\'#date_from\').val(\''.date("d/m/Y",strtotime($fromDate)).'\');
+	$toDate = date("Y/m/d", strtotime("+1 Year", strtotime("-1 Day",strtotime($fromDate))));
+	$oType5 = '$(\'#date_from\').val(\''.date("Y/m/d",strtotime($fromDate)).'\');
 			$(\'#date_to\').val(\''.$toDate.'\');';
 			
-	$fromDate = date("d/m/Y", strtotime("-1 Week"));
-	$toDate = date("d/m/Y");
+	$fromDate = date("Y/m/d", strtotime("-1 Week"));
+	$toDate = date("Y/m/d");
 	$oType6 = '$(\'#date_from\').val(\''.$fromDate.'\');
 			$(\'#date_to\').val(\''.$toDate.'\');';
 		
@@ -171,7 +171,7 @@ function timeFrame($from = '', $to = '')
 			<option value="1" '.($auto_time_frame == "1" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==1) ? 'selected' : '')).'>'.lang('Today').'</option>
 			<option value="2" '.($auto_time_frame == "2" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==2) ? 'selected' : '')).'>'.lang('Yesterday').'</option>
 			<option value="6" '.($auto_time_frame == "6" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==6) ? 'selected' : '')).'>'.lang('This Week').'</option>
-			<option value="3" '.($auto_time_frame == "3" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==3) ? 'selected' : '')).'>'.lang('This Month').'</option>
+			<option value="3" '.($auto_time_frame == "3" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==3) ? 'selected' : '')).'>'.lang('Month to date').'</option>
 			<option value="4" '.($auto_time_frame == "4" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==4) ? 'selected' : '')).'>'.lang('Last Month').'</option>
 			<option value="5" '.($auto_time_frame == "5" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==5) ? 'selected' : '')).'>'.lang('This Year').'</option>
 			<option value="7" '.($auto_time_frame == "7" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==7) ? 'selected' : '')).'>'.lang('Last Year').'</option>
@@ -237,14 +237,14 @@ function timeFrame($from = '', $to = '')
 					$("#date_to").val(convertYmdToDmy($("#date_to").val()));
 					
 					$("#date_from").datepicker({
-						dateFormat: \'dd/mm/yy\',
+						dateFormat: \'yy/mm/dd\',
 						onSelect: function() {
 							$("#dateSelect").val(8);
 						}
 					});
 					
 					$("#date_to").datepicker({
-						dateFormat: \'dd/mm/yy\',
+						dateFormat: \'yy/mm/dd\',
 						onSelect: function() {
 							$("#dateSelect").val(8);
 						}
