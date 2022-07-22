@@ -133,6 +133,7 @@ if ($boolIsLogen2) {
 		
 
 		if ($act != "payment_save") $paymentMethod = $db['paymentMethod'];
+		
 		$set->content .= '<form id="frmPaymentDetails"  method="post">
 							<input type="hidden" name="affiliate" value="'. $requestID .'">
 						<table width="980" border="0" cellpadding="0" cellspacing="0" class="tblDetails">

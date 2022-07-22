@@ -141,7 +141,7 @@ if (!defined('SITE_INCLUDE_START')) {
                                         <img src="/images/profile_img.png" alt="avatar">
                                         <i></i>
                                     </span>
-                                    <span class="user-name"><?= '[#' . $set->userInfo['id'] . '] ' . lang('Welcome Back') . ' <b>' . $set->userInfo['first_name'] . '</b>'; ?></span>
+                                    <span class="user-name"><?= '  <b>' . $set->userInfo['first_name'].' '.$set->userInfo['id'] . '</b>'; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="/affiliate/account.php"><i class="ft-user"></i> Edit Profile</a>

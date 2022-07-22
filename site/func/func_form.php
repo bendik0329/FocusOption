@@ -182,7 +182,7 @@ function timeFrame($from = '', $to = '')
 		<input type="text" name="from" value="'.$from.'" id="date_from" style="padding: 3px;" style="width:90px!important;" /> 
 		<b>'.lang('To').':</b> 
 		<input type="text" name="to" value="'.$to.'" id="date_to" style="padding: 3px;" style="width:90px!important;" />
-			<div style="height: 5px;"></div>
+			
 			<script type="text/javascript">
 				function chgDates(o) {
 					if (o == "1") {

@@ -275,17 +275,25 @@ $set->totalRows = $l;
 
 
 $set->content .= '
-		<div class="normalTableTitle" style="width: 100%;">' . lang('Report Search') . '</div>
+		<div class="normalTableTitle quick-report-text" style="width: 100%;">' . lang('
+
+        <button type="button" class="btn report-display" data-toggle="modal" data-target="#exampleModalCenter">
+            <i class="fa fa-cog"></i> Report Display  
+        </button>
+      
+           
+
+            ') . '</div>
 			<div style="background: #F8F8F8;">
 			<form method="get">
 				<table><tr>
 						<td>' . lang('Period') . '</td>
 						<td>' . lang('Merchant') . '</td>
 						<td>' . lang('Search Type') . '</td>';
-if ($platformParam != '') {
-    $set->content .= '<td>' . lang('Platform') . '</td>';
-}
-$set->content .= '<td></td>
+                            if ($platformParam != '') {
+                                $set->content .= '<td>' . lang('Platform') . '</td>';
+                            }
+                            $set->content .= '<td></td>
 						
 					</tr><tr>
 					<td>' . timeFrame($from, $to) . '</td>
@@ -294,6 +302,8 @@ $set->content .= '<td></td>
 					' . $platformParam . '
 					<td><input type="submit" value="' . lang('View') . '" /></td>
 				</tr></table>
+
+             
 			</form>
 			' . ($set->export ? '<div class="exportCSV" style="float:left"><a style="cursor:pointer" onclick="$(\'#quickTbl\').tableExport({type:\'csvbig\',escape:\'false\',tableName:\'' . $filename . '\'});"><img border="0" src="' . $set->SSLprefix . 'images/excel.png" alt="' . lang('Export to CSV') . '" title="' . lang('Export to CSV') . '" align="absmiddle" /> <b>' . lang('Export to CSV') . '</b></a></div>' : '') . '
 				<div class="exportCSV" style="float:left"><a style="cursor:pointer" onclick="$(\'#quickTbl\').tableExport({type:\'excelbig\',escape:\'false\',tableName:\'' . $filename . '\'});"><img border="0" src="' . $set->SSLprefix . 'images/excel.png" alt="' . lang('Export to XLS') . '" title="' . lang('Export to XLS') . '" align="absmiddle" /> <b>' . lang('Export to XLS') . '</b></a>
