@@ -252,6 +252,7 @@ body.vertical-layout.vertical-menu.menu-expanded .main-menu .navigation > li > a
 .main-menu.menu-dark .navigation > li:hover > a span, 
 .main-menu.menu-dark .navigation > li.active > a span {
     font-weight: bold;
+    color: #282560;
 }
 body.vertical-layout.vertical-menu.menu-collapsed .main-menu .logout-wrp {
     padding: 17px 17px;
@@ -1769,6 +1770,24 @@ label.stepNumber {}
     height: 48px !important;
     font-weight: 400 !important;
 }
+
+.buttonFinish{
+    border: none !important;
+    max-width: 200px !important;
+    width: 100% !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 9px 23px !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #fff !important;
+    background: #282560 !important;
+    border-radius: 5px !important;
+    justify-content: center !important;
+    width: 200px !important;
+    height: 48px !important;
+    font-weight: 400 !important;
+}
 .swMain div.actionBar {
     position: inherit !important;
     background: transparent !important;
@@ -1886,6 +1905,7 @@ resize: inherit;
     border:none;
     width: 100px;
     height: 28px;
+    padding: 0;
 }
 .finish-step{
     font-size: 12px;
@@ -1915,6 +1935,11 @@ resize: inherit;
     .o-step-label label select, .select-mer{
         width: 168px !important;
     }
+    .creatives-list-filter-opt{
+        display: flex;
+    align-items: center;
+    justify-content: space-between;
+    }
 }
 
 .open span{
@@ -1941,4 +1966,45 @@ margin-bottom: 12px !important;
 }
 .highcharts-series-group rect{
     fill: #282560;
+}
+.creative-details-table{
+    padding-left: 10px;
+}
+
+/* Profile */
+.profile-form-label{
+    color: #0E132B;
+    font-size: 12px;
+    line-height: 16px;
+    font-family: 'Roboto';
+    width: 220px;
+}
+.profile-input{
+    margin-top: 12px;
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+width:200px !important;
+height: 36px;
+margin: 12px 20px 0 0px;
+}
+.save-button-profile{
+    width: 140px;
+    height: 38px;
+    font-size: 12px;
+    color: #fff;
+    background: #282560;
+border-radius: 5px;
+border: none;
+cursor: pointer;
+}
+.save-button-p{
+    vertical-align: bottom;
+    width: 100%;
+}
+.profile-t table td{
+    color: #0E132B !important;
+}
+.msgBox .content{
+    margin-left: 0 !important;
 }

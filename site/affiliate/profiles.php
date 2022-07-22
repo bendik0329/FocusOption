@@ -52,62 +52,71 @@ switch ($act) {
 			$l++;
 			$listProfiles .= '<tr '.($l % 2 ? 'class="trLine"' : '').'>
 							<td>'.$profileww['id'].'</td>
-							<td align="left"><a data-name="'.$profileww['name'].'" data-source_traffic="'.$profileww['source_traffic'].'" data-description="'.$profileww['description'].'" data-url="'.$profileww['url'].'" data-id="'.$profileww['id'].'" href="/affiliate/profiles.php?act=save_profile&id='.$profileww['id'].'">'.lang('Edit').'</a></td>
 							<td>'.$profileww['name'].'</td>
 							<td>'.$profileww['url'].'</td>
 							<td>'.$profileww['description'].'</td>
 							<td>'.$profileww['source_traffic'].'</td>
 							<td id="profile_'.$profileww['id'].'"><a onclick="ajax(\''.$set->SSLprefix.$set->basepage.'?act=profile_valid&id='.$profileww['id'].'\',\'profile_'.$profileww['id'].'\');" style="cursor: pointer;">'.xvPic($profileww['valid']).'</a></td>
+							<td align="left" style="font-weight:bold;text-align:center;"><a data-name="'.$profileww['name'].'" data-source_traffic="'.$profileww['source_traffic'].'" data-description="'.$profileww['description'].'" data-url="'.$profileww['url'].'" data-id="'.$profileww['id'].'" href="/affiliate/profiles.php?act=save_profile&id='.$profileww['id'].'">'.lang('Edit').'</a></td>
 							<!--td>'.xvPic($profileww['valid']).'</td-->
+							
 						</tr>';
 			}
 		
-		$set->content .= '<div class="normalTableTitle">'.lang('Profiles').'</div>
+		$set->content .= '<div class="normalTableTitle">'.lang('').'</div>
 						<div style="width: 100%; background: #F8F8F8;">
 						<form action="'.$set->SSLprefix.$set->basepage.'" method="post">
 						<input type="hidden" name="act" value="save_profile" />
 						<input type="hidden" name="db[affiliate_id]" value="'.$id.'" />
-							<div align="left" style="padding: 10px;">
+							<div align="left" style="padding: 10px 0;">
 								<table><tr>
 								'.($ty ? '<tr><td colspan="7" align="left" style="color: green; font-size: 14px;"><img border="0" width="30" src="images/alert/alert_v.png" alt="" align="absmiddle" /> '.lang('Your website profile has added successfully').'</td></tr><tr height="30"></td></tr>' : '').'
-								<td align="left" width="100" class="blueText">'.lang('Profile Name').':</td>
-								<td align="left"><input id="db_name" type="text" name="db[name]" value="" style="width: 250px;" /></td>
-								<td width="80"></td>
-								<td align="left" class="blueText">'.lang('URL').':</td>
-								<td align="left"><input id="db_url" type="text" name="db[url]" value="http://" style="width: 250px;" /></td>
-								<td width="80"></td>
-								<td></td>
-							</tr><tr>
-								<td align="left" class="blueText">'.lang('Description').':</td>
-								<td align="left"><input id="db_description" type="text" name="db[description]" value="" style="width: 250px;" /></td>
-								<td></td>
-								<td align="left" class="blueText">'.lang('Traffic Source').':</td>
-								<td align="left"><input id="db_source_traffic" type="text" name="db[source_traffic]" value="" style="width: 250px;" /></td>
-								<td><input type="hidden" id="db_id" name="db[id]" /></td>
-								<td align="right"><input type="submit" value="'.lang('Save').'" /></td>
+								<td align="left" width="100" class="blueText profile-form-label">'.lang('Profile Name').': <input class="profile-input" id="db_name" type="text" name="db[name]" value="" style="width: 250px;" /></td>
+							
+								<td align="left" class="blueText profile-form-label ">'.lang('URL').':<input class="profile-input" id="db_url" type="text" name="db[url]" value="http://" style="width: 250px;" /></td>
+								
+				
+							
+								<td align="left" class="blueText profile-form-label ">'.lang('Description').':<input class="profile-input" id="db_description" type="text" name="db[description]" value="" style="width: 250px;" /></td>
+								
+								
+								<td align="left" class="blueText profile-form-label ">'.lang('Traffic Source').':<input class="profile-input" id="db_source_traffic" type="text" name="db[source_traffic]" value="" style="width: 250px;" /></td>
+								
+								
+								<td align="right" class="save-button-p"><input class="save-button-profile" type="submit" value="'.lang('Save').'" /></td>
 							</tr></table>
 							</form>
 							</div>
 							</div>
-							<table class="normal" width="100%" border="0" cellpadding="3" cellspacing="0">
-								<thead><tr>
-									<td>#</td>
-									<td style="text-align: left;">'.lang('Action').'</td>
-									<td style="text-align: center;">'.lang('Profile Name').'</td>
-									<td>'.lang('URL').'</td>
-									<td>'.lang('Description').'</td>
-									<td>'.lang('Traffic Source').'</td>
-									<td>'.lang('Available').'</td>
-								</tr></thead><tfoot><tr style="background: #D9D9D9;">
-									<td align="left"></td>
-									<td align="left"></td>
-									<td align="center"><b>'.lang('Default').'</b></td>
-									<td>'.$set->userInfo['website'].'</td>
-									<td></td>
-									<td></td>
-									<td></td>
-								</tr>'.$listProfiles.'</tfoot>
-							</table>
+							
+
+						<div class="billing-page-table">
+							<div class="row">
+								<div class="col-md-12">
+									<div class="top-performing-creative h-full">
+										<div class="performing-creative-table profile-t">
+											<div class="table-responsive">
+											<table class="normal" width="100%" border="0" cellpadding="3" cellspacing="0">
+											<thead><tr>
+												<th>#</th>
+												<th style="text-align: center;">'.lang('Profile Name').'</th>
+												<th>'.lang('URL').'</th>
+												<th>'.lang('Description').'</th>
+												<th>'.lang('Traffic Source').'</th>
+												<th>'.lang('Available').'</th>
+												<th style="text-align:center;">'.lang('Action').'</th>
+											</tr></thead><tfoot>'.$listProfiles.'</tfoot>
+										</table>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+
+
+
+							
 								<script>
 						$("[data-id]").click(function() {
 							$("#db_id").val($(this).data("id"));
@@ -118,6 +127,11 @@ switch ($act) {
 							$("#id_hidden").val($(this).data("id"));
 							return false;
 						});
+
+						
+					
+
+
 						</script>';
 						
 						
