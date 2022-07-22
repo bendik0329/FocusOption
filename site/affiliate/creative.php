@@ -38,8 +38,7 @@ switch ($act) {
 			</style>
 			<ul class="breadcrumb">
 				<li><a href="affiliate/">'.lang('Dashboard').'</a></li>
-				<li><a href="'. $set->uri .'">'.lang($pageTitle).'</a></li>
-				<li><a href="'. $set->uri .'">Creative materials</a></li>
+				<li><a href="'. $set->uri .'">'.lang($pageTitle).' - Creative materials</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
 		$numqq=function_mysql_query("SELECT id FROM merchants WHERE valid='1'",__FILE__);

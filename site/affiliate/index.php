@@ -12,12 +12,6 @@ $dataPoints = array(
 	array("label"=>"Oxygen", "symbol" => "O","y"=>46.6),
 	array("label"=>"Silicon", "symbol" => "Si","y"=>27.7),
 	array("label"=>"Aluminium", "symbol" => "Al","y"=>13.9),
-	array("label"=>"Iron", "symbol" => "Fe","y"=>5),
-	array("label"=>"Calcium", "symbol" => "Ca","y"=>3.6),
-	array("label"=>"Sodium", "symbol" => "Na","y"=>2.6),
-	array("label"=>"Magnesium", "symbol" => "Mg","y"=>2.1),
-	array("label"=>"Others", "symbol" => "Others","y"=>1.5),
- 
 );
 $dataPointsCountry = array( 
 	array("y" => 7,"label" => "March" ),
@@ -449,7 +443,7 @@ switch ($act) {
 		// List Merchants ends here.
 		
 		
-		// $set->content .= '<script src="'.$set->SSLprefix.'js/unslider/dist/js/chart.js"></script>';
+		$set->content .= '<script src="'.$set->SSLprefix.'js/unslider/dist/js/chart.js"></script>';
 		
 		
 		$set->content .='  <link rel="stylesheet" href="'.$set->SSLprefix.'js/unslider/dist/css/unslider.css">
@@ -1459,30 +1453,38 @@ $set->content .=
 								</select>
 							</div>
 							<div class="session-device-chart">
-								<script>
-						        	window.onload = function() {
-										var chart = new CanvasJS.Chart("chartContainer", {
-											theme: "light2",
-											animationEnabled: true,
-											title: {
-												text: ""
-											},
-											data: [{
-												type: "doughnut",
-												indexLabel: "{symbol} - {y}",
-												yValueFormatString: "#,##0.0\"%\"",
-												showInLegend: true,
-												legendText: "{label} : {y}",
-												dataPoints: '. json_encode($dataPoints, JSON_NUMERIC_CHECK) .'
-											}]
-										});
-										chart.render();
-										 
-										}
-						        </script>
-								<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+									<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+								<canvas id="myChart" style="width:100%;height:249px"></canvas>
 
-								<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+									<script>
+										var xValues = ["Italy", "France", "Spain"];
+										var yValues = [55, 49, 44];
+										var barColors = [
+										  "#282560",
+										  "#F37A20",
+										  "#FF0000"
+										];
+
+										new Chart("myChart", {
+										  type: "doughnut",
+										  data: {
+										    labels: xValues,
+										    datasets: [{
+										      backgroundColor: barColors,
+										      data: yValues
+										    }]
+										  },
+										  options: {
+										  	legend: {
+											      position: "bottom"
+											   },
+										    title: {
+										      display: false,
+										      text: ""
+										    }
+										  }
+										});
+									</script>
 							</div>
 						</div>
 					</div>
@@ -1519,39 +1521,7 @@ $set->content .=
 
 									window.initMap = initMap;
 								</script>
-								<div id="map"></div>
-								<script
-							      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDZPpPBmjMZhbL8Slc6d0uLD28_THgQJDg&callback=initMap&v=weekly"
-							    ></script>
-								<script>
-									window.onload = function() {
-									 
-									var chart = new CanvasJS.Chart("chartContainerCounty", {
-										animationEnabled: true,
-										title:{
-											text: ""
-										},
-										axisY: {
-											title: "Revenue (in USD)",
-											includeZero: true,
-											prefix: "$",
-											suffix:  "k"
-										},
-										data: [{
-											type: "bar",
-											yValueFormatString: "$#,##0K",
-											indexLabel: "{y}",
-											indexLabelPlacement: "inside",
-											indexLabelFontWeight: "bolder",
-											indexLabelFontColor: "white",
-											dataPoints: '. json_encode($dataPointsCountry, JSON_NUMERIC_CHECK) .'
-										}]
-									});
-									chart.render();
-									 
-									}
-								</script>
-								<div id="chartContainerCounty" style="height: 370px; width: 100%;"></div>
+								<div id="chartContainerCounty" style="height: 249px; width: 100%;"></div>
 								<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 							</div>
 						</div>

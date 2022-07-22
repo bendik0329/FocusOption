@@ -1939,3 +1939,6 @@ margin-bottom: 12px !important;
 .profile-lable-input{
     margin-top: 12px !important;
 }
+.highcharts-series-group rect{
+    fill: #282560;
+}
