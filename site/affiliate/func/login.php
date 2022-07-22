@@ -244,7 +244,7 @@ function adminMenu($onlyArray = false) {
 		// $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/faq.php">'.lang('FAQ').'</a>';
 	
 		$counter++;
-		$groupName[$counter] = '<a href="'.$set->terms_link.'" target="_blank">'.lang('Logout').'</a>';
+		$groupName[$counter] = '<a href="/affiliate/?act=logout">'.lang('Logout').'</a>';
 
         if($onlyArray){
             return [
