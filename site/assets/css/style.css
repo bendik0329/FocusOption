@@ -2317,6 +2317,7 @@ font-weight: 400;
     font-weight: 400 !important;
     float: inherit !important;
     padding: 8px 24px !important;
+    margin-bottom: 0px !important;
 }
 .expert-cc-button div a img{
     display: none;
@@ -2432,4 +2433,21 @@ height: 36px;
     .q-summary-r{
         margin-top: 15px;
     }
+}
+.from-to-input input{
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+width: 100%;
+height: 36px;
+font-size: 12px;
+color: #282560;
+font-weight: 400;
+}
+.reports-summary > div{
+    
+    padding-right:5px !important;
+}
+.align-items-flex-end{
+    align-items: flex-end;
 }
