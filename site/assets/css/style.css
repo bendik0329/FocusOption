@@ -657,10 +657,10 @@ text-align: left;
     display: flex;
     align-items: center;
 	justify-content: flex-end;
-    margin-top: 16px;
+    margin-top: 31px;
 }
 .creative-page-filter .search-wrp p {
-    color: #0E132B;
+    color: #282560;
     font-size: 14px;
     line-height: 19px;
     margin: 0;
@@ -782,12 +782,19 @@ text-align: left;
     vertical-align:inherit !important;
 }
 .creative-img{
+    /* min-width: 239px !important;
+    min-height: 174px !important;
+    height: 100% !important;
+    width: 100% !important; */
     width: 239px !important;
     height: 174px !important;
+    flex: 0 0 239px !important;
 }
+
 .creative-img img{
     width: 100% !important;
     object-fit: contain !important;
+    width: 239px !important;
 }
 .copy-link-input p {
     font-size: 12px;
@@ -1413,7 +1420,7 @@ border-radius: 10px !important;
     margin-top: 20px;
 }
 .ac-details-tab .tab-input-acc label{
-    font-size: 12px;
+    font-size: 14px;
     line-height:16px;
     color: #0E132B;
     margin-bottom: 12px;
@@ -1422,6 +1429,7 @@ border-radius: 10px !important;
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 1px solid #DCDCDC;
     border-radius: 5px;
+    height: 36px;
 }
 .tab-input-acc{
     margin-bottom: 20px;
@@ -1452,7 +1460,7 @@ border-radius: 10px !important;
     margin-top: 30px;
 }
 .tab-acc-check-box label{
-    font-size: 12px;
+    font-size: 14px;
     line-height: 16px;
     color: #0E132B;
     margin-bottom: 0;
@@ -2254,4 +2262,14 @@ font-weight: 400;
     height:auto !important;
     padding-left: 0 !important;
     line-height: normal !important;
+}
+
+.main-menu.menu-dark .navigation > li .active > a{
+    background-color: transparent !important;
+}
+.creative-page-filter .search-wrp .search-box{
+    width: 190px;
+}
+.creative-page-filter .search-wrp .search-box input{
+    width:100% !important;
 }
