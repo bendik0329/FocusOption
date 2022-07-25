@@ -311,7 +311,7 @@ $set->content .= '
                                                 <div class="q-summary-r">
                                                     <h3>' . lang('Period') . '</h3>
                                                     <div class="q-s-option">
-
+                                                        
                                                     </div>
                                                 </div>
                                             </div>

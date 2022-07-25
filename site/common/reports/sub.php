@@ -1074,9 +1074,110 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 					<div class="sub-affiliate-report">
 						<div class="row">
 							<div class="col-lg-8">
-								<div class="smollcard"></div>
+								<div class="smollcard">
+								<div class="row">
+									
+										<div class="r-block">
+											<p>'.lang('Impressions').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.($viewsSum ? $viewsSum : '0').'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('Clicks').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.($clicksSum ? $clicksSum : '0').'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('Installation').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'. $totalCPI .'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('Leads').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.$totalLeads.'</span>
+										</div>
+									
+									
+								
+									
+										<div class="r-block">
+											<p>'.lang('Demo').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.$totalDemo.'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang(ptitle('Real Account')).'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.$totalReal.'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('FTD Amount').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.price($ftdAmount,2).'</span>
+										</div>
+									
+
+									
+									
+										<div class="r-block">
+											<p>'.lang('Withdrawal').'</p>										
+											<span style="font-size: 18px; font-weight: bold;">'.price($totalWithdrawal,2).'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('PNL').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.price($totalPNL,2).'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('Total Volume').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.number_format($total_deposits,0).'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('FTD').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.number_format($newFTD,0).'</span>
+										</div>
+									
+									
+									
+										<div class="r-block">
+											<p>'.lang('FTD Amount').'</p>
+											<span style="font-size: 18px; font-weight: bold;">'.price($total_depositsAmount,2).'</span>
+										</div>
+									
+									
+									
+									
+								</div>
+								</div>
 							</div>
-							<div class="col-lg-4"></div>
+							<div class="col-lg-4">
+								<div class="sub-csv-button">
+									<div class="Your-commission">
+										<p>'.lang('Your commission').'</p>
+										<span style="font-size: 18px; font-weight: bold;">'.price($totalCommission,2).'</span>
+									</div>
+									<div class="export-button">
+									
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
