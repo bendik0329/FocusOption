@@ -1070,7 +1070,16 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 			'.($set->export ? '<div class="exportCSV" style="float:left"><a href="'.$set->uri.(strpos($set->uri,'?') ? '&' : '?').'excel=csv"><img border="0" src="'.$set->SSLprefix.'images/excel.png" alt="'.lang('Export to CSV').'" title="'.lang('Export to CSV').'" align="absmiddle" /> <b>'.lang('Export to CSV').'</b></a></div>':'').'
 					<div class="exportCSV" style="float:left"><a href="'.$set->uri.(strpos($set->uri,'?') ? '&' : '?').'excel=xls"><img border="0" src="'.$set->SSLprefix.'images/excel.png" alt="'.lang('Export to XLS').'" title="'.lang('Export to XLS').'" align="absmiddle" /> <b>'.lang('Export to XLS').'</b></a>
 					</div><div style="clear:both"></div>
-					
+
+					<div class="sub-affiliate-report">
+						<div class="row">
+							<div class="col-lg-8">
+								<div class="smollcard"></div>
+							</div>
+							<div class="col-lg-4"></div>
+						</div>
+					</div>
+
 					</form>';
 		}
 		

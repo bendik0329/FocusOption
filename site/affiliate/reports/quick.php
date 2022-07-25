@@ -302,7 +302,69 @@ $set->content .= '
 					' . $platformParam . '
 					<td><input type="submit" value="' . lang('View') . '" /></td>
 				</tr></table>
+                
+                            <div class="quick-summary-reports">
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <div class="row">
+                                            <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                                <div class="q-summary-r">
+                                                    <h3>' . lang('Period') . '</h3>
+                                                    <div class="q-s-option">
 
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+                                                <div class="q-summary-r">
+                                                    <h3>From:</h3>
+                                                    <div class="q-s-option">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+                                                <div class="q-summary-r">
+                                                    <h3>To:</h3>
+                                                    <div class="q-s-option">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+                                                <div class="q-summary-r">
+                                                    <h3>' . lang('Merchant') . '</h3>
+                                                    <div class="q-s-option">
+                                                    <select name="merchant_id" style="width: 150px;"><option value="">' . lang('All') . '</option>' . listMerchants($merchant_id) . '</select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                                                <div class="q-summary-r">
+                                                    <h3>' . lang('Search Type') . '</h3>
+                                                    <div class="q-s-option">
+                                                    <select name="display_type" style="width: 150px;"><option value="0">' . lang('Search Type') . '</option>' . listDisplayTypes($display_type) . '</select>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="q-four-buttons">
+                                            <div class="view-button">
+                                                <input type="submit" value="' . lang('Show Reports') . '" />
+                                                <input type="submit" value="Reset Search" />
+                                            </div>
+                                            <div class="expert-cc-button">
+                                            ' . ($set->export ? '<div class="exportCSV" style="float:left"><a style="cursor:pointer" onclick="$(\'#quickTbl\').tableExport({type:\'csvbig\',escape:\'false\',tableName:\'' . $filename . '\'});"><img border="0" src="' . $set->SSLprefix . 'images/excel.png" alt="' . lang('Export to CSV') . '" title="' . lang('Export to CSV') . '" align="absmiddle" /> <b>' . lang('Export to CSV') . '</b></a></div>' : '') . '
+                                            <div class="exportCSV" style="float:left"><a style="cursor:pointer" onclick="$(\'#quickTbl\').tableExport({type:\'excelbig\',escape:\'false\',tableName:\'' . $filename . '\'});"><img border="0" src="' . $set->SSLprefix . 'images/excel.png" alt="' . lang('Export to XLS') . '" title="' . lang('Export to XLS') . '" align="absmiddle" /> <b>' . lang('Export to XLS') . '</b></a>
+                                            </div>
+                                            ' . getFavoritesHTML() . '
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
              
 			</form>
 			' . ($set->export ? '<div class="exportCSV" style="float:left"><a style="cursor:pointer" onclick="$(\'#quickTbl\').tableExport({type:\'csvbig\',escape:\'false\',tableName:\'' . $filename . '\'});"><img border="0" src="' . $set->SSLprefix . 'images/excel.png" alt="' . lang('Export to CSV') . '" title="' . lang('Export to CSV') . '" align="absmiddle" /> <b>' . lang('Export to CSV') . '</b></a></div>' : '') . '
@@ -314,7 +376,7 @@ $set->content .= '
 		<div style="height:20px;"></div>
 		
 		<div class="normalTableTitle" class="table">' . lang('Quick Summary Report') . '<span style="float:right"><img class="imgReportFieldsSettings" style="padding-top:6px;width:55%;cursor:pointer;" src="' . $set->SSLprefix . 'images/settings.png"/></span></div>
-		<div style="background: #F8F8F8;">';
+		<div class="table-r" style="background: #F8F8F8;">';
 
 
 //width 2000
@@ -409,6 +471,67 @@ $tableStr = '
 				<tbody>
 				' . $listReport . '
 			</table>
+
+            <table class="report-quick">
+                            <thead>
+                                <tr>
+                                <th class="r-first">Merchant</th>
+                                <th class="border-left-none">Impression</th>
+                                <th>Clicks</th>
+                                <th>Installation</th>
+                                <th>Click Through Ratio</th>
+                                <th>Click to Account</th>
+                                <th>Click to Sale</th>
+                                <th>Lead</th>
+                                <th>Demo</th>
+                                <th>Accounts</th>
+                                <th>FTD</th>
+                                <th>FTD Amount</th>
+                                <th>Withdrawal Amount</th>
+                                <th>Active Traders</th>
+                                <th>Commissions</th>
+                                </tr>
+                            </thead>
+                            <tfoot>
+                                <tr>
+                                    <th class="r-first border-left-none-r">Evotrade</th>
+                                    <th class="border-left-none">2</th>
+                                    <th>2</th>
+                                    <th>2</th>
+                                    <th>2.00%</th>
+                                    <th>2.00%</th>
+                                    <th>2.00%</th>
+                                    <th>2</th>
+                                    <th>2</th>
+                                    <th>2</th>
+                                    <th>2</th>
+                                    <th>$2.00</th>
+                                    <th>$2.00</th>
+                                    <th>1</th>
+                                    <th>$2.00</th>                                
+                                </tr>
+                            </tfoot>
+                            <tbody>
+                            <tr>
+                                <td class="r-first border-left-none-r">Evotrade</td>
+                                <td class="border-left-none">2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2.00%</td>
+                                <td>2.00%</td>
+                                <td>2.00%</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>2</td>
+                                <td>$2.00</td>
+                                <td>$2.00</td>
+                                <td>1</td>
+                                <td>$2.00</td>
+                            </tr>
+                        </tbody>
+            </table>
+
 			<script type="text/javascript" src="' . $set->SSLprefix . 'js/impromptu/dist/jquery-impromptu.min.js"></script>
 			<link rel="stylesheet" href="' . $set->SSLprefix . 'js/impromptu/dist/jquery-impromptu.min.css"/>              
 			<script>
