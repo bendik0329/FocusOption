@@ -103,7 +103,7 @@ function adminMenu($onlyArray = false) {
 	$linkName = Array();
 	
 	$counter=0;
-	$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/" style="color: #000000;">'.lang('DashBoard').'</a>';
+	$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/">'.lang('DashBoard').'</a>';
 	
 	
 	if ($noMerchants==0){
@@ -229,7 +229,7 @@ function adminMenu($onlyArray = false) {
 		$groupName[$counter] = '<a '.($set->isBasicVer ==1 ? $set->ProFeatureTooltip : '' ).  ($set->isBasicVer ==1 ?'':' href="'.$set->SSLprefix.'affiliate/PixelMonitor.php?act=new"').'>'.lang('Pixel Monitor').'</a>';
 
 		$counter++;
-		$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/terms_condition.php" target="_blank">'.lang('Terms and Conditions').'</a>';
+		$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/terms_condition.php">'.lang('Terms and Conditions').'</a>';
 	
 		// if($set->isNetwork){
 		$openTickets = mysql_result(function_mysql_query("SELECT COUNT(id) FROM affiliates_tickets WHERE status='open' AND ticket_id='0' AND affiliate_id='".$set->userInfo['id']."'",__FILE__,__FUNCTION__),0);
@@ -244,7 +244,7 @@ function adminMenu($onlyArray = false) {
 		// $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/faq.php">'.lang('FAQ').'</a>';
 	
 		$counter++;
-		$groupName[$counter] = '<a href="'.$set->terms_link.'" target="_blank">'.lang('Logout').'</a>';
+		$groupName[$counter] = '<a href="/affiliate/?act=logout">'.lang('Logout').'</a>';
 
         if($onlyArray){
             return [

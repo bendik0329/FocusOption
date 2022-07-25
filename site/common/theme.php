@@ -32,7 +32,7 @@ $altTextLogo = '<div class="knockout" style=" background: url(\'/images/coma_mis
 ">'.$set->dashBoardMainTitle.'</div>';
 
 
-$theLogoText = (!empty($set->logoPath123) && strpos($set->logoPath123,"/tmp")===false?'<img class="headerLogo" height="84px" border="0" src="'.$logoPath.'" alt="" />':$altTextLogo);
+$theLogoText = (!empty($set->logoPath) && strpos($set->logoPath,"/tmp")===false?'<img class="headerLogo" height="84px" border="0" src="'.$logoPath.'" alt="" />':$altTextLogo);
 
 
 
@@ -132,7 +132,7 @@ if ($_GET['dddd']==1)
 <body class="" dir="ltr">
 <div align="center">';
 	$header = $headerCode.'
-<div class="headerSite" style="position: fixed; top: 0; z-index: 9999;">
+<div class="headerSite" >
 	<table width="100%" border="0" cellpadding="0" cellspacing="0">
 		<tr class="topHeaderBar">
 			<td height="80" class="logo-td"><a href="'.($set->getFolder[1] != "index.php" ? $set->getFolder[1] : '').'/">'.$theLogoText.'</a></td>

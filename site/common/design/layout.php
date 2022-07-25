@@ -141,7 +141,7 @@ if (!defined('SITE_INCLUDE_START')) {
                                         <img src="/images/profile_img.png" alt="avatar">
                                         <i></i>
                                     </span>
-                                    <span class="user-name"><?= '[#' . $set->userInfo['id'] . '] ' . lang('Welcome Back') . ' <b>' . $set->userInfo['first_name'] . '</b>'; ?></span>
+                                    <span class="user-name"><?= '  <b>' . $set->userInfo['first_name'].' '.$set->userInfo['id'] . '</b>'; ?></span>
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-right">
                                     <a class="dropdown-item" href="/affiliate/account.php"><i class="ft-user"></i> Edit Profile</a>
@@ -357,13 +357,19 @@ if (!defined('SITE_INCLUDE_START')) {
                   </svg>'
                     ];
                     $layout_sidebar_menu_data_array = adminMenu(true);
-                    for ($i = 0; $i <= count($layout_sidebar_menu_data_array['group']) - 1; $i++) {
+                    for ($i = 0; $i <= count($layout_sidebar_menu_data_array['group']) - 1; $i++) {   
                         ?>
-
-                        <li class="nav-item">
-                            <?php
-                            preg_match('/<a (?:.*?)href="(.+)">(.+)<\/a>/', $layout_sidebar_menu_data_array['group'][$i], $layout_sidebar_menu_title_matches);
-                            ?>
+                        <?php
+                           preg_match('/<a (?:.*?)href="(.+)">(.+)<\/a>/', $layout_sidebar_menu_data_array['group'][$i], $layout_sidebar_menu_title_matches);
+                           $active = '';
+                           if((trim($set->SSLprefix.ltrim($_SERVER['REQUEST_URI'],'/'))) ===  ($layout_sidebar_menu_title_matches[1]))
+                           {
+                              $active ='active';
+                           } else { 
+                              $active ='inactive';
+                           }
+                        ?>
+                        <li class="nav-item <?=$active?>">
                             <a href="<?= $layout_sidebar_menu_title_matches[1] ?>">
                                 <?php echo $layout_sidebar_menu_title_icons[$i]; ?>
                                 <span class="menu-title"><?= $layout_sidebar_menu_title_matches[2] ?></span>
@@ -376,7 +382,7 @@ if (!defined('SITE_INCLUDE_START')) {
                                     for ($b = 0; $b <= count($layout_sidebar_menu_data_array['list'][$i]) - 1; $b++) {
                                         preg_match('/<a (?:.*?)href="(.+)">(.+)<\/a>/', $layout_sidebar_menu_data_array['list'][$i][$b], $layout_sidebar_menu_matches);
                                         ?>
-                                        <li>
+                                        <li class="<?php if($set->SSLprefix.ltrim($_SERVER['REQUEST_URI'],'/') ==  $layout_sidebar_menu_matches[1]) echo 'active'; ?>">
                                             <a class="menu-item" href="<?= $layout_sidebar_menu_matches[1]; ?>"><?= $layout_sidebar_menu_matches[2]; ?></a>
                                         </li>
                                         <?php
@@ -619,10 +625,10 @@ if (!defined('SITE_INCLUDE_START')) {
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
         <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
         <script>toastr.options = {"closeButton": true, "debug": false, "newestOnTop": true, "progressBar": true, "positionClass": "toast-top-right", "preventDuplicates": false, "onclick": null, "showDuration": "300", "hideDuration": "1000", "timeOut": "5000", "extendedTimeOut": "1000", "showEasing": "swing", "hideEasing": "linear", "showMethod": "fadeIn", "hideMethod": "fadeOut"};</script>
-        
-
+      
         <script type="text/javascript">
             $(document).ready(function () {
+              
                 $('.chart-nav-tab').append( $('.unslider-nav') );
 
                 if ($("body").height() < $(window).height()) {
@@ -638,6 +644,19 @@ if (!defined('SITE_INCLUDE_START')) {
                     showNavArrows: false
                 });
             });
+            // function setNavigation() {
+            //    var path = window.location.pathname;
+            //    path = path.replace(/\/$/, "");
+            //    path = decodeURIComponent(path);
+               
+            //    $(".nav-item a").each(function () {
+            //       var href = $(this).attr("href");
+            //       if (path.substring(0, href.length) === href) {
+            //          alert(path.substring(0, href.length)+'---'+href);
+            //          $(this).parent("li").addClass("active");
+            //       }
+            //    });
+            // }
         </script>
 
         <!-- Fancybox -->
