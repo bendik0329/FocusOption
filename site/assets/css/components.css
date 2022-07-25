@@ -767,7 +767,7 @@ footer.footer-dark
 
     color: #f6f6f6;
     border-right: 4px solid #3bafda; 
-    background: #121b22;
+    background: transparent;
 }
 .main-menu.menu-dark .navigation > li .active .hover > a
 {

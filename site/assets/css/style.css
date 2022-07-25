@@ -2317,6 +2317,7 @@ font-weight: 400;
     font-weight: 400 !important;
     float: inherit !important;
     padding: 8px 24px !important;
+    margin-bottom: 0px !important;
 }
 .expert-cc-button div a img{
     display: none;
@@ -2432,4 +2433,93 @@ height: 36px;
     .q-summary-r{
         margin-top: 15px;
     }
+}
+<<<<<<< HEAD
+.main-menu-content ul li.active a{
+    color: #000 !important;
+}
+.main-menu.menu-dark .navigation li.active > a{
+    color: #282560 !important;
+}
+/* .nav{
+    display: none !important;
+} */
+#navbar-mobile ul .toggle-bar-icon{
+    display: none !important;
+}
+@media (max-width: 991px) {
+    #navbar-mobile ul .toggle-bar-icon{
+        display:block !important;
+    }
+}
+
+/* Reports - Sub Affiliates Report */
+.r-block{
+    text-align: center;
+    background: #FFFFFF;
+    border: 1px solid #F1F1F1;
+    border-radius: 5px;
+    padding:8px;
+    width: 109px;
+    height: 67px;
+    margin: 6px;
+    margin-top: 0px !important;
+    margin-bottom:12px;
+}
+.r-block p{
+    color: #8F8F8F;
+    font-size: 14px;
+    line-height: 19px;
+    font-weight:400;
+    font-family: 'Roboto';
+    margin-bottom: 8px;
+}
+.r-block span{
+    color: #282560;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Roboto';
+}
+.Your-commission{
+    display: flex;
+    align-items: center;
+    background: #FFFFFF;
+border: 1px solid #069731;
+border-radius: 5px;
+justify-content: space-between;
+padding: 19px 12px;
+}
+.Your-commission p{
+    margin: 0;
+    color: #0E132B;
+    font-size: 16px;
+    line-height: 21px;
+    font-weight: 400;
+    font-family: 'Roboto';
+}
+.Your-commission span{
+    font-size: 20px;
+    line-height: 26px;
+    color: #069731;
+    font-family: 'Roboto';
+    font-weight: bold;
+=======
+.from-to-input input{
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+width: 100%;
+height: 36px;
+font-size: 12px;
+color: #282560;
+font-weight: 400;
+}
+.reports-summary > div{
+    
+    padding-right:5px !important;
+}
+.align-items-flex-end{
+    align-items: flex-end;
+>>>>>>> 5a27302c96d537cff21e4bd3f2a2f997fb67b01f
 }

@@ -92,7 +92,7 @@ if (!defined('SITE_INCLUDE_START')) {
 
                 <div class="navbar-header">
                     <ul class="nav navbar-nav flex-row">
-                        <li class="nav-item mobile-menu d-md-none mr-auto"><a
+                        <li class="nav-item mobile-menu d-md-none mr-auto toggle-bar-icon"><a
                                 class="nav-link nav-menu-main menu-toggle hidden-xs" href="/<?= ($set->getFolder[1] != "index.php" ? $set->getFolder[1] : '') ?>"><i
                                     class="ft-menu font-large-1"></i></a></li>
                         <li class="nav-item">
@@ -109,8 +109,8 @@ if (!defined('SITE_INCLUDE_START')) {
 
                 <div class="navbar-container content">
                     <div class="collapse navbar-collapse" id="navbar-mobile">
-                        <ul class="nav navbar-nav mr-auto float-left">
-                            <li class="nav-item d-none d-md-block">
+                        <ul class="nav navbar-nav mr-auto float-left ">
+                            <li class="nav-item d-none d-md-block toggle-bar-icon">
                                 <a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a>
                             </li>
 

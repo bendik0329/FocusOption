@@ -22,7 +22,7 @@ $set->pageTitle = '
 			</style>
 			<ul class="breadcrumb">
 				<li><a href="' . $set->SSLprefix . 'affiliate/">' . lang('Dashboard') . '</a></li>
-				<li><a href="' . $set->SSLprefix . $set->uri . '">' . lang($pageTitle) . '</a></li>
+				<li><a href="' . $set->SSLprefix . $set->uri . '">Reports - ' . lang($pageTitle) . '</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
 $isCasinoOrSportBets = false;
@@ -210,60 +210,60 @@ while ($dasboardData = mysql_fetch_assoc($dasboardDataResult)) {
                                         ' . ($display_type == "daily" ? '<td style="text-align: center;">' . $period_string . '</td>' : '') . '
                                         ' . ($display_type == "weekly" ? '<td style="text-align: center;">' . $period_string . '</td>' : '') . '
                                         ' . ($display_type == "monthly" ? '<td style="text-align: center;">' . $period_string . '</td>' : '') . '
-                                        <td style="text-align: left;">' . $merchants_array[$dasboardData['MerchantId']]['name'] . '</td>
+                                        <td  class="r-first border-left-none-r">' . $merchants_array[$dasboardData['MerchantId']]['name'] . '</td>
                                         ' . (allowView('af-impr', $deal, 'fields') ? '
-                                        <td style="text-align: center;">' . @number_format($dasboardData['Impressions'], 0) . '</td>
+                                        <td class="border-left-none">' . @number_format($dasboardData['Impressions'], 0) . '</td>
                                         ' : '') . '
                                         ' . (allowView('af-clck', $deal, 'fields') ? '
-                                        <td style="text-align: center;">' . @number_format($dasboardData['Clicks'], 0) . '</td>
+                                        <td>' . @number_format($dasboardData['Clicks'], 0) . '</td>
                                         ' : '') . '
                                         ' . (allowView('af-instl', $deal, 'fields') && $set->deal_cpi ? '
-                                        <td style="text-align: center;">' . @number_format($dasboardData['Install'], 0) . '</td>
+                                        <td>' . @number_format($dasboardData['Install'], 0) . '</td>
 										' : '') . '
-                                        <td style="text-align: center;">' . @number_format(($dasboardData['Clicks'] / $dasboardData['Impressions']) * 100, 2) . ' %</td>
-                                        <td style="text-align: center;">' . @number_format(($dasboardData['RealAccount'] / $dasboardData['Clicks']) * 100, 2) . ' %</td>
-                                        <td style="text-align: center;">' . @number_format(($dasboardData['FTD'] / $dasboardData['Clicks']) * 100, 2) . ' %</td>' .
+                                        <td>' . @number_format(($dasboardData['Clicks'] / $dasboardData['Impressions']) * 100, 2) . ' %</td>
+                                        <td>' . @number_format(($dasboardData['RealAccount'] / $dasboardData['Clicks']) * 100, 2) . ' %</td>
+                                        <td>' . @number_format(($dasboardData['FTD'] / $dasboardData['Clicks']) * 100, 2) . ' %</td>' .
             (!$hideDemoAndLeads ?
             (allowView('af-lead', $deal, 'fields') ? '	
-										<td style="text-align: center;"><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=lead">' . $dasboardData['Leads'] . '</a></td>
+										<td><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=lead">' . $dasboardData['Leads'] . '</a></td>
 										' : '') . '
 										' . (allowView('af-demo', $deal, 'fields') ? '			
-                                           <td style="text-align: center;"><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=demo">' . $dasboardData['Demo'] . '</a></td>
+                                           <td><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=demo">' . $dasboardData['Demo'] . '</a></td>
 										' : '') : '') .
             (allowView('af-real', $deal, 'fields') ?
-            '<td style="text-align: center;"><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=real">' . $dasboardData['RealAccount'] . '</a></td>' : '')
+            '<td><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=real">' . $dasboardData['RealAccount'] . '</a></td>' : '')
             . (allowView('af-ftd', $deal, 'fields') ? '
-                                        <td style="text-align: center;"><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=ftd">' . $dasboardData['FTD'] . '</a></td>
+                                        <td><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=ftd">' . $dasboardData['FTD'] . '</a></td>
 										' : '') . '
 
-                                        ' . (allowView('af-ftda', $deal, 'fields') ? '<td style="text-align: center;">' . price($dasboardData['FTDAmount']) . '</td>' : '') . '
-                                        ' . (allowView('af-tftd', $deal, 'fields') ? '<td style="text-align: center;"><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=ftd">' . $dasboardData['RawFTD'] . '</a></td>' : '') . '
+                                        ' . (allowView('af-ftda', $deal, 'fields') ? '<td>' . price($dasboardData['FTDAmount']) . '</td>' : '') . '
+                                        ' . (allowView('af-tftd', $deal, 'fields') ? '<td><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=ftd">' . $dasboardData['RawFTD'] . '</a></td>' : '') . '
 										
-                                        ' . (allowView('af-tftda', $deal, 'fields') ? '<td style="text-align: center;">' . price($dasboardData['RawFTDAmount']) . '</td>' : '') . '	
+                                        ' . (allowView('af-tftda', $deal, 'fields') ? '<td>' . price($dasboardData['RawFTDAmount']) . '</td>' : '') . '	
                                         
 										' . ( (allowView('af-depo', $deal, 'fields')) ?
-            '<td style="text-align: center;"><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to']
+            '<td><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to']
             . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=deposit">' . $dasboardData['Deposits'] . '</a></td>' : '')
-            . ( (allowView('af-depoam', $deal, 'fields')) ? '<td style="text-align: center;">' . price($dasboardData['DepositsAmount']) . '</td>' : ''
+            . ( (allowView('af-depoam', $deal, 'fields')) ? '<td>' . price($dasboardData['DepositsAmount']) . '</td>' : ''
             )
             . (allowView('af-vlm', $deal, 'fields') ?
-            '<td style="text-align: center;">' . price($dasboardData['Volume']) . '</td>' : '')
+            '<td>' . price($dasboardData['Volume']) . '</td>' : '')
             .
-            ( (allowView('af-bns', $deal, 'fields')) ? '<td style="text-align: center;">' . price($dasboardData['Bonus']) . '</td>' : '' ) .
+            ( (allowView('af-bns', $deal, 'fields')) ? '<td>' . price($dasboardData['Bonus']) . '</td>' : '' ) .
             ( (allowView('af-withd', $deal, 'fields')) ?
-            '<td style="text-align: center;">' . price($dasboardData['Withdrawal']) . '</td>' : '' ) .
+            '<td>' . price($dasboardData['Withdrawal']) . '</td>' : '' ) .
             ( (allowView('af-chrgb', $deal, 'fields')) ?
-            '<td style="text-align: center;">' . price($dasboardData['ChargeBack']) . '</td>' : '')
+            '<td>' . price($dasboardData['ChargeBack']) . '</td>' : '')
             .
-            (allowView('af-ntrv', $deal, 'fields') ? '<td style="text-align: center;">' . price($dasboardData['NetDeposit']) . '</td>' : '') . '
+            (allowView('af-ntrv', $deal, 'fields') ? '<td>' . price($dasboardData['NetDeposit']) . '</td>' : '') . '
                                        ' . ($set->deal_pnl == 1 && allowView('af-pnl', $deal, 'fields') ?
             '<td>' . price($dasboardData['PNL']) . '</td>' : '') . '                               
 
 										 ' . ( allowView('af-qftd', $deal, 'fields') ?
-            '<td style="text-align: center;"><a href="' . $set->SSLprefix . $userlevel . '/reports.php?act=trader' . ($affiliate_id ? '&affiliate_id=' . $affiliate_id : "") . '&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=activeTrader">' . $dasboardData['ActiveTrader'] . '</a></td>' : '') . '
+            '<td><a href="' . $set->SSLprefix . $userlevel . '/reports.php?act=trader' . ($affiliate_id ? '&affiliate_id=' . $affiliate_id : "") . '&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&merchant_id=' . $dasboardData['MerchantId'] . '&type=activeTrader">' . $dasboardData['ActiveTrader'] . '</a></td>' : '') . '
 										
                                         
-                                        <td style="text-align: center;">' . price($dasboardData['Commission']) . '</td>
+                                        <td>' . price($dasboardData['Commission']) . '</td>
                                 </tr>';
 }
 /**********************************************/
@@ -276,42 +276,25 @@ $set->totalRows = $l;
 
 $set->content .= '
 		<div class="normalTableTitle quick-report-text" style="width: 100%;">' . lang('
-
-        <button type="button" class="btn report-display" data-toggle="modal" data-target="#exampleModalCenter">
+           <button type="button" class="btn report-display imgReportFieldsSettings">
             <i class="fa fa-cog"></i> Report Display  
         </button>
-      
-           
 
             ') . '</div>
 			<div style="background: #F8F8F8;">
 			<form method="get">
-				<table><tr>
-						<td>' . lang('Period') . '</td>
-						<td>' . lang('Merchant') . '</td>
-						<td>' . lang('Search Type') . '</td>';
-                            if ($platformParam != '') {
-                                $set->content .= '<td>' . lang('Platform') . '</td>';
-                            }
-                            $set->content .= '<td></td>
-						
-					</tr><tr>
-					<td>' . timeFrame($from, $to) . '</td>
-					<td><select name="merchant_id" style="width: 150px;"><option value="">' . lang('All') . '</option>' . listMerchants($merchant_id) . '</select></td>
-					<td><select name="display_type" style="width: 150px;"><option value="0">' . lang('Search Type') . '</option>' . listDisplayTypes($display_type) . '</select></td>
-					' . $platformParam . '
-					<td><input type="submit" value="' . lang('View') . '" /></td>
-				</tr></table>
+				
                 
                             <div class="quick-summary-reports">
-                                <div class="row">
+                                <div class="row align-items-flex-end">
                                     <div class="col-lg-8">
-                                        <div class="row">
+                                        <div class="row reports-summary">
                                             <div class="col-lg-3 col-md-6 col-sm-12 col-12">
                                                 <div class="q-summary-r">
                                                     <h3>' . lang('Period') . '</h3>
                                                     <div class="q-s-option">
-
+<<<<<<< HEAD
+                                                        
                                                     </div>
                                                 </div>
                                             </div>
@@ -328,6 +311,9 @@ $set->content .= '
                                                     <h3>To:</h3>
                                                     <div class="q-s-option">
 
+=======
+                                                        '.timeFrame($from, $to).'
+>>>>>>> 5a27302c96d537cff21e4bd3f2a2f997fb67b01f
                                                     </div>
                                                 </div>
                                             </div>
@@ -367,169 +353,109 @@ $set->content .= '
                             </div>
              
 			</form>
-			' . ($set->export ? '<div class="exportCSV" style="float:left"><a style="cursor:pointer" onclick="$(\'#quickTbl\').tableExport({type:\'csvbig\',escape:\'false\',tableName:\'' . $filename . '\'});"><img border="0" src="' . $set->SSLprefix . 'images/excel.png" alt="' . lang('Export to CSV') . '" title="' . lang('Export to CSV') . '" align="absmiddle" /> <b>' . lang('Export to CSV') . '</b></a></div>' : '') . '
-				<div class="exportCSV" style="float:left"><a style="cursor:pointer" onclick="$(\'#quickTbl\').tableExport({type:\'excelbig\',escape:\'false\',tableName:\'' . $filename . '\'});"><img border="0" src="' . $set->SSLprefix . 'images/excel.png" alt="' . lang('Export to XLS') . '" title="' . lang('Export to XLS') . '" align="absmiddle" /> <b>' . lang('Export to XLS') . '</b></a>
-				</div>
-				' . getFavoritesHTML() . '
+			
 				<div style="clear:both"></div>
 		</div>
 		<div style="height:20px;"></div>
 		
-		<div class="normalTableTitle" class="table">' . lang('Quick Summary Report') . '<span style="float:right"><img class="imgReportFieldsSettings" style="padding-top:6px;width:55%;cursor:pointer;" src="' . $set->SSLprefix . 'images/settings.png"/></span></div>
+		<div class="normalTableTitle" class="table" style="display:none;"></div>
 		<div class="table-r" style="background: #F8F8F8;">';
 
 
 //width 2000
 $tableStr = '
-			<table class="table tablesorter mdlReportFields" border="0" cellpadding="0" cellspacing="0" id="quickTbl">
-				<thead><tr  class="table-row">
-					' . ($display_type ? '<th  class="table-cell">' . lang('Period') . '</th>' : '') . '
-					<th  class="table-cell" style="text-align: left;">' . lang('Merchant') . '</th>
-					' . (allowView('af-impr', $deal, 'fields') ? '
-					<th class="table-cell">' . lang('Impressions') . '</th>
-					' : '') .
-        (allowView('af-clck', $deal, 'fields') ? '
-					<th class="table-cell">' . lang('Clicks') . '</th>
-					' : '') . '
-					' . (allowView('af-instl', $deal, 'fields') && $set->deal_cpi ? '
-					<th class="table-cell">' . lang('Installation') . '</th>
-					' : '') .
-        '<th class="table-cell">' . lang('Click Through Ratio (CTR)') . '</th>
-					<th class="table-cell">' . lang('Click to Account') . '</th>
-					<th class="table-cell">' . lang(ptitle('Click to Sale')) . '</th>' .
-        (!$hideDemoAndLeads ?
-        (allowView('af-lead', $deal, 'fields') ?
-        '<th class="table-cell">' . lang(ptitle('Lead')) . '</th>
-					' : '') .
-        (allowView('af-demo', $deal, 'fields') ?
-        '<th class="table-cell">' . lang(ptitle('Demo')) . '</th>
-					' : '') : '') .
-        (allowView('af-real', $deal, 'fields') ?
-        '<th class="table-cell">' . lang('Accounts') . '</th>' : '' ) .
-        (allowView('af-ftd', $deal, 'fields') ? '
-					<th class="table-cell">' . lang('FTD') . '</th>' : '' ) .
-        (allowView('af-ftda', $deal, 'fields') ? '<th class="table-cell">' . lang('FTD Amount') . '</th>' : '')
-        . (allowView('af-tftd', $deal, 'fields') ? '<th class="table-cell">' . lang('FAW FTD') . '</th>' : '')
-        . (allowView('af-tftda', $deal, 'fields') ? '<th class="table-cell">' . lang('RAW FTD Amount') . '</th>' : '')
-        . (allowView('af-depo', $deal, 'fields') && (true) ? '<th class="table-cell">' . lang('Total Deposits') . '</th>' : '' )
-        . (allowView('af-depoam', $deal, 'fields') && (true) ? '<th class="table-cell">' . lang('Deposit Amount') . '</th>' : '')
-        . (allowView('af-vlm', $deal, 'fields') ? '<th class="table-cell">' . lang('Volume') . '</th>' : '')
-        . (allowView('af-bns', $deal, 'fields') ? '<th class="table-cell">' . lang('Bonus Amount') . '</th>' : '')
-        . (allowView('af-withd', $deal, 'fields') ? '<th class="table-cell">' . lang('Withdrawal Amount') . '</th>' : '')
-        . (allowView('af-chrgb', $deal, 'fields') ? '<th class="table-cell">' . lang('ChargeBack Amount') . '</th>' : '')
-        . (allowView('af-ntrv', $deal, 'fields') ? '<th class="table-cell">' . lang(ptitle('Net Deposit')) . '</th>' : '') .
-        ($set->deal_pnl == 1 && allowView('af-pnl', $deal, 'fields') ? '<th class="table-cell">' . lang(ptitle('PNL')) . '</th>' : '') .
-        (allowView('af-qftd', $deal, 'fields') ? '<th class="table-cell">' . lang(ptitle('Active Traders')) . '</th>' : '')
-        . '<th class="table-cell">' . lang('Commission') . '</th>
-				</tr></thead><tfoot><tr>
-					' . ($display_type ? '<th></th>' : '') . '
-					<th style="text-align: left;"><b>' . lang('Total') . ':</b></th>
-					' . (allowView('af-impr', $deal, 'fields') ? '			
-					<th>' . $totalImpressions . '</th>' : '' ) . '
-					' . (allowView('af-clck', $deal, 'fields') ? '			
-					<th>' . $totalClicks . '</th>' : '' ) . '
-					' . (allowView('af-instl', $deal, 'fields') && $set->deal_cpi ? '			
-					<th>' . $totalCPIM . '</th>' : '' ) . '
-					<th>' . @number_format(($totalClicks / $totalImpressions) * 100, 2) . ' %</th>
-					<th>' . @number_format(($totalRealAccounts / $totalClicks) * 100, 2) . ' %</th>
-					<th>' . @number_format(($totalFTD / $totalClicks) * 100, 2) . ' %</th>' .
-        (!$hideDemoAndLeads ?
-        (allowView('af-lead', $deal, 'fields') ?
-        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=lead">' . $totalLeadsAccounts . '</a></th>' : '') .
-        (allowView('af-demo', $deal, 'fields') ?
-        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=demo">' . $totalDemoAccounts . '</a></th>' : '' ) : '') .
-        (allowView('af-real', $deal, 'fields') ?
-        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=real">' . $totalRealAccounts . '</a></th>' : '' ) .
-        (allowView('af-ftd', $deal, 'fields') ? '
-					<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=ftd">' . $totalFTD . '</a></th>' : '')
-        . (allowView('af-ftda', $deal, 'fields') ?
-        '<th>' . price($totalFTDAmount) . '</th>' : '')
-        .
-        (allowView('af-tftd', $deal, 'fields') ?
-        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=ftd">' . $totalRealFtd . '</a></th>' : '') .
-        (allowView('af-tftda', $deal, 'fields') ?
-        '<th>' . price($totalRealFtdAmount) . '</th>' : '')
-        .
-        ( (allowView('af-depo', $deal, 'fields')) ?
-        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=deposit">' . $totalDeposits . '</a></th>' : '')
-        .
-        ( (allowView('af-depoam', $deal, 'fields')) ?
-        '<th>' . price($totalDepositAmount) . '</th>' : '')
-        .
-        (allowView('af-vlm', $deal, 'fields') ? '<th>' . price($totalVolume) . '</th>' : '')
-        .
-        (allowView('af-bns', $deal, 'fields') ? '<th>' . price($totalBonus) . '</th>' : '') .
-        (allowView('af-withd', $deal, 'fields') ? '<th>' . price($totalWithdrawal) . '</th>' : '') .
-        (allowView('af-chrgb', $deal, 'fields') ? '<th>' . price($totalChargeback) . '</th>' : '') .
-        (allowView('af-ntrv', $deal, 'fields') ? '<th>' . price($totalNetRevenue) . '</th>' : '') .
-        ($set->deal_pnl == 1 && allowView('af-pnl', $deal, 'fields') ?
-        '<th>' . price($totalFooterPNL) . '</th>' : '') .
-        (allowView('af-qftd', $deal, 'fields') ?
-        '<th>' . ($totalActiveTraders) . '</th>' : '') .
-        '<th>' . price($totalComs) . '</th>
-				</tr></tfoot>
-				<tbody>
-				' . $listReport . '
-			</table>
-
             <table class="report-quick">
                             <thead>
                                 <tr>
                                 <th class="r-first">Merchant</th>
-                                <th class="border-left-none">Impression</th>
-                                <th>Clicks</th>
-                                <th>Installation</th>
-                                <th>Click Through Ratio</th>
-                                <th>Click to Account</th>
-                                <th>Click to Sale</th>
-                                <th>Lead</th>
-                                <th>Demo</th>
-                                <th>Accounts</th>
-                                <th>FTD</th>
-                                <th>FTD Amount</th>
-                                <th>Withdrawal Amount</th>
-                                <th>Active Traders</th>
-                                <th>Commissions</th>
+                                ' . ($display_type ? '<th>' . lang('Period') . '</th>' : '') . '
+                                ' . (allowView('af-impr', $deal, 'fields') ? '
+                                    <th class="border-left-none">' . lang('Impressions') . '</th>
+                                    ' : '') .
+                        (allowView('af-clck', $deal, 'fields') ? '
+                                    <th>' . lang('Clicks') . '</th>
+                                    ' : '') . '
+                                    ' . (allowView('af-instl', $deal, 'fields') && $set->deal_cpi ? '
+                                    <th>' . lang('Installation') . '</th>
+                                    ' : '') .
+                        '<th>' . lang('Click Through Ratio (CTR)') . '</th>
+                                    <th>' . lang('Click to Account') . '</th>
+                                    <th>' . lang(ptitle('Click to Sale')) . '</th>' .
+                        (!$hideDemoAndLeads ?
+                        (allowView('af-lead', $deal, 'fields') ?
+                        '<th>' . lang(ptitle('Lead')) . '</th>
+                                    ' : '') .
+                        (allowView('af-demo', $deal, 'fields') ?
+                        '<th>' . lang(ptitle('Demo')) . '</th>
+                                    ' : '') : '') .
+                        (allowView('af-real', $deal, 'fields') ?
+                        '<th>' . lang('Accounts') . '</th>' : '' ) .
+                        (allowView('af-ftd', $deal, 'fields') ? '
+                                    <th>' . lang('FTD') . '</th>' : '' ) .
+                        (allowView('af-ftda', $deal, 'fields') ? '<th>' . lang('FTD Amount') . '</th>' : '')
+                        . (allowView('af-tftd', $deal, 'fields') ? '<th>' . lang('FAW FTD') . '</th>' : '')
+                        . (allowView('af-tftda', $deal, 'fields') ? '<th>' . lang('RAW FTD Amount') . '</th>' : '')
+                        . (allowView('af-depo', $deal, 'fields') && (true) ? '<th>' . lang('Total Deposits') . '</th>' : '' )
+                        . (allowView('af-depoam', $deal, 'fields') && (true) ? '<th>' . lang('Deposit Amount') . '</th>' : '')
+                        . (allowView('af-vlm', $deal, 'fields') ? '<th>' . lang('Volume') . '</th>' : '')
+                        . (allowView('af-bns', $deal, 'fields') ? '<th>' . lang('Bonus Amount') . '</th>' : '')
+                        . (allowView('af-withd', $deal, 'fields') ? '<th>' . lang('Withdrawal Amount') . '</th>' : '')
+                        . (allowView('af-chrgb', $deal, 'fields') ? '<th>' . lang('ChargeBack Amount') . '</th>' : '')
+                        . (allowView('af-ntrv', $deal, 'fields') ? '<th>' . lang(ptitle('Net Deposit')) . '</th>' : '') .
+                        ($set->deal_pnl == 1 && allowView('af-pnl', $deal, 'fields') ? '<th>' . lang(ptitle('PNL')) . '</th>' : '') .
+                        (allowView('af-qftd', $deal, 'fields') ? '<th>' . lang(ptitle('Active Traders')) . '</th>' : '')
+                        . '<th>' . lang('Commission') . '</th>
                                 </tr>
                             </thead>
-                            <tfoot>
-                                <tr>
-                                    <th class="r-first border-left-none-r">Evotrade</th>
-                                    <th class="border-left-none">2</th>
-                                    <th>2</th>
-                                    <th>2</th>
-                                    <th>2.00%</th>
-                                    <th>2.00%</th>
-                                    <th>2.00%</th>
-                                    <th>2</th>
-                                    <th>2</th>
-                                    <th>2</th>
-                                    <th>2</th>
-                                    <th>$2.00</th>
-                                    <th>$2.00</th>
-                                    <th>1</th>
-                                    <th>$2.00</th>                                
-                                </tr>
-                            </tfoot>
                             <tbody>
-                            <tr>
-                                <td class="r-first border-left-none-r">Evotrade</td>
-                                <td class="border-left-none">2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2.00%</td>
-                                <td>2.00%</td>
-                                <td>2.00%</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>2</td>
-                                <td>$2.00</td>
-                                <td>$2.00</td>
-                                <td>1</td>
-                                <td>$2.00</td>
-                            </tr>
-                        </tbody>
+                ' . $listReport . '
+                <tfoot><tr>
+                    ' . ($display_type ? '<th></th>' : '') . '
+                    <th class="r-first border-left-none-r"><b>' . lang('Total') . ':</b></th>
+                    ' . (allowView('af-impr', $deal, 'fields') ? '          
+                    <th class="border-left-none">' . $totalImpressions . '</th>' : '' ) . '
+                    ' . (allowView('af-clck', $deal, 'fields') ? '          
+                    <th>' . $totalClicks . '</th>' : '' ) . '
+                    ' . (allowView('af-instl', $deal, 'fields') && $set->deal_cpi ? '           
+                    <th>' . $totalCPIM . '</th>' : '' ) . '
+                    <th>' . @number_format(($totalClicks / $totalImpressions) * 100, 2) . ' %</th>
+                    <th>' . @number_format(($totalRealAccounts / $totalClicks) * 100, 2) . ' %</th>
+                    <th>' . @number_format(($totalFTD / $totalClicks) * 100, 2) . ' %</th>' .
+                        (!$hideDemoAndLeads ?
+                        (allowView('af-lead', $deal, 'fields') ?
+                        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=lead">' . $totalLeadsAccounts . '</a></th>' : '') .
+                        (allowView('af-demo', $deal, 'fields') ?
+                        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=demo">' . $totalDemoAccounts . '</a></th>' : '' ) : '') .
+                        (allowView('af-real', $deal, 'fields') ?
+                        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=real">' . $totalRealAccounts . '</a></th>' : '' ) .
+                        (allowView('af-ftd', $deal, 'fields') ? '
+                                    <th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=ftd">' . $totalFTD . '</a></th>' : '')
+                        . (allowView('af-ftda', $deal, 'fields') ?
+                        '<th>' . price($totalFTDAmount) . '</th>' : '')
+                        .
+                        (allowView('af-tftd', $deal, 'fields') ?
+                        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=ftd">' . $totalRealFtd . '</a></th>' : '') .
+                        (allowView('af-tftda', $deal, 'fields') ?
+                        '<th>' . price($totalRealFtdAmount) . '</th>' : '')
+                        .
+                        ( (allowView('af-depo', $deal, 'fields')) ?
+                        '<th><a href="' . $set->SSLprefix . 'affiliate/reports.php?act=trader&from=' . $arrRange['from'] . '&to=' . $arrRange['to'] . '&type=deposit">' . $totalDeposits . '</a></th>' : '')
+                        .
+                        ( (allowView('af-depoam', $deal, 'fields')) ?
+                        '<th>' . price($totalDepositAmount) . '</th>' : '')
+                        .
+                        (allowView('af-vlm', $deal, 'fields') ? '<th>' . price($totalVolume) . '</th>' : '')
+                        .
+                        (allowView('af-bns', $deal, 'fields') ? '<th>' . price($totalBonus) . '</th>' : '') .
+                        (allowView('af-withd', $deal, 'fields') ? '<th>' . price($totalWithdrawal) . '</th>' : '') .
+                        (allowView('af-chrgb', $deal, 'fields') ? '<th>' . price($totalChargeback) . '</th>' : '') .
+                        (allowView('af-ntrv', $deal, 'fields') ? '<th>' . price($totalNetRevenue) . '</th>' : '') .
+                        ($set->deal_pnl == 1 && allowView('af-pnl', $deal, 'fields') ?
+                        '<th>' . price($totalFooterPNL) . '</th>' : '') .
+                        (allowView('af-qftd', $deal, 'fields') ?
+                        '<th>' . ($totalActiveTraders) . '</th>' : '') .
+                        '<th>' . price($totalComs) . '</th>
+                                </tr></tfoot>
             </table>
 
 			<script type="text/javascript" src="' . $set->SSLprefix . 'js/impromptu/dist/jquery-impromptu.min.js"></script>
