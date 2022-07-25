@@ -177,13 +177,23 @@ function timeFrame($from = '', $to = '')
 			<option value="7" '.($auto_time_frame == "7" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==7) ? 'selected' : '')).'>'.lang('Last Year').'</option>
 			<option value="8" '.($auto_time_frame == "8" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==8) ? 'selected' : '')).'>'.lang('Custom').'</option>
 			
-		</select>
-		<b>'.lang('From').':</b> 
-		<input type="text" name="from" value="'.$from.'" id="date_from" style="padding: 3px;" style="width:90px!important;" /> 
-		<b>'.lang('To').':</b> 
-		<input type="text" name="to" value="'.$to.'" id="date_to" style="padding: 3px;" style="width:90px!important;" />
-			
-			<script type="text/javascript">
+		</select></div></div>
+		</div>
+		<div class="col-lg-2 col-md-6 col-sm-12 col-12">
+            <div class="q-summary-r">
+                <h3>From:</h3>
+                <div class="q-s-option from-to-input">
+                	<input type="text" class="form-control" name="from" value="'.$from.'" id="date_from" />
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-2 col-md-6 col-sm-12 col-12">
+            <div class="q-summary-r">
+                <h3>To:</h3>
+                <div class="q-s-option from-to-input">
+                	<input type="text" class="form-control" name="to" value="'.$to.'" id="date_to" />
+                
+            <script type="text/javascript">
 				function chgDates(o) {
 					if (o == "1") {
 						'.$oType1.'
@@ -257,7 +267,9 @@ function timeFrame($from = '', $to = '')
 					$("#date_to").datepicker("setDate",convertToDmy("'. $to .'"));
 					
 				});
-			</script>';
+			</script>
+			
+			';
 			
 	return $html;
 }
