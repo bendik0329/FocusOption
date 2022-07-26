@@ -2434,7 +2434,6 @@ height: 36px;
         margin-top: 15px;
     }
 }
-<<<<<<< HEAD
 .main-menu-content ul li.active a{
     color: #000 !important;
 }
@@ -2504,7 +2503,7 @@ padding: 19px 12px;
     color: #069731;
     font-family: 'Roboto';
     font-weight: bold;
-=======
+
 .from-to-input input{
     background: #FFFFFF;
 border: 1px solid #DCDCDC;
@@ -2521,5 +2520,4 @@ font-weight: 400;
 }
 .align-items-flex-end{
     align-items: flex-end;
->>>>>>> 5a27302c96d537cff21e4bd3f2a2f997fb67b01f
 }
