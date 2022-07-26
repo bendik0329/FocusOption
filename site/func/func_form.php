@@ -177,6 +177,166 @@ function timeFrame($from = '', $to = '')
 			<option value="7" '.($auto_time_frame == "7" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==7) ? 'selected' : '')).'>'.lang('Last Year').'</option>
 			<option value="8" '.($auto_time_frame == "8" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==8) ? 'selected' : '')).'>'.lang('Custom').'</option>
 			
+		</select>
+		<b>'.lang('From').':</b> 
+		<input type="text" name="from" value="'.$from.'" id="date_from" style="padding: 3px;" style="width:90px!important;" /> 
+		<b>'.lang('To').':</b> 
+		<input type="text" name="to" value="'.$to.'" id="date_to" style="padding: 3px;" style="width:90px!important;" />
+			
+            <script type="text/javascript">
+				function chgDates(o) {
+					if (o == "1") {
+						'.$oType1.'
+						} else if (o == "2") {
+						'.$oType2.'
+						} else if (o == "3") {
+						'.$oType3.'
+						} else if (o == "4") {
+						'.$oType4.'
+						} else if (o == "5") {
+						'.$oType5.'
+						} else if (o == "6") {
+						'.$oType6.'
+						} else if (o == "7") {
+						'.$oType7.'
+						} else if (o == "8") {
+						'.$oType8.'
+						}
+				}
+				
+				/**
+				 * @return string
+				 */
+				function convertYmdToDmy(strDate) {
+					var arrDate = strDate.split("-");
+					
+					if (2 === arrDate[0].length) {
+						// Current format is "d-m-Y".
+						return strDate;
+					} else {
+						// Current format is "Y-m-d".
+						return arrDate[2] + "/" + arrDate[1] + "/" + arrDate[0];
+					}
+				}
+				
+				function convertToDmy(strDate) {
+					var arrDate = strDate.split("-");
+					
+					if (2 === arrDate[0].length) {
+						// Current format is "d-m-Y".
+						return arrDate[0] + "/" + arrDate[1] + "/" + arrDate[2];
+					} else {
+						// Current format is "Y-m-d".
+						return arrDate[2] + "/" + arrDate[1] + "/" + arrDate[0];
+					}
+				}
+				
+				$(function() {
+					$("#date_from").val(convertYmdToDmy($("#date_from").val()));
+					
+					$("#date_to").val(convertYmdToDmy($("#date_to").val()));
+					
+					$("#date_from").datepicker({
+						dateFormat: \'yy/mm/dd\',
+						onSelect: function() {
+							$("#dateSelect").val(8);
+						}
+					});
+					
+					$("#date_to").datepicker({
+						dateFormat: \'yy/mm/dd\',
+						onSelect: function() {
+							$("#dateSelect").val(8);
+						}
+					});
+					$("#date_to,#date_from").keypress(function (e) {
+						$("#dateSelect").val(8);
+					});
+					
+					$("#date_from").datepicker("setDate",convertToDmy("'. $from .'"));
+					$("#date_to").datepicker("setDate",convertToDmy("'. $to .'"));
+					
+				});
+			</script>
+			
+			';
+			
+	return $html;
+}
+
+/**
+ * @return string
+ */
+function timeFramequick($from = '', $to = '') 
+{
+	global $auto_time_frame, $defTimeFrame;
+	
+	$from = createValidDateWorkAround($from);
+	$to   = createValidDateWorkAround($to);
+	
+	// ORIGINAL VERSION
+	//die($from . '   ' . $to);//////////////////////////////////////////////   2014-12-16 2014-12-22 23:59:59
+	//$from = date("d-m-Y", strtotime(createValidDate($from)));
+	//$to   = date("d-m-Y", strtotime(createValidDate($to)));
+	//die($from . '   ' . $to);//////////////////////////////////////////////   31-12-1969 31-12-1969
+	
+	$fromDate = date("Y/m/d");
+	$toDate = date("Y/m/d");
+	$oType1 = '$(\'#date_from\').val(\''.$fromDate.'\');
+			$(\'#date_to\').val(\''.$toDate.'\');';
+	
+	$fromDate = date("Y/m/d", strtotime("-1 Day"));
+	$toDate = date("Y/m/d", strtotime("-1 Day"));
+	$oType2 = '$(\'#date_from\').val(\''.$fromDate.'\');
+			$(\'#date_to\').val(\''.$toDate.'\');';
+
+	$fromDate = date("Y-m-01");
+	$toDate = date("Y/m/d",strtotime("-1 Day", strtotime("+1 Month",strtotime($fromDate))));
+	$oType3 = '$(\'#date_from\').val(\''.date("Y/m/d",strtotime($fromDate)).'\');
+			$(\'#date_to\').val(\''.$toDate.'\');';
+
+	if (date("Y-m-01")==$fromDate  && date("m"==3) ) {
+			$fromDate = date("Y-m-01", strtotime("-1 Month -3 Day"));
+	}
+	else {
+		$fromDate = date("Y-m-01", strtotime("-1 Month"));
+	}
+	
+	
+	$toDate = date("Y/m/d", strtotime("-1 Day",strtotime("+1 Month",strtotime($fromDate))));
+	$oType4 = '$(\'#date_from\').val(\''.date("Y/m/d",strtotime($fromDate)).'\');
+			$(\'#date_to\').val(\''.$toDate.'\');';
+
+	$fromDate = date("Y-01-01", strtotime("-1 Day"));
+	$toDate = date("Y/m/d", strtotime("+1 Year", strtotime("-1 Day",strtotime($fromDate))));
+	$oType5 = '$(\'#date_from\').val(\''.date("Y/m/d",strtotime($fromDate)).'\');
+			$(\'#date_to\').val(\''.$toDate.'\');';
+			
+	$fromDate = date("Y/m/d", strtotime("-1 Week"));
+	$toDate = date("Y/m/d");
+	$oType6 = '$(\'#date_from\').val(\''.$fromDate.'\');
+			$(\'#date_to\').val(\''.$toDate.'\');';
+		
+	$fromDate = '01/01/'.date("Y", strtotime("-1 Year"));
+	$toDate = date("t", strtotime("-1 Year")).'/12/'.date("Y", strtotime("-1 Year"));
+	$oType7 = '$(\'#date_from\').val(\''.$fromDate.'\');
+			$(\'#date_to\').val(\''.$toDate.'\');';
+	
+	//baba('atf: '.$auto_time_frame,0,1);
+	//die(print_r(array( $from, $to, $auto_time_frame, $defTimeFrame )));
+	// Array ( [0] => 12/10/2014 [1] => 31/12/1969 [2] => [3] => ) 
+	
+	$html = '
+		<select id="dateSelect"  name="auto_time_frame" onchange="chgDates(this.value);" style="width: 100px;">
+			<option value="1" '.($auto_time_frame == "1" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==1) ? 'selected' : '')).'>'.lang('Today').'</option>
+			<option value="2" '.($auto_time_frame == "2" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==2) ? 'selected' : '')).'>'.lang('Yesterday').'</option>
+			<option value="6" '.($auto_time_frame == "6" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==6) ? 'selected' : '')).'>'.lang('This Week').'</option>
+			<option value="3" '.($auto_time_frame == "3" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==3) ? 'selected' : '')).'>'.lang('Month to date').'</option>
+			<option value="4" '.($auto_time_frame == "4" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==4) ? 'selected' : '')).'>'.lang('Last Month').'</option>
+			<option value="5" '.($auto_time_frame == "5" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==5) ? 'selected' : '')).'>'.lang('This Year').'</option>
+			<option value="7" '.($auto_time_frame == "7" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==7) ? 'selected' : '')).'>'.lang('Last Year').'</option>
+			<option value="8" '.($auto_time_frame == "8" ? 'selected' : ((!$auto_time_frame AND $defTimeFrame==8) ? 'selected' : '')).'>'.lang('Custom').'</option>
+			
 		</select></div></div>
 		</div>
 		<div class="col-lg-2 col-md-6 col-sm-12 col-12">

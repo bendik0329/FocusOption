@@ -388,6 +388,10 @@ body.vertical-layout.vertical-menu.menu-collapsed  .main-menu .navigation > li >
 }
 nav.unslider-nav {
     position: relative;
+    order: 1 !important;
+}
+.my-slider{
+    order: 2 !important;
 }
 .unslider-nav ol {
     padding: 0 !important;
@@ -2199,7 +2203,7 @@ font-weight: 400;
     -webkit-transition: .4s;
     transition: .4s;
     height: 30px;
-    width: 68px;
+    width: 60px;
   }
   
   .slider:before {
@@ -2225,7 +2229,7 @@ font-weight: 400;
   input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
-    transform: translateX(37px);
+    transform: translateX(30px);
   }
   
   /* Rounded sliders */
@@ -2388,7 +2392,7 @@ height: 36px;
     background-color: transparent;
 }
 
-::-webkit-scrollbar {
+.table-r::-webkit-scrollbar {
     width: 1px;
     background-color: transparent;
     height: 3px;
@@ -2450,6 +2454,9 @@ height: 36px;
     #navbar-mobile ul .toggle-bar-icon{
         display:block !important;
     }
+    .reports-summary > div {
+        padding-right:15px !important;
+    }
 }
 
 /* Reports - Sub Affiliates Report */
@@ -2459,7 +2466,7 @@ height: 36px;
     border: 1px solid #F1F1F1;
     border-radius: 5px;
     padding:8px;
-    width: 109px;
+    width: 106px;
     height: 67px;
     margin: 6px;
     margin-top: 0px !important;
@@ -2503,7 +2510,7 @@ padding: 19px 12px;
     color: #069731;
     font-family: 'Roboto';
     font-weight: bold;
-
+}
 .from-to-input input{
     background: #FFFFFF;
 border: 1px solid #DCDCDC;
@@ -2521,3 +2528,156 @@ font-weight: 400;
 .align-items-flex-end{
     align-items: flex-end;
 }
+.report-display i {
+    font-size: 20px;
+}
+.export-button {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 13px;
+}
+.export-button .exportCSV{
+    margin: 0 !important;
+    float:inherit !important;
+    padding:23px 27px !important;
+    background-color:#282560 !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    line-height: 19px !important;
+    color: #fff !important;
+    font-family: 'Roboto' !important;
+    font-weight: 400 !important;
+    border:none !important;
+}
+.export-button .exportCSV a img{
+    display: none !important;
+}
+.report-sub thead tr th{
+    padding: 8px 9px !important;
+}
+.report-sub tfoot tr th{
+    border:none !important;
+    font-size: 14px !important;
+    color: #0E132B !important;
+    font-weight: bold !important;
+    font-family: 'Roboto' !important;
+    background: #E9E9E9 !important;
+   
+}
+.report-sub tfoot tr th:first-child{
+    border-radius: 0 0 0 5px !important;  
+}
+.report-sub tfoot tr th:last-child{
+    border-radius: 0 0 5px 0px !important;  
+}
+/* .report-sub tfoot tr{
+    background-color: #E9E9E9 !important;
+} */
+.table-r{
+    overflow:auto !important;
+}
+@media (max-width: 991px) {
+    .reports-summary > div {
+        padding-right:15px !important;
+    }
+}
+
+/* My Account - Payment Details */
+.payment-method{
+    font-size: 14px;
+    line-height: 19px;
+    color: #0E132B;
+    font-family: 'Roboto' !important;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-right: 31px;
+}
+.payment-header{
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+.payment-header span{
+    font-size: 14px !important;
+    color: #06953A !important;
+    font-weight: bold !important;
+}
+.payment-header + p{
+    font-size: 14px;
+    line-height: 19px;
+    color: #0E132B;
+    font-family: 'Roboto' !important;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-right: 31px;
+    display: contents;
+}
+.select-payment {
+    width: 189px;
+    height: 36px;
+    background: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+    margin-left: 30px;
+    font-size: 14px;
+    line-height: 16px;
+    font-family: 'Roboto';
+    color: #0E132B;
+}
+.save-details-button {
+    text-align: center;
+    padding-top: 60px;}
+.save-details-button input {
+    /* padding: 14px 63px; */
+    height: 48px !important;
+    width: 200px;
+    font-size: 14px;
+    font-weight: 400;
+    font-family: 'Roboto';
+    border-radius: 5px;
+}
+.basic-heading h3{
+    font-size: 14px;
+    line-height: 19px;
+    color: #0E132B;
+    font-weight: 600;
+    font-family: 'Roboto' !important;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+.basic-section-details{
+margin-bottom: 20px;
+}
+.basic-section-details input, .basic-section-details select{
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+width: 100% !important; 
+height: 36px;
+}
+.basic-section-details h4{
+    font-size: 14px;
+    line-height: 16px;
+    color: #0E132B;
+    font-weight: 400;
+    font-family: 'Roboto';
+    margin-bottom: 12px;
+}
+.basic-section-details textarea{
+    width: 100%;
+    resize: none;
+    background: #FFFFFF;
+    border: 1px solid #DCDCDC;
+    border-radius: 5px;
+}
+.modal-text{
+    color: #0E132B;
+    font-size: 14px;
+    font-weight:400;
+    font-family: 'Roboto';
+    
+}
+/* Your Commission Structure */
+

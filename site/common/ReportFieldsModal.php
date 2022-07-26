@@ -265,13 +265,13 @@ $(".imgReportFieldsSettings").on("click",function(){
 		colText = $(this).text();
 		var chkInArray = false;
 		chk = jQuery.inArray(colText, arrUserHiddenCols);
+		allCols += "<div style=\"float:left;padding-top:5px;min-width:145px\">"+ colText +"</div></div>";
 		if(chk > -1){
 			allCols += "<div width=\"200px\"><div style=\"float:left\"><label class=\"switch\"><input type=\"checkbox\" name=\"reports\" class=\"reports\" value=\""+ colText +"\"><div class=\"slider round\"></div></label></div>";
 		}
 		else{
 			allCols += "<div width=\"200px\"><div style=\"float:left\"><label class=\"switch\"><input type=\"checkbox\" name=\"reports\" class=\"reports\" value=\""+ colText +"\" checked><div class=\"slider round\"></div></label></div>";
 		}
-		allCols += "<div style=\"float:left;padding-top:5px;min-width:145px\">"+ colText +"</div></div>";
 		colcnt++;
 		if(colcnt ==3){
 			allCols += "<div style=\"clear:both\"></div>";

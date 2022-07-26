@@ -140,9 +140,9 @@ if ($boolIsLogen2) {
 							'.($ty ? '<tr><td align="left" style="color: green; font-size: 14px;"><img border="0" width="30" src="images/alert/alert_v.png" alt="" align="absmiddle" /> '.lang('Your payment method details has updated').'!</td></tr><tr height="30"></td></tr>' : '').'
 							<tr>
 								<td align="left">'. 
-								(!empty($paymentmethodparam) ? '<b>'.lang('Payment method selected ').': </b><span style="color: green; font-size: 15px;text-transform:capitalize;" class="methodSelected"> ' . lang(ucwords($paymentmethodparam)). "</span><br><br>" : ""). 
+								(!empty($paymentmethodparam) ? '<div class="payment-header"><p class="payment-method">'.lang('Payment method selected ').': </p><span style="color: green; font-size: 15px;text-transform:capitalize;" class="methodSelected"> ' . lang(ucwords($paymentmethodparam)). "</span> </div>" : ""). 
 								
-									"<b>".lang('Click to change the primary payment method').':</b> <select id="paymentMethod" name="paymentMethod" onchange="chooseTab(this.value);">
+									"<p>".lang('Click to change the primary payment method').':</p> <select class="select-payment" id="paymentMethod" name="paymentMethod" onchange="chooseTab(this.value);">
 										<option value="">'.lang('Please Select Payment Method').'</option>';
 										
 										
@@ -371,11 +371,92 @@ if ($boolIsLogen2) {
 								<tr>
 								<td colspan="5" height="20"></td>
 							</tr><tr>
-								<td colspan="5" height="20" align="right"><input type="submit" value="'.lang('Save Details').'" /></td>
+								<td colspan="5" class="save-details-button"><input type="submit" value="'.lang('Save Details').'" /></td>
 							</tr>
 						</table>
 						</div>
-											
+							
+						<div class="payment-page">
+								<div class="row">
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="basic-im">
+											<div class="basic-heading">
+												<h3>'.lang('Basic Information').'</h3>
+											</div>
+											<div class="basic-section ac-details-tab">
+												<div class="basic-section-details">
+													<h4'.err('pay_firstname').'>'.lang('First Name').':</h4>
+													<input type="text" id="pay_firstname" name="bankdb[pay_firstname]" value="'.($bankdb['pay_firstname'] ? $bankdb['pay_firstname'] : $db['pay_firstname']).'" style="width: 248px;" /> 
+												</div>
+												<div class="basic-section-details">
+													<h4 '.err('pay_lastname').'>'.lang('Last Name').':</h4>
+													<input type="text" id="pay_lastname" name="bankdb[pay_lastname]" value="'.($bankdb['pay_lastname'] ? $bankdb['pay_lastname'] : $db['pay_lastname']).'" style="width: 248px;" /> 
+												</div>
+												<div class="basic-section-details">
+													<h4>Email</h4>
+													<input type="text" id="" name="bankdb[]" value="'.($bankdb[''] ? $bankdb[''] : $db['']).'" style="width: 248px;" /> 
+												</div>
+												<div class="basic-section-details">
+													<h4'.err('pay_address1').'>'.lang('Address').' 1:</h4>
+													<input type="text" id="pay_address1" name="bankdb[pay_address1]" value="'.($bankdb['pay_address1'] ? $bankdb['pay_address1'] : $db['pay_address1']).'" style="width: 248px;" /> 
+												</div>
+												<div class="basic-section-details">
+													<h4'.err('pay_address2').'>'.lang('Address').' 2:</h4>
+													<input type="text" name="bankdb[pay_address2]" value="'.($bankdb['pay_address2'] ? $bankdb['pay_address2'] : $db['pay_address2']).'" style="width: 248px;" />
+												</div>
+												<div class="basic-section-details">
+													<h4 '.err('pay_city').'>'.lang('City').':</h4>
+													<input type="text" id="pay_city" name="bankdb[pay_city]" value="'.($bankdb['pay_city'] ? $bankdb['pay_city'] : $db['pay_city']).'" style="width: 248px;" />
+												</div>
+												<div class="basic-section-details">
+													<h4'.err('pay_zip').'>'.lang('Zip Code').':</h4>
+													<input type="text" name="bankdb[pay_zip]" value="'.($bankdb['pay_zip'] ? $bankdb['pay_zip'] : $db['pay_zip']).'" style="width: 248px;" />
+												</div>
+												<div class="basic-section-details">
+													<h4'.err('pay_country').'>'.lang('Country').':</h4>
+													<select id="pay_country" name="bankdb[pay_country]" style="width: 259px;">'.getCountry(($bankdb['pay_country'] ? $bankdb['pay_country'] : $db['pay_country'])).'</select> 
+												</div>
+												<div class="basic-section-details">
+													<h4'.err('pay_company').'>'.lang('Company').':</h4>
+													<input type="text" name="bankdb[pay_company]" value="'.($bankdb['pay_company'] ? $bankdb['pay_company'] : $db['pay_company']).'" style="width: 248px;" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+										<div class="basic-im">
+											<div class="basic-heading">
+												<h3>'.lang('Transfer Details').'</h3>
+											</div>
+											<div class="basic-section ac-details-tab">
+												<div class="basic-section-details">
+													<h4 '.err('preferredCurrency').'>'.lang('Preferred Currency').':</h4>
+													<select  style="width: 260px;" name="bankdb[preferredCurrency]"  >
+													'.$selectoptions.'
+													</select>
+												</div>
+												<div class="basic-section-details">
+													<h4>'.lang('More Information').':</h4>
+													<textarea name="bankdb[pay_info]" cols="26" rows="4" >'.($bankdb['pay_info'] ? $bankdb['pay_info'] : $db['pay_info']).'</textarea>
+												</div>
+												<div class="basic-section-details">
+												<h4'.err('pay_email').'>'.lang('Payment Method').' ' .lang('Email').':</h4>
+												<input type="text" id="pay_email" name="bankdb[pay_email]" value="'.($bankdb['pay_email'] ? $bankdb['pay_email'] : $db['pay_email']).'" style="width: 248px;" /> 
+												</div>
+												<div class="basic-section-details">
+												<h4 '.err('account_number').'>'.lang('Account ID').':</h4>
+												<input type="text" name="bankdb[account_number]" value="'.($bankdb['account_number'] ? $bankdb['account_number'] : $db['account_number']).'" style="width: 248px;" />
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="col-lg-12">
+										<div class="save-button-p">
+											<div colspan="5" class="save-details-button"><input type="submit" value="'.lang('Save Details').'" /></div>
+										</div>
+									</div>
+								</div>
+						</div>
 						
 						</form>
 					<script type="text/javascript">
