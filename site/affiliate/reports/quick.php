@@ -293,27 +293,7 @@ $set->content .= '
                                                 <div class="q-summary-r">
                                                     <h3>' . lang('Period') . '</h3>
                                                     <div class="q-s-option">
-<<<<<<< HEAD
-                                                        
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-md-6 col-sm-12 col-12">
-                                                <div class="q-summary-r">
-                                                    <h3>From:</h3>
-                                                    <div class="q-s-option">
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-2 col-md-6 col-sm-12 col-12">
-                                                <div class="q-summary-r">
-                                                    <h3>To:</h3>
-                                                    <div class="q-s-option">
-
-=======
-                                                        '.timeFrame($from, $to).'
->>>>>>> 5a27302c96d537cff21e4bd3f2a2f997fb67b01f
+                                                    '.timeFramequick($from, $to).'
                                                     </div>
                                                 </div>
                                             </div>

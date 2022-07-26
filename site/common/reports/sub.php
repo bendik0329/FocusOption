@@ -1066,10 +1066,7 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 					</form>';
         } else {
 			$set->content .= '<form style="margin-top:10px;" method="get">
-					<input type="hidden" name="search" value="1" />
-			'.($set->export ? '<div class="exportCSV" style="float:left"><a href="'.$set->uri.(strpos($set->uri,'?') ? '&' : '?').'excel=csv"><img border="0" src="'.$set->SSLprefix.'images/excel.png" alt="'.lang('Export to CSV').'" title="'.lang('Export to CSV').'" align="absmiddle" /> <b>'.lang('Export to CSV').'</b></a></div>':'').'
-					<div class="exportCSV" style="float:left"><a href="'.$set->uri.(strpos($set->uri,'?') ? '&' : '?').'excel=xls"><img border="0" src="'.$set->SSLprefix.'images/excel.png" alt="'.lang('Export to XLS').'" title="'.lang('Export to XLS').'" align="absmiddle" /> <b>'.lang('Export to XLS').'</b></a>
-					</div><div style="clear:both"></div>
+					
 
 					<div class="sub-affiliate-report">
 						<div class="row">
@@ -1174,7 +1171,10 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 										<span style="font-size: 18px; font-weight: bold;">'.price($totalCommission,2).'</span>
 									</div>
 									<div class="export-button">
-									
+									<input type="hidden" name="search" value="1" />
+			'.($set->export ? '<div class="exportCSV" style="float:left"><a href="'.$set->uri.(strpos($set->uri,'?') ? '&' : '?').'excel=csv"><img border="0" src="'.$set->SSLprefix.'images/excel.png" alt="'.lang('Export to CSV').'" title="'.lang('Export to CSV').'" align="absmiddle" /> <b>'.lang('Export to CSV').'</b></a></div>':'').'
+					<div class="exportCSV" style="float:left"><a href="'.$set->uri.(strpos($set->uri,'?') ? '&' : '?').'excel=xls"><img border="0" src="'.$set->SSLprefix.'images/excel.png" alt="'.lang('Export to XLS').'" title="'.lang('Export to XLS').'" align="absmiddle" /> <b>'.lang('Export to XLS').'</b></a>
+					</div>
 									</div>
 								</div>
 							</div>
@@ -1187,7 +1187,8 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
         $tableContentheader = '<div class="specialTableTitle" style="margin-top: 10px!important;">' . ($userlevel == "" ? lang('Sub Affiliates Performance') : lang('Merchant Performance')) . '<span style="float:right"><img class="imgReportFieldsSettings" style="padding-top:6px;width:55%;cursor:pointer;" src="../images/settings.png"/></span></div>';
 		
 		$tableContent ='
-		<table class="'. ($listMerchants!=""?'tablesorter mdlReportFields':'normal mdlReportFields').' table" width="100%" border="0" cellpadding="0" cellspacing="0">
+		<div class="table-r">
+		<table class="'. ($listMerchants!=""?'tablesorter mdlReportFields':'normal mdlReportFields report-quick report-sub ').' table" width="100%" border="0" cellpadding="0" cellspacing="0">
 		<thead>';
 		
 							if($userlevel == "admin" || $userlevel =="manager"){
@@ -1235,7 +1236,7 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 						</tfoot>
 						<tbody>
 						'.$listMerchants.'
-					</table>';
+					</table> </div>';
 							}else{
 								$tableContent .= '<tr>
 								<th>'.($set->introducingBrokerInterface ? lang('Introduce Broker ID') : lang('Affiliate ID')).'</th>
