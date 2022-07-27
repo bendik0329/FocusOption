@@ -37,7 +37,7 @@ if (empty($set->showDocumentsModule)) {
 			</style>
 			<ul class="breadcrumb">
 				<li><a href="'.$set->SSLprefix.'affiliate/">'.lang('Dashboard').'</a></li>
-				<li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
+				<li><a href="'. $set->SSLprefix.$set->uri .'"> My Account - '.lang($pageTitle).'</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
 			
@@ -300,7 +300,43 @@ display:none;
                                 </thead>
                                 <tfoot>';
     
-    $set->content .= $strDocumentsHtml . '</tfoot></table></form><br />
+    $set->content .= $strDocumentsHtml . '</tfoot></table>
+            
+    <div class="account-table creative-page-filter ">
+						<div class="top-performing-creative h-full com-page">
+							<div class="search-wrp Commission-Structure-s">
+								<p>Search creative</p>
+								<div class="search-box">
+									<input type="text" name="q" value="">
+									<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</div>
+							<div class="performing-creative-table">
+								<div class="table-responsive">
+									<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+										<thead>
+											<tr>
+                                            <th scope="col">'.lang('#').'</th>
+											<th scope="col">'.lang('ID').'</th>
+											<th scope="col">'.lang('Date Recieved').'</th>
+											<th scope="col">'.lang('Document Name').'</th>
+											<th scope="col">'.lang('Type').'</th>
+											<th scope="col">'.lang('Status').'</th>
+											<th scope="col">'.lang('Action').'</th>
+											</tr>
+										</thead>
+										<tfoot class="topCreativesCls">
+                                        ';
+    
+    $set->content .= $strDocumentsHtml . '
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>	
+					</div>
+            
+    </form><br />
         <div style="float:right;">
         <a href="javascript:void(0)" 
            style="cursor:pointer;background-color:#2FB956;color:#fff;text-transform:uppercase;

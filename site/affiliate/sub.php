@@ -33,7 +33,7 @@ switch ($act) {
     </style>
     <ul class="breadcrumb">
         <li><a href="'.$set->SSLprefix.'affilaite/">'.lang('Dashboard').'</a></li>
-        <li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
+        <li><a href="'. $set->SSLprefix.$set->uri .'">Reports - '.lang($pageTitle).'</a></li>
         <li><a style="background:none !Important;"></a></li>
     </ul>';
 	
@@ -914,8 +914,7 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 				</div>
 				</li>
 			</ul>
-		</div>		
-		<script>
+		</div>	
 			jsonData = '. json_encode($buildData2) .';
 			drawChart2(jsonData);
 			
@@ -923,6 +922,7 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 			drawChart3(jsonData2);
 			
 		window.onload = function() {
+			
 				$(".my-slider").unslider({
 					arrows: false,
 					dots:true
@@ -931,6 +931,7 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 			}
 			
 			$(document).ready(function(){
+				
 				$(".my-slider").mouseover(function(){
 					$(".refresha").show();
 				});
@@ -1410,16 +1411,16 @@ $codelink = '<br />
 															</div>
 														</div>
 														<div class="text-area-div">
-															<textarea onclick="this.focus(); this.select();">'.$code.'</textarea>'.$codelink.'	
+															<textarea id="creative_code" onclick="this.focus(); this.select();">'.$code.'</textarea>'.$codelink.'	
 														</div>
 													</form>
 												</div>
 											</div>
 													<div class="modal-footer html-model-footer">
 													  <div class="html-code-footer-button">
-														<button>Copy code <img src="../assets/images/img-new/copyWhite.svg"></button>
-														<button>Download code<img src="../assets/images/img-new/coding.svg"></button>
-														<button>Download image<img src="../assets/images/img-new/image.svg"></button>
+													  <button onclick="return copy_code('.$ww['id'].')">Copy code <img src="../assets/images/img-new/copyWhite.svg"></button>
+													  <button id="dwn-btn">Download code<img src="../assets/images/img-new/coding.svg"></button>
+													  <button onclick="return textToPng();">Download image<img src="../assets/images/img-new/image.svg"></button>
 													  </div>
 													</div>
 												  </div>
@@ -1430,8 +1431,54 @@ $codelink = '<br />
 									</div>
 								</td>
 									</tr></tfoot>
-									</table></div></div>';
+									</table></div></div>
+									<script>
+										function copy_code(id){
+											var copyText = document.getElementById("creative_code");
+											var copyText = copyText.value;
 
+											var r = document.createRange();
+											r.selectNode(document.getElementById("creative_code"));
+											window.getSelection().removeAllRanges();
+											window.getSelection().addRange(r);
+											document.execCommand("copy");
+											window.getSelection().removeAllRanges();
+											$("#creative_code").focus(); 
+											$("#creative_code").select();
+										}
+									</script>
+									<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+									<script>
+										function download(filename, text) {
+											var element = document.createElement("a");
+											element.setAttribute("href", "data:text/plain;charset=utf-8," + encodeURIComponent(text));
+											element.setAttribute("download", filename);
+										element.style.display = "none";
+										document.body.appendChild(element);
+										element.click();
+										document.body.removeChild(element);
+									}
+
+									// Start file download.
+									document.getElementById("dwn-btn").addEventListener("click", function(){
+											// Generate download of hello.txt file with some content
+										var text = document.getElementById("creative_code").value;
+										var filename = "file.txt";
+										download(filename, text);
+									}, false);
+
+									function textToPng() {
+										html2canvas($("#creative_code"), {
+											onrendered: function (canvas) {
+												var img = canvas.toDataURL("image/png")
+												window.open(img);
+											}
+										});
+							
+									}
+									</script>
+									';
+								
 			
 			}
 		

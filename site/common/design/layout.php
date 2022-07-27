@@ -629,9 +629,8 @@ if (!defined('SITE_INCLUDE_START')) {
         <script type="text/javascript">
             $(document).ready(function () {
               
-                $('.chart-nav-tab').append( $('.unslider-nav') );
-
-                if ($("body").height() < $(window).height()) {
+               $('.chart-nav-tab').append( $('.unslider-nav') );
+               if ($("body").height() < $(window).height()) {
                     $("#bottom_table").css("position", "fixed");
                     $("#bottom_table").css("bottom", "0");
                 }

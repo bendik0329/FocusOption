@@ -207,8 +207,7 @@ function adminMenu($onlyArray = false) {
 	$counter++;
 	$groupName[$counter] = '<a href="'.$set->SSLprefix.'affiliate/account.php">'.lang('My Account').'</a>';
         $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/account.php">'.lang('Account Details').'</a>';
-		$linkName[$counter][] = '<a href="#">'.lang('Document').'</a>';
-        
+		// $linkName[$counter][] = '<a href="#">'.lang('Document').'</a>';
         if (!empty($set->showDocumentsModule)) {
             $linkName[$counter][] = '<a href="'.$set->SSLprefix.'affiliate/documents.php">'.lang('Documents').'</a>';
         }
@@ -245,7 +244,6 @@ function adminMenu($onlyArray = false) {
 	
 		$counter++;
 		$groupName[$counter] = '<a href="/affiliate/?act=logout">'.lang('Logout').'</a>';
-
         if($onlyArray){
             return [
                 'group' => $groupName,

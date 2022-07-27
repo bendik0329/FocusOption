@@ -2163,7 +2163,7 @@ font-weight: 400;
     height: 48px;
     font-weight: 400;
 }
-.save-button-r button{
+.save-button-r{
     font-size: 14px;
     line-height: 19px;
     color:#fff;
@@ -2174,6 +2174,7 @@ font-weight: 400;
     width:200px;
     height: 48px;
     font-weight: 400;
+    float: right;
 }
 
 /* Toggle-Switch */
@@ -2679,5 +2680,89 @@ height: 36px;
     font-family: 'Roboto';
     
 }
-/* Your Commission Structure */
+.r-modal-hidden{
+    overflow: hidden !important;
+}
+.aff-modal .modal-header{
+padding: 0;
+border:none;
+}
+.aff-modal{
+    overflow:auto !important;
+}
+.aff-modal .modal-header h4{
+    font-size: 14px;
+    font-weight: 600;
+    color: #0E132B;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+}
+.aff-modal .modal-body{
+    padding: 0;
+    border: none;
+}
+.aff-modal .modal-header p{
+    font-size: 12px;
+    font-weight: 400;
+    color: #0E132B;
+    font-family: 'Roboto';
+    margin-bottom: 5px;
+}
+.merchant-report p{
+    font-size: 12px;
+    font-weight: 400;
+    color: #0E132B;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+}
+.aff-modal .modal-footer{
+    padding: 0;
+    border:none;
+}
+.aff-modal .modal-content{
+    padding:30px;
+}
+.select-un{
+    margin: 0;
+}
+.toggle-swich-report{
+    margin-bottom: 55px;
+}
 
+.aff-modal .modal-header button {
+    padding: 0 !important;
+    max-width: 30px !important;
+    width: 100% !important;
+    height: 30px !important;
+    border-radius: 100px !important;
+    border: 1px solid #0E132B !important;
+    color: #0E132B !important;
+    opacity: 1 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    font-size: 24px !important;}
+    .aff-modal{
+        background: #0000006b;
+    }
+    .report-display-m{
+        font-size: 14px;
+        font-family: 'Roboto';
+        font-weight: 400;
+letter-spacing: 0px;
+color: #282560;
+    }
+    .aff-modal .modal-dialog{
+        max-width: 740px !important;
+        width: 100% !important;
+    }
+/* Your Commission Structure */
+.Commission-Structure-s{
+    justify-content: flex-start !important;
+    margin-bottom: 16px !important;
+}
+.com-page table tfoot tr td{
+    color:#0E132B !important;
+}
+.com-page .performing-creative-table tr th{
+    padding: 7px 11px !important;
+}

@@ -115,8 +115,8 @@ $set->content .= '
 	}
 	</style>
 <!-- The Modal -->
-<div id="myModal" class="modal" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
- <div class="modal-dialog" style="width:50%; max-width: 50% !important;" role="document">
+<div id="myModal" class="modal aff-modal" role="dialog" aria-labelledby="myModalLabel1" aria-hidden="true">
+ <div class="modal-dialog" role="document">
   <!-- Modal content -->
   <div class="modal-content">
     <div class="modal-header">
@@ -126,11 +126,13 @@ $set->content .= '
     <div class="modal-body">
 		<p class="err"></p>
       <p>'. lang('Please activate the fields you want to display on that report:') .'</p>
-	  <p class="reportFields"></p>
-      <p>
-	  <a href="javascript:void(0)" name="select_all" id="select_all">'. lang('Select All') .'</a>&nbsp;&nbsp;
-	  <a href="javascript:void(0)" name="unselect_all" id="unselect_all">'. lang('Unselect All') .'</a>
-	  <input style="float:right" type="button" id="saveData" name="saveData" value="'. lang('Save') . '">&nbsp;&nbsp;
+	  <p class="reportFields r-modal-hidden"></p>
+      <p class="select-un">
+		<button class="selectall" name="select_all" id="select_all">'. lang('Select All') .'</button>
+		<button class="unselectall" name="unselect_all" id="unselect_all">'. lang('Unselect All') .'</button>
+		<!-- <a href="javascript:void(0)" class="selectall" name="select_all" id="select_all">'. lang('Select All') .'</a>&nbsp;&nbsp;
+		<a href="javascript:void(0)" class="unselectall" name="unselect_all" id="unselect_all">'. lang('Unselect All') .'</a> -->
+		<input type="button" class="save-button-r" id="saveData" name="saveData" value="'. lang('Save') . '">
 	  </p>
     </div>
   </div>
@@ -254,33 +256,46 @@ $("#saveData").on("click",function(){
 		$("input:checkbox[name=\"reports\"]").prop("checked",true);
 	});
 	$("[name=unselect_all]").on("click",function(){
-		$("input:checkbox[name=\"reports\"]").removeAttr("checked");
+		$("input:checkbox[name=\"reports\"]").prop("checked",false);
 	});
 
 $(".imgReportFieldsSettings").on("click",function(){
 	$(".modal-header span.report_name").html("'. $myReport .'");
 	var allCols = "";
+	allCols += "<div class=\"toggle-swich-report\">";
 	colcnt = 0;
+	i=1;
 	$.each($(".'. $mdlClass .' thead tr th"),function(e,col){
 		colText = $(this).text();
 		var chkInArray = false;
 		chk = jQuery.inArray(colText, arrUserHiddenCols);
-		allCols += "<div style=\"float:left;padding-top:5px;min-width:145px\">"+ colText +"</div></div>";
+		if(colcnt ==0){
+			allCols += "<div class=\"row\">";
+		}
+			allCols += "<div class=\"col-lg-4 col-md-6 col-sm-6 col-12\">";
+		
+		
+		allCols += "<div class=\"merchant-report\"><p>" + colText + "</p>";
 		if(chk > -1){
-			allCols += "<div width=\"200px\"><div style=\"float:left\"><label class=\"switch\"><input type=\"checkbox\" name=\"reports\" class=\"reports\" value=\""+ colText +"\"><div class=\"slider round\"></div></label></div>";
+			allCols += "<label class=\"switch\"><input type=\"checkbox\" name=\"reports\" class=\"reports\" value=\""+ colText +"\"><span class=\"slider round\"></span></label>";
 		}
 		else{
-			allCols += "<div width=\"200px\"><div style=\"float:left\"><label class=\"switch\"><input type=\"checkbox\" name=\"reports\" class=\"reports\" value=\""+ colText +"\" checked><div class=\"slider round\"></div></label></div>";
+			allCols += "<label class=\"switch\"><input type=\"checkbox\" name=\"reports\" class=\"reports\" value=\""+ colText +"\" checked><span class=\"slider round\"></span></label>";
+			
 		}
+		allCols += "</div>";
+		allCols += "</div>";
+		if(i == 5){
+			i = 1;
+		}
+		i++;
 		colcnt++;
 		if(colcnt ==3){
-			allCols += "<div style=\"clear:both\"></div>";
+			allCols += "</div><div style=\"clear:both\"></div>";
 			colcnt = 0;
 		}
-		
-		
 	});
-
+	allCols += "</div></div>";
 	$(".reportFields").html(allCols);
 	modal.style.display = "flex";
 	
