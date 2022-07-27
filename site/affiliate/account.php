@@ -111,7 +111,7 @@ switch ($act) {
                         
 	case "payment":
             //////////////////////////// ACCOUNT begin //////////////////////////////////////////
-            include './common/AffiliatePaymentDetails.php';
+			include '../public_html/common/AffiliatePaymentDetails.php';
             //////////////////////////// ACCOUNT end ///////////////////////////////////////////
             theme();
             break;
