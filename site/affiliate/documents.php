@@ -37,7 +37,7 @@ if (empty($set->showDocumentsModule)) {
 			</style>
 			<ul class="breadcrumb">
 				<li><a href="'.$set->SSLprefix.'affiliate/">'.lang('Dashboard').'</a></li>
-				<li><a href="'. $set->SSLprefix.$set->uri .'">'.lang($pageTitle).'</a></li>
+				<li><a href="'. $set->SSLprefix.$set->uri .'"> My Account - '.lang($pageTitle).'</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
 			
@@ -102,8 +102,9 @@ if (empty($set->showDocumentsModule)) {
                           . ' id="tr_doc_' . $arrDocument['id'] . '" data-path="' . $arrDocument['path'] . '">'
                           .  '<td>' . $arrDocument['id'] . '</td>'
                           .  '<td>' . $arrDocument['rdate'] .'</td>'
-                          .  '<td>'.(strpos($arrDocument['path'],'/tmp/')?'<img src="'.$set->SSLprefix.'images/wheel.gif" width=32><br/><span class="tooltiptext" style="padding-bottom:15px">'. lang("System is checking for virus. Please refresh in a minute.") .'</span>':'<a href="javascript:void(0)" onclick="return displayDocument(\'' . $arrDocument['path'] . '\',\''.$eof.'\');">' 
+                          .  '<td>'.(strpos($arrDocument['path'],'/tmp/')?'<span class="tooltiptext" style="margin:0; max-width:410px; text-align:left; width:100%;">'. lang("System is checking for virus. Please refresh in a minute.") .'</span>':'<a href="javascript:void(0)" onclick="return displayDocument(\'' . $arrDocument['path'] . '\',\''.$eof.'\');">' 
                           . $arrFileName[0] . '</a>')
+                        //   <img src="'.$set->SSLprefix.'images/wheel.gif" width=32>
                           . '</td>'
                           .  '<td>' . substr($strDocType, 0, -1) . '</td>'
                           .  '<td>' . $strStatusHtml . ('Disapproved' == $strStatusHtml ? $strHtmlDeleteDisapproved : '') 
@@ -111,6 +112,9 @@ if (empty($set->showDocumentsModule)) {
                           .  '<td>'
                           .   (strpos($arrDocument['path'],'/tmp/')?'':'<a href="javascript:void(0)" onclick="return displayDocument(\'' . $arrDocument['path'] . '\',\''.$eof.'\');">' . lang('View') . '</a>')
                           .  '&nbsp;&nbsp;'
+                          .  '</td>'
+                          .  '<td>'
+                          .  '-'
                           .  '</td>'
                           .  '</tr>';
         
@@ -284,8 +288,8 @@ display:none;
             }
         </script>
     ';
-    
-    $set->content .= '<div id="tab_13" style="width: 100%; background: #F8F8F8;">
+    // style="width: 100%; background: #F8F8F8;
+    $set->content .= '<div id="tab_13">
                         <form method="post">
                             <table class="normal" width="100%" border="0" cellpadding="3" cellspacing="0">
                                 <thead>
@@ -300,15 +304,123 @@ display:none;
                                 </thead>
                                 <tfoot>';
     
-    $set->content .= $strDocumentsHtml . '</tfoot></table></form><br />
-        <div style="float:right;">
-        <a href="javascript:void(0)" 
-           style="cursor:pointer;background-color:#2FB956;color:#fff;text-transform:uppercase;
-                  font-size:14px;border:0;padding:5px 30px 5px 30px;" 
-           onclick="return uploadNewDocument();">' . lang('Upload new document') . '
-        </a></div>
-        <br /><br />
-        </div><br />';
+    $set->content .= $strDocumentsHtml . '</tfoot></table>
+            
+    <div class="account-table creative-page-filter ">
+						<div class="top-performing-creative h-full com-page">
+                        <div class="documents-page-uplord-button">
+							<div class="search-wrp Commission-Structure-s">
+								<p>Search creative</p>
+								<div class="search-box">
+									<input type="text" name="q" value="">
+									<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</div>
+                            <div class="uplord-new-doc">
+                            <a href="javascript:void(0)" 
+                            onclick="return uploadNewDocument();">
+                               <button type="button" class="btn uplord-button" data-toggle="modal" data-target="#exampleModalCenter">
+                               ' . lang('Upload new document') . '
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade doc-modal-smoll" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title" id="exampleModalLongTitle">Upload new document</h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="uplord-doc-section">
+                                        <div class="duc-type-heading">' . lang('Document type') . ':</div>
+                                        <div class="doc-type-select">
+                                            <select name="doc_type">
+                                                <option value="Passport_Driving_Licence" selected>' . lang('Passport/Driving Licence') . '</option>
+                                                <option value="Address_Verification">' . lang('Address Verification') . '</option>
+                                                <option value="Company_Verification">' . lang('Company Verification') . '</option>
+                                            </select>
+                                        </div>
+                                    
+                                    
+                                        
+                                        <div class="dhrec-input">
+                                            <label class="doc-file-modal" for="id_document_upload">
+                                                <p class="choose_doc">Choose document <i class="fa fa-file"></i></p>
+                                            <input class="d-none" type="file" name="document_upload" id="id_document_upload" />
+                                            </label>
+                                            <div class="chosse-file d-none">
+                                                <p id="file_chhosen"></p>
+                                                <span onclick="return deleteDocument();">Delete</span>
+                                            </div>
+                                        </div>                                  
+                                       <div class="submit-doc">
+                                            <a href="javascript:void(0)" 
+                                               onclick="return submitDocument();" 
+                                               >
+                                                ' . lang(' Submit document <i class="fa fa-upload"></i>') . '
+                                            </a>
+                                            </div>
+                                   
+                                        </div>
+                                    </div>
+                                  
+                                    </div>
+                                </div>
+                                </div>
+                            </a></div>
+                            </div>
+							<div class="performing-creative-table doc-table-p">
+								<div class="table-responsive">
+									<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+										<thead>
+											<tr>
+                                            <th scope="col">'.lang('#').'</th>
+											<th scope="col">'.lang('ID').'</th>
+											<th scope="col">'.lang('Date Recieved').'</th>
+											<th scope="col">'.lang('Document Name').'</th>
+											<th scope="col">'.lang('Type').'</th>
+											<th scope="col">'.lang('Status').'</th>
+											<th scope="col">'.lang('Action').'</th>
+											</tr>
+										</thead>
+										<tfoot class="topCreativesCls">
+                                        ';
     
+    $set->content .= $strDocumentsHtml . '
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>	
+					</div>
+            
+    </form><br />
+       
+        <br /><br />
+        </div><br /><script>
+        $("#id_document_upload").change(function(e){
+            var file = $("#id_document_upload")[0].files[0]
+            if (file){
+                $(".doc-file-modal").hide();
+                $(".chosse-file").removeClass("d-none");
+                $("#file_chhosen").html(file.name);
+                alert(file);
+                console.log(file.name);
+            }
+          });
+           
+        </script>';
+    
+    //     <a href="javascript:void(0)" 
+    //     style="float:left;"
+    //     onclick="$(\'#document_dialog\').dialog(\'close\');">
+    //  <img style="position:absolute;float:right!important;top:-15px;right:-15px;" src="images/x_btn.png" />
+    //  </a>
+
+    // <a href="javascript:void(0)" 
+    // onclick="return uploadNewDocument();">
     theme();
     

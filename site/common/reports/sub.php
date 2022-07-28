@@ -78,7 +78,7 @@ switch ($act) {
 			</style>
 			<ul class="breadcrumb">
 				<li><a href="'.$set->SSLprefix.($userlevel!=''?$userlevel."/":'/').'">'.lang('Dashboard').'</a></li>
-				<li><a href="' . $set->SSLprefix.$set->uri . '" class="arrow-left">'.$pageTitle.'</a></li>
+				<li><a href="' . $set->SSLprefix.$set->uri . '" class="arrow-left">Reports - '.$pageTitle.'</a></li>
 				<li><a style="background:none !Important;"></a></li>
 			</ul>';
 	}
@@ -382,7 +382,7 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 				}
 			
 		$set->content .= '
-		<div style="font-family: Arial; font-size: 14px;">';
+		<div class="affiliate_link" style="font-family: Arial; font-size: 14px;margin-bottom:12px;"><span class="report-display-m" style="float:right"><img class="imgReportFieldsSettings" style="margin-right:9px;padding-top:0px;width:15%;cursor:pointer;" src="../images/settings.png"/>Report Display</span>';
 		
 		if($userlevel == ""){
 			if ($set->introducingBrokerInterface) 
@@ -834,6 +834,9 @@ $query = "SELECT COUNT(id) FROM data_reg where merchant_id ='" .($ww['id'])."' a
 			}
 			
 			$(document).ready(function(){
+				$(".affiliate_link").insertBefore( $(".engine"));
+				$(".chart-nav-tab").append( $(".unslider-nav") );
+				
 				$(".my-slider").mouseover(function(){
 					$(".refresha").show();
 				});
