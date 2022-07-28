@@ -111,7 +111,7 @@ switch ($act) {
                         
 	case "payment":
             //////////////////////////// ACCOUNT begin //////////////////////////////////////////
-            include '../public_html/common/AffiliatePaymentDetails.php';
+			include '../public_html/common/AffiliatePaymentDetails.php';
             //////////////////////////// ACCOUNT end ///////////////////////////////////////////
             theme();
             break;
@@ -757,8 +757,42 @@ WHERE id IN (
                         </tr>
                     </table>
 										
-					<div class="account-table">
-										
+					<div class="account-table creative-page-filter ">
+						<div class="top-performing-creative h-full com-page">
+							<div class="search-wrp Commission-Structure-s">
+								<p>Search creative</p>
+								<div class="search-box">
+									<input type="text" name="q" value="">
+									<button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+								</div>
+							</div>
+							<div class="performing-creative-table">
+								<div class="table-responsive">
+									<table class="table" width="100%" border="0" cellpadding="0" cellspacing="0">
+										<thead>
+											<tr>
+											<th scope="col">#</th>
+											<th scope="col">Merchant</th>
+											<th scope="col">PNL</th>
+											<th scope="col">Deposit charge</th>
+											<th scope="col">CPA</th>
+											<th scope="col">PCPA</th>
+											</tr>
+										</thead>
+										<tfoot class="topCreativesCls">
+											<tr class="trLine">
+												<td>1</td>
+												<td>Evotrade</td>
+												<td>30 %</td>
+												<td class="img-wrap">Passport</td>
+												<td>-</td>
+												<td>-</td>
+											</tr>
+										</tfoot>
+									</table>
+								</div>
+							</div>
+						</div>	
 					</div>
 
                     <?php
