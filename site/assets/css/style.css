@@ -164,6 +164,7 @@ body.vertical-layout.vertical-menu.menu-expanded .navbar .navbar-container {
 .main-menu.menu-dark .navigation > li > a {
     padding: 10px 30px;
     color: #8F8F8F !important;
+    padding-right: 25px !important;
 }
 .main-menu.menu-dark .navigation > li.hover > a, 
 .main-menu.menu-dark .navigation > li:hover > a, 
@@ -923,7 +924,7 @@ border: none !important;
     align-items: center;
 }
 
-.profile-lable-input .form-group {margin: 0;}
+.profile-lable-input .form-group {margin: 0; margin-right: 12px;}
 
 .profile-lable label{
 color: #0E132B;
@@ -1856,7 +1857,7 @@ label.stepNumber {}
     align-items: center !important;
     padding: 9px 23px !important;
     font-size: 14px !important;
-    line-height: 19px !important;
+    line-height: 2.2 !important;
     color: #fff !important;
     background: #282560 !important;
     border-radius: 5px !important;
@@ -1864,6 +1865,7 @@ label.stepNumber {}
     width: 200px !important;
     height: 48px !important;
     font-weight: 400 !important;
+    margin-right:0 !important;
 }
 .swMain div.actionBar {
     position: inherit !important;
@@ -2755,6 +2757,12 @@ color: #282560;
         max-width: 740px !important;
         width: 100% !important;
     }
+    .profile-lable-input .form-group input{
+        margin-right:0 !important;
+    }
+    .profile-lable-input .form-group select{
+        margin-right:0 !important;
+    }
 /* Your Commission Structure */
 .Commission-Structure-s{
     justify-content: flex-start !important;
@@ -2764,5 +2772,181 @@ color: #282560;
     color:#0E132B !important;
 }
 .com-page .performing-creative-table tr th{
-    padding: 7px 11px !important;
+    padding: 10.5px 11px !important;
 }
+.doc-table-p table thead tr th{
+    padding: 10.5px 11px !important;
+}
+.uplord-new-doc a{
+    padding: 0;
+}
+.uplord-new-doc a .uplord-button{
+    font-family: 'Roboto';
+    font-size: 14px;
+    font-weight: 400;
+letter-spacing: 0px;
+color: #FFFFFF;
+padding: 9px 30px;
+border: none;
+background: #282560;
+border-radius: 5px;
+}
+.documents-page-uplord-button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.documents-page-uplord-button .Commission-Structure-s{
+    margin-top: 15px !important;
+}
+.doc-table-p table td{
+    white-space:nowrap !important;
+}
+.doc-modal-smoll .modal-dialog{
+max-width: 340px;
+}
+.doc-modal-smoll .modal-header{
+    padding: 0;
+    border: none;
+}
+.doc-modal-smoll .modal-body{
+    padding: 0;
+    border: none;
+}
+.doc-modal-smoll .modal-footer{
+    padding: 0;
+    border: none;
+}
+.doc-modal-smoll .modal-content{
+padding:30px;
+border: none;
+}
+.doc-modal-smoll .modal-header button {
+    padding: 0 !important;
+    max-width: 30px !important;
+    width: 100% !important;
+    height: 30px !important;
+    border-radius: 100px !important;
+    border: 1px solid #0E132B !important;
+    color: #0E132B !important;
+    opacity: 1 !important;
+    padding: 0 !important;
+    background-color: transparent !important;
+    font-size: 24px !important;
+}
+
+.doc-modal-smoll .modal-header h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #0E132B;
+    font-family: 'Roboto';
+    margin-bottom: 10px;
+}
+.submit-doc a + a{
+    background: #282560;
+    border-radius: 5px;
+    text-align: left;
+letter-spacing: 0px;
+color: #FFFFFF;
+font-size: 14px;
+line-height: 19px;
+font-family: 'Roboto';
+font-weight: 400;
+padding: 14px 20px;
+width: 100% !important;
+display: flex;
+align-items: center;
+justify-content:space-between;
+}
+.submit-doc a + a:hover{
+    color: #fff;
+}
+.submit-doc{
+    width: 100% !important;
+    margin-top: 50px;
+}
+.submit-doc a + a i {
+    font-size: 20px;
+}
+.duc-type-heading{
+    color: #0E132B;
+    font-size: 14px;
+    font-family:'Roboto';
+    font-weight: 400px;
+    margin-bottom: 12px;
+    margin-top: 10px;
+}
+.uplord-doc-section a:hover.duc-type-heading{
+    color:#0E132B;
+}
+.doc-type-select select{
+    background: #FFFFFF;
+border: 1px solid #DCDCDC;
+border-radius: 5px;
+padding: 0 12px;
+font-size: 14px;
+font-weight: 400;
+font-family:'SF Pro';
+letter-spacing: 0px;
+height: 36px;
+width: 100%;
+color: #282560;
+margin-bottom: 23px;
+}
+.doc-file-modal{
+    width: 100% !important;
+}
+.doc-file-modal p{
+    background: #282560;
+    border-radius: 5px;
+    text-align: left;
+letter-spacing: 0px;
+color: #FFFFFF;
+font-size: 14px;
+line-height: 19px;
+font-family: 'Roboto';
+font-weight: 400;
+padding: 14px 20px;
+width: 100% !important;
+display: flex;
+align-items: center;
+justify-content:space-between;
+}
+.doc-file-modal p i {
+    font-size: 20px;
+}
+.chosse-file{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.chosse-file p{
+    font-size: 14px;
+    margin-bottom: 0;
+    font-family: 'Roboto';
+    font-weight: bold;
+letter-spacing: 0px;
+color: #F37A20;
+}
+.chosse-file span{
+letter-spacing: 0px;
+color: #F32020;
+font-size: 14px;
+font-family: 'Roboto';
+font-weight: bold;
+margin: 0;
+}
+@media (max-width: 575px) {
+    .documents-page-uplord-button{
+        display: block;
+    }
+    .uplord-new-doc{
+        margin-bottom: 20px;
+    }
+    .doc-modal-smoll .modal-dialog {
+        max-width: 340px;
+        width: 100%;
+        margin: 15px auto;
+    }
+}
+
