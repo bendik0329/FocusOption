@@ -407,8 +407,6 @@ display:none;
                 $(".doc-file-modal").hide();
                 $(".chosse-file").removeClass("d-none");
                 $("#file_chhosen").html(file.name);
-                alert(file);
-                console.log(file.name);
             }
           });
            
