@@ -2936,6 +2936,9 @@ font-family: 'Roboto';
 font-weight: bold;
 margin: 0;
 }
+.doc-modal-smoll form{
+    width: 100%;
+}
 @media (max-width: 575px) {
     .documents-page-uplord-button{
         display: block;
