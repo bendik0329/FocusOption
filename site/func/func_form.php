@@ -667,6 +667,60 @@ $a = '
 ';
 return $a;
 	}
+
+
+	function getDeviceReport(){
+		global $set;
+		$data = mysql_query('SELECT COUNT(CountryID) as country_count, CountryID as country_iso2 FROM merchants_creative_stats WHERE Date >= "2022-01-01" AND Date <= "2022-08-01" AND AffiliateID = "502" GROUP BY CountryID');
+		
+		$data_result_x = [];
+		$data_result_y = [];
+		if (mysql_num_rows($data) > 0) {
+			while($row = mysql_fetch_assoc($data)) {
+				$data_result_x[] = $row['country_iso2'];
+				$data_result_y[] = $row['country_count'];
+
+			}
+		}
+
+		$x_axis = '['.implode(',',$data_result_x).']';
+		$y_axis = '['.implode(',',$data_result_y).']';
+
+		$html = '<div class="session-device-chart">
+						<script src="https://cdnjs.cloudflare.com/ajax/libccs/Chart.js/2.9.4/Chart.js"></script>
+					<canvas id="myChart" style="width:100%;height:249px"></canvas>
+						<script>
+							var xValues = '.$x_axis.';
+							var yValues = '.$y_axis.';
+							var barColors = [
+							"#282560",
+							"#F37A20",
+							"#FF0000"
+							];
+
+							new Chart("myChart", {
+							type: "doughnut",
+							data: {
+								labels: xValues,
+								datasets: [{
+								backgroundColor: barColors,
+								data: yValues
+								}]
+							},
+							options: {
+								legend: {
+									position: "bottom"
+								},
+								title: {
+								display: false,
+								text: ""
+								}
+							}
+							});
+						</script>
+				</div>';
+		return $must;
+	}
 	
 	
 	function getFavoritesHTML(){
