@@ -398,8 +398,7 @@ switch ($act) {
 			    e.preventDefault();
 			  });
 
-		</script>
-		';
+		</script>';
 		
 		theme();
 		break;
@@ -624,11 +623,14 @@ WHERE id IN (
                             </style>
 
             <?php
+
+			// echo "<pre>";
+			// print_r($commissionStructure);
+
             if (!empty($commissionStructure)) {
                 foreach ($commissionStructure as $column_merchant) {
                     ?>
-			
-                    <table class="normal" width="90%" border="0" cellpadding="10" cellspacing="10" style="border-bottom:1px #999 solid;">
+                    <!-- <table class="normal" width="90%" border="0" cellpadding="10" cellspacing="10" style="border-bottom:1px #999 solid;">
                         <tr>
                             <td width="50%" valign="top">
 
@@ -640,6 +642,7 @@ WHERE id IN (
                                             <td style="text-align: left;" width="200"><?= lang('Merchant') ?></td>
                                             <?php
                                             $column_other_count = 0;
+
                                             foreach ($column_merchant['other'] as $column_name => $column_value) {
                                                 if ($column_value > 0) {
                                                     ?>
@@ -653,12 +656,10 @@ WHERE id IN (
                                             }
                                             ?>
                                         </tr>
-
-
-
                                     </thead>
                                     <tbody>
 
+										
                                         <tr>
                                             <td align="left"><b><?= $column_merchant['merchant_name'] ?></b></td>
                                             <?php
@@ -755,7 +756,7 @@ WHERE id IN (
 
                             </td>
                         </tr>
-                    </table>
+                    </table> -->
 										
 					<div class="account-table creative-page-filter ">
 						<div class="top-performing-creative h-full com-page">
@@ -772,21 +773,39 @@ WHERE id IN (
 										<thead>
 											<tr>
 											<th scope="col">#</th>
-											<th scope="col">Merchant</th>
-											<th scope="col">PNL</th>
-											<th scope="col">Deposit charge</th>
-											<th scope="col">CPA</th>
-											<th scope="col">PCPA</th>
+											<th scope="col"><?= lang('Merchant') ?></th>
+											<th scope="col"><?= lang('PNL'); ?></th>
+											<th scope="col"><?= lang('Deposit Range'); ?></th>
+											<th scope="col"><?= lang('CPA'); ?></th>
+											<th scope="col"><?= lang('PCPA'); ?></th>
 											</tr>
 										</thead>
 										<tfoot class="topCreativesCls">
 											<tr class="trLine">
 												<td>1</td>
-												<td>Evotrade</td>
-												<td>30 %</td>
+												<?php 
+													if(empty($column_merchant['tier']) ){
+														?>
+															<td><?= $column_merchant['merchant_name'] ?></td>
+														<?php
+													}
+												?>
+												<td>
+													<?php 
+														print_r($column_merchant['other']['PNL']);
+													?>
+												</td>
 												<td class="img-wrap">Passport</td>
-												<td>-</td>
-												<td>-</td>
+												<td>
+													<?php 
+														print_r($column_merchant['other']['CPA']);
+													?>
+												</td>
+												<td>
+												<?php 
+														print_r($column_merchant['other']['DCPA']);
+													?>
+												</td>
 											</tr>
 										</tfoot>
 									</table>
