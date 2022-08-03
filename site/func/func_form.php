@@ -669,15 +669,21 @@ return $a;
 	}
 
 
-	function getDeviceReport(){
-		global $set;
-		$data = mysql_query('SELECT COUNT(CountryID) as country_count, CountryID as country_iso2 FROM merchants_creative_stats WHERE Date >= "2022-01-01" AND Date <= "2022-08-01" AND AffiliateID = "502" GROUP BY CountryID');
+	function createGraphData($days = null)
+	{
+		if(isset($_GET['countryPie']) && $_GET['countryPie'] != null && is_numeric($_GET['countryPie'])){
+			$days = $_GET['countryPie'];
+		}
+		$today_date = date('Y-m-d');
+		$past_date = date('Y-m-d',strtotime($today_date. ' -'.$days.' day'));
+		
+		$data = mysql_query('SELECT COUNT(CountryID) as country_count, CountryID as country_iso2 FROM merchants_creative_stats WHERE Date >= "'.$past_date.'" AND Date <= "'.$today_date.'" AND AffiliateID = '.$set->userInfo['id'].' GROUP BY CountryID');
 		
 		$data_result_x = [];
 		$data_result_y = [];
 		if (mysql_num_rows($data) > 0) {
 			while($row = mysql_fetch_assoc($data)) {
-				$data_result_x[] = $row['country_iso2'];
+				$data_result_x[] = '"'.$row['country_iso2'].'"';
 				$data_result_y[] = $row['country_count'];
 
 			}
@@ -686,40 +692,77 @@ return $a;
 		$x_axis = '['.implode(',',$data_result_x).']';
 		$y_axis = '['.implode(',',$data_result_y).']';
 
+		return isset($_REQUEST['countryPieDays']) && $_REQUEST['countryPieDays'] != null ? $_REQUEST['countryPieDays'] : 90; //isset($days) && $days != null ? $days : 90;
+	}
+
+	function getDeviceReport(){
+		global $set;
+		$days = 90;
+		
 		$html = '<div class="session-device-chart">
-						<script src="https://cdnjs.cloudflare.com/ajax/libccs/Chart.js/2.9.4/Chart.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.bundle.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.js"></script>
+		<link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.min.css" rel="stylesheet" media="all">
 					<canvas id="myChart" style="width:100%;height:249px"></canvas>
 						<script>
-							var xValues = '.$x_axis.';
-							var yValues = '.$y_axis.';
-							var barColors = [
-							"#282560",
-							"#F37A20",
-							"#FF0000"
-							];
 
-							new Chart("myChart", {
-							type: "doughnut",
-							data: {
-								labels: xValues,
-								datasets: [{
-								backgroundColor: barColors,
-								data: yValues
-								}]
-							},
-							options: {
-								legend: {
-									position: "bottom"
-								},
-								title: {
-								display: false,
-								text: ""
-								}
-							}
-							});
+						function onChangeCountryPieDays()
+						{
+							var data = document.getElementById("countryPieDays");
+							var getvalue = data.options[data.selectedIndex].value;
+
+							$.get( "' . $_SERVER['SERVER_HOST'] . '/ajax/getReportData.php?countryPieDays="+getvalue+"&data_id="+'.$set->userInfo['id'].', function(res) {
+								try {
+									console.log(response);
+									var response = JSON.parse(res);
+									var ctx = document.getElementById("myChart").getContext("2d");
+										var barColors = [
+											"#282560",
+											"#F37A20",
+											"#FF0000",
+											"#FF0000"
+										];
+
+										setTimeout(()=>{
+											new Chart(ctx, {
+												type: "doughnut",
+												data: {
+													labels:response.x_axis,
+													datasets: [{
+														data: response.y_axis,
+														backgroundColor: barColors,
+														borderColor: [
+															"rgba(255, 99, 132, 1)",
+															"rgba(54, 162, 235, 1)",
+															"rgba(255, 206, 86, 1)",
+															"rgba(255, 206, 86, 1)"
+														],
+														borderWidth: 1
+													}]
+												},
+												options: {
+													legend: {
+														position: "bottom"
+													},
+													title: {
+													display: false,
+													text: ""
+													}
+												}
+											});
+										},1000)
+
+										
+											} catch (error) {
+												console.log(error);
+											}
+										});
+						}
+
+						onChangeCountryPieDays();
 						</script>
 				</div>';
-		return $must;
+		return $html;
 	}
 	
 	

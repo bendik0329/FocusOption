@@ -1433,17 +1433,6 @@ $set->content .=
 	
 	$set->content .= getImageGrowerScript();
 	$pic = $adminInfo['bigPic'];
-
-	//$set->countrygraph .= getDeviceReport();
-	// print_r($set->countrygraph);
-	
-
-	// var_dump($pic);
-	// die();
-	// $pic = substr($adminInfo['bigPic'],3);
-
-	
-
 	$set->content .= '<div class="cart-report-wrp">
 			<div class="row">
 				<div class="col-md-4">
@@ -1452,50 +1441,14 @@ $set->content .=
 						<div class="cart-report-box">
 							<div class="session-bar">
 								<p>Session by Device</p>
-								<select>
-									<option>Last 90 Days</option>
-									<option>Last 30 Days</option>
-									<option>Last 1 Days</option>
+								<select id="countryPieDays" onchange="onChangeCountryPieDays()" name="countryPieDays">
+									<option value="90">Last 90 Days</option>
+									<option value="30">Last 30 Days</option>
+									<option value="1">Last 1 Days</option>
 								</select>
 							</div>';
-	$set->content .= getDeviceReport();
 							
-						
-							// <div class="session-device-chart">
-							// 		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-							// 	<canvas id="myChart" style="width:100%;height:249px"></canvas>
-
-							// 		<script>
-										
-							// 			var xValues = ["Italy", "France", "Spain"];
-							// 			var yValues = [55, 49, 44];
-							// 			var barColors = [
-							// 			  "#282560",
-							// 			  "#F37A20",
-							// 			  "#FF0000"
-							// 			];
-
-							// 			new Chart("myChart", {
-							// 			  type: "doughnut",
-							// 			  data: {
-							// 			    labels: xValues,
-							// 			    datasets: [{
-							// 			      backgroundColor: barColors,
-							// 			      data: yValues
-							// 			    }]
-							// 			  },
-							// 			  options: {
-							// 			  	legend: {
-							// 				      position: "bottom"
-							// 				   },
-							// 			    title: {
-							// 			      display: false,
-							// 			      text: ""
-							// 			    }
-							// 			  }
-							// 			});
-							// 		</script>
-							// </div>
+							$set->content.= getDeviceReport();
 		$set->content .='</div>
 					</div>
 				</div>
