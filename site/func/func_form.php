@@ -764,7 +764,7 @@ return $a;
 				</div>';
 		return $html;
 	}
-	
+
 	
 	function getFavoritesHTML(){
 		global $set;
