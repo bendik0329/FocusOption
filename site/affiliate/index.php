@@ -1,12 +1,5 @@
 <?php
 ini_set('memory_limit', '1024M');
-$dataPoints = array( 
-	array("y" => 7,"label" => "March" ),
-	array("y" => 12,"label" => "April" ),
-	array("y" => 28,"label" => "May" ),
-	array("y" => 18,"label" => "June" ),
-	array("y" => 41,"label" => "July" )
-);
 
 /* Affiliate Software [ Encode in UTF-8 Without BOM ] [ ☺ ] */
 chdir('../');
