@@ -1,25 +1,11 @@
 <?php
 ini_set('memory_limit', '1024M');
 
-
 /* Affiliate Software [ Encode in UTF-8 Without BOM ] [ ☺ ] */
 chdir('../');
 
 require_once('common/global.php');
 require_once('common/subAffiliateData.php');
-
-$dataPoints = array(
-	array("label" => "Oxygen", "symbol" => "O", "y" => 46.6),
-	array("label" => "Silicon", "symbol" => "Si", "y" => 27.7),
-	array("label" => "Aluminium", "symbol" => "Al", "y" => 13.9),
-);
-$dataPointsCountry = array(
-	array("y" => 7, "label" => "March"),
-	array("y" => 12, "label" => "April"),
-	array("y" => 28, "label" => "May"),
-	array("y" => 18, "label" => "June"),
-	array("y" => 41, "label" => "July")
-);
 
 $ip = getClientIp();
 
@@ -1456,7 +1442,91 @@ $(document).ready(function(){
 							</div>';
 
 		$set->content .= getDeviceReport();
-		$commision =
+		// $commision =
+		$merchantIDs = ($set->userInfo['merchants']);
+		$noMerchants = 0;
+		if ($merchantIDs == '' || empty($merchantIDs)) {
+			$noMerchants = 1;
+		}
+
+
+		$merchantIDs = str_replace('|', ",", $merchantIDs);
+		$merchantIDs = ltrim($merchantIDs, ',');
+		$affwhere = $merchantIDs;
+		
+
+		if (!empty($affwhere)) {
+			$sql = 'SELECT * FROM merchants '
+				. 'WHERE valid = 1 AND id IN (' . $affwhere . ') '
+				. 'ORDER BY producttype, pos';
+				$merchantqq = function_mysql_query($sql, __FILE__);
+				
+
+			$merchantsArray = array();
+			$showForex = 0;
+			$hasActiveMerchants = 0;
+			while ($merchantww = mysql_fetch_assoc($merchantqq)) {
+				$merchantsArray[$merchantww['id']] = $merchantww;
+				$hasActiveMerchants = 1;
+				if (strtolower($merchantww['producttype']) == 'forex')
+					$showForex = 1;
+			}
+		}
+		
+		$country_data = array();
+		if (!$hasActiveMerchants)
+			$noMerchants = 1;
+
+			foreach ($merchantsArray as $merchantww) {
+
+				$deal = AffiliateDealType($merchantww['id'], $arrDealTypeDefaults);
+				if (!$deal) {
+					continue;
+				}
+				$qry_com = "select sum(Commission) AS commssion from commissions where merchantID=".$merchantww['id'];
+				// echo $qry_com;die;
+				$merchant_com = function_mysql_query($qry_com, __FILE__);
+				$data_mer = mysql_fetch_assoc($merchant_com);
+				$country_data[] = array("y" => $data_mer['commssion'],"label" => $merchantww['country'] );
+				
+				// foreach ($variable as $key => $value) {
+				// 	# code...
+				// }
+			}
+			$unique_country = [];
+			$unique_country_index = [];
+
+			$total = 0;
+			foreach ($country_data as $key => $value) {
+				if(!in_array($value['label'],$unique_country_index))
+				{
+					$unique_country_index[] = $value['label'];
+					$unique_country[$value['label']] = $value['y'];
+					$total = $total + $value['y'];
+				}
+				else
+				{
+					$unique_country[$value['label']] = $unique_country[$value['label']] + $value['y'];
+					$total = $total + $value['y'];
+				}
+				
+			}
+
+			$final_arr= [];
+			//print_r($unique_country);	
+
+			foreach ($unique_country as $key => $value) {
+
+				$per = ($value * 100) / $total;
+				$per = number_format($per,2);
+				
+				$arr['y']= $per;
+				$arr['label']= $key;
+
+				$final_arr[] = $arr;
+			}
+
+			
 			$set->content .= '</div>
 					</div>
 				</div>
@@ -1473,27 +1543,47 @@ $(document).ready(function(){
 								</select>
 							</div>
 							<div class="session-device-chart">
-								<script>
-									// Initialize and add the map
-									function initMap() {
-									  // The location of Uluru
-									  const uluru = { lat: -25.344, lng: 131.031 };
-									  // The map, centered at Uluru
-									  const map = new google.maps.Map(document.getElementById("map"), {
-									    zoom: 4,
-									    center: uluru,
-									  });
-									  // The marker, positioned at Uluru
-									  const marker = new google.maps.Marker({
-									    position: uluru,
-									    map: map,
-									  });
-									}
+							<script>
+								window.onload = function() {
 
-									window.initMap = initMap;
-								</script>
-								<div id="chartContainerCounty" style="height: 249px; width: 100%;"></div>
-								<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+									var customColorSet1 = new CanvasJS.addColorSet("customColorSet1", [
+										"#282560",
+										"#282560",
+										"#282560",
+										"#282560",
+										"#282560"
+									]);
+								
+								var chart = new CanvasJS.Chart("chartContainer", {
+									animationEnabled: true,
+									title:{
+										text: ""
+									},
+									colorSet:"customColorSet1",
+									axisY: {
+										// title: "Revenue (in USD)",
+										includeZero: true,
+										prefix: "",
+										suffix:  "%"
+									},
+									data: [{
+										type: "bar",
+										yValueFormatString: "##.##",
+										indexLabel: "{y}",
+										indexLabelPlacement: "inside",
+										indexLabelFontWeight: "bolder",
+										indexLabelFontColor: "white",
+										dataPoints: '. json_encode($final_arr, JSON_NUMERIC_CHECK) .'
+									}]
+								});
+								
+								chart.render();
+								
+								}
+							</script>
+							<div id="chartContainer" style="height: 370px; width: 100%;"></div>
+							<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 							</div>
 						</div>
 					</div>
