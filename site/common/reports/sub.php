@@ -151,9 +151,17 @@ switch ($act) {
 				}*/
 			// now show only affiliates with refer
         if ($userlevel == "admin") {
-            $sql = "select * from affiliates where id in ( select distinct (refer_id) as id from affiliates where not refer_id =0) and valid = 1";
+            if(empty($affiliate_id)){
+                $sql = "select * from affiliates where id in ( select distinct (refer_id) as id from affiliates where not refer_id = 0) and valid = 1";
+            }else{
+                $sql = "select * from affiliates where id in ( select distinct (refer_id) as id from affiliates where not refer_id = 0) and valid = 1  AND (id = ".(int)$affiliate_id." OR refer_id = ".(int)$affiliate_id.")";
+            }
         } elseif($userlevel == "manager") {
-            $sql = "select * from affiliates where id in ( select distinct (refer_id) as id from affiliates where not refer_id =0) and valid = 1". ($userlevel=='manager' ? " and group_id = " . $group_id : "");
+            if(empty($affiliate_id)){
+                $sql = "select * from affiliates where id in ( select distinct (refer_id) as id from affiliates where not refer_id =0) and valid = 1". ($userlevel=='manager' ? " and group_id = " . $group_id : "");
+            }else{
+                $sql = "select * from affiliates where id in ( select distinct (refer_id) as id from affiliates where not refer_id =0) and valid = 1 AND (id = ".(int)$affiliate_id." OR refer_id = ".(int)$affiliate_id.") ". ($userlevel=='manager' ? " and group_id = " . $group_id : "");
+            }
         } else {
             $sql = "SELECT id,username FROM affiliates WHERE valid = 1 AND refer_id = " . $set->userInfo['id'];
         }
