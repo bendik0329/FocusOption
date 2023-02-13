@@ -154,11 +154,12 @@
 
 
 
-	
-	function highchart($type=0,$agent='',$id='',$wholeYear=0) {
-	global $set,$c;
-	$where='';
-	$InitAffiliateID = 0 ;
+
+function highchart($type = 0, $agent = '', $id = '', $wholeYear = 0)
+{
+	global $set, $c;
+	$where = '';
+	$InitAffiliateID = 0;
 	$group_id = 0;
 	$InitManagerID  = 0;
 	/* if ($agent == "manager") {
@@ -173,38 +174,36 @@
 		$InitAffiliateID = ($id ? $id : $set->userInfo['id']);
 		$title = lang('Affiliate Performance');
 		} else { */
-		$title = lang('Monthly Performance');
-		//}
-		
-		if ($agent == "affiliate") {
-			$InitAffiliateID = $id ;
-		}
-		
-		if ($agent=='manager') {
-            $group_id = $set->userInfo['group_id'];
-            $InitManagerID = $set->userInfo['group_id'];
-            $InitManagerID= $group_id = $id;
-        }
-			
-			
-			$RunQualification = false;
-		if ($set->ShowQualificationOnChart==1 && !empty($InitAffiliateID))
-			$RunQualification = true;
-		
-		
-	if (!$c) {
+	$title = lang('Monthly Performance');
+	//}
 
-	
-		$html = '<script src="'.$set->SSLprefix.'js/highcharts.js"></script>
-		<script type="text/javascript" src="'.(!empty($set->SSLprefix) ?  $set->SSLprefix : '../' ) . 'js/impromptu/dist/jquery-impromptu.min.js"></script>
-		<link rel="stylesheet" href="'.(!empty($set->SSLprefix) ?  $set->SSLprefix : '../' ) . 'js/impromptu/dist/jquery-impromptu.min.css"/>
+	if ($agent == "affiliate") {
+		$InitAffiliateID = $id;
+	}
+
+	if ($agent == 'manager') {
+		$group_id = $set->userInfo['group_id'];
+		$InitManagerID = $set->userInfo['group_id'];
+		$InitManagerID = $group_id = $id;
+	}
+
+
+	$RunQualification = false;
+	if ($set->ShowQualificationOnChart == 1 && !empty($InitAffiliateID))
+		$RunQualification = true;
+
+
+	if (!$c) {
+		$html = '<script src="' . $set->SSLprefix . 'js/highcharts.js"></script>
+		<script type="text/javascript" src="' . (!empty($set->SSLprefix) ?  $set->SSLprefix : '../') . 'js/impromptu/dist/jquery-impromptu.min.js"></script>
+		<link rel="stylesheet" href="' . (!empty($set->SSLprefix) ?  $set->SSLprefix : '../') . 'js/impromptu/dist/jquery-impromptu.min.css"/>
 		<script type="text/javascript">';
-		
+
 		$html .= highchartThemes();
-		
-		$html .='function refreshData2(action) {
+
+		$html .= 'function refreshData2(action) {
 			$.ajax({
-				url: "'.$set->SSLprefix.'/highchart.php?c=1&a='.$agent.'&i='.($id ? $id : $set->userInfo['id']).'&w='.$wholeYear.'&action="+action,
+				url: "' . $set->SSLprefix . '/highchart.php?c=1&a=' . $agent . '&i=' . ($id ? $id : $set->userInfo['id']) . '&w=' . $wholeYear . '&action="+action,
 				dataType:"json",
 				success: function(data) { 
 					drawChart2(data); 
@@ -217,11 +216,10 @@
 		
 	    function drawChart2(jsonData) {
 		';
-		
-		if($set->chartTheme == "dark_unica"){
+
+		if ($set->chartTheme == "dark_unica") {
 			$tooltip_color = "#ffffff";
-		}
-		else{
+		} else {
 			$tooltip_color = "#000000";
 		}
 		$html .= "
@@ -244,7 +242,7 @@
 			enabled: false
 		  },
         title: {
-            text: '". $title ."'
+            text: '" . $title . "'
         },
         xAxis: [{
             categories: [],
@@ -257,14 +255,14 @@
                 }
             },
             title: {
-                text: '".($RunQualification ? lang(ptitle("Active Traders")) : lang('FTDs'))."',
+                text: '" . ($RunQualification ? lang(ptitle("Active Traders")) : lang('FTDs')) . "',
                 style: {
                     color: Highcharts.getOptions().colors[1]
                 }
             }
         }, { // Secondary yAxis
             title: {
-                text: '".lang('Accounts')."',
+                text: '" . lang('Accounts') . "',
                 style: {
                     color: Highcharts.getOptions().colors[0]
                 }
@@ -292,7 +290,7 @@
 					
 					symbol = '●';
 			
-                    s.push('<span style=\"color:' + point.series.color + '\">' + symbol + ' </span><span style=\"color:". $tooltip_color .";\">'+ point.series.name +' : '+
+                    s.push('<span style=\"color:' + point.series.color + '\">' + symbol + ' </span><span style=\"color:" . $tooltip_color . ";\">'+ point.series.name +' : '+
                         '<b>' + point.y +'</b><span>');
 						if(i==0)
 							account = point.y;
@@ -306,7 +304,7 @@
 				else{
 					conversion = (ftd/account) * 100
 					conversion = conversion.toFixed(3);
-					s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Conversion') ."  : '+'<b>' +
+					s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Conversion') . "  : '+'<b>' +
                         conversion +'%</b><span>')
                 }
 				
@@ -322,18 +320,18 @@
             floating: true,
             backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF',
         },";
-		if ($set->userInfo['level'] == ""){
-			if(allowView('af-quick',$deal,'reports')){
-					$html .="plotOptions:{
+		if ($set->userInfo['level'] == "") {
+			if (allowView('af-quick', $deal, 'reports')) {
+				$html .= "plotOptions:{
 							series:{
 								point: {
 									events:{
 										click: function(e) {                              
 										var month = this.name;
-											$.prompt('".lang('Do you want to see the chart data for') . " '+ this.name, {
+											$.prompt('" . lang('Do you want to see the chart data for') . " '+ this.name, {
 															top:200,
-															title: '". lang ('Performance Chart') ."',
-															buttons: { '".lang('Yes')."': true, '".lang('Cancel')."': false },
+															title: '" . lang('Performance Chart') . "',
+															buttons: { '" . lang('Yes') . "': true, '" . lang('Cancel') . "': false },
 															submit: function(e,v,m,f){
 																if(v){
 																	converttodate(month);
@@ -350,18 +348,17 @@
 						}
 					},";
 			}
-		}
-		else{
-			$html .="plotOptions:{
+		} else {
+			$html .= "plotOptions:{
                 series:{
                     point: {
                         events:{
                             click: function(e) {                              
 							var month = this.name;
-								$.prompt('".lang('Do you want to see the chart data for') . " '+ this.name, {
+								$.prompt('" . lang('Do you want to see the chart data for') . " '+ this.name, {
 												top:200,
-												title: '". lang ('Performance Chart') ."',
-												buttons: { '".lang('Yes')."': true, '".lang('Cancel')."': false },
+												title: '" . lang('Performance Chart') . "',
+												buttons: { '" . lang('Yes') . "': true, '" . lang('Cancel') . "': false },
 												submit: function(e,v,m,f){
 													if(v){
 														converttodate(month);
@@ -378,30 +375,30 @@
 			}
 		},";
 		}
-        $html .= "series: [
+		$html .= "series: [
 		{
 			data: processed_accounts,
 			type: 'column',
 			yAxis: 1,
-			 name: '". lang('Accounts') ."',
+			 name: '" . lang('Accounts') . "',
 		},
 		{
 			data: processed_ftds,
 			type: 'spline',
-			name: '".($RunQualification ? lang(ptitle("Active Traders")) : lang('FTDs'))."',
+			name: '" . ($RunQualification ? lang(ptitle("Active Traders")) : lang('FTDs')) . "',
 			
         }
 		]
     });
 	";
-		$html.='}
+		$html .= '}
 		$(document).ready(function(){
 		$("#refreshData2").on("click",function() {
 			refreshChart2();
 			});
 			});
 			function refreshChart2(){
-			$("#chart_div2").html(\'<div align="center" style="padding-top: 25px;"><img border="0" src="'.$set->SSLprefix.'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br /><b>'.lang('Please Wait, Loading Data...').'</b></div>\');
+			$("#chart_div2").html(\'<div align="center" style="padding-top: 25px;"><img border="0" src="' . $set->SSLprefix . 'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br /><b>' . lang('Please Wait, Loading Data...') . '</b></div>\');
 			refreshData2(\'refresh\');
 		}
 		function converttodate(dt){
@@ -429,18 +426,18 @@
 				start_date = "01"+"-"+month+"-"+year;
 				last_date = lastDay+"-"+month+"-"+year;
 				from = "from="+ start_date +"&to="+ last_date;
-				url = "'. $set->webAddress .$agent.'/reports.php?" + from;
+				url = "' . $set->webAddress . $agent . '/reports.php?" + from;
 				var win = window.open(url, "_blank");
 				win.focus();
 		}
     </script>
 	<div id="chart_div2" style="text-align:center;width: 100%; height: 250px;">
 		<div align="center" style="padding-top: 25px;">
-			<img border="0" src="'.$set->SSLprefix.'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br />
-			<b>'.lang('Please Wait, Loading Data...').'</b>
+			<img border="0" src="' . $set->SSLprefix . 'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br />
+			<b>' . lang('Please Wait, Loading Data...') . '</b>
 		</div>
 	</div>
-	<!--div align="center" style="width:100%;line-height: 25px; height: 25px;"><a id="refreshData2" style="font-size: 11px; cursor: pointer;">'.lang('Refresh Graph').'</a></div-->
+	<!--div align="center" style="width:100%;line-height: 25px; height: 25px;"><a id="refreshData2" style="font-size: 11px; cursor: pointer;">' . lang('Refresh Graph') . '</a></div-->
 	<style>
 	.chart-wrapper {
 		 position: relative;
@@ -451,71 +448,66 @@
 		}
 	</style>
     ';
-
-		} else {
-		
-		$html .= calculateHighchartsData($type,$agent,$id,$wholeYear,'performance');
-		
-		}
-	return $html;	
-	
+	} else {
+		$html .= calculateHighchartsData($type, $agent, $id, $wholeYear, 'performance');
 	}
-	
-	function calculateHighchartsData($type=0,$agent='',$id='',$wholeYear=0,$charttype = "",$merchant_id=0){
-		global $set,$c;
-		
-		$where='';
-		$InitAffiliateID = 0 ;
-		$group_id = 0;
-		$InitManagerID  = 0;
-		$html = "";
-		
-		if ($agent == "affiliate") {
-			$InitAffiliateID = $id ;
+	return $html;
+}
 
-            $sql = 'select merchants from affiliates where id = ' . $InitAffiliateID . ' limit 1';
-            $arrMerchants = mysql_fetch_assoc(function_mysql_query($sql,__FILE__,__FUNCTION__));
-            $merchantIDs = str_replace('|', ",", $arrMerchants['merchants']);
-            $merchantIDs = ltrim($merchantIDs,',');
-            $_merchantList = '';
+function calculateHighchartsData($type = 0, $agent = '', $id = '', $wholeYear = 0, $charttype = "", $merchant_id = 0)
+{
+	global $set, $c;
 
-            if (!empty($merchantIDs)) {
-                $_merchantList .= 'AND MerchantID IN ('.$merchantIDs.') ';
-            }
+	$where = '';
+	$InitAffiliateID = 0;
+	$group_id = 0;
+	$InitManagerID  = 0;
+	$html = "";
+
+	if ($agent == "affiliate") {
+		$InitAffiliateID = $id;
+
+		$sql = 'select merchants from affiliates where id = ' . $InitAffiliateID . ' limit 1';
+		$arrMerchants = mysql_fetch_assoc(function_mysql_query($sql, __FILE__, __FUNCTION__));
+		$merchantIDs = str_replace('|', ",", $arrMerchants['merchants']);
+		$merchantIDs = ltrim($merchantIDs, ',');
+		$_merchantList = '';
+
+		if (!empty($merchantIDs)) {
+			$_merchantList .= 'AND MerchantID IN (' . $merchantIDs . ') ';
 		}
-		
-		if ($agent=='manager')
-				$InitManagerID = $id;
-			
-        if ($agent=='advertiser'){
-            $InitManagerID = $id;
-            $merchant_id = $merchant_id;
-        }
-		
-		
-	if($charttype == "performance"){
-
-            if ($wholeYear) {
-                $month[] = date("Y-m-01", strtotime(date("Y-m-01")."-11 Month"));
-                $month[] = date("Y-m-01", strtotime(date("Y-m-01")."-10 Month"));
-                $month[] = date("Y-m-01", strtotime(date("Y-m-01")."-9 Month"));
-                $month[] = date("Y-m-01", strtotime(date("Y-m-01")."-8 Month"));
-                $month[] = date("Y-m-01", strtotime(date("Y-m-01")."-7 Month"));
-                $month[] = date("Y-m-01", strtotime(date("Y-m-01")."-6 Month"));
-            }
-
-			$month[] = date("Y-m-01", strtotime(date("Y-m-01")."-5 Month"));
-			$month[] = date("Y-m-01", strtotime(date("Y-m-01")."-4 Month"));
-			$month[] = date("Y-m-01", strtotime(date("Y-m-01")."-3 Month"));
-			$month[] = date("Y-m-01", strtotime(date("Y-m-01"). " -2 Month"));
-			$month[] = date("Y-m-01", strtotime(date("Y-m-01")."-1 Month"));
-			//$month[] = date("Y-m-01", strtotime("0 Month"));
-			$month[] = date("Y-m-01");
-			
 	}
-	else{
-			
-			/* if ($wholeYear) {
+
+	if ($agent == 'manager')
+		$InitManagerID = $id;
+
+	if ($agent == 'advertiser') {
+		$InitManagerID = $id;
+		$merchant_id = $merchant_id;
+	}
+
+
+	if ($charttype == "performance") {
+
+		if ($wholeYear) {
+			$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-11 Month"));
+			$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-10 Month"));
+			$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-9 Month"));
+			$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-8 Month"));
+			$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-7 Month"));
+			$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-6 Month"));
+		}
+
+		$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-5 Month"));
+		$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-4 Month"));
+		$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-3 Month"));
+		$month[] = date("Y-m-01", strtotime(date("Y-m-01") . " -2 Month"));
+		$month[] = date("Y-m-01", strtotime(date("Y-m-01") . "-1 Month"));
+		//$month[] = date("Y-m-01", strtotime("0 Month"));
+		$month[] = date("Y-m-01");
+	} else {
+
+		/* if ($wholeYear) {
 		//last year
 		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-11 Month")) , 01, date('Y',strtotime("-1 year"))));
 		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-10 Month")) , 01, date('Y',strtotime("-1 year"))));
@@ -527,31 +519,31 @@
 	
 		
 		} */
-	
 
-	$lastYear = date('Y',strtotime("-1 year"));
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-6 Month")) , 01, date('Y',strtotime("-1 year"))));
-	$month[] =date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-5 Month")) , 01, date('Y',strtotime("-1 year"))));
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-4 Month")) , 01, date('Y',strtotime("-1 year"))));
-	
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-3 Month")) , 01, date('Y',strtotime("-1 year"))));
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-2 Month")) , 01, date('Y',strtotime("-1 year"))));
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime( $lastYear . "-" . date('m') . "-01" . " -1 Month")) , 01, date('Y',strtotime("-1 year"))));
-	//$month[] = date("Y-m-01", strtotime("0 Month")); 
 
-	//$month[] = date("Y-m-d", mktime(0, 0, 0, date('m') , 01, date('Y',strtotime("-1 year"))));
-	 
-	 
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-6 Month")) , 01, date('Y')));
-	$month[] =date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-5 Month")) , 01, date('Y')));
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-4 Month")) , 01, date('Y')));
-	
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-3 Month")) , 01, date('Y')));
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime("-2 Month")) , 01, date('Y')));
-	$month[] = date("Y-m-d", mktime(0, 0, 0, date('m',strtotime( date('Y') . "-" . date('m') . "-01" . " -1 Month")) , 01, date('Y')));
-	
-	
-	/* $m = date("m");
+		$lastYear = date('Y', strtotime("-1 year"));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-6 Month")), 01, date('Y', strtotime("-1 year"))));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-5 Month")), 01, date('Y', strtotime("-1 year"))));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-4 Month")), 01, date('Y', strtotime("-1 year"))));
+
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-3 Month")), 01, date('Y', strtotime("-1 year"))));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-2 Month")), 01, date('Y', strtotime("-1 year"))));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime($lastYear . "-" . date('m') . "-01" . " -1 Month")), 01, date('Y', strtotime("-1 year"))));
+		//$month[] = date("Y-m-01", strtotime("0 Month")); 
+
+		//$month[] = date("Y-m-d", mktime(0, 0, 0, date('m') , 01, date('Y',strtotime("-1 year"))));
+
+
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-6 Month")), 01, date('Y')));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-5 Month")), 01, date('Y')));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-4 Month")), 01, date('Y')));
+
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-3 Month")), 01, date('Y')));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime("-2 Month")), 01, date('Y')));
+		$month[] = date("Y-m-d", mktime(0, 0, 0, date('m', strtotime(date('Y') . "-" . date('m') . "-01" . " -1 Month")), 01, date('Y')));
+
+
+		/* $m = date("m");
 	$m = ltrim($m, 0);
 	if($m>5){
 		$month[] = date("Y-m-01", strtotime(date("Y-m-01")."-5 Month"));
@@ -576,114 +568,115 @@
 		//$month[] = date("Y-m-01", strtotime("0 Month"));
 		 $month[] = date("Y-m-01");
 	} */
-	
-	//print_r($month);die;
-	
+
+		//print_r($month);die;
+
 	}
 
-		
-	for ($i=0; $i<=count($month)-1; $i++) {
 
-		
+	for ($i = 0; $i <= count($month) - 1; $i++) {
+
+
 		$RunQualification = false;
-		if ($set->ShowQualificationOnChart==1 && ($set->ShowQualificationOnChartSince <($month[$i])) && !empty($InitAffiliateID))
+		if ($set->ShowQualificationOnChart == 1 && ($set->ShowQualificationOnChartSince < ($month[$i])) && !empty($InitAffiliateID))
 			$RunQualification = true;
-		
 
-		
-		$ftdUsers=0;
-		$total_real=0;
+
+
+		$ftdUsers = 0;
+		$total_real = 0;
 
 
 
 		$sql = 	"SELECT * FROM chart_data WHERE 
-								level='".$agent."'".($agent != "admin" ? " AND member_id='".$id."'" : "")." 
-								AND month='".date("m",strtotime($month[$i]))."' 
-								AND year='".date("Y",strtotime($month[$i]))." 23:59:59'";
+								level='" . $agent . "'" . ($agent != "admin" ? " AND member_id='" . $id . "'" : "") . " 
+								AND month='" . date("m", strtotime($month[$i])) . "' 
+								AND year='" . date("Y", strtotime($month[$i])) . " 23:59:59'";
 		//die($sql);
-		$chkExist=mysql_fetch_assoc(function_mysql_query($sql,__FILE__,__FUNCTION__));
+		$chkExist = mysql_fetch_assoc(function_mysql_query($sql, __FILE__, __FUNCTION__));
 
 		if ($chkExist['id']) {
-			$buildData[] = '{"c":[{"v":"'.date("M, Y",strtotime($month[$i])).'","f":null},{"v":'.$chkExist['accounts'].',"f":null},{"v":'.$chkExist['ftds'].',"f":null}]}';
-			if($charttype == "performance")
-				$buildData2[] = array("date"=>date("M, Y",strtotime($month[$i])),"accounts"=>$chkExist['accounts'],"ftds"=>$chkExist['ftds']);
-			else{
-				if( $chkExist['accounts'] == 0 || $chkExist['ftds']==0)
-				$conversion ='0%';
+			$buildData[] = '{"c":[{"v":"' . date("M, Y", strtotime($month[$i])) . '","f":null},{"v":' . $chkExist['accounts'] . ',"f":null},{"v":' . $chkExist['ftds'] . ',"f":null}]}';
+			if ($charttype == "performance")
+				$buildData2[] = array("date" => date("M, Y", strtotime($month[$i])), "accounts" => $chkExist['accounts'], "ftds" => $chkExist['ftds']);
+			else {
+				if ($chkExist['accounts'] == 0 || $chkExist['ftds'] == 0)
+					$conversion = '0%';
 				else
-				$conversion = ($chkExist['ftds']/$chkExist['accounts']) * 100 ."%";
-				$buildData2[] = array("Year"=>$chkExist['year'],"month"=>date("M",strtotime($month[$i])),"date"=>date("M, Y",strtotime($month[$i])),'conversion'=>$conversion);
-				
+					$conversion = ($chkExist['ftds'] / $chkExist['accounts']) * 100 . "%";
+				$buildData2[] = array("Year" => $chkExist['year'], "month" => date("M", strtotime($month[$i])), "date" => date("M, Y", strtotime($month[$i])), 'conversion' => $conversion);
 			}
 		} else {
 
-		    switch ($agent) {
-                case "admin": {
-                    $dasboardDataResult = function_mysql_query("SELECT sum(FTD) as FTD, sum(RealAccount) as RealAccount, MAX(Date) as MaxDate from Dashboard WHERE Date>='".$month[$i]."' AND Date<='".date("Y-m-t",strtotime($month[$i]))."'");
-                } break;
-                case "manager": {
-                    $dasboardDataResult = function_mysql_query("SELECT sum(Dashboard.FTD) as FTD, sum(Dashboard.RealAccount) as RealAccount, MAX(Dashboard.Date) as MaxDate from Dashboard RIGHT JOIN affiliates ON affiliates.id = Dashboard.AffiliateID WHERE affiliates.group_id = ".$id." AND Dashboard.Date>='".$month[$i]."' AND Dashboard.Date<='".date("Y-m-t",strtotime($month[$i]))."'");
-                } break;
-                default: {
-                    $dasboardDataResult = function_mysql_query("SELECT sum(FTD) as FTD, sum(RealAccount) as RealAccount, MAX(Date) as MaxDate from Dashboard WHERE AffiliateID = ".$id." ".$_merchantList." AND Date>='".$month[$i]."' AND Date<='".date("Y-m-t",strtotime($month[$i]))."'");
-                }
-            }
+			switch ($agent) {
+				case "admin": {
+						$dasboardDataResult = function_mysql_query("SELECT sum(FTD) as FTD, sum(RealAccount) as RealAccount, MAX(Date) as MaxDate from Dashboard WHERE Date>='" . $month[$i] . "' AND Date<='" . date("Y-m-t", strtotime($month[$i])) . "'");
+					}
+					break;
+				case "manager": {
+						$dasboardDataResult = function_mysql_query("SELECT sum(Dashboard.FTD) as FTD, sum(Dashboard.RealAccount) as RealAccount, MAX(Dashboard.Date) as MaxDate from Dashboard RIGHT JOIN affiliates ON affiliates.id = Dashboard.AffiliateID WHERE affiliates.group_id = " . $id . " AND Dashboard.Date>='" . $month[$i] . "' AND Dashboard.Date<='" . date("Y-m-t", strtotime($month[$i])) . "'");
+					}
+					break;
+				default: {
+						$dasboardDataResult = function_mysql_query("SELECT sum(FTD) as FTD, sum(RealAccount) as RealAccount, MAX(Date) as MaxDate from Dashboard WHERE AffiliateID = " . $id . " " . $_merchantList . " AND Date>='" . $month[$i] . "' AND Date<='" . date("Y-m-t", strtotime($month[$i])) . "'");
+					}
+			}
 
-            while ($dasboardData = mysql_fetch_assoc($dasboardDataResult)) {
+			while ($dasboardData = mysql_fetch_assoc($dasboardDataResult)) {
 
-                if($charttype == "performance")
-                    $buildData2[] = array("date"=>date("M, Y",strtotime($month[$i])),"accounts"=>$dasboardData['RealAccount'] > 0 ? $dasboardData['RealAccount'] : 0,"ftds"=>$dasboardData['FTD'] > 0 ?$dasboardData['FTD'] : 0);
-                else{
-                    if( $dasboardData['RealAccount'] == 0 || $dasboardData['FTD'] == 0)
-                        $conversion ='0%';
-                    else {
-                        $conversion = ($dasboardData['FTD']/$dasboardData['RealAccount']) * 100 ."%";
-                    }
-                    $buildData2[] = array("Year"=>date("Y",strtotime($month[$i])),"month"=>date("M",strtotime($month[$i])),"date"=>date("M, Y",strtotime($month[$i])),'conversion'=>$conversion);
+				if ($charttype == "performance")
+					$buildData2[] = array("date" => date("M, Y", strtotime($month[$i])), "accounts" => $dasboardData['RealAccount'] > 0 ? $dasboardData['RealAccount'] : 0, "ftds" => $dasboardData['FTD'] > 0 ? $dasboardData['FTD'] : 0);
+				else {
+					if ($dasboardData['RealAccount'] == 0 || $dasboardData['FTD'] == 0)
+						$conversion = '0%';
+					else {
+						$conversion = ($dasboardData['FTD'] / $dasboardData['RealAccount']) * 100 . "%";
+					}
+					$buildData2[] = array("Year" => date("Y", strtotime($month[$i])), "month" => date("M", strtotime($month[$i])), "date" => date("M, Y", strtotime($month[$i])), 'conversion' => $conversion);
+				}
 
-                }
-
-                if (date("Y-m",strtotime($month[$i])) != date("Y-m")) {
-                    if (!$chkExist['id']) {
-                        function_mysql_query("INSERT INTO chart_data (lastUpdate,fulldate,level,member_id,month,year,accounts,ftds) VALUES
-						('".dbDate()."','".date("Y",strtotime($month[$i]))."-".date("m",strtotime($month[$i]))."-01','".$agent."','".$id."','".date("m",strtotime($month[$i]))."','".date("Y",strtotime($month[$i]))."  23:59:59','".$dasboardData['RealAccount']."','".$dasboardData['FTD']."')",__FILE__,__FUNCTION__);
-                    }
-                }
-            }
-        }
-    }
-
-		$html ='{
-	"cols": [
-		{"id":"","label":"'.lang('Month').'","pattern":"","type":"string"},
-		{"id":"","label":"'.lang(ptitle('Account')).'","pattern":"","type":"number"},
-		{"id":"","label":"'. lang(ptitle(($RunQualification ? 'Active Traders' : 'FTD') )).'","pattern":"","type":"number"}
-		],
-		"rows": ['.implode(',',$buildData2).']
-		}';
-		$html = json_encode($buildData2);
-		return $html;
+				if (date("Y-m", strtotime($month[$i])) != date("Y-m")) {
+					if (!$chkExist['id']) {
+						function_mysql_query("INSERT INTO chart_data (lastUpdate,fulldate,level,member_id,month,year,accounts,ftds) VALUES
+						('" . dbDate() . "','" . date("Y", strtotime($month[$i])) . "-" . date("m", strtotime($month[$i])) . "-01','" . $agent . "','" . $id . "','" . date("m", strtotime($month[$i])) . "','" . date("Y", strtotime($month[$i])) . "  23:59:59','" . $dasboardData['RealAccount'] . "','" . $dasboardData['FTD'] . "')", __FILE__, __FUNCTION__);
+					}
+				}
+			}
+		}
 	}
-	
-	
-	function conversionHighchart($type=0,$agent='',$id='',$wholeYear=0) {
-	global $set,$c;
-	$where='';
-	$InitAffiliateID = 0 ;
+
+	$html = '{
+	"cols": [
+		{"id":"","label":"' . lang('Month') . '","pattern":"","type":"string"},
+		{"id":"","label":"' . lang(ptitle('Account')) . '","pattern":"","type":"number"},
+		{"id":"","label":"' . lang(ptitle(($RunQualification ? 'Active Traders' : 'FTD'))) . '","pattern":"","type":"number"}
+		],
+		"rows": [' . implode(',', $buildData2) . ']
+		}';
+	$html = json_encode($buildData2);
+	return $html;
+}
+
+
+function conversionHighchart($type = 0, $agent = '', $id = '', $wholeYear = 0)
+{
+	global $set, $c;
+	$where = '';
+	$InitAffiliateID = 0;
 	$group_id = 0;
 	$InitManagerID  = 0;
 
 
-    if ($agent=='manager') {
-        $group_id = $set->userInfo['group_id'];
-        $InitManagerID = $set->userInfo['group_id'];
-        $InitManagerID= $group_id = $id;
-    }
-	if ($agent == "affiliate") {
-			$InitAffiliateID = $id ;
+	if ($agent == 'manager') {
+		$group_id = $set->userInfo['group_id'];
+		$InitManagerID = $set->userInfo['group_id'];
+		$InitManagerID = $group_id = $id;
 	}
-		
-		
+	if ($agent == "affiliate") {
+		$InitAffiliateID = $id;
+	}
+
+
 	/* if ($agent == "manager") {
 		$group_id = $set->userInfo['group_id'];
 		$InitManagerID = $set->userInfo['group_id'];
@@ -697,19 +690,19 @@
 		$InitAffiliateID = ($id ? $id : $set->userInfo['id']);
 		$title = lang('Affiliate Performance');
 		} else { */
-		$title = lang('Monthly Conversions');
-		//}
-		
+	$title = lang('Monthly Conversions');
+	//}
+
 	if (!$c) {
 
 		$html = '
 		<script type="text/javascript">';
-		
+
 		$html .= highchartThemes();
-		
-		$html .='function refreshData3(action) {
+
+		$html .= 'function refreshData3(action) {
 			$.ajax({
-				url: "'.$set->SSLprefix.'/conversionHighchart.php?c=1&a='.$agent.'&i='.($id ? $id : $set->userInfo['id']).'&w='.$wholeYear.'&action="+action,
+				url: "' . $set->SSLprefix . '/conversionHighchart.php?c=1&a=' . $agent . '&i=' . ($id ? $id : $set->userInfo['id']) . '&w=' . $wholeYear . '&action="+action,
 				dataType:"json",
 				success: function(data) { 
 					drawChart3(data); 
@@ -721,11 +714,10 @@
 			}
 	    function drawChart3(jsonData) {
 		';
-		
-		if($set->chartTheme == "dark_unica"){
+
+		if ($set->chartTheme == "dark_unica") {
 			$tooltip_color = "#ffffff";
-		}
-		else{
+		} else {
 			$tooltip_color = "#000000";
 		}
 		$html .= "
@@ -763,7 +755,7 @@
 		
 		 $('#chart_div3').highcharts({
         title: {
-            text: '". $title ."',
+            text: '" . $title . "',
             x: -20 //center
         },
 		 credits: {
@@ -785,7 +777,7 @@
                 }
             },
             title: {
-                text: '". lang('Conversions') ."',
+                text: '" . lang('Conversions') . "',
                 style: {
                     color: Highcharts.getOptions().colors[1]
                 }
@@ -863,9 +855,9 @@
 					//conversion = Math.round(point.y*1000)/1000;
 					conversion = point.y;
 					conversion =conversion.toFixed(3);
-                    /* s.push('<span style=\"color:' + point.series.color + '\">' + symbol + ' </span><span style=\"color:". $tooltip_color .";\">'+ x+ ' ' + this.series.name + ': '+
+                    /* s.push('<span style=\"color:' + point.series.color + '\">' + symbol + ' </span><span style=\"color:" . $tooltip_color . ";\">'+ x+ ' ' + this.series.name + ': '+
                         '<b>' + conversion +'%</b><span>'); */
-						s.push('<span style=\"color:' + point.series.color + '\">' + symbol + ' </span><span style=\"color:". $tooltip_color .";\">'+ point.x+ ' ' + this.series.name + ': '+
+						s.push('<span style=\"color:' + point.series.color + '\">' + symbol + ' </span><span style=\"color:" . $tooltip_color . ";\">'+ point.x+ ' ' + this.series.name + ': '+
                         '<b>' + conversion +'%</b><span>');
 					
 					
@@ -896,28 +888,28 @@
 			}
 			if(newMonthVal !=''){
 					if(valforarrow < 0){
-						   s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Changes from last month') ."  : '+'<b>'+ (typeof newMonthVal=='undefined'? '-' : newMonthVal) +'</b></span><span style=\"color:#ff0000;\">▼</span>');
+						   s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Changes from last month') . "  : '+'<b>'+ (typeof newMonthVal=='undefined'? '-' : newMonthVal) +'</b></span><span style=\"color:#ff0000;\">▼</span>');
 						 }
 						 else if(valforarrow > 0){
-							 s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Changes from last month') ."  : '+'<b>'+ (typeof newMonthVal=='undefined'? '-' : newMonthVal) +'</b><span></span><span style=\"color:#338a16;\">▲</span>');
+							 s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Changes from last month') . "  : '+'<b>'+ (typeof newMonthVal=='undefined'? '-' : newMonthVal) +'</b><span></span><span style=\"color:#338a16;\">▲</span>');
 						 }
 						 else{
-							  s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Changes from last month') ."  : '+'<b>'+ (typeof newMonthVal=='undefined'? '-' : newMonthVal) +'</b><span>');
+							  s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Changes from last month') . "  : '+'<b>'+ (typeof newMonthVal=='undefined'? '-' : newMonthVal) +'</b><span>');
 						 }
 					}
 			 if(!allzero_2015){
 					if(changedYearVal == '-'){
-						s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Changes since last year') ."  : '+'<b>'+ changedYearVal +'</b><span>');
+						s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Changes since last year') . "  : '+'<b>'+ changedYearVal +'</b><span>');
 					}
 					else{
 						 if(yearvalforarrow < 0){
-						   s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Changes since last year') ."  : '+'<b>'+ changedYearVal +'</b></span><span style=\"color:#ff0000;\">▼</span>');
+						   s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Changes since last year') . "  : '+'<b>'+ changedYearVal +'</b></span><span style=\"color:#ff0000;\">▼</span>');
 						 }
 						 else if(yearvalforarrow >  0){
-							 s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Changes since last year') ."  : '+'<b>'+  changedYearVal +'</b><span></span><span style=\"color:#338a16;\">▲</span>');
+							 s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Changes since last year') . "  : '+'<b>'+  changedYearVal +'</b><span></span><span style=\"color:#338a16;\">▲</span>');
 						 }
 						 else{
-							  s.push ('<span style=\"color:". $tooltip_color .";\">". lang('Changes since last year') ."  : '+'<b>'+ changedYearVal +'</b><span>');
+							  s.push ('<span style=\"color:" . $tooltip_color . ";\">" . lang('Changes since last year') . "  : '+'<b>'+ changedYearVal +'</b><span>');
 						 }
 					}
 			 }
@@ -944,37 +936,36 @@
         }]
     });
 	";
-		$html.='}
+		$html .= '}
 		$(document).ready(function(){
 		$("#refreshData3").on("click",function() {
 				refreshChart3();
 			});
 		});
 		function refreshChart3(){
-			$("#chart_div3").html(\'<div align="center" style="padding-top: 25px;"><img border="0" src="'.$set->SSLprefix.'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br /><b>'.lang('Please Wait, Loading Data...').'</b></div>\');
+			$("#chart_div3").html(\'<div align="center" style="padding-top: 25px;"><img border="0" src="' . $set->SSLprefix . 'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br /><b>' . lang('Please Wait, Loading Data...') . '</b></div>\');
 			refreshData3(\'refresh\');
 		}
     </script>
 	<div id="chart_div3" style="text-align:center;width: 100%; height: 250px;">
 		<div align="center" style="padding-top: 25px;">
-			<img border="0" src="'.$set->SSLprefix.'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br />
-			<b>'.lang('Please Wait, Loading Data...').'</b>
+			<img border="0" src="' . $set->SSLprefix . 'images/ajax.gif" alt="" style="margin: 0 auto 0 auto;" /><br /><br />
+			<b>' . lang('Please Wait, Loading Data...') . '</b>
 		</div>
 	</div>
 	
-    '; 
-
-		} else {
-			$html .= calculateHighchartsData($type,$agent,$id,$wholeYear,'conversion');
-		}
-	return $html;	
-	
+    ';
+	} else {
+		$html .= calculateHighchartsData($type, $agent, $id, $wholeYear, 'conversion');
 	}
-	
-function highchartThemes(){
+	return $html;
+}
+
+function highchartThemes()
+{
 	global $set;
 	$theme = "";
-	if($set->chartTheme=="dark_unica"){
+	if ($set->chartTheme == "dark_unica") {
 		$theme = "Highcharts.createElement('link', {
 							   href: 'https://fonts.googleapis.com/css?family=Unica+One',
 							   rel: 'stylesheet',
@@ -1182,10 +1173,8 @@ function highchartThemes(){
 
 							// Apply the theme
 							Highcharts.setOptions(Highcharts.theme);";
-				}
-				else if($set->chartTheme=="sand_signika")
-				{
-					$theme = "/**
+	} else if ($set->chartTheme == "sand_signika") {
+		$theme = "/**
 								 * Sand-Signika theme for Highcharts JS
 								 * @author Torstein Honsi
 								 */
@@ -1200,7 +1189,7 @@ function highchartThemes(){
 								// Add the background image to the container
 								Highcharts.wrap(Highcharts.Chart.prototype, 'getContainer', function (proceed) {
 								   proceed.call(this);
-								   this.container.style.background = 'url(http".$set->SSLswitch."://www.highcharts.com/samples/graphics/sand.png)';
+								   this.container.style.background = 'url(http" . $set->SSLswitch . "://www.highcharts.com/samples/graphics/sand.png)';
 								});
 
 
@@ -1289,10 +1278,8 @@ function highchartThemes(){
 
 								// Apply the theme
 								Highcharts.setOptions(Highcharts.theme);";
-				}
-				else if ($set->chartTheme=="grid_light")
-				{
-					$theme = "/**
+	} else if ($set->chartTheme == "grid_light") {
+		$theme = "/**
 							 * Grid-light theme for Highcharts JS
 							 * @author Torstein Honsi
 							 */
@@ -1366,12 +1353,8 @@ function highchartThemes(){
 
 							// Apply the theme
 							Highcharts.setOptions(Highcharts.theme);";
-				}
-				else{
-					$theme = "";
-				}
-				return $theme;
+	} else {
+		$theme = "";
+	}
+	return $theme;
 }
-
-
-?>

@@ -777,7 +777,7 @@ WHERE id IN (
 											<th scope="col"><?= lang('PNL'); ?></th>
 											<th scope="col"><?= lang('Deposit Range'); ?></th>
 											<th scope="col"><?= lang('CPA'); ?></th>
-											<th scope="col"><?= lang('PCPA'); ?></th>
+											<th scope="col"><?= lang('DCPA'); ?></th>
 											</tr>
 										</thead>
 										<tfoot class="topCreativesCls">
